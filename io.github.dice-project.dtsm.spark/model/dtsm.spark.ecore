@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
+  <eAnnotations source="Function" references="#//RDD/generates #//ParallelOperation">
+    <details key="LineageAssociationClass"/>
+    <details key="inputRDD_ID"/>
+    <details key="outputRDD_ID"/>
+  </eAnnotations>
+  <eAnnotations source="RDDOpsRestriction" references="#//RDD">
+    <details key="ByKeyOpsRestriction"/>
+  </eAnnotations>
+  <eAnnotations source="FunctionType" references="#//ParallelOperation">
+    <details key="InferredParallelOpsType"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
+    <eOperations name="ParallelOpSet" lowerBound="1" upperBound="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="" lowerBound="1" upperBound="-1"
+        eType="#//ExternalData"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stems from" lowerBound="1"
+        upperBound="-1" eType="#//ExternalData"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SparkDistObjType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParallelOperation" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        upperBound="-1" eType="#//Function" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputRDD" lowerBound="1"
+        upperBound="-1" eType="#//RDDtype"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputRDD" lowerBound="1"
+        upperBound="-1" eType="#//RDDtype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receives" lowerBound="1"
+        upperBound="-1" eType="#//RDD"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="produces" lowerBound="1"
+        upperBound="-1" eType="#//outputRDD"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" upperBound="-1"
+        eType="#//RDD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SparkFunctionType">
+    <eLiterals name="transformation"/>
+    <eLiterals name="action" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="count" eSuperTypes="#//ParallelOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="counter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="filter" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="collect" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="flatMap" eSuperTypes="#//map"/>
+  <eClassifiers xsi:type="ecore:EClass" name="mapToPair" eSuperTypes="#//map">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pair" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="reduceByKey" eSuperTypes="#//reduce">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducingKey" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="saveAsTextFile" eSuperTypes="#//ParallelOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="map" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="reduce" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DriverProgram">
+    <eOperations name="main"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
+        upperBound="-1" eType="#//ParallelOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clusterConfig" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParallelizableCollection"
+        lowerBound="1" upperBound="-1" eType="#//SparkVar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="works on" lowerBound="1"
+        upperBound="-1" eType="#//DistributedDataset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distData" lowerBound="1"
+        upperBound="-1" eType="#//SparkDistObjType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DriverMemory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SparkVar">
+    <eLiterals name="Broadcast"/>
+    <eLiterals name="Accumulator" value="1"/>
+    <eLiterals name="ParallelizableCollection" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAmain" eSuperTypes="#//DriverProgram">
+    <eOperations name="SparkConfConstructor" lowerBound="1"/>
+    <eOperations name="SparkContextConstructor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkDependency" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="groupId = org.apache.spark&#xA;artifactId = spark-core_2.10&#xA;version = 1.4.1"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hadoopClientDependency"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="groupId = org.apache.hadoop&#xA;artifactId = hadoop-client&#xA;version = &lt;your-hdfs-version>"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkImports" lowerBound="1"
+        upperBound="3" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="import org.apache.spark.api.java.JavaSparkContext&#xA;import org.apache.spark.api.java.JavaRDD&#xA;import org.apache.spark.SparkConf"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructs" lowerBound="1"
+        eType="#//SparkContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" lowerBound="1" eType="#//DriverProgram"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SparkContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+        eType="#//ClusterConfig" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eAnnotations source="org.apache.spark.api.java.function"/>
+    <eOperations name="Function"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="" eSuperTypes="#//ExternalData"/>
+  <eClassifiers xsi:type="ecore:EClass" name="coalesce" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="groupByKey" eSuperTypes="#//coalesce">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupingKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aggregateByKey" eSuperTypes="#//coalesce">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregatingKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="mapPartitions" eSuperTypes="#//map"/>
+  <eClassifiers xsi:type="ecore:EClass" name="mapPartitionsWithIndex" eSuperTypes="#//mapPartitions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="sample" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="union" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SparkStorageLevel">
+    <eLiterals name="MEMORY_ONLY "/>
+    <eLiterals name=" MEMORY_AND_DISK " value="1"/>
+    <eLiterals name=" MEMORY_ONLY_SER " value="2"/>
+    <eLiterals name=" MEMORY_AND_DISK_SER " value="3"/>
+    <eLiterals name=" DISK_ONLY " value="4"/>
+    <eLiterals name=" MEMORY_ONLY_2, MEMORY_AND_DISK_2, " value="5"/>
+    <eLiterals name="OFF_HEAP" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RDDtype">
+    <eLiterals name="PythonObj" value="1"/>
+    <eLiterals name="JavaObj"/>
+    <eLiterals name="EEnumLiteral0" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RDD">
+    <eOperations name="cache"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//RDDtype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
+        eType="#//RDD"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLevel" eType="#//SparkStorageLevel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="outputRDD">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClusterConfig">
+    <eOperations name="wholeTextFiles"/>
+    <eOperations name="textFile"/>
+    <eOperations name="sequenceFile"/>
+    <eOperations name="hadoopRDD">
+      <eAnnotations source="takes an arbitrary JobConf and input format class, key class and value class. Set these the same way you would for a Hadoop job with your input source. You can also use JavaSparkContext.newAPIHadoopRDD for InputFormats based on the “new” MapReduce API (org.apache.hadoop.mapreduce)."/>
+    </eOperations>
+    <eOperations name="objectFile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecutorMemory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ClusterURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StorageMemoryFraction"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ShuffleMemoryFraction"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Master" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AppName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
+        eType="#//Function" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" lowerBound="1"
+        upperBound="-1" eType="#//RDD" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runs" upperBound="-1" eType="#//Loop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PairRDD" eSuperTypes="#//RDD">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" lowerBound="1"
+        upperBound="-1" eType="#//RDDtype"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="#//RDDtype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sort" eSuperTypes="#//ParallelOperation"/>
+</ecore:EPackage>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Runner" nsURI="www.dice.polimi.it" nsPrefix="HadoopMR_DTSM">
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
+    <eOperations name="runJob"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordWriter"
+        upperBound="-1" eType="#//RecordWriter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordReader"
+        lowerBound="1" eType="#//RecordReader" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_DBaccessManager"
+        eType="#//DBaccessManager" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Scheduler" eType="#//Scheduler"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Reducer" eType="#//Reducer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_tester" upperBound="-1"
+        eType="#//Tester" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Joiner" eType="#//joiner"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_mappr" lowerBound="1"
+        eType="#//Mapper" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MapTaskReport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReduceTaskRepor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clusterStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runningJobs" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobQueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopSpecificationModel">
+    <eOperations name="submit"/>
+    <eOperations name="Main"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associated_to_HadoopMRrunner"
+        lowerBound="1" eType="#//HadoopMRrunner" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapperClass" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="combinerclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfReduceTasks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputKeyClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputValueClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="joinerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isJobSucceded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapper">
+    <eOperations name="Map"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reducer">
+    <eOperations name="reduce"/>
+    <eOperations name="cleanup"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordReader">
+    <eOperations name="getProgress"/>
+    <eOperations name="nextKeyValue"/>
+    <eOperations name="getCurrentKey"/>
+    <eOperations name="getCurrentValue"/>
+    <eOperations name="initialize"/>
+    <eOperations name="close"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses_InputSplitDataSpec"
+        lowerBound="1" eType="#//InputSplitDataSpec" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses_KeyValueGenerator"
+        eType="#//KeyValueGenerator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInputSplitable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputFormatType" lowerBound="1"
+        eType="#//HadoopInputFormatEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputSplitDataSpec">
+    <eOperations name="ReadOp"/>
+    <eOperations name="WriteOp"/>
+    <eOperations name="CompareOp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="offSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="667"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBaccessManager">
+    <eOperations name="startHsqlDbServer"/>
+    <eOperations name="createConnection"/>
+    <eOperations name="shutdown"/>
+    <eOperations name="initialise"/>
+    <eOperations name="dropTables"/>
+    <eOperations name="createTables"/>
+    <eOperations name="populateAccess"/>
+    <eOperations name="verify"/>
+    <eOperations name="run"/>
+    <eOperations name="main"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOracle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMySQL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DB_URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DRIVER_CLASS" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="server" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Conditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OrderByFeildName" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FieldNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyValueGenerator">
+    <eOperations name="generateKeyValPairs"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
+        upperBound="-1" eType="#//KeyValuePairs" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordWriter">
+    <eOperations name="write"/>
+    <eOperations name="close"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalSynch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="out" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
+    <eOperations name="readFile"/>
+    <eOperations name="Schedule"/>
+    <eOperations name="config"/>
+    <eOperations name="getNewFileSplits"/>
+    <eOperations name="pickBestHost"/>
+    <eOperations name="PickBestSplits"/>
+    <eOperations name="Solve"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="USE" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LOG" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slotsPerHost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RemainingSplits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="realSplits" upperBound="-1"
+        eType="#//SplitEType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Splits" upperBound="-1"
+        eType="#//SplitEType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manages_host" lowerBound="1"
+        upperBound="-1" eType="#//Host"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manages_split" lowerBound="1"
+        upperBound="-1" eType="#//Split"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SplitEType" instanceTypeName="Split"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Host">
+    <eOperations name="Host"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splits" lowerBound="1"
+        upperBound="-1" eType="#//SplitEType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Split">
+    <eOperations name="Split"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssigned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tester"/>
+  <eClassifiers xsi:type="ecore:EClass" name="joiner">
+    <eOperations name="PrintUsage"/>
+    <eOperations name="run"/>
+    <eOperations name="main"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="REDUCES_PER_HOST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="connection" instanceClassName="java.sql.connection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRInputSpecs">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HadoopInputFormatEnum">
+    <eLiterals name="TextInputFormat"/>
+    <eLiterals name="FixedLengthInputFormat" value="1"/>
+    <eLiterals name="SequenceFileInputFormat" value="2"/>
+    <eLiterals name="KeyValueTextInputFormat" value="3"/>
+    <eLiterals name="NLineInputFormat" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyValuePairs">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

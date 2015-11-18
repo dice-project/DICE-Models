@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dtsm" nsURI="dice.tosca.dtsm" nsPrefix="dice.dtsm">
+  <eAnnotations source="PropertyAnnotations" references="#//AnalyzableElement">
+    <details key="Sigma"/>
+    <details key="PredecessorsList"/>
+    <details key="Alpha"/>
+    <details key="IdleTime"/>
+    <details key="MTTF"/>
+    <details key="MTTR"/>
+    <details key="TBF"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
+        upperBound="-1" eType="#//ChannelSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum platform:/resource/io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestingAndReplication"
+        lowerBound="1" upperBound="-1" eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" lowerBound="1"
+        upperBound="-1" eType="#//FunctionSpecType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="techSupport" lowerBound="1"
+        eType="ecore:EEnum platform:/resource/io.github.dice-project.dpim/model/dpim.ecore#//TechType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" lowerBound="1"
+        upperBound="-1" eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowConstraints" upperBound="-1"
+        eType="#//ConstraintsType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobSchedule" lowerBound="1"
+        eType="#//JobScheduleType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockAccessSchedule" lowerBound="1"
+        eType="#//AccessScheduleType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintsType">
+    <eLiterals name="maxIteration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComputationalNodeType">
+    <eLiterals name="HadoopMR"/>
+    <eLiterals name="Storm" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" lowerBound="1"
+        upperBound="-1" eType="#//WorkflowSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeConstraints" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="managementLayer" lowerBound="1"
+        eType="#//ManagementLayerType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ManagementLayerType">
+    <eLiterals name="spark"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JobScheduleType">
+    <eLiterals name="runtime"/>
+    <eLiterals name="speculative" value="1"/>
+    <eLiterals name="redundant" value="2"/>
+    <eLiterals name="fair" value="3"/>
+    <eLiterals name="capacity" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AccessScheduleType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="FunctionSpecType">
+    <eLiterals name="map"/>
+    <eLiterals name="reduce" value="1"/>
+    <eLiterals name="combine" value="2"/>
+    <eLiterals name="partition" value="3"/>
+    <eLiterals name="report" value="4"/>
+    <eLiterals name="collectOutput" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true" eSuperTypes="#//ComputationNode #//SourceNode #//WorkflowSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
+        upperBound="-1" eType="#//ComputationalNodeType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>
+  </eClassifiers>
+</ecore:EPackage>

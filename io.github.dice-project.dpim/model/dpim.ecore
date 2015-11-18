@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dpim" nsURI="tosca.dice.dpim" nsPrefix="dice.dpim">
+  <eAnnotations source="propertiesRestrictions" references="#//DICEproperties">
+    <details key="ComputationNodePropertyRestrictions"/>
+    <details key="SourceNodePropertyRestrictions"/>
+    <details key="StorageElementPropertyRestrictions"/>
+  </eAnnotations>
+  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+    <details key="name" value="DiceDomainMetamodel.DPIM"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DPIM">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsDIAElement" lowerBound="1"
+        upperBound="-1" eType="#//DIAElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ComputationNode" upperBound="-1"
+        eType="#//ComputationNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FilterNode" upperBound="-1"
+        eType="#//FilterNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CommunicationChannel" upperBound="-1"
+        eType="#//Channel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceNode" upperBound="-1"
+        eType="#//SourceNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StorageNode" upperBound="-1"
+        eType="#//StorageStorageNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiaName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Visualization" eType="#//VisualizationNode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Configuration" eType="#//Confiuration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dpimDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredProperties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providedProperties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="QoSRequiredProperty" eType="#//QoSRequiredProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOutput" eType="#//Data"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topologicalRelation" upperBound="-1"
+        eType="#//DIAElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ComputationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thorughput" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeAndprocess" upperBound="-1"
+        eType="#//StorageStorageNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationDescription"
+        eType="#//ProcessingType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FilterNode" eType="#//FilterNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ComDrivedFromDIA" lowerBound="1"
+        eType="#//DIAElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputRatio" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputRatio" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//ComputationNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VisualizationNodeName"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageStorageNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="comment" value="Should the name be StorageStorageNode or StorageNode?"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasDataSpecification" lowerBound="1"
+        eType="#//DataSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="properties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StorageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StorageDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StoDrivedFromDIA" lowerBound="1"
+        eType="#//DIAElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceName" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//SourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceProperties" upperBound="-1"
+        eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" eType="#//DataSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceToComputation" eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="comment" value="I guess 'rate' is a throughput"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ChConnectsToCom" lowerBound="1"
+        upperBound="-1" eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceConnectsToCom" lowerBound="1"
+        upperBound="-1" eType="#//StorageStorageNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageBroker" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChannelDesription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refERmodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refDataFormat" eType="#//DataFormatType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DatarespondsTo" eType="#//Data"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QoSRequiredProperty">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="comment" value="This is the definition of a MARTE NFP with 'source=req'"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataFormatType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Confiuration">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="comment" value="Fix typo in next versions"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComputationType">
+    <eLiterals name="distributed"/>
+    <eLiterals name="parallel" value="1"/>
+    <eLiterals name="distributedParallel" value="2"/>
+    <eLiterals name="microBench" value="3"/>
+    <eLiterals name="sorting" value="4"/>
+    <eLiterals name="grep" value="5"/>
+    <eLiterals name="wordCount" value="6"/>
+    <eLiterals name="collabFiltering" value="7"/>
+    <eLiterals name="naiveBayes" value="8"/>
+    <eLiterals name="bfs" value="9"/>
+    <eLiterals name="pageRank" value="10"/>
+    <eLiterals name="kMeans" value="11"/>
+    <eLiterals name="connectedComponents" value="12"/>
+    <eLiterals name="relQuery" value="13"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TechType">
+    <eLiterals name="RDD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SourceType">
+    <eLiterals name="sharedStorage"/>
+    <eLiterals name="dataStream" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProcessingType">
+    <eLiterals name="synch"/>
+    <eLiterals name="asynch" value="1"/>
+    <eLiterals name="policy" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DICEproperties">
+    <eLiterals name="genericProperty"/>
+  </eClassifiers>
+  <eSubpackages name="DICETypes" nsURI="DICETypes" nsPrefix="DICETypes">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="ignore"/>
+    </eAnnotations>
+  </eSubpackages>
+</ecore:EPackage>
