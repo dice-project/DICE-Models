@@ -10,6 +10,9 @@
     <details key="MTTR"/>
     <details key="TBF"/>
   </eAnnotations>
+  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+    <details key="name" value="DiceDomainMetamodel.DTSM.Core"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
         upperBound="-1" eType="#//ChannelSpecification"/>

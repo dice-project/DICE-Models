@@ -2,6 +2,9 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hadoop" nsURI="http://io.github.dice-project/dtsm/hadoop/1.0"
     nsPrefix="dtsm.hadoop">
+  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+    <details key="name" value="DiceDomainMetamodel.DTSM.Hadoop"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
     <eOperations name="runJob"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordWriter"

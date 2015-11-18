@@ -13,6 +13,9 @@
   <eAnnotations source="FunctionType" references="#//ParallelOperation">
     <details key="InferredParallelOpsType"/>
   </eAnnotations>
+  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+    <details key="name" value="DiceDomainMetamodel.DTSM.Spark"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
     <eOperations name="ParallelOpSet" lowerBound="1" upperBound="-1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="" lowerBound="1" upperBound="-1"
