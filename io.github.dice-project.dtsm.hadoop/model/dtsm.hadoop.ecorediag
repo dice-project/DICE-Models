@@ -267,10 +267,6 @@
         <element xmi:type="ecore:EAttribute" href="dtsm.hadoop.ecore#//InputSplitDataSpec/offSet"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_gJ40Me56EeSvxNhSDYMnxg"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_iRzpUFxfEeWJ_IkTBREfmA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dtsm.hadoop.ecore#//InputSplitDataSpec/667"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_iRzpUVxfEeWJ_IkTBREfmA"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_r8ni8EaAEeWw2YopWq4TmA" type="2001">
         <element xmi:type="ecore:EAttribute" href="dtsm.hadoop.ecore#//InputSplitDataSpec/splitSize"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_r8ni8UaAEeWw2YopWq4TmA"/>

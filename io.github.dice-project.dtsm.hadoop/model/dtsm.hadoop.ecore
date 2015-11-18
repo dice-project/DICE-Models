@@ -88,7 +88,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="splitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="667"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DBaccessManager">
     <eOperations name="startHsqlDbServer"/>
