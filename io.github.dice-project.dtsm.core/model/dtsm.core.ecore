@@ -13,11 +13,12 @@
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
     <details key="name" value="DiceDomainMetamodel.DTSM.Core"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DIAElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
-        upperBound="-1" eType="#//ChannelSpecification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
+        upperBound="-1" eType="#//ComputationalNodeType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestingAndReplication"
@@ -25,13 +26,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" lowerBound="1"
         upperBound="-1" eType="#//FunctionSpecType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChannelSpecification">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="techSupport" lowerBound="1"
-        eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//TechType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
+        upperBound="-1" eType="#//ChannelSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" lowerBound="1"
@@ -43,13 +42,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockAccessSchedule" lowerBound="1"
         eType="#//AccessScheduleType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintsType">
-    <eLiterals name="maxIteration"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ComputationalNodeType">
-    <eLiterals name="HadoopMR"/>
-    <eLiterals name="Storm" value="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="affects" lowerBound="1"
         upperBound="-1" eType="#//WorkflowSpecification"/>
@@ -57,6 +49,21 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="managementLayer" lowerBound="1"
         eType="#//ManagementLayerType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="techSupport" lowerBound="1"
+        eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//TechType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintsType">
+    <eLiterals name="maxIteration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComputationalNodeType">
+    <eLiterals name="HadoopMR"/>
+    <eLiterals name="Storm" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ManagementLayerType">
     <eLiterals name="spark"/>
@@ -76,12 +83,5 @@
     <eLiterals name="partition" value="3"/>
     <eLiterals name="report" value="4"/>
     <eLiterals name="collectOutput" value="5"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
-        upperBound="-1" eType="#//ComputationalNodeType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>
   </eClassifiers>
 </ecore:EPackage>
