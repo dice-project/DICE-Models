@@ -104,7 +104,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_xyuUsbHVEeSaTupFTsjZow" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="dtsm.core.ecore#//WorkflowSpecification"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xyuUsrHVEeSaTupFTsjZow" x="522" y="198" width="255" height="84"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xyuUsrHVEeSaTupFTsjZow" x="522" y="198" width="321" height="110"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_3MHJULHXEeSaTupFTsjZow" type="1005">
     <children xmi:type="notation:Node" xmi:id="_3MHwYLHXEeSaTupFTsjZow" type="4010"/>
@@ -162,7 +162,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_-gJTcbHeEeSaTupFTsjZow" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="dtsm.core.ecore#//StorageNode"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-gJTcrHeEeSaTupFTsjZow" x="522" y="342" width="255"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-gJTcrHeEeSaTupFTsjZow" x="522" y="342" width="311"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_YOObMLHfEeSaTupFTsjZow" type="1005">
     <children xmi:type="notation:Node" xmi:id="_YOPCQLHfEeSaTupFTsjZow" type="4010"/>
@@ -208,7 +208,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_jxlwsbHfEeSaTupFTsjZow" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="dtsm.core.ecore#//JobScheduleType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jxlwsrHfEeSaTupFTsjZow" x="756" y="576" width="115" height="48"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jxlwsrHfEeSaTupFTsjZow" x="756" y="576" width="115" height="137"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_vYFSsLHfEeSaTupFTsjZow" type="1005">
     <children xmi:type="notation:Node" xmi:id="_vYF5wLHfEeSaTupFTsjZow" type="4010"/>
@@ -254,7 +254,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_2Ahf4bKbEeSaTupFTsjZow" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="dtsm.core.ecore#//FunctionSpecType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Ahf4rKbEeSaTupFTsjZow" x="405" y="-90" width="135" height="48"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Ahf4rKbEeSaTupFTsjZow" x="405" y="-90" width="135" height="143"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_FdyH8ORIEeS32L4ubazYOQ" type="Note" fontName=".Helvetica Neue DeskInterface" description="This concept represents whatever details are needed to describe and ultimately run the bigData job (i.e., the DIA). A workflow specification constitutes of constraints on DIA execution, type of scheduling for jobs involved, access policies and related scheduling policies, etc. These details can sometimes be supported by high-level language abstractions such as Pig Latin, part of the PIG framework for MapReduce." fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
     <children xmi:type="notation:BasicDecorationNode" xmi:id="_FdyH9ORIEeS32L4ubazYOQ" type="DiagramName">
@@ -278,7 +278,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_RQsvYCkzEeWu_elpl2blYQ"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_RQsvYSkzEeWu_elpl2blYQ"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RQsvYikzEeWu_elpl2blYQ" x="1197" y="189" width="91" height="100"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RQsvYikzEeWu_elpl2blYQ" x="1250" y="175" width="91" height="100"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_KOyWYCk0EeWu_elpl2blYQ" type="Note" fontName=".Helvetica Neue DeskInterface" description="computation node type should be the same as the ones present in terms of technological packages supported by the DTSM layer" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
     <children xmi:type="notation:BasicDecorationNode" xmi:id="_KOzkgCk0EeWu_elpl2blYQ" type="DiagramName">
@@ -314,7 +314,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_5YocISk0EeWu_elpl2blYQ"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_5YocIik0EeWu_elpl2blYQ"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5YocIyk0EeWu_elpl2blYQ" x="369" y="-9" width="187" height="64"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5YocIyk0EeWu_elpl2blYQ" x="175" y="-75" width="187" height="64"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_F9oNwCk1EeWu_elpl2blYQ" type="Note" fontName=".Helvetica Neue DeskInterface" description="these constraints are technology specific constraints that may or may not be imposed by designers or architects or developers on top of their DIA. For example, you may want to specify a maximum number of iterations to the DIA process." fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
     <children xmi:type="notation:BasicDecorationNode" xmi:id="_F9pb4Ck1EeWu_elpl2blYQ" type="DiagramName">
