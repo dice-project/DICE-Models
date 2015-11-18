@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="storm" nsURI="http://io.github.dice-project/dtsm/storm/1.0"
     nsPrefix="dtsm.storm">
-  <eAnnotations source="Grouping" references="#//Bolt/further%20processing #//Spout/processed%20by">
+  <eAnnotations source="Grouping" references="#//Bolt/furtherProcessing #//Spout/processedBy">
     <details key="ShuffleGrouping"/>
     <details key="FieldsGrouping"/>
     <details key="PartialKeyGrouping"/>
@@ -23,9 +23,9 @@
     <eOperations name="nextTopo"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputSource" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processed by" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processedBy" lowerBound="1"
         eType="#//Bolt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reads from" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readsFrom" upperBound="-1"
         eType="#//DIASource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bolt" eSuperTypes="#//Topology #//Component">
@@ -34,9 +34,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMessage" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="further processing" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="furtherProcessing" lowerBound="1"
         upperBound="-1" eType="#//Bolt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stores in" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storesIn" upperBound="-1"
         eType="#//DIAStorage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration" eSuperTypes="#//StormSpecificationModel"/>
@@ -71,12 +71,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="build" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reliable" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="logical specification"
-        lowerBound="1" upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logicalSpecification" lowerBound="1"
+        upperBound="-1" eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="uses" lowerBound="1" eType="#//TopologyConfiguration"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cross-functional processing"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crossFunctionalProcessing"
         lowerBound="1" upperBound="-1" eType="#//Topology"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopologyBuilder">
@@ -85,7 +85,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builds" lowerBound="1"
         eType="#//Topology"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="builds spouts" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildsSpouts" lowerBound="1"
         upperBound="-1" eType="#//AddSpout"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddBolt" eSuperTypes="#//TopologyBuilder"/>
@@ -93,11 +93,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="DIAmain">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="opMode" lowerBound="1"
         eType="#//StormOpMode"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cluster manager" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clusterManager" lowerBound="1"
         eType="#//Nimbus"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depends on" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependsOn" lowerBound="1"
         upperBound="-1" eType="#//Zookeeper"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clustered via" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clusteredVia" lowerBound="1"
         upperBound="-1" eType="#//Supervisor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="becomes" lowerBound="1"
         eType="#//Topology"/>
@@ -121,7 +121,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ZookeeperConnectionTimeout"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feeds into" eType="#//Nimbus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feedsInto" eType="#//Nimbus"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifies" lowerBound="1"
         upperBound="-1" eType="#//Task" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifies" lowerBound="1"
@@ -140,13 +140,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="file management" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileManagement" lowerBound="1"
         eType="#//Nimbus"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Supervisor">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="is part of" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isPartOf" upperBound="-1"
         eType="#//Supervisor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="is managed by" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isManagedBy" lowerBound="1"
         eType="#//Nimbus"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
         upperBound="-1" eType="#//Zookeeper"/>
@@ -161,7 +161,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIASource"/>
   <eClassifiers xsi:type="ecore:EClass" name="Task">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instance of" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
         eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -169,7 +169,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
         eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task consistency" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskConsistency" lowerBound="1"
         eType="#//Topology"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Worker">

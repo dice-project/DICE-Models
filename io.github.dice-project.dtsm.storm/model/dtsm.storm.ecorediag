@@ -138,7 +138,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_6WpQ4c5NEeS4zbBDgMOSWw" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="dtsm.storm.ecore#//TopologyBuilder"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6WpQ4s5NEeS4zbBDgMOSWw" x="9" y="217" width="147" height="93"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6WpQ4s5NEeS4zbBDgMOSWw" x="-5" y="220" width="147" height="93"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Hs-4cIO_EeWfWoa5Oh9o5Q" type="1001">
     <children xmi:type="notation:Node" xmi:id="_HtBUsIO_EeWfWoa5Oh9o5Q" type="4001"/>
@@ -673,7 +673,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_FPPpsYPKEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_FPPpsoPKEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Topology/logical%20specification"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Topology/logicalSpecification"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FPPps4PKEeWfWoa5Oh9o5Q" points="[17, 6, -123, 1]$[141, -7, 1, -12]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FPRe4IPKEeWfWoa5Oh9o5Q" id="(0.8843537414965986,0.10666666666666667)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FPRe4YPKEeWfWoa5Oh9o5Q" id="(0.1793103448275862,0.19696969696969696)"/>
@@ -701,7 +701,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_g7hKMYPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_g7hKMoPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/cluster%20manager"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/clusterManager"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_g7hKM4PPEeWfWoa5Oh9o5Q" points="[-17, 26, 42, -58]$[-57, 79, 2, -5]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_g7i_YIPPEeWfWoa5Oh9o5Q" id="(0.20408163265306123,0.74)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_g7i_YYPPEeWfWoa5Oh9o5Q" id="(0.7647058823529411,0.14285714285714285)"/>
@@ -715,7 +715,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ln_gYYPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ln_gYoPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/depends%20on"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/dependsOn"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ln_gY4PPEeWfWoa5Oh9o5Q" points="[-3, 49, 1, -62]$[-3, 104, 1, -7]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_loBVkIPPEeWfWoa5Oh9o5Q" id="(0.27450980392156865,0.19047619047619047)"/>
   </edges>
@@ -728,7 +728,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_pLjGsYPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_pLjGsoPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/clustered%20via"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//DIAmain/clusteredVia"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pLjGs4PPEeWfWoa5Oh9o5Q" points="[19, 19, -71, -71]$[91, 80, 1, -10]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pLkU0IPPEeWfWoa5Oh9o5Q" id="(0.8707482993197279,0.74)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pLkU0YPPEeWfWoa5Oh9o5Q" id="(0.3394495412844037,0.2391304347826087)"/>
@@ -742,7 +742,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_2NrgQYPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_2NrgQoPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Supervisor/is%20part%20of"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Supervisor/isPartOf"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2NrgQ4PPEeWfWoa5Oh9o5Q" points="[2, -17, 2, -17]$[2, -17, 2, -17]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Nt8gIPPEeWfWoa5Oh9o5Q" id="(0.8990825688073395,0.391304347826087)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Nt8gYPPEeWfWoa5Oh9o5Q" id="(0.8990825688073395,0.391304347826087)"/>
@@ -756,7 +756,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_5g8n0YPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_5g8n0oPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Supervisor/is%20managed%20by"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Supervisor/isManagedBy"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5g8n04PPEeWfWoa5Oh9o5Q" points="[-7, 33, 254, 25]$[-7, 61, 254, 53]$[-268, 61, -7, 53]$[-268, 28, -7, 20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5g918IPPEeWfWoa5Oh9o5Q" id="(0.23853211009174313,0.2608695652173913)"/>
   </edges>
@@ -769,7 +769,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_-CsUsIPPEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_-CsUsYPPEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Zookeeper/file%20management"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Zookeeper/fileManagement"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-CsUsoPPEeWfWoa5Oh9o5Q" points="[-18, 2, 69, 1]$[-85, -11, 2, -12]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Cti0IPPEeWfWoa5Oh9o5Q" id="(0.18627450980392157,0.23809523809523808)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Cti0YPPEeWfWoa5Oh9o5Q" id="(0.7843137254901961,0.30952380952380953)"/>
@@ -811,7 +811,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_XYL9UYPQEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_XYL9UoPQEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//TopologyConfiguration/feeds%20into"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//TopologyConfiguration/feedsInto"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XYL9U4PQEeWfWoa5Oh9o5Q" points="[6, 27, 578, -27]$[6, 152, 578, 98]$[-579, 152, -7, 98]$[-579, 74, -7, 20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XYNygIPQEeWfWoa5Oh9o5Q" id="(0.7719298245614035,0.7906976744186046)"/>
   </edges>
@@ -824,7 +824,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_SoCyoYPREeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_SoCyooPREeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Spout/processed%20by"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Spout/processedBy"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SoCyo4PREeWfWoa5Oh9o5Q" points="[5, 28, 2, -110]$[5, 138, 2, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SoFO4IPREeWfWoa5Oh9o5Q" id="(0.7816091954022989,0.6111111111111112)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SoFO4YPREeWfWoa5Oh9o5Q" id="(0.7988505747126436,0.011363636363636364)"/>
@@ -838,7 +838,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZVPDYYPREeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ZVPDYoPREeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Bolt/further%20processing"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Bolt/furtherProcessing"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZVPDY4PREeWfWoa5Oh9o5Q" points="[17, 9, 17, 9]$[88, 45, 88, 45]$[142, 27, 142, 27]$[142, -9, 142, -9]$[88, -36, 88, -36]$[17, -7, 17, -7]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZVRfoIPREeWfWoa5Oh9o5Q" id="(0.9022988505747126,0.10227272727272728)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZVRfoYPREeWfWoa5Oh9o5Q" id="(0.9022988505747126,0.10227272727272728)"/>
@@ -852,7 +852,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_y29KIYPREeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_y29KIoPREeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Spout/reads%20from"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Spout/readsFrom"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_y29KI4PREeWfWoa5Oh9o5Q" points="[29, 14, -189, -87]$[219, 93, 1, -8]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_y2-_UIPREeWfWoa5Oh9o5Q" id="(0.8333333333333334,0.08333333333333333)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_y2-_UYPREeWfWoa5Oh9o5Q" id="(0.05263157894736842,0.1956521739130435)"/>
@@ -878,7 +878,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_meC3QYPSEeWfWoa5Oh9o5Q" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_meC3QoPSEeWfWoa5Oh9o5Q" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Bolt/stores%20in"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Bolt/storesIn"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_meC3Q4PSEeWfWoa5Oh9o5Q" points="[2, 0, -272, 114]$[280, 0, 6, 114]$[280, -105, 6, 9]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_meEFYIPSEeWfWoa5Oh9o5Q" id="(0.9885057471264368,0.8068181818181818)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_meEFYYPSEeWfWoa5Oh9o5Q" id="(0.49473684210526314,0.8125)"/>
@@ -995,7 +995,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_k9MbYYSJEeW5ALaYT6mO8g" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_k9MbYoSJEeW5ALaYT6mO8g" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Topology/cross-functional%20processing"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Topology/crossFunctionalProcessing"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k9MbY4SJEeW5ALaYT6mO8g" points="[14, 7, 14, 7]$[76, 7, 76, 7]$[76, 65, 76, 65]$[-14, 65, -14, 65]$[-9, 40, -9, 40]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k9UXMISJEeW5ALaYT6mO8g" id="(0.9047619047619048,0.689922480620155)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k9U-QISJEeW5ALaYT6mO8g" id="(0.9047619047619048,0.689922480620155)"/>
@@ -1032,7 +1032,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_nZLjYYSOEeW5ALaYT6mO8g" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_nZLjYoSOEeW5ALaYT6mO8g" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Task/instance%20of"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Task/instanceOf"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nZLjY4SOEeW5ALaYT6mO8g" points="[-4, 22, -13, -151]$[-20, 141, -29, -32]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_35cQsISOEeW5ALaYT6mO8g" type="NoteAttachment" source="_r2CJMISOEeW5ALaYT6mO8g" target="_hJ1sQISOEeW5ALaYT6mO8g" lineWidth="1">
@@ -1092,7 +1092,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_CqtlcYSQEeW5ALaYT6mO8g" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_CqtlcoSQEeW5ALaYT6mO8g" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Executor/task%20consistency"/>
+    <element xmi:type="ecore:EReference" href="dtsm.storm.ecore#//Executor/taskConsistency"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Cqtlc4SQEeW5ALaYT6mO8g" points="[-15, -9, -9, 413]$[-177, -117, -171, 305]$[-177, -369, -171, 53]$[-42, -411, -36, 11]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CquzkISQEeW5ALaYT6mO8g" id="(0.22077922077922077,0.17543859649122806)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CquzkYSQEeW5ALaYT6mO8g" id="(0.25170068027210885,0.7829457364341085)"/>
