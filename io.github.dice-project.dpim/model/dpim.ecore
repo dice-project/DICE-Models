@@ -25,7 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiaName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Visualization" eType="#//VisualizationNode"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Configuration" eType="#//Confiuration"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Configuration" eType="#//Configuration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dpimDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -121,7 +121,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataFormatType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Confiuration">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="comment" value="Fix typo in next versions"/>
     </eAnnotations>

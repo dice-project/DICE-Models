@@ -462,7 +462,7 @@
     <children xmi:type="notation:Node" xmi:id="_GU_6sGBFEeWbI6GlXOCW0w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_GU_6sWBFEeWbI6GlXOCW0w" type="5001">
       <children xmi:type="notation:Node" xmi:id="_GVAhwGBFEeWbI6GlXOCW0w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//Confiuration/name"/>
+        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//Configuration/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GVAhwWBFEeWbI6GlXOCW0w"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_GU_6smBFEeWbI6GlXOCW0w"/>
@@ -475,7 +475,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_GU_6uGBFEeWbI6GlXOCW0w"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_GU_TpWBFEeWbI6GlXOCW0w" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="dpim.ecore#//Confiuration"/>
+    <element xmi:type="ecore:EClass" href="dpim.ecore#//Configuration"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GU_TpmBFEeWbI6GlXOCW0w" x="65" y="820"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_GVBv4GBFEeWbI6GlXOCW0w" type="1002">
