@@ -10,5 +10,5 @@ The following values are supported:
 Key     | Description
 --------|------------
 name    | Indicates that the given value should be used as the element name instead of the default one
-ignored | The annotated element should be ignored inwhen processing the model in the subsequent transformations
+ignore  | The annotated element should be ignored inwhen processing the model in the subsequent transformations
 comment | The text defined in the entry's value should be appended as a comment in the subsequent transformations
