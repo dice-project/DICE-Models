@@ -13,13 +13,13 @@
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
     <details key="name" value="DiceDomainMetamodel.DTSM.Core"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
         upperBound="-1" eType="#//ChannelSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestingAndReplication"
         lowerBound="1" upperBound="-1" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" lowerBound="1"
@@ -33,7 +33,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification">
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" lowerBound="1"
         upperBound="-1" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowConstraints" upperBound="-1"
@@ -77,7 +77,7 @@
     <eLiterals name="report" value="4"/>
     <eLiterals name="collectOutput" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true" eSuperTypes="#//ComputationNode #//SourceNode #//WorkflowSpecification">
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
         upperBound="-1" eType="#//ComputationalNodeType"/>
   </eClassifiers>
