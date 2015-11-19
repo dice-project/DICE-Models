@@ -10,9 +10,9 @@ The following values should be considered when processing the model in subsequen
 Key               | Description
 ------------------|------------
 name              | Indicates that the given value should be used as the element name instead of the default one
-stereotypeName    | Indicates that the given value should be used as the name of the corresponding stereotype instead of the default one (Dice + name)
+profileName       | Indicates that the given value should be used as the name of the corresponding element of the profile instead of the default one (Dice + name)
 extends           | Comma-separated list of classifiers fully-qualified names that are extended by this element
-extendsStereotype | Comma-separated list of Stereotypes fully-qualified names that are extended by the stereotype corresponding to this element
+extendsProfile    | Comma-separated list of elements (using FQNs) that are extended by the profile element corresponding to the annotated element
 comment           | The text defined in the entry's value should be appended as a comment
 ignore*           | The annotated element should be ignored
 
