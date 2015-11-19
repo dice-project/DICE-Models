@@ -7,7 +7,8 @@
     <details key="StorageElementPropertyRestrictions"/>
   </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DPIM"/>
+    <details key="name" value="DiceDomainMetamodel::DPIM"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DPIM"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DPIM">
     <eStructuralFeatures xsi:type="ecore:EReference" name="containsDIAElement" lowerBound="1"
@@ -44,7 +45,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="name" value="DiceComponent"/>
+      <details key="profileName" value="DiceComponent"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ComputationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
@@ -94,7 +95,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Channel">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="comment" value="I guess 'rate' is a throughput"/>
-      <details key="extends"/>
+      <details key="extends" value="DAM::System::Core::Connector"/>
+      <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaConnector"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ChConnectsToCom" lowerBound="1"
         upperBound="-1" eType="#//ComputationNode"/>
