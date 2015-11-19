@@ -91,7 +91,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceToComputation" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Channel" eSuperTypes="http://com.masdes.dam/profiles/DAM/1.0#//Core/DaConnector">
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="comment" value="I guess 'rate' is a throughput"/>
       <details key="extends"/>
