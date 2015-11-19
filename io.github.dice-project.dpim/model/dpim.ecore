@@ -163,7 +163,7 @@
   </eClassifiers>
   <eSubpackages name="DICETypes" nsURI="DICETypes" nsPrefix="DICETypes">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="ignore"/>
+      <details key="exclude"/>
     </eAnnotations>
   </eSubpackages>
 </ecore:EPackage>
