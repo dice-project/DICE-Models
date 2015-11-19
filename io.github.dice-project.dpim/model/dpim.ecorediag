@@ -264,19 +264,19 @@
     <children xmi:type="notation:Node" xmi:id="_GUTXI2BFEeWbI6GlXOCW0w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_GUT-MGBFEeWbI6GlXOCW0w" type="5001">
       <children xmi:type="notation:Node" xmi:id="_GUT-OGBFEeWbI6GlXOCW0w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageStorageNode/CRUDrate"/>
+        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageNode/CRUDrate"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GUT-OWBFEeWbI6GlXOCW0w"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_GUUlQGBFEeWbI6GlXOCW0w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageStorageNode/properties"/>
+        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageNode/properties"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GUUlQWBFEeWbI6GlXOCW0w"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_GUUlQmBFEeWbI6GlXOCW0w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageStorageNode/StorageName"/>
+        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageNode/StorageName"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GUUlQ2BFEeWbI6GlXOCW0w"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_GUUlRGBFEeWbI6GlXOCW0w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageStorageNode/StorageDescription"/>
+        <element xmi:type="ecore:EAttribute" href="dpim.ecore#//StorageNode/StorageDescription"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GUUlRWBFEeWbI6GlXOCW0w"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_GUT-MWBFEeWbI6GlXOCW0w"/>
@@ -289,7 +289,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_GUT-N2BFEeWbI6GlXOCW0w"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_GUTXIWBFEeWbI6GlXOCW0w" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="dpim.ecore#//StorageStorageNode"/>
+    <element xmi:type="ecore:EClass" href="dpim.ecore#//StorageNode"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GUTXImBFEeWbI6GlXOCW0w" x="911" y="474"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_GUVMUGBFEeWbI6GlXOCW0w" type="1005">
@@ -648,7 +648,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_GViGOWBFEeWbI6GlXOCW0w" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_GViGOmBFEeWbI6GlXOCW0w" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dpim.ecore#//StorageStorageNode/hasDataSpecification"/>
+    <element xmi:type="ecore:EReference" href="dpim.ecore#//StorageNode/hasDataSpecification"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GViGO2BFEeWbI6GlXOCW0w" points="[0, 0, -174, 60]$[174, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GbmR8GBFEeWbI6GlXOCW0w" id="(0.6645962732919255,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GbmR8WBFEeWbI6GlXOCW0w" id="(0.3333333333333333,1.0)"/>
@@ -662,7 +662,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_GVitRWBFEeWbI6GlXOCW0w" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_GVitRmBFEeWbI6GlXOCW0w" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dpim.ecore#//StorageStorageNode/StoDrivedFromDIA"/>
+    <element xmi:type="ecore:EReference" href="dpim.ecore#//StorageNode/StoDrivedFromDIA"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GVitR2BFEeWbI6GlXOCW0w" points="[0, 0, 156, 76]$[-156, -76, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gbm5AGBFEeWbI6GlXOCW0w" id="(0.32919254658385094,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gbm5AWBFEeWbI6GlXOCW0w" id="(0.75,1.0)"/>

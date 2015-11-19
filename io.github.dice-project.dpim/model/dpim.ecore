@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceNode" upperBound="-1"
         eType="#//SourceNode" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StorageNode" upperBound="-1"
-        eType="#//StorageStorageNode" containment="true"/>
+        eType="#//StorageNode" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiaName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Visualization" eType="#//VisualizationNode"
         containment="true"/>
@@ -48,7 +48,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thorughput" eType="#//DICEproperties"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storeAndprocess" upperBound="-1"
-        eType="#//StorageStorageNode"/>
+        eType="#//StorageNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationDescription"
         eType="#//ProcessingType"/>
@@ -65,10 +65,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="VisualizationNodeName"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StorageStorageNode">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="comment" value="Should the name be StorageStorageNode or StorageNode?"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasDataSpecification" lowerBound="1"
         eType="#//DataSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="#//DICEproperties"/>
@@ -98,7 +95,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ChConnectsToCom" lowerBound="1"
         upperBound="-1" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceConnectsToCom" lowerBound="1"
-        upperBound="-1" eType="#//StorageStorageNode"/>
+        upperBound="-1" eType="#//StorageNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageBroker" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChannelDesription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
