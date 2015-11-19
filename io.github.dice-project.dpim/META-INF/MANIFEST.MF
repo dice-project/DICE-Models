@@ -3,4 +3,5 @@ Bundle-ManifestVersion: 2
 Bundle-Name: io.github.dice-project.dpim
 Bundle-SymbolicName: io.github.dice-project.dpim; singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
+Require-Bundle: org.eclipse.emf.ecore,
+ com.masdes.dam.static.profile;bundle-version="0.2.1"
