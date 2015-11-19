@@ -125,9 +125,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataFormatType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="comment" value="Fix typo in next versions"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComputationType">
