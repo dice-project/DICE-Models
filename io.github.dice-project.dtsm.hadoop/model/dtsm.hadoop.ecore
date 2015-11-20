@@ -3,7 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hadoop" nsURI="http://io.github.dice-project/dtsm/hadoop/1.0"
     nsPrefix="dtsm.hadoop">
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DTSM.Hadoop"/>
+    <details key="name" value="DiceDomainMetamodel::DTSM::Hadoop"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Hadoop"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
     <eOperations name="runJob"/>

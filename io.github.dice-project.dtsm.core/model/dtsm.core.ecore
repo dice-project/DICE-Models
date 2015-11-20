@@ -11,7 +11,8 @@
     <details key="TBF"/>
   </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DTSM.Core"/>
+    <details key="name" value="DiceDomainMetamodel::DTSM::Core"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Core"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"

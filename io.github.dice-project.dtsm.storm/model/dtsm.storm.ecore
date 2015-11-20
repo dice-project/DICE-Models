@@ -15,7 +15,8 @@
     <details key="Number"/>
   </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DTSM.Storm"/>
+    <details key="name" value="DiceDomainMetamodel::DTSM::Storm"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Storm"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="StormSpecificationModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"

@@ -2,7 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="oryx" nsURI="http://io.github.dice-project/dtsm/oryx/1.0" nsPrefix="dtsm.oryx">
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DTSM.Oryx"/>
+    <details key="name" value="DiceDomainMetamodel::DTSM::Oryx"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Oryx"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ServingLayer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

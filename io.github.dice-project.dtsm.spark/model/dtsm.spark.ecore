@@ -14,7 +14,8 @@
     <details key="InferredParallelOpsType"/>
   </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel.DTSM.Spark"/>
+    <details key="name" value="DiceDomainMetamodel::DTSM::Spark"/>
+    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Spark"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
     <eOperations name="ParallelOpSet" lowerBound="1" upperBound="-1"/>
