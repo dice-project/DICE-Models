@@ -46,6 +46,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="profileName" value="DiceComponent"/>
+      <details key="extends" value="DAM::System::Core::Component"/>
+      <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaComponent"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ComputationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
