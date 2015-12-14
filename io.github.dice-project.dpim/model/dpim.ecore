@@ -31,6 +31,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dpimDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredProperties" lowerBound="1"
         upperBound="-1" eType="#//DICEproperties"/>
@@ -48,6 +51,7 @@
       <details key="profileName" value="DiceComponent"/>
       <details key="extends" value="DAM::System::Core::Component"/>
       <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaComponent"/>
+      <details key="description" value="To represent computation tasks and its type."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ComputationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
@@ -63,15 +67,24 @@
         eType="#//DIAElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FilterNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="To represent concept of pre-processing and post-processing."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputRatio" eType="#//DICEproperties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputRatio" eType="#//DICEproperties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//ComputationNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="To represent the visualization of data."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="VisualizationNodeName"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="To represent the storage concept, e.g, database of system."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasDataSpecification" lowerBound="1"
         eType="#//DataSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="#//DICEproperties"/>
@@ -83,6 +96,9 @@
         eType="#//DIAElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="To represent entry point of data and its type."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceName" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//SourceType"/>
@@ -99,6 +115,7 @@
       <details key="comment" value="I guess 'rate' is a throughput"/>
       <details key="extends" value="DAM::System::Core::Connector"/>
       <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaConnector"/>
+      <details key="description" value="To represent communication channel, and its characteristics."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ChConnectsToCom" lowerBound="1"
         upperBound="-1" eType="#//ComputationNode"/>
@@ -109,6 +126,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChannelDesription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="To represent data and its characteristics."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//DICEproperties"/>
@@ -119,6 +139,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="QoSRequiredProperty">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="comment" value="This is the definition of a MARTE NFP with 'source=req'"/>
+      <details key="description" value="To represent and evaluate the QoS."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
