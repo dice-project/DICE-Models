@@ -15,25 +15,44 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Core"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a generic element of the DIA at the DTSM layer."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
         upperBound="-1" eType="#//ComputationalNodeType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+      <details key="extends" value="DIAElement"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an element of the DIA performing a computation task by employing a specific data processing technology at the DTSM layer."/>
+      <details key="extends" value="DIAElement"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestingAndReplication"
         lowerBound="1" upperBound="-1" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" lowerBound="1"
         upperBound="-1" eType="#//FunctionSpecType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an element of the DIA acting as a data source at the DTSM layer."/>
+      <details key="extends" value="DIAElement"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
         upperBound="-1" eType="#//ChannelSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity  represents an element of the DIA descrbing its workflow in terms of constraints affecting the storage and the computation nodes."/>
+      <details key="extends" value="DIAElement"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" lowerBound="1"
         upperBound="-1" eType="#//ComputationNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowConstraints" upperBound="-1"
@@ -44,6 +63,9 @@
         eType="#//AccessScheduleType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a storage node in the DIA implemented by a specific storage technology at the DTSM layer."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="affects" lowerBound="1"
         upperBound="-1" eType="#//WorkflowSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeConstraints" lowerBound="1"
@@ -52,6 +74,9 @@
         eType="#//ManagementLayerType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChannelSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an element of the DIA responsible for the communication between components and the data trasnfer, implemented by a specific messaging technology at the DTSM layer."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="techSupport" lowerBound="1"
         eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//TechType"/>

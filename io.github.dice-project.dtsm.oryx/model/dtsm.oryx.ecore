@@ -6,6 +6,9 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Oryx"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ServingLayer">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The serving layer listens for model and model updates on the update topic Kafka Topic. It maintains model state in memory. It exposes REST APIs for queryign the model in memory. Each API may also accept new data and write it to Kafka where it can be seen by the Speed and Batch layers.&#xA;"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="oryx"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModelManagerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,6 +28,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minModelLoadFraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="APISpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the specification of the APIs exposed by the serving layer."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="servingLayerPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -37,6 +43,9 @@
         defaultValueLiteral="oryx"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YarnSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the configuration of the YARN cluster on top of which the BatchLayer run."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="yarn_resourcemanager"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NoOfInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -44,6 +53,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="YarnDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="zookeeper"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ZookeeperDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -51,6 +63,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kafka">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an instance of Kafka that is used by the Oryx 2 system as the data transport layer, which moves data between layers of the Lambda architecture and receives input from external sources"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="HasUpdateTopic" lowerBound="1"
         eType="#//updateTopic" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -62,6 +77,9 @@
         eType="#//inputTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="inputTopic">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represent the Kafka Topic used for new inputs of the system. The serving layer post new inputs to this Topic which are consumed by the Speed and Batch layers. "/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="kafka"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KafkaConsumerDescription"
@@ -75,6 +93,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="updateTopic">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represent the Kafka Topic used for update the model in order to reflect new input. The Serving layer consumes the model and the model updates to answer to the user queries, the Speed layer periodically consume the current model and produce a model update, while the Batch layer at each execution produce a new model."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="kafka"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KafkaProducerDescription"
@@ -88,6 +109,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpeedLayer">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the Speed layer of the Lambda architecture and is implemented using Spark Streaming. It periodically loads a new model from the update topic and continually produces model updates. These are put back onto the update topic too.&#xA;&#xA;"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelManagerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="oryx"/>
@@ -104,6 +128,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MlSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TestFraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -113,6 +140,9 @@
         defaultValueLiteral="oryx"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorgeSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represent the storage system on which the Batch layer store results. It is implemented in Oryx 2 as an HDFS."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="hdfs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputDirectory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -122,6 +152,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceProperties" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BatchLayer">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The batch layer is implemented as a Spark Streaming process on a Hadoop cluster, which reads data from the input Kafka topic. The Streaming process necessarily has a very long period – hours or even a day. It uses Spark to save the current window of data to HDFS, and then combine with all historical data on HDFS, and initiate building of a new result. The result is written to HDFS, and, also published to a Kafka update topic."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BatchHasStorage" eType="#//StorgeSpecification"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BatchUseMI" eType="#//MlSpecification"
@@ -139,6 +172,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIA">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the root of the Oryx 2 DIA."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DIASer" eType="#//ServingLayer"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DIABa" eType="#//BatchLayer"
@@ -153,10 +189,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfSpecification" eSuperTypes="#//APISpecification #//YarnSpecification #//MlSpecification">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a generic system configuration which can be extended according to specific systems employed in the Oryx 2 architecture."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConfigurationDescription"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SparkStream">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a Spark Streaming application. In Oryx 2 both the Speed layer and the Batch layer are implemented as Spark Streaming applications."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="spark"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="IntervalBtwnComputation"

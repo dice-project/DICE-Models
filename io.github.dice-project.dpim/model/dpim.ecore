@@ -6,149 +6,39 @@
     <details key="SourceNodePropertyRestrictions"/>
     <details key="StorageElementPropertyRestrictions"/>
   </eAnnotations>
-  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel::DPIM"/>
-    <details key="profileName" value="DICE::DICE_UML_Extensions::DPIM"/>
-  </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="DPIM">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containsDIAElement" lowerBound="1"
-        upperBound="-1" eType="#//DIAElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ComputationNode" upperBound="-1"
-        eType="#//ComputationNode" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="FilterNode" upperBound="-1"
-        eType="#//FilterNode" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CommunicationChannel" upperBound="-1"
-        eType="#//Channel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceNode" upperBound="-1"
-        eType="#//SourceNode" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StorageNode" upperBound="-1"
-        eType="#//StorageNode" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiaName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Visualization" eType="#//VisualizationNode"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Configuration" eType="#//Configuration"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dpimDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//ComputationNode">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
+      <details key="description" value="This entity represents an element of the DIA acting as a data source at the DPIM layer."/>
+      <details key="extends" value="ComputationNode"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredProperties" lowerBound="1"
-        upperBound="-1" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providedProperties" lowerBound="1"
-        upperBound="-1" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="QoSRequiredProperty" eType="#//QoSRequiredProperty"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOutput" eType="#//Data"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="topologicalRelation" upperBound="-1"
-        eType="#//DIAElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" eType="#//DataSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//SourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceProperties" upperBound="-1"
+        eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSpecification">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="profileName" value="DiceComponent"/>
-      <details key="extends" value="DAM::System::Core::Component"/>
-      <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaComponent"/>
-      <details key="description" value="To represent computation tasks and its type."/>
+      <details key="description" value="This entity represents data characteristics like the model and the format."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refERmodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refDataFormat" eType="#//DataFormatType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents an element of the application whose goal is to perform some computation."/>
+      <details key="extends" value="DIAElement"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ComputationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thorughput" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="storeAndprocess" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeAndProcess" upperBound="-1"
         eType="#//StorageNode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComputationDescription"
-        eType="#//ProcessingType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="FilterNode" eType="#//FilterNode"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ComDrivedFromDIA" lowerBound="1"
-        eType="#//DIAElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilterNode">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="To represent concept of pre-processing and post-processing."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputRatio" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputRatio" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//ComputationNode">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="To represent the visualization of data."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VisualizationNodeName"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="To represent the storage concept, e.g, database of system."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasDataSpecification" lowerBound="1"
-        eType="#//DataSpecification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="properties" lowerBound="1"
-        upperBound="-1" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StorageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StorageDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StoDrivedFromDIA" lowerBound="1"
-        eType="#//DIAElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="To represent entry point of data and its type."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceName" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//SourceType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceProperties" upperBound="-1"
-        eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" eType="#//DataSpecification"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceToComputation" eType="#//ComputationNode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Channel">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="comment" value="I guess 'rate' is a throughput"/>
-      <details key="extends" value="DAM::System::Core::Connector"/>
-      <details key="extendsProfile" value="DAM::DAM_UML_Extensions::System::Core::DaConnector"/>
-      <details key="description" value="To represent communication channel, and its characteristics."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ChConnectsToCom" lowerBound="1"
-        upperBound="-1" eType="#//ComputationNode"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceConnectsToCom" lowerBound="1"
-        upperBound="-1" eType="#//StorageNode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageBroker" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChannelDesription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSpecification">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="To represent data and its characteristics."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//DICEproperties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refERmodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refDataFormat" eType="#//DataFormatType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DatarespondsTo" eType="#//Data"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QoSRequiredProperty">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="comment" value="This is the definition of a MARTE NFP with 'source=req'"/>
-      <details key="description" value="To represent and evaluate the QoS."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Data">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataFormatType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComputationType">
     <eLiterals name="distributed"/>
@@ -178,12 +68,80 @@
     <eLiterals name="asynch" value="1"/>
     <eLiterals name="policy" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents a communication channel between a ComputationNode and a StorageNode."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectsOne" lowerBound="1"
+        upperBound="-1" eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectsTwo" lowerBound="1"
+        upperBound="-1" eType="#//StorageNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" eType="#//DICEproperties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageNode" eSuperTypes="#//DIAElement">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Reseprents an element of the application whose goal is to store the application data,( i.e a database or a file system)."/>
+      <details key="extends" value="DIAElement"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responds_to" lowerBound="1"
+        eType="#//DataSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="properties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DICEproperties">
     <eLiterals name="genericProperty"/>
   </eClassifiers>
-  <eSubpackages name="DICETypes" nsURI="DICETypes" nsPrefix="DICETypes">
+  <eClassifiers xsi:type="ecore:EClass" name="DIA">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="exclude"/>
+      <details key="description" value="Represents a Data Intensive Application."/>
     </eAnnotations>
-  </eSubpackages>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+        upperBound="-1" eType="#//DIAElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="An element of a Data Intensive Application. It can be a ComputationNode or a StorageNode."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasToFullfill" lowerBound="1"
+        upperBound="-1" eType="#//QoSRequiredProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+        upperBound="-1" eType="#//DIAElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//Data"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="#//Data"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredProperties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providedProperties" lowerBound="1"
+        upperBound="-1" eType="#//DICEproperties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QoSRequiredProperty">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents the QoS constraints associated with an element of the Data Intensive Applicaion."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterNode" eSuperTypes="#//ComputationNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents a computation node that performs just some filtering on the application data."/>
+      <details key="extends" value="ComputationNode"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputRatio" eType="#//DICEproperties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputRatio" eType="#//DICEproperties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//ComputationNode">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents a computation node whose goal is to perform data visualization."/>
+      <details key="extends" value="ComputationNode"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Data">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Represents the data that an element of the application can take in input and/or produce in output."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responds_to" eType="#//DataSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataFormatType"/>
+  <eSubpackages name="DICETypes"/>
 </ecore:EPackage>

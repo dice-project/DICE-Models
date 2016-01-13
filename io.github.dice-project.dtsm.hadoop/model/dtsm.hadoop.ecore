@@ -7,6 +7,7 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Hadoop"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="runJob"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordWriter"
         upperBound="-1" eType="#//RecordWriter" containment="true"/>
@@ -20,7 +21,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains_tester" upperBound="-1"
         eType="#//Tester" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Joiner" eType="#//joiner"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Joiner" eType="#//Joiner"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains_mappr" lowerBound="1"
         eType="#//Mapper" containment="true"/>
@@ -34,6 +35,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobQueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopSpecificationModel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity defines different configurations that are set by the developer and are required during the job execution. These information will be passed to the master node to define how the job should be scheduled."/>
+    </eAnnotations>
     <eOperations name="submit"/>
     <eOperations name="Main"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associated_to_HadoopMRrunner"
@@ -52,15 +56,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isJobSucceded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapper">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="it is an implementation of map task that will be executed on some slave node in the deployed cluster, it will generate key-value pairs to be passed to reducers."/>
+    </eAnnotations>
     <eOperations name="Map"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reducer">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="it is an implementation of reduce task that will be executed on slave nodes, like map task. The key-value pairs made by reducers will be saved back into some storage like HDFS or an instance of a RDBMS."/>
+    </eAnnotations>
     <eOperations name="reduce"/>
     <eOperations name="cleanup"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RecordReader">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="getProgress"/>
     <eOperations name="nextKeyValue"/>
     <eOperations name="getCurrentKey"/>
@@ -85,6 +96,9 @@
         eType="#//HadoopInputFormatEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputSplitDataSpec">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="it gives the intuition to the developer about the structure of input files that should be read and written back into storage node i.e. HDFS data nodes."/>
+    </eAnnotations>
     <eOperations name="ReadOp"/>
     <eOperations name="WriteOp"/>
     <eOperations name="CompareOp"/>
@@ -95,6 +109,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DBaccessManager">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="startHsqlDbServer"/>
     <eOperations name="createConnection"/>
     <eOperations name="shutdown"/>
@@ -121,6 +136,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FieldNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValueGenerator">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="generateKeyValPairs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
@@ -128,12 +144,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RecordWriter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="write"/>
     <eOperations name="close"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalSynch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="out" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="readFile"/>
     <eOperations name="Schedule"/>
     <eOperations name="config"/>
@@ -158,6 +176,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="SplitEType" instanceTypeName="Split"/>
   <eClassifiers xsi:type="ecore:EClass" name="Host">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="Host"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -165,13 +184,17 @@
         upperBound="-1" eType="#//SplitEType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Split">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="Split"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssigned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tester"/>
-  <eClassifiers xsi:type="ecore:EClass" name="joiner">
+  <eClassifiers xsi:type="ecore:EClass" name="Tester">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Joiner">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eOperations name="PrintUsage"/>
     <eOperations name="run"/>
     <eOperations name="main"/>
@@ -179,6 +202,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="connection" instanceClassName="java.sql.connection"/>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRInputSpecs">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HadoopInputFormatEnum">
@@ -189,6 +213,7 @@
     <eLiterals name="NLineInputFormat" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePairs">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

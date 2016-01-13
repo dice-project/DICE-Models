@@ -18,6 +18,9 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Spark"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eOperations name="ParallelOpSet" lowerBound="1" upperBound="-1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="" lowerBound="1" upperBound="-1"
         eType="#//ExternalData"/>
@@ -26,6 +29,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SparkDistObjType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParallelOperation" eSuperTypes="#//Function">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A generic operation performing some trasformation in paralled on RDDs."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
         upperBound="-1" eType="#//Function" containment="true"/>
@@ -41,6 +47,9 @@
         eType="#//RDD"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalData">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an external data source from which RDDs can be created."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path"/>
   </eClassifiers>
@@ -49,25 +58,60 @@
     <eLiterals name="action" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="count" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return the number of elements in an RDD."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="counter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="filter" eSuperTypes="#//ParallelOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="collect" eSuperTypes="#//ParallelOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="flatMap" eSuperTypes="#//map"/>
+  <eClassifiers xsi:type="ecore:EClass" name="filter" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return a new dataset formed by selecting those elements of the source RDD on which a given function returns true."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="collect" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return all the elements of the dataset as an array."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="flatMap" eSuperTypes="#//map">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Similar to map, but each input item can be mapped to 0 or more output items instead of just a single item."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="mapToPair" eSuperTypes="#//map">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pair" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="reduceByKey" eSuperTypes="#//reduce">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using a given reduce function"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducingKey" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="saveAsTextFile" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Write the elements of the dataset as a text file (or set of text files) in a given directory in a filesystem"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="map" eSuperTypes="#//ParallelOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="reduce" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="map" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return a new RDD formed by passing each element of the source RDD through a function func."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="reduce" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This operation aggregates the elements of the RDD on which it is execute using a given reduce function."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DriverProgram">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The DriverProgram is the main application that declares the transformations and actions on RDDs using a instance of the SparkContext and submits such requests to the master which manages the cluster scheduling tasks among Workers and provides the SparkContext."/>
+    </eAnnotations>
     <eOperations name="main"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
         upperBound="-1" eType="#//ParallelOperation"/>
@@ -87,6 +131,9 @@
     <eLiterals name="ParallelizableCollection" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAmain" eSuperTypes="#//DriverProgram">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the root of the Spark application and has an associated DriverProgram to execute."/>
+    </eAnnotations>
     <eOperations name="SparkConfConstructor" lowerBound="1"/>
     <eOperations name="SparkContextConstructor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkDependency" lowerBound="1"
@@ -106,26 +153,62 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="uses" lowerBound="1" eType="#//DriverProgram"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SparkContext">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The SparkContext is the main entry point for Spark functionality. A SparkContext represents the connection to a Spark cluster. It can be used for example to create RDDs from a datastore table (i.e. a Cassandra table)."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
         eType="#//ClusterConfig" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Function">
     <eAnnotations source="org.apache.spark.api.java.function"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The Spark Function is an interface representing a generic operation provided by Spark appliable on RDDs."/>
+    </eAnnotations>
     <eOperations name="Function"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="" eSuperTypes="#//ExternalData"/>
-  <eClassifiers xsi:type="ecore:EClass" name="coalesce" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="coalesce" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This Spark operation decreases the number of partitions in an input RDD."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="groupByKey" eSuperTypes="#//coalesce">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="When called on a dataset of (K, V) pairs, returns a dataset of (K, Iterable&lt;V>) pairs. "/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupingKey"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="aggregateByKey" eSuperTypes="#//coalesce">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="When called on a dataset of (K, V) pairs, returns a dataset of (K, U) pairs where the values for each key are aggregated using a given combine functions."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregatingKey"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mapPartitions" eSuperTypes="#//map"/>
-  <eClassifiers xsi:type="ecore:EClass" name="mapPartitionsWithIndex" eSuperTypes="#//mapPartitions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="sample" eSuperTypes="#//ParallelOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="union" eSuperTypes="#//ParallelOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="mapPartitions" eSuperTypes="#//map">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Similar to map, but runs separately on each partition (block) of the RDD."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="mapPartitionsWithIndex" eSuperTypes="#//mapPartitions">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Similar to mapPartitions, but also provides the executed function with an integer value representing the index of the partition"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sample" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Sample a fraction of the input RDD, with or without replacement, using a given random number generator seed."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="union" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return a new dataset that contains the union of the elements in the RDD on which it is called and the argument RDD."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="Return a new dataset that contains the intersection of the elements in the RDD on which it is called and the argument RDD."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SparkStorageLevel">
     <eLiterals name="MEMORY_ONLY "/>
     <eLiterals name=" MEMORY_AND_DISK " value="1"/>
@@ -141,6 +224,9 @@
     <eLiterals name="EEnumLiteral0" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RDD">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represend and RDD ( Resilient Distributed Dataset ) and is the primary abstraction within the Spark framework. An RDD is a fault-tolerant, possibly distributed, set of items that can be processed in parallel. They can be for example generated from data stored in HDFS."/>
+    </eAnnotations>
     <eOperations name="cache"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineage" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -152,10 +238,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLevel" eType="#//SparkStorageLevel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="outputRDD">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineage" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClusterConfig">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the configuration of the Spark cluster managed by the Master, like the number of nodes and characteristics of each node."/>
+    </eAnnotations>
     <eOperations name="wholeTextFiles"/>
     <eOperations name="textFile"/>
     <eOperations name="sequenceFile"/>
@@ -173,6 +263,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AppName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
         eType="#//Function" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" lowerBound="1"
@@ -180,9 +271,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="runs" upperBound="-1" eType="#//Loop"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PairRDD" eSuperTypes="#//RDD">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="RDD that are just (key, value) pairs, for which Spark provides extra functions."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" lowerBound="1"
         upperBound="-1" eType="#//RDDtype"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="#//RDDtype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="sort" eSuperTypes="#//ParallelOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="sort" eSuperTypes="#//ParallelOperation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="When this operation is called on a dataset of (K, V) pairs where, it returns a dataset of (K, V) pairs sorted by keys in ascending or descending order"/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

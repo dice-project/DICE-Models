@@ -19,10 +19,18 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Storm"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="StormSpecificationModel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//PackageDeclaration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Spout" eSuperTypes="#//Topology #//Component">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a Spout in the Storm topology, or an element that reads tuples from external data source and emits them into the topology."/>
+      <details key="extends" value="Component"/>
+      <details key="extends" value="Topology"/>
+    </eAnnotations>
     <eOperations name="open"/>
     <eOperations name="nextTopo"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputSource" lowerBound="1"
@@ -33,6 +41,11 @@
         eType="#//DIASource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bolt" eSuperTypes="#//Topology #//Component">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="All processing in topologies is done in bolts. Bolts can do anything from filtering, functions, aggregations, joins, talking to databases, and more.&#xA;This entity represents a Bolt in a Storm topology, or an element doing some processing on the input tuples. Kind of processing tasks can be joins on over two streams of tuples or an aggregation over a stream."/>
+      <details key="extends" value="Component"/>
+      <details key="extends" value="Topology"/>
+    </eAnnotations>
     <eOperations name="Prepare"/>
     <eOperations name="Execute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMessage" lowerBound="1"
@@ -43,7 +56,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="storesIn" upperBound="-1"
         eType="#//DIAStorage"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration" eSuperTypes="#//StormSpecificationModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration" eSuperTypes="#//StormSpecificationModel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BoltApi">
     <eLiterals name="prepare"/>
     <eLiterals name="execute" value="1"/>
@@ -69,6 +86,9 @@
     <eLiterals name="OPFields" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topology" eSuperTypes="#//StormSpecificationModel">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity embeed the logic of the Storm application. It represents the application cointnous workflow over the input streams of tuples by means of a DAG  (Directed Acyclic Graph) composed by Bolts and Spouts. "/>
+    </eAnnotations>
     <eOperations name="getTopology"/>
     <eOperations name="createTopology"/>
     <eOperations name="topologyBuilder"/>
@@ -84,6 +104,9 @@
         lowerBound="1" upperBound="-1" eType="#//Topology"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopologyBuilder">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This elements allow to build Storm Topologies by exposing suitable APIs."/>
+    </eAnnotations>
     <eOperations name="setSpout"/>
     <eOperations name="setBolt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -92,9 +115,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildsSpouts" lowerBound="1"
         upperBound="-1" eType="#//AddSpout"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddBolt" eSuperTypes="#//TopologyBuilder"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AddSpout" eSuperTypes="#//TopologyBuilder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddBolt" eSuperTypes="#//TopologyBuilder">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This element represents the operation of adding a Bolt in a Topology provided by a TopologyBuilder."/>
+      <details key="extends" value="TopologyBuilder"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddSpout" eSuperTypes="#//TopologyBuilder">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This element represents the operation of adding a Bolt in a Topology provided by a TopologyBuilder."/>
+      <details key="extends" value="TopologyBuilder"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAmain">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the root of the Stom application."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="opMode" lowerBound="1"
         eType="#//StormOpMode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clusterManager" lowerBound="1"
@@ -113,10 +149,16 @@
     <eLiterals name="remote" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a generic element of a Storm Topology either a Spout or a Bolt."/>
+    </eAnnotations>
     <eOperations name="Emit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopologyConfiguration">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the topology specification, which has to be employed by the Stom application."/>
+    </eAnnotations>
     <eOperations name="getParameter"/>
     <eOperations name="setParameter"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" lowerBound="1"
@@ -140,14 +182,23 @@
         eType="#//Nimbus" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Nimbus">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stormFW" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileManagement" lowerBound="1"
         eType="#//Nimbus"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Supervisor">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isPartOf" upperBound="-1"
         eType="#//Supervisor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isManagedBy" lowerBound="1"
@@ -158,18 +209,35 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
         eType="#//Worker"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAStorage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAStorage">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a storage element of the application, implemented by a specific technology, in which specific Bolt can write their results."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAFilter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an element of the Storm application that apply some preliminary filtering over streams produced by give data sources."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preprocesses" upperBound="-1"
         eType="#//DIASource"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIASource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DIASource">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an external data source for the Storm application, from which specific Spouts can read input stream."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Task represents a generic operation that need to be run and which is assigned to an Executor. It can be either the execution of a Bolt or of a Spout."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
         eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Executor">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="An Executor represents a thread run by a Worker and executing in parallel one or more instances of the same specific Task assigned to the Executor."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
         eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -177,6 +245,9 @@
         eType="#//Topology"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Worker">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Worker represents a process within the Storm system which can run multiple Executors in parallel on top of a JVM and inside one virtual machine of the Storm cluster."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
         eType="#//Executor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReplicationFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
