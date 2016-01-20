@@ -56,11 +56,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="storesIn" upperBound="-1"
         eType="#//DIAStorage"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration" eSuperTypes="#//StormSpecificationModel">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
-    </eAnnotations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration" eSuperTypes="#//StormSpecificationModel"/>
   <eClassifiers xsi:type="ecore:EEnum" name="BoltApi">
     <eLiterals name="prepare"/>
     <eLiterals name="execute" value="1"/>

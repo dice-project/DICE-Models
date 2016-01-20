@@ -7,7 +7,9 @@
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Hadoop"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the application runner. After the application as been designed with all its components (Mapper, Reducer), this runner is responsible to effectively submit the application to the Hadoop runtime system."/>
+    </eAnnotations>
     <eOperations name="runJob"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordWriter"
         upperBound="-1" eType="#//RecordWriter" containment="true"/>
@@ -109,7 +111,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DBaccessManager">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the driver the Hadoop application uses to access a data store. It allow to specify property like the url to the database and the username and password required to access it. Moreover through this class the application can directly operate on the databse."/>
+    </eAnnotations>
     <eOperations name="startHsqlDbServer"/>
     <eOperations name="createConnection"/>
     <eOperations name="shutdown"/>
@@ -136,7 +140,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FieldNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValueGenerator">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents an element of an Hadoop application able to generate key-value pairs."/>
+    </eAnnotations>
     <eOperations name="generateKeyValPairs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
@@ -151,7 +157,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="out" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="The Scheduler in an Hadoop system is the component responsible assign key-value pairs produced by a Mapper to the proper Reducer. Each Scheduler is responsible for a given set of hosts (a cluster) and a give set of keys."/>
+    </eAnnotations>
     <eOperations name="readFile"/>
     <eOperations name="Schedule"/>
     <eOperations name="config"/>
@@ -176,7 +184,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="SplitEType" instanceTypeName="Split"/>
   <eClassifiers xsi:type="ecore:EClass" name="Host">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity simply represents an host, like a virtual machine."/>
+    </eAnnotations>
     <eOperations name="Host"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -184,17 +194,23 @@
         upperBound="-1" eType="#//SplitEType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Split">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represent a piece of the application input data (i.e. a line in a file), that can be processed in parallel."/>
+    </eAnnotations>
     <eOperations name="Split"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssigned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tester">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a generic suite of tests for a Mapper or a Reducer."/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Joiner">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents a component used by the Hadoop application to join the output of a set of reducers."/>
+    </eAnnotations>
     <eOperations name="PrintUsage"/>
     <eOperations name="run"/>
     <eOperations name="main"/>
@@ -202,7 +218,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="connection" instanceClassName="java.sql.connection"/>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRInputSpecs">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the specification of the Hadoop application, like the path to the input text file to process."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HadoopInputFormatEnum">
@@ -213,7 +231,9 @@
     <eLiterals name="NLineInputFormat" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePairs">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity simply represents a key-value pairs produced by the Hadoop application."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

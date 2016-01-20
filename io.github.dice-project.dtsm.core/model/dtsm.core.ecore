@@ -23,7 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
+      <details key="description" value="This entity represents an elemnt of the DIA application that have be analyzed in the sense that need to respect specific QoS requirements."/>
       <details key="extends" value="DIAElement"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>

@@ -54,7 +54,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
+      <details key="description" value="This entity represents an instance of Zookeeper that is used the Oryx 2 framework."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="zookeeper"/>

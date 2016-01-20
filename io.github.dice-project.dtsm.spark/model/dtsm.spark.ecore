@@ -19,7 +19,7 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
+      <details key="description" value="This entity represents the dataset the Spark application have to process. "/>
     </eAnnotations>
     <eOperations name="ParallelOpSet" lowerBound="1" upperBound="-1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="" lowerBound="1" upperBound="-1"
@@ -263,7 +263,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AppName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
         eType="#//Function" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" lowerBound="1"
