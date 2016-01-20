@@ -14,9 +14,31 @@
     <details key="InferredParallelOpsType"/>
   </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainMetamodel::DTSM::Spark"/>
+    <details key="name" value="DiceDomainModel::DTSM::Spark"/>
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Spark"/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DIAmain" eSuperTypes="#//DriverProgram">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the root of the Spark application and has an associated DriverProgram to execute."/>
+    </eAnnotations>
+    <eOperations name="SparkConfConstructor" lowerBound="1"/>
+    <eOperations name="SparkContextConstructor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkDependency" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="groupId = org.apache.spark&#xA;artifactId = spark-core_2.10&#xA;version = 1.4.1"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hadoopClientDependency"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="groupId = org.apache.hadoop&#xA;artifactId = hadoop-client&#xA;version = &lt;your-hdfs-version>"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkImports" lowerBound="1"
+        upperBound="3" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="import org.apache.spark.api.java.JavaSparkContext&#xA;import org.apache.spark.api.java.JavaRDD&#xA;import org.apache.spark.SparkConf"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructs" lowerBound="1"
+        eType="#//SparkContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" lowerBound="1" eType="#//DriverProgram"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DistributedDataset">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents the dataset the Spark application have to process. "/>
@@ -80,7 +102,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="mapToPair" eSuperTypes="#//map">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description"/>
+      <details key="description" value="Return a new RDD by applying a function to all elements of this RDD."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pair" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
@@ -130,28 +152,6 @@
     <eLiterals name="Accumulator" value="1"/>
     <eLiterals name="ParallelizableCollection" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAmain" eSuperTypes="#//DriverProgram">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents the root of the Spark application and has an associated DriverProgram to execute."/>
-    </eAnnotations>
-    <eOperations name="SparkConfConstructor" lowerBound="1"/>
-    <eOperations name="SparkContextConstructor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkDependency" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="groupId = org.apache.spark&#xA;artifactId = spark-core_2.10&#xA;version = 1.4.1"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hadoopClientDependency"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="groupId = org.apache.hadoop&#xA;artifactId = hadoop-client&#xA;version = &lt;your-hdfs-version>"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sparkImports" lowerBound="1"
-        upperBound="3" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="import org.apache.spark.api.java.JavaSparkContext&#xA;import org.apache.spark.api.java.JavaRDD&#xA;import org.apache.spark.SparkConf"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constructs" lowerBound="1"
-        eType="#//SparkContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" lowerBound="1" eType="#//DriverProgram"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SparkContext">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="The SparkContext is the main entry point for Spark functionality. A SparkContext represents the connection to a Spark cluster. It can be used for example to create RDDs from a datastore table (i.e. a Cassandra table)."/>
@@ -166,7 +166,6 @@
     </eAnnotations>
     <eOperations name="Function"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="" eSuperTypes="#//ExternalData"/>
   <eClassifiers xsi:type="ecore:EClass" name="coalesce" eSuperTypes="#//ParallelOperation">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This Spark operation decreases the number of partitions in an input RDD."/>
@@ -238,7 +237,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLevel" eType="#//SparkStorageLevel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="outputRDD">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity represents the output RDD of the Spark application that can be stored."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineage" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -263,6 +264,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AppName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="This entity simply represent a loop executed by the Spark application. "/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="executes" lowerBound="1"
         eType="#//Function" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" lowerBound="1"
