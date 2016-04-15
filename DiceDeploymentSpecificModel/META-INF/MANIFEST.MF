@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: io.github.dice-project.ddsm
-Bundle-SymbolicName: io.github.dice-project.ddsm; singleton:=true
+Bundle-Name: DiceDeploymentSpecificModel
+Bundle-SymbolicName: DiceDeploymentSpecificModel;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore
