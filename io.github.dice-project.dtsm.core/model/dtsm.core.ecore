@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://io.github.dice-project/dtsm/core/1.0" nsPrefix="dtsm.core">
-  <eAnnotations source="PropertyAnnotations" references="#//AnalyzableElement">
+  <eAnnotations source="PropertyAnnotations">
     <details key="Sigma"/>
     <details key="PredecessorsList"/>
     <details key="Alpha"/>
@@ -19,71 +19,37 @@
       <details key="description" value="This entity represents a generic element of the DIA at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::DIAElement"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeTypeSpec" lowerBound="1"
-        upperBound="-1" eType="#//ComputationalNodeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalyzableElement" eSuperTypes="#//DIAElement">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents an elemnt of the DIA application that have be analyzed in the sense that need to respect specific QoS requirements."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QoSRequiredProperty"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StorageNode">
+  <eClassifiers xsi:type="ecore:EClass" name="StorageNode" eSuperTypes="#//DataSource">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents a storage node in the DIA implemented by a specific storage technology at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::StorageNode"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" lowerBound="1"
-        upperBound="-1" eType="#//WorkflowSpecification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeConstraints" lowerBound="1"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="managementLayer" lowerBound="1"
-        eType="#//ManagementLayerType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents an element of the DIA performing a computation task by employing a specific data processing technology at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::ComputationNode"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestingAndReplication"
-        lowerBound="1" upperBound="-1" eType="#//ComputationNode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" lowerBound="1"
-        upperBound="-1" eType="#//FunctionSpecType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessDataSources" upperBound="-1"
+        eType="#//DataSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processData" upperBound="-1"
+        eType="#//Data"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
+        eType="#//ComputationNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realise" eType="#//Workflow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" eType="#//StorageNode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents an element of the DIA acting as a data source at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::SourceNode"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="loadInMemory" lowerBound="1"
-        upperBound="-1" eType="#//ChannelSpecification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//SourceType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkflowSpecification" eSuperTypes="#//DIAElement">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity  represents an element of the DIA descrbing its workflow in terms of constraints affecting the storage and the computation nodes."/>
-      <details key="extends" value="DAM::System::Core::Service"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" lowerBound="1"
-        upperBound="-1" eType="#//ComputationNode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowConstraints" upperBound="-1"
-        eType="#//ConstraintsType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobSchedule" lowerBound="1"
-        eType="#//JobScheduleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockAccessSchedule" lowerBound="1"
-        eType="#//AccessScheduleType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChannelSpecification">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents an element of the DIA responsible for the communication between components and the data trasnfer, implemented by a specific messaging technology at the DTSM layer."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="techSupport" lowerBound="1"
-        eType="ecore:EEnum ../../io.github.dice-project.dpim/model/dpim.ecore#//TechType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConstraintsType">
     <eLiterals name="maxIteration"/>
@@ -110,5 +76,56 @@
     <eLiterals name="partition" value="3"/>
     <eLiterals name="report" value="4"/>
     <eLiterals name="collectOutput" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DataSource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Metric"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleProperty" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isMeasured" lowerBound="1"
+        eType="#//Metric"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeProperty" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedOf" lowerBound="2"
+        upperBound="-1" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compositionFunction" eType="#//CompositionFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Workflow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialNode" lowerBound="1"
+        upperBound="-1" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedProperty" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProperty" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
+        eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutput" eType="ecore:EClass ../../io.github.dice-project.dpim/model/dpim.ecore#//Data"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="performedOperation" lowerBound="1"
+        eType="#//WorkflowOperation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompositionFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SourceType">
+    <eLiterals name="sharedStorage"/>
+    <eLiterals name="dataStream" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProcessingType">
+    <eLiterals name="synch"/>
+    <eLiterals name="asynch" value="1"/>
+    <eLiterals name="policy" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TechType">
+    <eLiterals name="RDD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkflowOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

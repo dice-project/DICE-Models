@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/io.github.dice-project.dpim/src" modelPluginID="io.github.dice-project.dpim"
+    modelName="Dpim" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>dpim.ecore</foreignModel>
+  <genPackages prefix="Dpim" disposableProviderFactory="true" ecorePackage="dpim.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//ComputationType">
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/distributed"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/parallel"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/distributedParallel"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/microBench"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/sorting"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/grep"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/wordCount"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/collabFiltering"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/naiveBayes"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/bfs"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/pageRank"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/kMeans"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/connectedComponents"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ComputationType/relQuery"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//TechType">
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//TechType/RDD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//SourceType">
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//SourceType/sharedStorage"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//SourceType/dataStream"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//ProcessingType">
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ProcessingType/synch"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ProcessingType/asynch"/>
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//ProcessingType/policy"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//DICEproperties">
+      <genEnumLiterals ecoreEnumLiteral="dpim.ecore#//DICEproperties/genericProperty"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dpim.ecore#//DataFormatType"/>
+    <genClasses ecoreClass="dpim.ecore#//DIA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dpim.ecore#//DIA/contains"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dpim.ecore#//DIAElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DIAElement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//DIAElement/hasToFullfill"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dpim.ecore#//DIAElement/contains"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//DIAElement/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//DIAElement/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DIAElement/requiredProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DIAElement/providedProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//ComputationNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//ComputationNode/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//ComputationNode/targetTech"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//ComputationNode/procType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//ComputationNode/thorughput"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//ComputationNode/storeAndProcess"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//FilterNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//FilterNode/inputRatio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//FilterNode/outputRatio"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//VisualizationNode"/>
+    <genClasses ecoreClass="dpim.ecore#//SourceNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//SourceNode/provides"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//SourceNode/sourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//SourceNode/sourceProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//SourceNode/rate"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//StorageNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//StorageNode/responds_to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//StorageNode/CRUDrate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//StorageNode/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//Channel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//Channel/connectsOne"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//Channel/connectsTwo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//Channel/rate"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//DataSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DataSpecification/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DataSpecification/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DataSpecification/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DataSpecification/refERmodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dpim.ecore#//DataSpecification/refDataFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="dpim.ecore#//QoSRequiredProperty"/>
+    <genClasses ecoreClass="dpim.ecore#//Data">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dpim.ecore#//Data/responds_to"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

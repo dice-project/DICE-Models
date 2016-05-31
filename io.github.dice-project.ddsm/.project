@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>DiceDeploymentSpecificModel</name>
+	<name>io.github.dice-project.ddsm</name>
 	<comment></comment>
 	<projects>
 	</projects>

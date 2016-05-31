@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="diceDeploymentSpecificModel" nsURI="http://ddsm/1.0" nsPrefix="diceDeploymentSpecificModel">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ddsm" nsURI="http://ddsm/1.0" nsPrefix="ddsm">
   <eClassifiers xsi:type="ecore:EClass" name="CloudElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Resource"
-        containment="true"/>
+        eType="#//Resource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Property"
-        containment="true"/>
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cloudElementId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
@@ -21,71 +19,64 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//CloudElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//CloudElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedport" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ProvidedPort"
-        containment="true"/>
+        eType="#//ProvidedPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedexecutionplatform"
-        upperBound="-1" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ProvidedExecutionPlatform"
-        containment="true"/>
+        upperBound="-1" eType="#//ProvidedExecutionPlatform" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InternalComponent" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="InternalComponent" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredport" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//RequiredPort"
-        containment="true"/>
+        eType="#//RequiredPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="internalcomponent" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//InternalComponent"
-        containment="true"/>
+        eType="#//InternalComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredexecutionplatform"
-        upperBound="-1" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//RequiredExecutionPlatform"
-        containment="true"/>
+        upperBound="-1" eType="#//RequiredExecutionPlatform" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlatform">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionPlatformId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequiredPort" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Port"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProvidedPort" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Port"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RequiredExecutionPlatform" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ExecutionPlatform"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProvidedExecutionPlatform" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ExecutionPlatform">
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredPort" eSuperTypes="#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedPort" eSuperTypes="#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredExecutionPlatform" eSuperTypes="#//ExecutionPlatform"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedExecutionPlatform" eSuperTypes="#//ExecutionPlatform">
     <eStructuralFeatures xsi:type="ecore:EReference" name="offer" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Offer"
-        containment="true"/>
+        eType="#//Offer" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//CloudElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="providedport" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ProvidedPort"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredport" eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//RequiredPort"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//CloudElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedport" eType="#//ProvidedPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredport" eType="#//RequiredPort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExecutionBinding" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//CloudElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionBinding" eSuperTypes="#//CloudElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredexecutionplatform"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//RequiredExecutionPlatform"/>
+        eType="#//RequiredExecutionPlatform"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedexecutionplatform"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ProvidedExecutionPlatform"/>
+        eType="#//ProvidedExecutionPlatform"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindingId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalComponent" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalComponent" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Provider"/>
+        eType="#//Provider"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Provider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credentialsPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Property"
-        containment="true"/>
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VM" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ExternalComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="VM" eSuperTypes="#//ExternalComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="is64os" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -106,22 +97,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDSM">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cloudelement" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//CloudElement"
-        containment="true"/>
+        eType="#//CloudElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" upperBound="-1"
-        eType="ecore:EClass /DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Provider"
-        containment="true"/>
+        eType="#//Provider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LifeCycle" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Resource">
+  <eClassifiers xsi:type="ecore:EClass" name="LifeCycle" eSuperTypes="#//Resource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChefRecipe" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//Resource">
+  <eClassifiers xsi:type="ecore:EClass" name="ChefRecipe" eSuperTypes="#//Resource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipeUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -129,12 +118,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//InternalComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MediumHost" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//VM"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SmallHost" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//VM"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LargeHost" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//VM"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StormNimbus" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//InternalComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Zookeeper" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//InternalComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Kafka" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//InternalComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LoadBalancer" eSuperTypes="/DiceDeploymentSpecificModel/model/diceDeploymentSpecificModel.ecore#//ExternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="#//InternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MediumHost" eSuperTypes="#//VM"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SmallHost" eSuperTypes="#//VM"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LargeHost" eSuperTypes="#//VM"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StormNimbus" eSuperTypes="#//InternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Zookeeper" eSuperTypes="#//InternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Kafka" eSuperTypes="#//InternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoadBalancer" eSuperTypes="#//ExternalComponent"/>
 </ecore:EPackage>

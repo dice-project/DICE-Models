@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/io.github.dice-project.ddsm/src" editDirectory="/io.github.dice-project.ddsm.edit/src"
+    editorDirectory="/io.github.dice-project.dpim.editor/src" modelPluginID="io.github.dice-project.ddsm"
+    modelName="io.github.dice-project.ddsm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="io.github.dice-project.ddsm.edit" editorPluginID="io.github.dice-project.dpim.editor"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ddsm.ecore</foreignModel>
+  <genPackages prefix="Ddsm" disposableProviderFactory="true" ecorePackage="ddsm.ecore#/">
+    <genClasses ecoreClass="ddsm.ecore#//CloudElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//CloudElement/resource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//CloudElement/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//CloudElement/cloudElementId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Property/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Property/propertyId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/resourceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//Component/providedport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//Component/providedexecutionplatform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Component/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//InternalComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/requiredport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/internalcomponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/requiredexecutionplatform"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ExecutionPlatform">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ExecutionPlatform/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExecutionPlatform/executionPlatformId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Port">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Port/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Port/portId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//RequiredPort"/>
+    <genClasses ecoreClass="ddsm.ecore#//ProvidedPort"/>
+    <genClasses ecoreClass="ddsm.ecore#//RequiredExecutionPlatform"/>
+    <genClasses ecoreClass="ddsm.ecore#//ProvidedExecutionPlatform">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//ProvidedExecutionPlatform/offer"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Relationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Relationship/providedport"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Relationship/requiredport"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Relationship/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Relationship/relationshipId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ExecutionBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ExecutionBinding/requiredexecutionplatform"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ExecutionBinding/providedexecutionplatform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExecutionBinding/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExecutionBinding/bindingId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ExternalComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ExternalComponent/provider"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Provider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Provider/credentialsPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Provider/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//Provider/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Provider/providerId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//VM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/is64os"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/imageId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/maxCores"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/maxRam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/maxStorage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/minCores"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/minRam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/minStorage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/os"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/privateKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/providerSpecificTypeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/securityGroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/sshKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/publicAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/instances"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//DDSM">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//DDSM/cloudelement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//DDSM/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//DDSM/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//DDSM/modelId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//LifeCycle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/downloadCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/installCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/startCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/stopCommand"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ChefRecipe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ChefRecipe/recipeUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ChefRecipe/recipePath"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//Offer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Offer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Offer/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//StormSupervisor"/>
+    <genClasses ecoreClass="ddsm.ecore#//MediumHost"/>
+    <genClasses ecoreClass="ddsm.ecore#//SmallHost"/>
+    <genClasses ecoreClass="ddsm.ecore#//LargeHost"/>
+    <genClasses ecoreClass="ddsm.ecore#//StormNimbus"/>
+    <genClasses ecoreClass="ddsm.ecore#//Zookeeper"/>
+    <genClasses ecoreClass="ddsm.ecore#//Kafka"/>
+    <genClasses ecoreClass="ddsm.ecore#//LoadBalancer"/>
+  </genPackages>
+</genmodel:GenModel>
