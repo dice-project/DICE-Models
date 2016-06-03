@@ -2,12 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hadoop_framework" nsURI="http://io.github.dice-project/dtsm/hadoop-framework/1.0"
     nsPrefix="dtsm.hadoop-framework">
-  <eClassifiers xsi:type="ecore:EClass" name="HadoopJob"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapper"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Reducer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputFormat"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputFormat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRJob" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReduceJob"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Map"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reducer" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Reduce"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler"/>
   <eClassifiers xsi:type="ecore:EClass" name="Partitioner"/>
   <eClassifiers xsi:type="ecore:EClass" name="Combiner"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//ComputationNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRPhase" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReducePhase"/>
 </ecore:EPackage>

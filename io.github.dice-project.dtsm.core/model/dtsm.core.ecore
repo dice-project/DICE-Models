@@ -14,37 +14,46 @@
     <details key="name" value="DiceDomainModel::DTSM::Core"/>
     <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Core"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true" interface="true">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents a generic element of the DIA at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::DIAElement"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasProperty" upperBound="-1"
+        eType="#//Property"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StorageNode" eSuperTypes="#//DataSource">
+  <eClassifiers xsi:type="ecore:EClass" name="StorageNode" abstract="true" interface="true"
+      eSuperTypes="#//DataSource">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents a storage node in the DIA implemented by a specific storage technology at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::StorageNode"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="database" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents an element of the DIA performing a computation task by employing a specific data processing technology at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::ComputationNode"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="accessDataSources" upperBound="-1"
         eType="#//DataSource"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processData" upperBound="-1"
         eType="#//Data"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
         eType="#//ComputationNode"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realise" eType="#//Workflow"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" eType="#//StorageNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realise" lowerBound="1"
+        eType="#//Workflow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" upperBound="-1"
+        eType="#//StorageNode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="This entity represents an element of the DIA acting as a data source at the DTSM layer."/>
       <details key="extends" value="DiceDomainModel::DPIM::SourceNode"/>
@@ -77,37 +86,26 @@
     <eLiterals name="report" value="4"/>
     <eLiterals name="collectOutput" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DataSource"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Property"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Metric"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleProperty" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isMeasured" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isConstrained" upperBound="-1"
+        eType="#//Contraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMetric" upperBound="-1"
         eType="#//Metric"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompositeProperty" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedOf" lowerBound="2"
-        upperBound="-1" eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compositionFunction" eType="#//CompositionFunction"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Workflow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initialNode" lowerBound="1"
-        upperBound="-1" eType="#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="providedProperty" upperBound="-1"
-        eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProperty" upperBound="-1"
-        eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Workflow" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DAGNode" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
-        eType="#//Node"/>
+        eType="#//DAGNode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutput" eType="ecore:EClass ../../io.github.dice-project.dpim/model/dpim.ecore#//Data"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="performedOperation" lowerBound="1"
-        eType="#//WorkflowOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//WorkflowOperation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CompositionFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -125,7 +123,53 @@
   <eClassifiers xsi:type="ecore:EEnum" name="TechType">
     <eLiterals name="RDD"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkflowOperation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Contraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContraintType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContraintType">
+    <eLiterals name="LESS"/>
+    <eLiterals name="LESSEQUAL" value="1"/>
+    <eLiterals name="EQUAL" value="2"/>
+    <eLiterals name="GREATER" value="4"/>
+    <eLiterals name="GREATEREQUAL" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metric" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapReduceJob" eSuperTypes="#//Workflow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMRPhase" eType="#//MapReducePhase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectAcyclicGraph" abstract="true"
+      interface="true" eSuperTypes="#//Workflow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialNode" lowerBound="1"
+        upperBound="-1" eType="#//DAGSourceNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WorkflowOperation">
+    <eLiterals name="GROUPBY"/>
+    <eLiterals name="SUM" value="1"/>
+    <eLiterals name="COUNT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapReducePhase" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
+        eType="#//MapReducePhase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMap" eType="#//Map"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasReduce" eType="#//Reduce"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutput" eType="ecore:EClass ../../io.github.dice-project.dpim/model/dpim.ecore#//Data"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Map" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MapType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reduce" abstract="true" interface="true"
+      eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelism" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ReduceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MapType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReduceType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DAGSourceNode" eSuperTypes="#//DAGNode"/>
 </ecore:EPackage>

@@ -126,4 +126,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper" eSuperTypes="#//InternalComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="Kafka" eSuperTypes="#//InternalComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="LoadBalancer" eSuperTypes="#//ExternalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cluster" eSuperTypes="#//CloudElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasVm" eType="#//VM"/>
+  </eClassifiers>
 </ecore:EPackage>

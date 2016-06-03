@@ -23,28 +23,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasToFullfill" lowerBound="1"
         upperBound="-1" eType="#//QoSRequiredProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
-        upperBound="-1" eType="#//DIAElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
-        eType="#//Data"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
-        eType="#//Data"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredProperties" lowerBound="1"
         upperBound="-1" eType="#//DICEproperties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="providedProperties" lowerBound="1"
         upperBound="-1" eType="#//DICEproperties"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ComputeNode" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents an element of the application whose goal is to perform some computation."/>
       <details key="extends" value="DAM::System::Core::Component"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//TechType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="procType" eType="#//ProcessingType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processData" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processInputData" upperBound="-1"
         eType="#//Data"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
-        eType="#//ComputationNode"/>
+        eType="#//ComputeNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" upperBound="-1"
+        eType="#//StorageNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutputData" eType="#//Data"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -76,7 +73,7 @@
       <details key="description" value="Represents the QoS constraints associated with an element of the Data Intensive Applicaion."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Data">
+  <eClassifiers xsi:type="ecore:EClass" name="Data" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents the data that an element of the application can take in input and/or produce in output."/>
     </eAnnotations>
@@ -101,23 +98,18 @@
     <eLiterals name="relQuery" value="13"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TechType">
-    <eLiterals name="RDD"/>
+    <eLiterals name="Spark"/>
+    <eLiterals name="HadoopMR" value="1"/>
+    <eLiterals name="Storm" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SourceType">
-    <eLiterals name="sharedStorage"/>
-    <eLiterals name="dataStream" value="1"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SourceType"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessingType">
-    <eLiterals name="synch"/>
-    <eLiterals name="asynch" value="1"/>
-    <eLiterals name="policy" value="2"/>
+    <eLiterals name="StreamProcessing"/>
+    <eLiterals name="BatchProcesisng" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DICEproperties">
     <eLiterals name="genericProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataModelType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DataSource">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//SourceType"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StorageType"/>
 </ecore:EPackage>
