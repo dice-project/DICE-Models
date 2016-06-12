@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_2ZJhEAMeEeaZhJz7ASWtUg" selectedViews="_2bY8wAMeEeaZhJz7ASWtUg" version="10.1.0.201509162000">
   <semanticResources>tosca.ecore</semanticResources>
-  <semanticResources>tosca.genmodel</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>tosca.genmodel</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_2bY8wAMeEeaZhJz7ASWtUg">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_2b-LkAMeEeaZhJz7ASWtUg" name="tosca">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_2b-LkQMeEeaZhJz7ASWtUg" source="DANNOTATION_CUSTOMIZATION_KEY">
