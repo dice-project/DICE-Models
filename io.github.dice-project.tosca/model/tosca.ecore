@@ -1,46 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tosca" nsURI="http://tosca/1.0" nsPrefix="tosca">
-  <eClassifiers xsi:type="ecore:EClass" name="Node_template">
+  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeTemplate">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Node Template specifies the occurrence of a manageable software component as part of an application’s topology model.  A Node template is an instance of a specified Node Type and can provide customized properties, constraints or operations which override the defaults provided by its Node Type and its implementations.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="node_template_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplate_hasInterface"
-        upperBound="-1" eType="#//Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//Interface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplate_hasProperty"
-        upperBound="-1" eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplate_hasAttribute"
-        upperBound="-1" eType="#//Attribute" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplate_hasRequirement"
-        upperBound="-1" eType="#//Requirement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="NodeTemplate_hasRelationship"
-        upperBound="-1" eType="#//Relationship" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplate_hasInstances"
-        eType="#//instance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Requirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
+        eType="#//Relationship" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+        eType="#//Capability"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="An interface defines a named interface that can be associated with a Node or Relationship Type.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasOperation" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//Operation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface_hasInput" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//Input" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Source_interface" eSuperTypes="#//Interface"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Target_interface" eSuperTypes="#//Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Relationship">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relation_haSourceInterface"
-        upperBound="-1" eType="#//Source_interface" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relation_hasTargetInterface"
-        upperBound="-1" eType="#//Target_interface" containment="true"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Relationship Template specifies the occurrence of a manageable relationship between node templates as part of an application’s topology model.  A Relationship template is an instance of a specified Relationship Type .&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}.&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CloudifyRelationshipType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contained_in" eSuperTypes="#//Relationship"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Connected_to" eSuperTypes="#//Relationship"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -51,22 +61,46 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="property_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property_hasParameters"
         upperBound="-1" eType="#//Parameters" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Parameter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Parameter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//Parameter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Parameter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Parameter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//Parameter">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirement_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Requirement describes a dependency of a TOSCA Node Type or Node template which needs to be fulfilled by a matching Capability declared by another TOSCA modelable entity. &#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capability_Type_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurances" upperBound="2"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capabiity" lowerBound="1"
+        eType="#//CloudifyCapabilityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="An operation defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation_hasInput" upperBound="-1"
@@ -74,31 +108,84 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Service_Template">
+  <eClassifiers xsi:type="ecore:EClass" name="TopologyTemplate">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Topology Template defines the topology of a cloud application. The main ingredients of the topology template are node templates representing components of the application and relationship templates representing links between the components. &#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tosca_definitions_version"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceTemplate_hasImport"
-        upperBound="-1" eType="#//Import" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceTemplate_hasOutput"
-        upperBound="-1" eType="#//Output" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceTemplate_hasInput"
-        upperBound="-1" eType="#//Input" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="service_hasNodeTemplate"
-        lowerBound="1" upperBound="-1" eType="#//Node_template" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//Output" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//Input" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeTemplates" lowerBound="1"
+        upperBound="-1" eType="#//NodeTemplate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realtionships" upperBound="-1"
+        eType="#//Relationship"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" eType="#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policies" upperBound="-1"
+        eType="#//Policy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="An import is used to locate and uniquely name another TOSCA file which has type and template definitions to be imported (included) and referenced.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="import_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repository" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace_uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace_prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="instance">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deploy" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameters">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="value desr"/>
+      <details key="exclude" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Paremeters_hasParameter"
         upperBound="-1" eType="#//Parameter" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudifyRelationshipType">
+    <eLiterals name="ContainedIn"/>
+    <eLiterals name="ConnectedTo" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A group definition defines a logical grouping of node templates, typically for management purposes.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CloudifyGroupType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targets" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Policy">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+        <details key="description" value="An operation defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}."/>
+      </eAnnotations>
+      <details key="description" value="A policy definition defines a policy that can be associated with a TOSCA topology.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudifyInterfaceType">
+    <eLiterals name="RelationshipLifecycle"/>
+    <eLiterals name="Lifecycle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capability">
+    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
+      <details key="description" value="A Capability defines a named, typed set of data that can be associated with Node Type or Node Template to describe a transparent capability or feature of the software component the node describes.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CloudifyCapabilityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudifyCapabilityType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudifyGroupType"/>
 </ecore:EPackage>

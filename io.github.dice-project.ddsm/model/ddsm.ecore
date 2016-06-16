@@ -28,7 +28,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//CloudElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Inherit from MODACloudsML, it represents a reusable type of cloud component (e.g. a virtual machine or an application)."/>
     </eAnnotations>
@@ -36,7 +36,6 @@
         eType="#//ProvidedPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedexecutionplatform"
         upperBound="-1" eType="#//ProvidedExecutionPlatform" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InternalComponent" eSuperTypes="#//Component">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -49,18 +48,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredexecutionplatform"
         upperBound="-1" eType="#//RequiredExecutionPlatform" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlatform" eSuperTypes="#//CloudElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlatform" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Inherited from MODACloudsML, it represents an generic hosting interface of a Component."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionPlatformId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//CloudElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents an interface (provided or required) of a Component.&#xA;It is tipically used to link components in order to enable communication."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredPort" eSuperTypes="#//Port">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -144,8 +140,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cloudelement" upperBound="-1"
         eType="#//CloudElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" upperBound="-1"
-        eType="#//Provider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

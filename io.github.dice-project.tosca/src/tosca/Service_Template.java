@@ -64,7 +64,7 @@ public interface Service_Template extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Template has Import</em>' containment reference list.
      * @see tosca.ToscaPackage#getService_Template_ServiceTemplate_hasImport()
-     * @model containment="true"
+     * @model containment="true" required="true"
      * @generated
      */
     EList<Import> getServiceTemplate_hasImport();

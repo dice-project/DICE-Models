@@ -72,7 +72,7 @@ Package tosca <http://tosca/1.0>
 
   Class Service_Template
     Attribute tosca_definitions_version : EString
-    Reference serviceTemplate_hasImport : Import<<0..*>>
+    Reference serviceTemplate_hasImport : Import<<1..*>>
     Reference serviceTemplate_hasOutput : Output<<0..*>>
     Reference serviceTemplate_hasInput : Input<<0..*>>
     Reference service_hasNodeTemplate : Node_template<<1..*>>

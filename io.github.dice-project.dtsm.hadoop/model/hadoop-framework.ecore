@@ -8,6 +8,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler"/>
   <eClassifiers xsi:type="ecore:EClass" name="Partitioner"/>
   <eClassifiers xsi:type="ecore:EClass" name="Combiner"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//ComputationNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication"/>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRPhase" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReducePhase"/>
 </ecore:EPackage>

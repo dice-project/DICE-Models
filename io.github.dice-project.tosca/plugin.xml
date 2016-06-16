@@ -10,8 +10,7 @@
       <!-- @generated tosca -->
       <package
             uri="http://tosca/1.0"
-            class="tosca.ToscaPackage"
-            genModel="model/tosca.genmodel"/>
+            class="tosca.ToscaPackage"/>
    </extension>
 
 </plugin>
