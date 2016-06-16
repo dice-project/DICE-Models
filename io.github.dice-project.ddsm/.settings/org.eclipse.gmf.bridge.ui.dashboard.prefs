@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/ddsm-gmf/model/ddsm.genmodel
+gmf_dashboard/domainModel=platform\:/resource/ddsm-gmf/model/ddsm.ecore
+gmf_dashboard/generationModel=platform\:/resource/ddsm-gmf/model/ddsm.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/ddsm-gmf/model/ddsm.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/ddsm-gmf/model/ddsm.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/ddsm-gmf/model/ddsm.gmftool
