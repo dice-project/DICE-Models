@@ -7,85 +7,92 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package tosca <http://tosca/1.0>
 
-  Class Node_template
-    Attribute node_template_name : EString
-    Attribute type : EString
-    Reference nodeTemplate_hasInterface : Interface<<0..*>>
+  Class NodeTemplate
+    Attribute node_template_name : EString<<1..1>>
+    Attribute type : EString<<1..1>>
+    Reference interfaces : Interface<<0..*>>
     Attribute description : EString
-    Reference nodeTemplate_hasProperty : Property<<0..*>>
-    Reference nodeTemplate_hasAttribute : Attribute<<0..*>>
-    Reference nodeTemplate_hasRequirement : Requirement<<0..*>>
-    Reference NodeTemplate_hasRelationship : Relationship<<0..*>>
-    Reference nodeTemplate_hasInstances : instance
+    Reference properties : Property<<0..*>>
+    Reference attributes : Attribute<<0..*>>
+    Reference requirements : Requirement<<0..*>>
+    Reference relationships : Relationship<<0..*>>
+    Reference capabilities : Capability<<0..*>>
 
   Class Interface
-    Attribute interface_name : EString
-    Reference hasOperation : Operation<<0..*>>
-    Reference interface_hasInput : Input<<0..*>>
-
-  Class Source_interface -> Interface
-
-  Class Target_interface -> Interface
+    Attribute interface_name : EString<<1..1>>
+    Reference operations : Operation<<0..*>>
+    Reference inputs : Property<<0..*>>
+    Attribute type : EString<<1..1>>
 
   Class Relationship
-    Attribute type : EString
-    Attribute validSource : EString
-    Attribute validTarget : EString
-    Reference relation_haSourceInterface : Source_interface<<0..*>>
-    Reference relation_hasTargetInterface : Target_interface<<0..*>>
-
-  Class Contained_in -> Relationship
-
-  Class Connected_to -> Relationship
-
-  Class Parameter
-    Attribute parameter_name : EString
-    Attribute type : EString
-    Attribute description : EString
-    Attribute value : EString
-    Attribute required : EString
-    Attribute default : EString
-    Attribute status : EString
+    Attribute type : EString<<1..1>>
+    Reference interfaces : Interface<<0..*>>
+    Reference properties : Property<<0..*>>
+    Reference attributes : Attribute<<0..*>>
+    Reference sourceInterfaces : Interface<<0..*>>
+    Reference targetInterfaces : Interface<<0..*>>
+    Attribute target : EString
+    Attribute relationship_name : EString<<1..1>>
 
   Class Property
-    Attribute property_name : EString
-    Reference property_hasParameters : Parameters<<0..*>>
+    Attribute property_name : EString<<1..1>>
+    Attribute value : EString<<1..1>>
 
-  Class Attribute -> Parameter
-
-  Class Input -> Parameter
-
-  Class Output -> Parameter
+  Class Attribute
+    Attribute attribute_name : EString<<1..1>>
 
   Class Requirement
-    Attribute requirement_name : EString
+    Attribute requirement_name : EString<<1..1>>
     Attribute node : EString
-    Attribute capability_Type_name : EString
-    Attribute occurances : EString<<0..2>>
+    Attribute capabiity : EString<<1..1>>
 
   Class Operation
-    Attribute operation_name : EString
+    Attribute operation_name : EString<<1..1>>
     Attribute description : EString
-    Reference operation_hasInput : Input<<0..*>>
-    Attribute script : EString
-    Attribute executor : EString
+    Reference inputs : Property<<0..*>>
+    Attribute dependentArtifacts : EString<<0..*>>
+    Attribute primary : EString
 
-  Class Service_Template
-    Attribute tosca_definitions_version : EString
-    Reference serviceTemplate_hasImport : Import<<1..*>>
-    Reference serviceTemplate_hasOutput : Output<<0..*>>
-    Reference serviceTemplate_hasInput : Input<<0..*>>
-    Reference service_hasNodeTemplate : Node_template<<1..*>>
+  Class TopologyTemplate
+    Attribute tosca_definitions_version : EString<<1..1>>
+    Reference imports : Import<<0..*>>
+    Reference outputs : Parameter<<0..*>>
+    Reference inputs : Parameter<<0..*>>
+    Reference nodeTemplates : NodeTemplate<<0..*>>
+    Reference realtionships : Relationship<<0..*>>
+    Reference groups : Group<<0..*>>
+    Reference policies : Policy<<0..*>>
+    Attribute description : EString
 
   Class Import
     Attribute import_name : EString
-    Attribute file : EString
+    Attribute file : EString<<1..1>>
     Attribute repository : EString
     Attribute namespace_uri : EString
     Attribute namespace_prefix : EString
 
-  Class instance
-    Attribute deploy : EInt<<1..1>>
+  Class Group
+    Attribute group_name : EString<<1..1>>
+    Attribute type : EString<<1..1>>
+    Attribute description : EString
+    Reference properties : Property
+    Attribute targets : EString<<0..*>>
+    Reference interfaces : Interface<<0..*>>
 
-  Class Parameters
-    Reference Paremeters_hasParameter : Parameter<<0..*>>
+  Class Policy
+    Attribute policy_name : EString<<1..1>>
+    Attribute type : EString<<1..1>>
+
+  Class Capability
+    Attribute type : EString<<1..1>>
+    Attribute description : EString
+    Reference properties : Property<<0..*>>
+    Reference attributes : Attribute<<0..*>>
+    Attribute capability_name : EString<<1..1>>
+
+  Class Parameter
+    Attribute parameter_name : EString<<1..1>>
+
+  Class Artifact
+    Attribute name : EString<<1..1>>
+    Attribute artifactUri : EString

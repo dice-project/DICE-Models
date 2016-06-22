@@ -9,70 +9,70 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import tosca.Property;
+import tosca.Artifact;
 import tosca.ToscaPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property</b></em>'.
+ * An implementation of the model object '<em><b>Artifact</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tosca.impl.PropertyImpl#getProperty_name <em>Property name</em>}</li>
- *   <li>{@link tosca.impl.PropertyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link tosca.impl.ArtifactImpl#getName <em>Name</em>}</li>
+ *   <li>{@link tosca.impl.ArtifactImpl#getArtifactUri <em>Artifact Uri</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PropertyImpl extends MinimalEObjectImpl.Container implements Property {
+public class ArtifactImpl extends MinimalEObjectImpl.Container implements Artifact {
     /**
-     * The default value of the '{@link #getProperty_name() <em>Property name</em>}' attribute.
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getProperty_name()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected static final String PROPERTY_NAME_EDEFAULT = null;
+    protected static final String NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getProperty_name() <em>Property name</em>}' attribute.
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getProperty_name()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected String property_name = PROPERTY_NAME_EDEFAULT;
+    protected String name = NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The default value of the '{@link #getArtifactUri() <em>Artifact Uri</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getArtifactUri()
      * @generated
      * @ordered
      */
-    protected static final String VALUE_EDEFAULT = null;
+    protected static final String ARTIFACT_URI_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The cached value of the '{@link #getArtifactUri() <em>Artifact Uri</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getArtifactUri()
      * @generated
      * @ordered
      */
-    protected String value = VALUE_EDEFAULT;
+    protected String artifactUri = ARTIFACT_URI_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected PropertyImpl() {
+    protected ArtifactImpl() {
         super();
     }
 
@@ -83,7 +83,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      */
     @Override
     protected EClass eStaticClass() {
-        return ToscaPackage.Literals.PROPERTY;
+        return ToscaPackage.Literals.ARTIFACT;
     }
 
     /**
@@ -91,8 +91,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getProperty_name() {
-        return property_name;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -100,11 +100,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setProperty_name(String newProperty_name) {
-        String oldProperty_name = property_name;
-        property_name = newProperty_name;
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.PROPERTY__PROPERTY_NAME, oldProperty_name, property_name));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.ARTIFACT__NAME, oldName, name));
     }
 
     /**
@@ -112,8 +112,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue() {
-        return value;
+    public String getArtifactUri() {
+        return artifactUri;
     }
 
     /**
@@ -121,11 +121,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(String newValue) {
-        String oldValue = value;
-        value = newValue;
+    public void setArtifactUri(String newArtifactUri) {
+        String oldArtifactUri = artifactUri;
+        artifactUri = newArtifactUri;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.PROPERTY__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.ARTIFACT__ARTIFACT_URI, oldArtifactUri, artifactUri));
     }
 
     /**
@@ -136,10 +136,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                return getProperty_name();
-            case ToscaPackage.PROPERTY__VALUE:
-                return getValue();
+            case ToscaPackage.ARTIFACT__NAME:
+                return getName();
+            case ToscaPackage.ARTIFACT__ARTIFACT_URI:
+                return getArtifactUri();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -152,11 +152,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                setProperty_name((String)newValue);
+            case ToscaPackage.ARTIFACT__NAME:
+                setName((String)newValue);
                 return;
-            case ToscaPackage.PROPERTY__VALUE:
-                setValue((String)newValue);
+            case ToscaPackage.ARTIFACT__ARTIFACT_URI:
+                setArtifactUri((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -170,11 +170,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                setProperty_name(PROPERTY_NAME_EDEFAULT);
+            case ToscaPackage.ARTIFACT__NAME:
+                setName(NAME_EDEFAULT);
                 return;
-            case ToscaPackage.PROPERTY__VALUE:
-                setValue(VALUE_EDEFAULT);
+            case ToscaPackage.ARTIFACT__ARTIFACT_URI:
+                setArtifactUri(ARTIFACT_URI_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -188,10 +188,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? property_name != null : !PROPERTY_NAME_EDEFAULT.equals(property_name);
-            case ToscaPackage.PROPERTY__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+            case ToscaPackage.ARTIFACT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case ToscaPackage.ARTIFACT__ARTIFACT_URI:
+                return ARTIFACT_URI_EDEFAULT == null ? artifactUri != null : !ARTIFACT_URI_EDEFAULT.equals(artifactUri);
         }
         return super.eIsSet(featureID);
     }
@@ -206,12 +206,12 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (property_name: ");
-        result.append(property_name);
-        result.append(", value: ");
-        result.append(value);
+        result.append(" (name: ");
+        result.append(name);
+        result.append(", artifactUri: ");
+        result.append(artifactUri);
         result.append(')');
         return result.toString();
     }
 
-} //PropertyImpl
+} //ArtifactImpl

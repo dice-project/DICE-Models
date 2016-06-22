@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link tosca.Operation#getOperation_name <em>Operation name</em>}</li>
  *   <li>{@link tosca.Operation#getDescription <em>Description</em>}</li>
- *   <li>{@link tosca.Operation#getOperation_hasInput <em>Operation has Input</em>}</li>
- *   <li>{@link tosca.Operation#getScript <em>Script</em>}</li>
- *   <li>{@link tosca.Operation#getExecutor <em>Executor</em>}</li>
+ *   <li>{@link tosca.Operation#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link tosca.Operation#getDependentArtifacts <em>Dependent Artifacts</em>}</li>
+ *   <li>{@link tosca.Operation#getPrimary <em>Primary</em>}</li>
  * </ul>
  *
  * @see tosca.ToscaPackage#getOperation()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='An operation defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).\nFor the accurate description refer to the TOSCA standard document \\cite{toscayaml}.'"
  * @generated
  */
 public interface Operation extends EObject {
@@ -38,7 +38,7 @@ public interface Operation extends EObject {
      * @return the value of the '<em>Operation name</em>' attribute.
      * @see #setOperation_name(String)
      * @see tosca.ToscaPackage#getOperation_Operation_name()
-     * @model
+     * @model id="true" required="true"
      * @generated
      */
     String getOperation_name();
@@ -80,71 +80,61 @@ public interface Operation extends EObject {
     void setDescription(String value);
 
     /**
-     * Returns the value of the '<em><b>Operation has Input</b></em>' containment reference list.
-     * The list contents are of type {@link tosca.Input}.
+     * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+     * The list contents are of type {@link tosca.Property}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Operation has Input</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Inputs</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Operation has Input</em>' containment reference list.
-     * @see tosca.ToscaPackage#getOperation_Operation_hasInput()
+     * @return the value of the '<em>Inputs</em>' containment reference list.
+     * @see tosca.ToscaPackage#getOperation_Inputs()
      * @model containment="true"
      * @generated
      */
-    EList<Input> getOperation_hasInput();
+    EList<Property> getInputs();
 
     /**
-     * Returns the value of the '<em><b>Script</b></em>' attribute.
+     * Returns the value of the '<em><b>Dependent Artifacts</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Script</em>' attribute isn't clear,
+     * If the meaning of the '<em>Dependent Artifacts</em>' attribute list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Script</em>' attribute.
-     * @see #setScript(String)
-     * @see tosca.ToscaPackage#getOperation_Script()
+     * @return the value of the '<em>Dependent Artifacts</em>' attribute list.
+     * @see tosca.ToscaPackage#getOperation_DependentArtifacts()
      * @model
      * @generated
      */
-    String getScript();
+    EList<String> getDependentArtifacts();
 
     /**
-     * Sets the value of the '{@link tosca.Operation#getScript <em>Script</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Script</em>' attribute.
-     * @see #getScript()
-     * @generated
-     */
-    void setScript(String value);
-
-    /**
-     * Returns the value of the '<em><b>Executor</b></em>' attribute.
+     * Returns the value of the '<em><b>Primary</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Executor</em>' attribute isn't clear,
+     * If the meaning of the '<em>Primary</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Executor</em>' attribute.
-     * @see #setExecutor(String)
-     * @see tosca.ToscaPackage#getOperation_Executor()
+     * @return the value of the '<em>Primary</em>' attribute.
+     * @see #setPrimary(String)
+     * @see tosca.ToscaPackage#getOperation_Primary()
      * @model
      * @generated
      */
-    String getExecutor();
+    String getPrimary();
 
     /**
-     * Sets the value of the '{@link tosca.Operation#getExecutor <em>Executor</em>}' attribute.
+     * Sets the value of the '{@link tosca.Operation#getPrimary <em>Primary</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Executor</em>' attribute.
-     * @see #getExecutor()
+     * @param value the new value of the '<em>Primary</em>' attribute.
+     * @see #getPrimary()
      * @generated
      */
-    void setExecutor(String value);
+    void setPrimary(String value);
 
 } // Operation

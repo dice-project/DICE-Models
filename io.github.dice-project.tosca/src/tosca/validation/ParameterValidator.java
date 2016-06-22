@@ -15,10 +15,4 @@ public interface ParameterValidator {
     boolean validate();
 
     boolean validateParameter_name(String value);
-    boolean validateType(String value);
-    boolean validateDescription(String value);
-    boolean validateValue(String value);
-    boolean validateRequired(String value);
-    boolean validateDefault(String value);
-    boolean validateStatus(String value);
 }

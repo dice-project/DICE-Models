@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ddsm:DDSM xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ddsm="http://ddsm/1.0"
+    xsi:schemaLocation="http://ddsm/1.0 /io.github.dice-project.ddsm/model/ddsm.ecore">
+  <cloudelement
+      xsi:type="ddsm:VM"
+      elementId="v1"
+      provider="p1">
+    <resource
+        resourceId="r1.1">
+      <scripts
+          scriptId="s1.1.1"
+          scriptUri="jnbwdfciw"/>
+    </resource>
+    <property
+        value="sdkjbcs"
+        propertyId="p1.1"/>
+    <property
+        value="dfn vs mc"
+        propertyId="p1.2"/>
+  </cloudelement>
+  <cloudelement
+      xsi:type="ddsm:VM"
+      elementId="v2"
+      provider="p1"
+      privateKey=""
+      providerSpecificTypeName="">
+    <resource
+        resourceId="r2.1">
+      <scripts
+          scriptId="s2.1.1"
+          scriptUri="sfibcsbke"/>
+      <scripts
+          scriptId="s2.1.2"
+          scriptUri="wmedf ks "/>
+    </resource>
+    <resource
+        resourceId="r2.2">
+      <scripts
+          scriptId="s2.2.1"
+          scriptUri="wsdkjfbs"/>
+    </resource>
+    <property
+        value="dkjfnv"
+        propertyId="p2.1"/>
+  </cloudelement>
+  <cloudelement
+      xsi:type="ddsm:Provider"
+      elementId="p1"/>
+</ddsm:DDSM>

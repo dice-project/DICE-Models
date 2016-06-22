@@ -10,4 +10,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Combiner"/>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication"/>
   <eClassifiers xsi:type="ecore:EClass" name="HadoopMRPhase" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReducePhase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YARN"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HDFS"/>
 </ecore:EPackage>

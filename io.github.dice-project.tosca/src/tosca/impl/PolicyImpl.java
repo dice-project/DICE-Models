@@ -9,70 +9,70 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import tosca.Property;
+import tosca.Policy;
 import tosca.ToscaPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property</b></em>'.
+ * An implementation of the model object '<em><b>Policy</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tosca.impl.PropertyImpl#getProperty_name <em>Property name</em>}</li>
- *   <li>{@link tosca.impl.PropertyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link tosca.impl.PolicyImpl#getPolicy_name <em>Policy name</em>}</li>
+ *   <li>{@link tosca.impl.PolicyImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PropertyImpl extends MinimalEObjectImpl.Container implements Property {
+public class PolicyImpl extends MinimalEObjectImpl.Container implements Policy {
     /**
-     * The default value of the '{@link #getProperty_name() <em>Property name</em>}' attribute.
+     * The default value of the '{@link #getPolicy_name() <em>Policy name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getProperty_name()
+     * @see #getPolicy_name()
      * @generated
      * @ordered
      */
-    protected static final String PROPERTY_NAME_EDEFAULT = null;
+    protected static final String POLICY_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getProperty_name() <em>Property name</em>}' attribute.
+     * The cached value of the '{@link #getPolicy_name() <em>Policy name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getProperty_name()
+     * @see #getPolicy_name()
      * @generated
      * @ordered
      */
-    protected String property_name = PROPERTY_NAME_EDEFAULT;
+    protected String policy_name = POLICY_NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getType()
      * @generated
      * @ordered
      */
-    protected static final String VALUE_EDEFAULT = null;
+    protected static final String TYPE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getType()
      * @generated
      * @ordered
      */
-    protected String value = VALUE_EDEFAULT;
+    protected String type = TYPE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected PropertyImpl() {
+    protected PolicyImpl() {
         super();
     }
 
@@ -83,7 +83,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      */
     @Override
     protected EClass eStaticClass() {
-        return ToscaPackage.Literals.PROPERTY;
+        return ToscaPackage.Literals.POLICY;
     }
 
     /**
@@ -91,8 +91,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getProperty_name() {
-        return property_name;
+    public String getPolicy_name() {
+        return policy_name;
     }
 
     /**
@@ -100,11 +100,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setProperty_name(String newProperty_name) {
-        String oldProperty_name = property_name;
-        property_name = newProperty_name;
+    public void setPolicy_name(String newPolicy_name) {
+        String oldPolicy_name = policy_name;
+        policy_name = newPolicy_name;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.PROPERTY__PROPERTY_NAME, oldProperty_name, property_name));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.POLICY__POLICY_NAME, oldPolicy_name, policy_name));
     }
 
     /**
@@ -112,8 +112,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue() {
-        return value;
+    public String getType() {
+        return type;
     }
 
     /**
@@ -121,11 +121,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(String newValue) {
-        String oldValue = value;
-        value = newValue;
+    public void setType(String newType) {
+        String oldType = type;
+        type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.PROPERTY__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.POLICY__TYPE, oldType, type));
     }
 
     /**
@@ -136,10 +136,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                return getProperty_name();
-            case ToscaPackage.PROPERTY__VALUE:
-                return getValue();
+            case ToscaPackage.POLICY__POLICY_NAME:
+                return getPolicy_name();
+            case ToscaPackage.POLICY__TYPE:
+                return getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -152,11 +152,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                setProperty_name((String)newValue);
+            case ToscaPackage.POLICY__POLICY_NAME:
+                setPolicy_name((String)newValue);
                 return;
-            case ToscaPackage.PROPERTY__VALUE:
-                setValue((String)newValue);
+            case ToscaPackage.POLICY__TYPE:
+                setType((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -170,11 +170,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                setProperty_name(PROPERTY_NAME_EDEFAULT);
+            case ToscaPackage.POLICY__POLICY_NAME:
+                setPolicy_name(POLICY_NAME_EDEFAULT);
                 return;
-            case ToscaPackage.PROPERTY__VALUE:
-                setValue(VALUE_EDEFAULT);
+            case ToscaPackage.POLICY__TYPE:
+                setType(TYPE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -188,10 +188,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ToscaPackage.PROPERTY__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? property_name != null : !PROPERTY_NAME_EDEFAULT.equals(property_name);
-            case ToscaPackage.PROPERTY__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+            case ToscaPackage.POLICY__POLICY_NAME:
+                return POLICY_NAME_EDEFAULT == null ? policy_name != null : !POLICY_NAME_EDEFAULT.equals(policy_name);
+            case ToscaPackage.POLICY__TYPE:
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
         }
         return super.eIsSet(featureID);
     }
@@ -206,12 +206,12 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (property_name: ");
-        result.append(property_name);
-        result.append(", value: ");
-        result.append(value);
+        result.append(" (policy_name: ");
+        result.append(policy_name);
+        result.append(", type: ");
+        result.append(type);
         result.append(')');
         return result.toString();
     }
 
-} //PropertyImpl
+} //PolicyImpl

@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import tosca.Attribute;
+import tosca.Interface;
+import tosca.Property;
 import tosca.Relationship;
-import tosca.Source_interface;
-import tosca.Target_interface;
 import tosca.ToscaPackage;
 
 /**
@@ -32,10 +33,13 @@ import tosca.ToscaPackage;
  * </p>
  * <ul>
  *   <li>{@link tosca.impl.RelationshipImpl#getType <em>Type</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getValidSource <em>Valid Source</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getValidTarget <em>Valid Target</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getRelation_haSourceInterface <em>Relation ha Source Interface</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getRelation_hasTargetInterface <em>Relation has Target Interface</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getInterfaces <em>Interfaces</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getSourceInterfaces <em>Source Interfaces</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getTargetInterfaces <em>Target Interfaces</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getRelationship_name <em>Relationship name</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,64 +66,94 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
     protected String type = TYPE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getValidSource() <em>Valid Source</em>}' attribute.
+     * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValidSource()
+     * @see #getInterfaces()
      * @generated
      * @ordered
      */
-    protected static final String VALID_SOURCE_EDEFAULT = null;
+    protected EList<Interface> interfaces;
 
     /**
-     * The cached value of the '{@link #getValidSource() <em>Valid Source</em>}' attribute.
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValidSource()
+     * @see #getProperties()
      * @generated
      * @ordered
      */
-    protected String validSource = VALID_SOURCE_EDEFAULT;
+    protected EList<Property> properties;
 
     /**
-     * The default value of the '{@link #getValidTarget() <em>Valid Target</em>}' attribute.
+     * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValidTarget()
+     * @see #getAttributes()
      * @generated
      * @ordered
      */
-    protected static final String VALID_TARGET_EDEFAULT = null;
+    protected EList<Attribute> attributes;
 
     /**
-     * The cached value of the '{@link #getValidTarget() <em>Valid Target</em>}' attribute.
+     * The cached value of the '{@link #getSourceInterfaces() <em>Source Interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValidTarget()
+     * @see #getSourceInterfaces()
      * @generated
      * @ordered
      */
-    protected String validTarget = VALID_TARGET_EDEFAULT;
+    protected EList<Interface> sourceInterfaces;
 
     /**
-     * The cached value of the '{@link #getRelation_haSourceInterface() <em>Relation ha Source Interface</em>}' containment reference list.
+     * The cached value of the '{@link #getTargetInterfaces() <em>Target Interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelation_haSourceInterface()
+     * @see #getTargetInterfaces()
      * @generated
      * @ordered
      */
-    protected EList<Source_interface> relation_haSourceInterface;
+    protected EList<Interface> targetInterfaces;
 
     /**
-     * The cached value of the '{@link #getRelation_hasTargetInterface() <em>Relation has Target Interface</em>}' containment reference list.
+     * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelation_hasTargetInterface()
+     * @see #getTarget()
      * @generated
      * @ordered
      */
-    protected EList<Target_interface> relation_hasTargetInterface;
+    protected static final String TARGET_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTarget()
+     * @generated
+     * @ordered
+     */
+    protected String target = TARGET_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getRelationship_name() <em>Relationship name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelationship_name()
+     * @generated
+     * @ordered
+     */
+    protected static final String RELATIONSHIP_NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getRelationship_name() <em>Relationship name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelationship_name()
+     * @generated
+     * @ordered
+     */
+    protected String relationship_name = RELATIONSHIP_NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -166,53 +200,11 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValidSource() {
-        return validSource;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setValidSource(String newValidSource) {
-        String oldValidSource = validSource;
-        validSource = newValidSource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.RELATIONSHIP__VALID_SOURCE, oldValidSource, validSource));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getValidTarget() {
-        return validTarget;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setValidTarget(String newValidTarget) {
-        String oldValidTarget = validTarget;
-        validTarget = newValidTarget;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.RELATIONSHIP__VALID_TARGET, oldValidTarget, validTarget));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<Source_interface> getRelation_haSourceInterface() {
-        if (relation_haSourceInterface == null) {
-            relation_haSourceInterface = new EObjectContainmentEList<Source_interface>(Source_interface.class, this, ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE);
+    public EList<Interface> getInterfaces() {
+        if (interfaces == null) {
+            interfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__INTERFACES);
         }
-        return relation_haSourceInterface;
+        return interfaces;
     }
 
     /**
@@ -220,11 +212,89 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Target_interface> getRelation_hasTargetInterface() {
-        if (relation_hasTargetInterface == null) {
-            relation_hasTargetInterface = new EObjectContainmentEList<Target_interface>(Target_interface.class, this, ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE);
+    public EList<Property> getProperties() {
+        if (properties == null) {
+            properties = new EObjectContainmentEList<Property>(Property.class, this, ToscaPackage.RELATIONSHIP__PROPERTIES);
         }
-        return relation_hasTargetInterface;
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Attribute> getAttributes() {
+        if (attributes == null) {
+            attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ToscaPackage.RELATIONSHIP__ATTRIBUTES);
+        }
+        return attributes;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Interface> getSourceInterfaces() {
+        if (sourceInterfaces == null) {
+            sourceInterfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES);
+        }
+        return sourceInterfaces;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Interface> getTargetInterfaces() {
+        if (targetInterfaces == null) {
+            targetInterfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__TARGET_INTERFACES);
+        }
+        return targetInterfaces;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTarget() {
+        return target;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTarget(String newTarget) {
+        String oldTarget = target;
+        target = newTarget;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.RELATIONSHIP__TARGET, oldTarget, target));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getRelationship_name() {
+        return relationship_name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRelationship_name(String newRelationship_name) {
+        String oldRelationship_name = relationship_name;
+        relationship_name = newRelationship_name;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME, oldRelationship_name, relationship_name));
     }
 
     /**
@@ -235,10 +305,16 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE:
-                return ((InternalEList<?>)getRelation_haSourceInterface()).basicRemove(otherEnd, msgs);
-            case ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE:
-                return ((InternalEList<?>)getRelation_hasTargetInterface()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.RELATIONSHIP__INTERFACES:
+                return ((InternalEList<?>)getInterfaces()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.RELATIONSHIP__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
+                return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
+                return ((InternalEList<?>)getSourceInterfaces()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
+                return ((InternalEList<?>)getTargetInterfaces()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -253,14 +329,20 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
         switch (featureID) {
             case ToscaPackage.RELATIONSHIP__TYPE:
                 return getType();
-            case ToscaPackage.RELATIONSHIP__VALID_SOURCE:
-                return getValidSource();
-            case ToscaPackage.RELATIONSHIP__VALID_TARGET:
-                return getValidTarget();
-            case ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE:
-                return getRelation_haSourceInterface();
-            case ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE:
-                return getRelation_hasTargetInterface();
+            case ToscaPackage.RELATIONSHIP__INTERFACES:
+                return getInterfaces();
+            case ToscaPackage.RELATIONSHIP__PROPERTIES:
+                return getProperties();
+            case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
+                return getAttributes();
+            case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
+                return getSourceInterfaces();
+            case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
+                return getTargetInterfaces();
+            case ToscaPackage.RELATIONSHIP__TARGET:
+                return getTarget();
+            case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:
+                return getRelationship_name();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -277,19 +359,31 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
             case ToscaPackage.RELATIONSHIP__TYPE:
                 setType((String)newValue);
                 return;
-            case ToscaPackage.RELATIONSHIP__VALID_SOURCE:
-                setValidSource((String)newValue);
+            case ToscaPackage.RELATIONSHIP__INTERFACES:
+                getInterfaces().clear();
+                getInterfaces().addAll((Collection<? extends Interface>)newValue);
                 return;
-            case ToscaPackage.RELATIONSHIP__VALID_TARGET:
-                setValidTarget((String)newValue);
+            case ToscaPackage.RELATIONSHIP__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
                 return;
-            case ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE:
-                getRelation_haSourceInterface().clear();
-                getRelation_haSourceInterface().addAll((Collection<? extends Source_interface>)newValue);
+            case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
+                getAttributes().clear();
+                getAttributes().addAll((Collection<? extends Attribute>)newValue);
                 return;
-            case ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE:
-                getRelation_hasTargetInterface().clear();
-                getRelation_hasTargetInterface().addAll((Collection<? extends Target_interface>)newValue);
+            case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
+                getSourceInterfaces().clear();
+                getSourceInterfaces().addAll((Collection<? extends Interface>)newValue);
+                return;
+            case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
+                getTargetInterfaces().clear();
+                getTargetInterfaces().addAll((Collection<? extends Interface>)newValue);
+                return;
+            case ToscaPackage.RELATIONSHIP__TARGET:
+                setTarget((String)newValue);
+                return;
+            case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:
+                setRelationship_name((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -306,17 +400,26 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
             case ToscaPackage.RELATIONSHIP__TYPE:
                 setType(TYPE_EDEFAULT);
                 return;
-            case ToscaPackage.RELATIONSHIP__VALID_SOURCE:
-                setValidSource(VALID_SOURCE_EDEFAULT);
+            case ToscaPackage.RELATIONSHIP__INTERFACES:
+                getInterfaces().clear();
                 return;
-            case ToscaPackage.RELATIONSHIP__VALID_TARGET:
-                setValidTarget(VALID_TARGET_EDEFAULT);
+            case ToscaPackage.RELATIONSHIP__PROPERTIES:
+                getProperties().clear();
                 return;
-            case ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE:
-                getRelation_haSourceInterface().clear();
+            case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
+                getAttributes().clear();
                 return;
-            case ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE:
-                getRelation_hasTargetInterface().clear();
+            case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
+                getSourceInterfaces().clear();
+                return;
+            case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
+                getTargetInterfaces().clear();
+                return;
+            case ToscaPackage.RELATIONSHIP__TARGET:
+                setTarget(TARGET_EDEFAULT);
+                return;
+            case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:
+                setRelationship_name(RELATIONSHIP_NAME_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -332,14 +435,20 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
         switch (featureID) {
             case ToscaPackage.RELATIONSHIP__TYPE:
                 return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-            case ToscaPackage.RELATIONSHIP__VALID_SOURCE:
-                return VALID_SOURCE_EDEFAULT == null ? validSource != null : !VALID_SOURCE_EDEFAULT.equals(validSource);
-            case ToscaPackage.RELATIONSHIP__VALID_TARGET:
-                return VALID_TARGET_EDEFAULT == null ? validTarget != null : !VALID_TARGET_EDEFAULT.equals(validTarget);
-            case ToscaPackage.RELATIONSHIP__RELATION_HA_SOURCE_INTERFACE:
-                return relation_haSourceInterface != null && !relation_haSourceInterface.isEmpty();
-            case ToscaPackage.RELATIONSHIP__RELATION_HAS_TARGET_INTERFACE:
-                return relation_hasTargetInterface != null && !relation_hasTargetInterface.isEmpty();
+            case ToscaPackage.RELATIONSHIP__INTERFACES:
+                return interfaces != null && !interfaces.isEmpty();
+            case ToscaPackage.RELATIONSHIP__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
+                return attributes != null && !attributes.isEmpty();
+            case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
+                return sourceInterfaces != null && !sourceInterfaces.isEmpty();
+            case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
+                return targetInterfaces != null && !targetInterfaces.isEmpty();
+            case ToscaPackage.RELATIONSHIP__TARGET:
+                return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
+            case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:
+                return RELATIONSHIP_NAME_EDEFAULT == null ? relationship_name != null : !RELATIONSHIP_NAME_EDEFAULT.equals(relationship_name);
         }
         return super.eIsSet(featureID);
     }
@@ -356,10 +465,10 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");
         result.append(type);
-        result.append(", validSource: ");
-        result.append(validSource);
-        result.append(", validTarget: ");
-        result.append(validTarget);
+        result.append(", target: ");
+        result.append(target);
+        result.append(", relationship_name: ");
+        result.append(relationship_name);
         result.append(')');
         return result.toString();
     }

@@ -56,24 +56,20 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ToscaPackage.NODE_TEMPLATE: return createNode_template();
+            case ToscaPackage.NODE_TEMPLATE: return createNodeTemplate();
             case ToscaPackage.INTERFACE: return createInterface();
-            case ToscaPackage.SOURCE_INTERFACE: return createSource_interface();
-            case ToscaPackage.TARGET_INTERFACE: return createTarget_interface();
             case ToscaPackage.RELATIONSHIP: return createRelationship();
-            case ToscaPackage.CONTAINED_IN: return createContained_in();
-            case ToscaPackage.CONNECTED_TO: return createConnected_to();
-            case ToscaPackage.PARAMETER: return createParameter();
             case ToscaPackage.PROPERTY: return createProperty();
             case ToscaPackage.ATTRIBUTE: return createAttribute();
-            case ToscaPackage.INPUT: return createInput();
-            case ToscaPackage.OUTPUT: return createOutput();
             case ToscaPackage.REQUIREMENT: return createRequirement();
             case ToscaPackage.OPERATION: return createOperation();
-            case ToscaPackage.SERVICE_TEMPLATE: return createService_Template();
+            case ToscaPackage.TOPOLOGY_TEMPLATE: return createTopologyTemplate();
             case ToscaPackage.IMPORT: return createImport();
-            case ToscaPackage.INSTANCE: return createinstance();
-            case ToscaPackage.PARAMETERS: return createParameters();
+            case ToscaPackage.GROUP: return createGroup();
+            case ToscaPackage.POLICY: return createPolicy();
+            case ToscaPackage.CAPABILITY: return createCapability();
+            case ToscaPackage.PARAMETER: return createParameter();
+            case ToscaPackage.ARTIFACT: return createArtifact();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -84,9 +80,9 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Node_template createNode_template() {
-        Node_templateImpl node_template = new Node_templateImpl();
-        return node_template;
+    public NodeTemplate createNodeTemplate() {
+        NodeTemplateImpl nodeTemplate = new NodeTemplateImpl();
+        return nodeTemplate;
     }
 
     /**
@@ -104,59 +100,9 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Source_interface createSource_interface() {
-        Source_interfaceImpl source_interface = new Source_interfaceImpl();
-        return source_interface;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Target_interface createTarget_interface() {
-        Target_interfaceImpl target_interface = new Target_interfaceImpl();
-        return target_interface;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public Relationship createRelationship() {
         RelationshipImpl relationship = new RelationshipImpl();
         return relationship;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Contained_in createContained_in() {
-        Contained_inImpl contained_in = new Contained_inImpl();
-        return contained_in;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Connected_to createConnected_to() {
-        Connected_toImpl connected_to = new Connected_toImpl();
-        return connected_to;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Parameter createParameter() {
-        ParameterImpl parameter = new ParameterImpl();
-        return parameter;
     }
 
     /**
@@ -184,26 +130,6 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Input createInput() {
-        InputImpl input = new InputImpl();
-        return input;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Output createOutput() {
-        OutputImpl output = new OutputImpl();
-        return output;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public Requirement createRequirement() {
         RequirementImpl requirement = new RequirementImpl();
         return requirement;
@@ -224,9 +150,9 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Service_Template createService_Template() {
-        Service_TemplateImpl service_Template = new Service_TemplateImpl();
-        return service_Template;
+    public TopologyTemplate createTopologyTemplate() {
+        TopologyTemplateImpl topologyTemplate = new TopologyTemplateImpl();
+        return topologyTemplate;
     }
 
     /**
@@ -244,9 +170,9 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public instance createinstance() {
-        instanceImpl instance = new instanceImpl();
-        return instance;
+    public Group createGroup() {
+        GroupImpl group = new GroupImpl();
+        return group;
     }
 
     /**
@@ -254,9 +180,39 @@ public class ToscaFactoryImpl extends EFactoryImpl implements ToscaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Parameters createParameters() {
-        ParametersImpl parameters = new ParametersImpl();
-        return parameters;
+    public Policy createPolicy() {
+        PolicyImpl policy = new PolicyImpl();
+        return policy;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Capability createCapability() {
+        CapabilityImpl capability = new CapabilityImpl();
+        return capability;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Parameter createParameter() {
+        ParameterImpl parameter = new ParameterImpl();
+        return parameter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Artifact createArtifact() {
+        ArtifactImpl artifact = new ArtifactImpl();
+        return artifact;
     }
 
     /**

@@ -2,8 +2,6 @@
  */
 package tosca;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,12 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link tosca.Requirement#getRequirement_name <em>Requirement name</em>}</li>
  *   <li>{@link tosca.Requirement#getNode <em>Node</em>}</li>
- *   <li>{@link tosca.Requirement#getCapability_Type_name <em>Capability Type name</em>}</li>
- *   <li>{@link tosca.Requirement#getOccurances <em>Occurances</em>}</li>
+ *   <li>{@link tosca.Requirement#getCapabiity <em>Capabiity</em>}</li>
  * </ul>
  *
  * @see tosca.ToscaPackage#getRequirement()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='A Requirement describes a dependency of a TOSCA Node Type or Node template which needs to be fulfilled by a matching Capability declared by another TOSCA modelable entity. \nFor the accurate description refer to the TOSCA standard document \\cite{toscayaml}\n'"
  * @generated
  */
 public interface Requirement extends EObject {
@@ -37,7 +34,7 @@ public interface Requirement extends EObject {
      * @return the value of the '<em>Requirement name</em>' attribute.
      * @see #setRequirement_name(String)
      * @see tosca.ToscaPackage#getRequirement_Requirement_name()
-     * @model
+     * @model id="true" required="true"
      * @generated
      */
     String getRequirement_name();
@@ -79,45 +76,29 @@ public interface Requirement extends EObject {
     void setNode(String value);
 
     /**
-     * Returns the value of the '<em><b>Capability Type name</b></em>' attribute.
+     * Returns the value of the '<em><b>Capabiity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Capability Type name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Capabiity</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Capability Type name</em>' attribute.
-     * @see #setCapability_Type_name(String)
-     * @see tosca.ToscaPackage#getRequirement_Capability_Type_name()
-     * @model
+     * @return the value of the '<em>Capabiity</em>' attribute.
+     * @see #setCapabiity(String)
+     * @see tosca.ToscaPackage#getRequirement_Capabiity()
+     * @model required="true"
      * @generated
      */
-    String getCapability_Type_name();
+    String getCapabiity();
 
     /**
-     * Sets the value of the '{@link tosca.Requirement#getCapability_Type_name <em>Capability Type name</em>}' attribute.
+     * Sets the value of the '{@link tosca.Requirement#getCapabiity <em>Capabiity</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Capability Type name</em>' attribute.
-     * @see #getCapability_Type_name()
+     * @param value the new value of the '<em>Capabiity</em>' attribute.
+     * @see #getCapabiity()
      * @generated
      */
-    void setCapability_Type_name(String value);
-
-    /**
-     * Returns the value of the '<em><b>Occurances</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Occurances</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Occurances</em>' attribute list.
-     * @see tosca.ToscaPackage#getRequirement_Occurances()
-     * @model upper="2"
-     * @generated
-     */
-    EList<String> getOccurances();
+    void setCapabiity(String value);
 
 } // Requirement

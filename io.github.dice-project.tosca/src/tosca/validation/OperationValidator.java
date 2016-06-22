@@ -6,7 +6,7 @@ package tosca.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import tosca.Input;
+import tosca.Property;
 
 /**
  * A sample validator interface for {@link tosca.Operation}.
@@ -19,7 +19,7 @@ public interface OperationValidator {
 
     boolean validateOperation_name(String value);
     boolean validateDescription(String value);
-    boolean validateOperation_hasInput(EList<Input> value);
-    boolean validateScript(String value);
-    boolean validateExecutor(String value);
+    boolean validateInputs(EList<Property> value);
+    boolean validateDependentArtifacts(EList<String> value);
+    boolean validatePrimary(String value);
 }

@@ -2,18 +2,12 @@
  */
 package tosca.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import tosca.Requirement;
 import tosca.ToscaPackage;
@@ -28,8 +22,7 @@ import tosca.ToscaPackage;
  * <ul>
  *   <li>{@link tosca.impl.RequirementImpl#getRequirement_name <em>Requirement name</em>}</li>
  *   <li>{@link tosca.impl.RequirementImpl#getNode <em>Node</em>}</li>
- *   <li>{@link tosca.impl.RequirementImpl#getCapability_Type_name <em>Capability Type name</em>}</li>
- *   <li>{@link tosca.impl.RequirementImpl#getOccurances <em>Occurances</em>}</li>
+ *   <li>{@link tosca.impl.RequirementImpl#getCapabiity <em>Capabiity</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,34 +69,24 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
     protected String node = NODE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getCapability_Type_name() <em>Capability Type name</em>}' attribute.
+     * The default value of the '{@link #getCapabiity() <em>Capabiity</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getCapability_Type_name()
+     * @see #getCapabiity()
      * @generated
      * @ordered
      */
-    protected static final String CAPABILITY_TYPE_NAME_EDEFAULT = null;
+    protected static final String CAPABIITY_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCapability_Type_name() <em>Capability Type name</em>}' attribute.
+     * The cached value of the '{@link #getCapabiity() <em>Capabiity</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getCapability_Type_name()
+     * @see #getCapabiity()
      * @generated
      * @ordered
      */
-    protected String capability_Type_name = CAPABILITY_TYPE_NAME_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getOccurances() <em>Occurances</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getOccurances()
-     * @generated
-     * @ordered
-     */
-    protected EList<String> occurances;
+    protected String capabiity = CAPABIITY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -171,8 +154,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getCapability_Type_name() {
-        return capability_Type_name;
+    public String getCapabiity() {
+        return capabiity;
     }
 
     /**
@@ -180,23 +163,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCapability_Type_name(String newCapability_Type_name) {
-        String oldCapability_Type_name = capability_Type_name;
-        capability_Type_name = newCapability_Type_name;
+    public void setCapabiity(String newCapabiity) {
+        String oldCapabiity = capabiity;
+        capabiity = newCapabiity;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.REQUIREMENT__CAPABILITY_TYPE_NAME, oldCapability_Type_name, capability_Type_name));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<String> getOccurances() {
-        if (occurances == null) {
-            occurances = new EDataTypeUniqueEList<String>(String.class, this, ToscaPackage.REQUIREMENT__OCCURANCES);
-        }
-        return occurances;
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.REQUIREMENT__CAPABIITY, oldCapabiity, capabiity));
     }
 
     /**
@@ -211,10 +182,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
                 return getRequirement_name();
             case ToscaPackage.REQUIREMENT__NODE:
                 return getNode();
-            case ToscaPackage.REQUIREMENT__CAPABILITY_TYPE_NAME:
-                return getCapability_Type_name();
-            case ToscaPackage.REQUIREMENT__OCCURANCES:
-                return getOccurances();
+            case ToscaPackage.REQUIREMENT__CAPABIITY:
+                return getCapabiity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -224,7 +193,6 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -234,12 +202,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
             case ToscaPackage.REQUIREMENT__NODE:
                 setNode((String)newValue);
                 return;
-            case ToscaPackage.REQUIREMENT__CAPABILITY_TYPE_NAME:
-                setCapability_Type_name((String)newValue);
-                return;
-            case ToscaPackage.REQUIREMENT__OCCURANCES:
-                getOccurances().clear();
-                getOccurances().addAll((Collection<? extends String>)newValue);
+            case ToscaPackage.REQUIREMENT__CAPABIITY:
+                setCapabiity((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -259,11 +223,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
             case ToscaPackage.REQUIREMENT__NODE:
                 setNode(NODE_EDEFAULT);
                 return;
-            case ToscaPackage.REQUIREMENT__CAPABILITY_TYPE_NAME:
-                setCapability_Type_name(CAPABILITY_TYPE_NAME_EDEFAULT);
-                return;
-            case ToscaPackage.REQUIREMENT__OCCURANCES:
-                getOccurances().clear();
+            case ToscaPackage.REQUIREMENT__CAPABIITY:
+                setCapabiity(CAPABIITY_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -281,10 +242,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
                 return REQUIREMENT_NAME_EDEFAULT == null ? requirement_name != null : !REQUIREMENT_NAME_EDEFAULT.equals(requirement_name);
             case ToscaPackage.REQUIREMENT__NODE:
                 return NODE_EDEFAULT == null ? node != null : !NODE_EDEFAULT.equals(node);
-            case ToscaPackage.REQUIREMENT__CAPABILITY_TYPE_NAME:
-                return CAPABILITY_TYPE_NAME_EDEFAULT == null ? capability_Type_name != null : !CAPABILITY_TYPE_NAME_EDEFAULT.equals(capability_Type_name);
-            case ToscaPackage.REQUIREMENT__OCCURANCES:
-                return occurances != null && !occurances.isEmpty();
+            case ToscaPackage.REQUIREMENT__CAPABIITY:
+                return CAPABIITY_EDEFAULT == null ? capabiity != null : !CAPABIITY_EDEFAULT.equals(capabiity);
         }
         return super.eIsSet(featureID);
     }
@@ -303,10 +262,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
         result.append(requirement_name);
         result.append(", node: ");
         result.append(node);
-        result.append(", capability_Type_name: ");
-        result.append(capability_Type_name);
-        result.append(", occurances: ");
-        result.append(occurances);
+        result.append(", capabiity: ");
+        result.append(capabiity);
         result.append(')');
         return result.toString();
     }

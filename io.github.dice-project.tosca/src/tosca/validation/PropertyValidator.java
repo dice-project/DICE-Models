@@ -4,9 +4,6 @@
  */
 package tosca.validation;
 
-import org.eclipse.emf.common.util.EList;
-
-import tosca.Parameters;
 
 /**
  * A sample validator interface for {@link tosca.Property}.
@@ -18,5 +15,5 @@ public interface PropertyValidator {
     boolean validate();
 
     boolean validateProperty_name(String value);
-    boolean validateProperty_hasParameters(EList<Parameters> value);
+    boolean validateValue(String value);
 }

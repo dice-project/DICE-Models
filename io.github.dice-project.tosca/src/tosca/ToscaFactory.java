@@ -22,13 +22,13 @@ public interface ToscaFactory extends EFactory {
     ToscaFactory eINSTANCE = tosca.impl.ToscaFactoryImpl.init();
 
     /**
-     * Returns a new object of class '<em>Node template</em>'.
+     * Returns a new object of class '<em>Node Template</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Node template</em>'.
+     * @return a new object of class '<em>Node Template</em>'.
      * @generated
      */
-    Node_template createNode_template();
+    NodeTemplate createNodeTemplate();
 
     /**
      * Returns a new object of class '<em>Interface</em>'.
@@ -40,24 +40,6 @@ public interface ToscaFactory extends EFactory {
     Interface createInterface();
 
     /**
-     * Returns a new object of class '<em>Source interface</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Source interface</em>'.
-     * @generated
-     */
-    Source_interface createSource_interface();
-
-    /**
-     * Returns a new object of class '<em>Target interface</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Target interface</em>'.
-     * @generated
-     */
-    Target_interface createTarget_interface();
-
-    /**
      * Returns a new object of class '<em>Relationship</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -65,33 +47,6 @@ public interface ToscaFactory extends EFactory {
      * @generated
      */
     Relationship createRelationship();
-
-    /**
-     * Returns a new object of class '<em>Contained in</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Contained in</em>'.
-     * @generated
-     */
-    Contained_in createContained_in();
-
-    /**
-     * Returns a new object of class '<em>Connected to</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Connected to</em>'.
-     * @generated
-     */
-    Connected_to createConnected_to();
-
-    /**
-     * Returns a new object of class '<em>Parameter</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Parameter</em>'.
-     * @generated
-     */
-    Parameter createParameter();
 
     /**
      * Returns a new object of class '<em>Property</em>'.
@@ -112,24 +67,6 @@ public interface ToscaFactory extends EFactory {
     Attribute createAttribute();
 
     /**
-     * Returns a new object of class '<em>Input</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Input</em>'.
-     * @generated
-     */
-    Input createInput();
-
-    /**
-     * Returns a new object of class '<em>Output</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Output</em>'.
-     * @generated
-     */
-    Output createOutput();
-
-    /**
      * Returns a new object of class '<em>Requirement</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -148,13 +85,13 @@ public interface ToscaFactory extends EFactory {
     Operation createOperation();
 
     /**
-     * Returns a new object of class '<em>Service Template</em>'.
+     * Returns a new object of class '<em>Topology Template</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Service Template</em>'.
+     * @return a new object of class '<em>Topology Template</em>'.
      * @generated
      */
-    Service_Template createService_Template();
+    TopologyTemplate createTopologyTemplate();
 
     /**
      * Returns a new object of class '<em>Import</em>'.
@@ -166,22 +103,49 @@ public interface ToscaFactory extends EFactory {
     Import createImport();
 
     /**
-     * Returns a new object of class '<em>instance</em>'.
+     * Returns a new object of class '<em>Group</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>instance</em>'.
+     * @return a new object of class '<em>Group</em>'.
      * @generated
      */
-    instance createinstance();
+    Group createGroup();
 
     /**
-     * Returns a new object of class '<em>Parameters</em>'.
+     * Returns a new object of class '<em>Policy</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Parameters</em>'.
+     * @return a new object of class '<em>Policy</em>'.
      * @generated
      */
-    Parameters createParameters();
+    Policy createPolicy();
+
+    /**
+     * Returns a new object of class '<em>Capability</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Capability</em>'.
+     * @generated
+     */
+    Capability createCapability();
+
+    /**
+     * Returns a new object of class '<em>Parameter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Parameter</em>'.
+     * @generated
+     */
+    Parameter createParameter();
+
+    /**
+     * Returns a new object of class '<em>Artifact</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Artifact</em>'.
+     * @generated
+     */
+    Artifact createArtifact();
 
     /**
      * Returns the package supported by this factory.

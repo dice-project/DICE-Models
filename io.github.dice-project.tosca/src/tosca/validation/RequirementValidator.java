@@ -4,7 +4,6 @@
  */
 package tosca.validation;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link tosca.Requirement}.
@@ -17,6 +16,5 @@ public interface RequirementValidator {
 
     boolean validateRequirement_name(String value);
     boolean validateNode(String value);
-    boolean validateCapability_Type_name(String value);
-    boolean validateOccurances(EList<String> value);
+    boolean validateCapabiity(String value);
 }

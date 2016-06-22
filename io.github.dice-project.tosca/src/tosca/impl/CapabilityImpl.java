@@ -15,51 +15,51 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tosca.Operation;
+import tosca.Attribute;
+import tosca.Capability;
 import tosca.Property;
 import tosca.ToscaPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Operation</b></em>'.
+ * An implementation of the model object '<em><b>Capability</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tosca.impl.OperationImpl#getOperation_name <em>Operation name</em>}</li>
- *   <li>{@link tosca.impl.OperationImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link tosca.impl.OperationImpl#getInputs <em>Inputs</em>}</li>
- *   <li>{@link tosca.impl.OperationImpl#getDependentArtifacts <em>Dependent Artifacts</em>}</li>
- *   <li>{@link tosca.impl.OperationImpl#getPrimary <em>Primary</em>}</li>
+ *   <li>{@link tosca.impl.CapabilityImpl#getType <em>Type</em>}</li>
+ *   <li>{@link tosca.impl.CapabilityImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link tosca.impl.CapabilityImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link tosca.impl.CapabilityImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link tosca.impl.CapabilityImpl#getCapability_name <em>Capability name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OperationImpl extends MinimalEObjectImpl.Container implements Operation {
+public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capability {
     /**
-     * The default value of the '{@link #getOperation_name() <em>Operation name</em>}' attribute.
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getOperation_name()
+     * @see #getType()
      * @generated
      * @ordered
      */
-    protected static final String OPERATION_NAME_EDEFAULT = null;
+    protected static final String TYPE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getOperation_name() <em>Operation name</em>}' attribute.
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getOperation_name()
+     * @see #getType()
      * @generated
      * @ordered
      */
-    protected String operation_name = OPERATION_NAME_EDEFAULT;
+    protected String type = TYPE_EDEFAULT;
 
     /**
      * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -82,51 +82,51 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     protected String description = DESCRIPTION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getInputs()
+     * @see #getProperties()
      * @generated
      * @ordered
      */
-    protected EList<Property> inputs;
+    protected EList<Property> properties;
 
     /**
-     * The cached value of the '{@link #getDependentArtifacts() <em>Dependent Artifacts</em>}' attribute list.
+     * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDependentArtifacts()
+     * @see #getAttributes()
      * @generated
      * @ordered
      */
-    protected EList<String> dependentArtifacts;
+    protected EList<Attribute> attributes;
 
     /**
-     * The default value of the '{@link #getPrimary() <em>Primary</em>}' attribute.
+     * The default value of the '{@link #getCapability_name() <em>Capability name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPrimary()
+     * @see #getCapability_name()
      * @generated
      * @ordered
      */
-    protected static final String PRIMARY_EDEFAULT = null;
+    protected static final String CAPABILITY_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPrimary() <em>Primary</em>}' attribute.
+     * The cached value of the '{@link #getCapability_name() <em>Capability name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPrimary()
+     * @see #getCapability_name()
      * @generated
      * @ordered
      */
-    protected String primary = PRIMARY_EDEFAULT;
+    protected String capability_name = CAPABILITY_NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OperationImpl() {
+    protected CapabilityImpl() {
         super();
     }
 
@@ -137,7 +137,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      */
     @Override
     protected EClass eStaticClass() {
-        return ToscaPackage.Literals.OPERATION;
+        return ToscaPackage.Literals.CAPABILITY;
     }
 
     /**
@@ -145,8 +145,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOperation_name() {
-        return operation_name;
+    public String getType() {
+        return type;
     }
 
     /**
@@ -154,11 +154,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOperation_name(String newOperation_name) {
-        String oldOperation_name = operation_name;
-        operation_name = newOperation_name;
+    public void setType(String newType) {
+        String oldType = type;
+        type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.OPERATION__OPERATION_NAME, oldOperation_name, operation_name));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.CAPABILITY__TYPE, oldType, type));
     }
 
     /**
@@ -179,7 +179,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
         String oldDescription = description;
         description = newDescription;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.OPERATION__DESCRIPTION, oldDescription, description));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.CAPABILITY__DESCRIPTION, oldDescription, description));
     }
 
     /**
@@ -187,11 +187,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Property> getInputs() {
-        if (inputs == null) {
-            inputs = new EObjectContainmentEList<Property>(Property.class, this, ToscaPackage.OPERATION__INPUTS);
+    public EList<Property> getProperties() {
+        if (properties == null) {
+            properties = new EObjectContainmentEList<Property>(Property.class, this, ToscaPackage.CAPABILITY__PROPERTIES);
         }
-        return inputs;
+        return properties;
     }
 
     /**
@@ -199,11 +199,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getDependentArtifacts() {
-        if (dependentArtifacts == null) {
-            dependentArtifacts = new EDataTypeUniqueEList<String>(String.class, this, ToscaPackage.OPERATION__DEPENDENT_ARTIFACTS);
+    public EList<Attribute> getAttributes() {
+        if (attributes == null) {
+            attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ToscaPackage.CAPABILITY__ATTRIBUTES);
         }
-        return dependentArtifacts;
+        return attributes;
     }
 
     /**
@@ -211,8 +211,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getPrimary() {
-        return primary;
+    public String getCapability_name() {
+        return capability_name;
     }
 
     /**
@@ -220,11 +220,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPrimary(String newPrimary) {
-        String oldPrimary = primary;
-        primary = newPrimary;
+    public void setCapability_name(String newCapability_name) {
+        String oldCapability_name = capability_name;
+        capability_name = newCapability_name;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.OPERATION__PRIMARY, oldPrimary, primary));
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.CAPABILITY__CAPABILITY_NAME, oldCapability_name, capability_name));
     }
 
     /**
@@ -235,8 +235,10 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ToscaPackage.OPERATION__INPUTS:
-                return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.CAPABILITY__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.CAPABILITY__ATTRIBUTES:
+                return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -249,16 +251,16 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ToscaPackage.OPERATION__OPERATION_NAME:
-                return getOperation_name();
-            case ToscaPackage.OPERATION__DESCRIPTION:
+            case ToscaPackage.CAPABILITY__TYPE:
+                return getType();
+            case ToscaPackage.CAPABILITY__DESCRIPTION:
                 return getDescription();
-            case ToscaPackage.OPERATION__INPUTS:
-                return getInputs();
-            case ToscaPackage.OPERATION__DEPENDENT_ARTIFACTS:
-                return getDependentArtifacts();
-            case ToscaPackage.OPERATION__PRIMARY:
-                return getPrimary();
+            case ToscaPackage.CAPABILITY__PROPERTIES:
+                return getProperties();
+            case ToscaPackage.CAPABILITY__ATTRIBUTES:
+                return getAttributes();
+            case ToscaPackage.CAPABILITY__CAPABILITY_NAME:
+                return getCapability_name();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -272,22 +274,22 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ToscaPackage.OPERATION__OPERATION_NAME:
-                setOperation_name((String)newValue);
+            case ToscaPackage.CAPABILITY__TYPE:
+                setType((String)newValue);
                 return;
-            case ToscaPackage.OPERATION__DESCRIPTION:
+            case ToscaPackage.CAPABILITY__DESCRIPTION:
                 setDescription((String)newValue);
                 return;
-            case ToscaPackage.OPERATION__INPUTS:
-                getInputs().clear();
-                getInputs().addAll((Collection<? extends Property>)newValue);
+            case ToscaPackage.CAPABILITY__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
                 return;
-            case ToscaPackage.OPERATION__DEPENDENT_ARTIFACTS:
-                getDependentArtifacts().clear();
-                getDependentArtifacts().addAll((Collection<? extends String>)newValue);
+            case ToscaPackage.CAPABILITY__ATTRIBUTES:
+                getAttributes().clear();
+                getAttributes().addAll((Collection<? extends Attribute>)newValue);
                 return;
-            case ToscaPackage.OPERATION__PRIMARY:
-                setPrimary((String)newValue);
+            case ToscaPackage.CAPABILITY__CAPABILITY_NAME:
+                setCapability_name((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -301,20 +303,20 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ToscaPackage.OPERATION__OPERATION_NAME:
-                setOperation_name(OPERATION_NAME_EDEFAULT);
+            case ToscaPackage.CAPABILITY__TYPE:
+                setType(TYPE_EDEFAULT);
                 return;
-            case ToscaPackage.OPERATION__DESCRIPTION:
+            case ToscaPackage.CAPABILITY__DESCRIPTION:
                 setDescription(DESCRIPTION_EDEFAULT);
                 return;
-            case ToscaPackage.OPERATION__INPUTS:
-                getInputs().clear();
+            case ToscaPackage.CAPABILITY__PROPERTIES:
+                getProperties().clear();
                 return;
-            case ToscaPackage.OPERATION__DEPENDENT_ARTIFACTS:
-                getDependentArtifacts().clear();
+            case ToscaPackage.CAPABILITY__ATTRIBUTES:
+                getAttributes().clear();
                 return;
-            case ToscaPackage.OPERATION__PRIMARY:
-                setPrimary(PRIMARY_EDEFAULT);
+            case ToscaPackage.CAPABILITY__CAPABILITY_NAME:
+                setCapability_name(CAPABILITY_NAME_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -328,16 +330,16 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ToscaPackage.OPERATION__OPERATION_NAME:
-                return OPERATION_NAME_EDEFAULT == null ? operation_name != null : !OPERATION_NAME_EDEFAULT.equals(operation_name);
-            case ToscaPackage.OPERATION__DESCRIPTION:
+            case ToscaPackage.CAPABILITY__TYPE:
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+            case ToscaPackage.CAPABILITY__DESCRIPTION:
                 return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-            case ToscaPackage.OPERATION__INPUTS:
-                return inputs != null && !inputs.isEmpty();
-            case ToscaPackage.OPERATION__DEPENDENT_ARTIFACTS:
-                return dependentArtifacts != null && !dependentArtifacts.isEmpty();
-            case ToscaPackage.OPERATION__PRIMARY:
-                return PRIMARY_EDEFAULT == null ? primary != null : !PRIMARY_EDEFAULT.equals(primary);
+            case ToscaPackage.CAPABILITY__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case ToscaPackage.CAPABILITY__ATTRIBUTES:
+                return attributes != null && !attributes.isEmpty();
+            case ToscaPackage.CAPABILITY__CAPABILITY_NAME:
+                return CAPABILITY_NAME_EDEFAULT == null ? capability_name != null : !CAPABILITY_NAME_EDEFAULT.equals(capability_name);
         }
         return super.eIsSet(featureID);
     }
@@ -352,16 +354,14 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (operation_name: ");
-        result.append(operation_name);
+        result.append(" (type: ");
+        result.append(type);
         result.append(", description: ");
         result.append(description);
-        result.append(", dependentArtifacts: ");
-        result.append(dependentArtifacts);
-        result.append(", primary: ");
-        result.append(primary);
+        result.append(", capability_name: ");
+        result.append(capability_name);
         result.append(')');
         return result.toString();
     }
 
-} //OperationImpl
+} //CapabilityImpl

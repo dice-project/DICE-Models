@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see tosca.ToscaPackage#getImport()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='An import is used to locate and uniquely name another TOSCA file which has type and template definitions to be imported (included) and referenced.\nFor the accurate description refer to the TOSCA standard document \\cite{toscayaml}\n'"
  * @generated
  */
 public interface Import extends EObject {
@@ -62,7 +62,7 @@ public interface Import extends EObject {
      * @return the value of the '<em>File</em>' attribute.
      * @see #setFile(String)
      * @see tosca.ToscaPackage#getImport_File()
-     * @model
+     * @model required="true"
      * @generated
      */
     String getFile();

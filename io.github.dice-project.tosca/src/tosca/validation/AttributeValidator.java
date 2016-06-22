@@ -14,4 +14,5 @@ package tosca.validation;
 public interface AttributeValidator {
     boolean validate();
 
+    boolean validateAttribute_name(String value);
 }

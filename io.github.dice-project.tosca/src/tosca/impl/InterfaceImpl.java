@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tosca.Input;
 import tosca.Interface;
 import tosca.Operation;
+import tosca.Property;
 import tosca.ToscaPackage;
 
 /**
@@ -32,8 +32,9 @@ import tosca.ToscaPackage;
  * </p>
  * <ul>
  *   <li>{@link tosca.impl.InterfaceImpl#getInterface_name <em>Interface name</em>}</li>
- *   <li>{@link tosca.impl.InterfaceImpl#getHasOperation <em>Has Operation</em>}</li>
- *   <li>{@link tosca.impl.InterfaceImpl#getInterface_hasInput <em>Interface has Input</em>}</li>
+ *   <li>{@link tosca.impl.InterfaceImpl#getOperations <em>Operations</em>}</li>
+ *   <li>{@link tosca.impl.InterfaceImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link tosca.impl.InterfaceImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,24 +61,44 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
     protected String interface_name = INTERFACE_NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getHasOperation() <em>Has Operation</em>}' containment reference list.
+     * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHasOperation()
+     * @see #getOperations()
      * @generated
      * @ordered
      */
-    protected EList<Operation> hasOperation;
+    protected EList<Operation> operations;
 
     /**
-     * The cached value of the '{@link #getInterface_hasInput() <em>Interface has Input</em>}' containment reference list.
+     * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getInterface_hasInput()
+     * @see #getInputs()
      * @generated
      * @ordered
      */
-    protected EList<Input> interface_hasInput;
+    protected EList<Property> inputs;
+
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final String TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected String type = TYPE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -124,11 +145,11 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Operation> getHasOperation() {
-        if (hasOperation == null) {
-            hasOperation = new EObjectContainmentEList<Operation>(Operation.class, this, ToscaPackage.INTERFACE__HAS_OPERATION);
+    public EList<Operation> getOperations() {
+        if (operations == null) {
+            operations = new EObjectContainmentEList<Operation>(Operation.class, this, ToscaPackage.INTERFACE__OPERATIONS);
         }
-        return hasOperation;
+        return operations;
     }
 
     /**
@@ -136,11 +157,32 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Input> getInterface_hasInput() {
-        if (interface_hasInput == null) {
-            interface_hasInput = new EObjectContainmentEList<Input>(Input.class, this, ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT);
+    public EList<Property> getInputs() {
+        if (inputs == null) {
+            inputs = new EObjectContainmentEList<Property>(Property.class, this, ToscaPackage.INTERFACE__INPUTS);
         }
-        return interface_hasInput;
+        return inputs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setType(String newType) {
+        String oldType = type;
+        type = newType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ToscaPackage.INTERFACE__TYPE, oldType, type));
     }
 
     /**
@@ -151,10 +193,10 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ToscaPackage.INTERFACE__HAS_OPERATION:
-                return ((InternalEList<?>)getHasOperation()).basicRemove(otherEnd, msgs);
-            case ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT:
-                return ((InternalEList<?>)getInterface_hasInput()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.INTERFACE__OPERATIONS:
+                return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
+            case ToscaPackage.INTERFACE__INPUTS:
+                return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -169,10 +211,12 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
         switch (featureID) {
             case ToscaPackage.INTERFACE__INTERFACE_NAME:
                 return getInterface_name();
-            case ToscaPackage.INTERFACE__HAS_OPERATION:
-                return getHasOperation();
-            case ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT:
-                return getInterface_hasInput();
+            case ToscaPackage.INTERFACE__OPERATIONS:
+                return getOperations();
+            case ToscaPackage.INTERFACE__INPUTS:
+                return getInputs();
+            case ToscaPackage.INTERFACE__TYPE:
+                return getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -189,13 +233,16 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
             case ToscaPackage.INTERFACE__INTERFACE_NAME:
                 setInterface_name((String)newValue);
                 return;
-            case ToscaPackage.INTERFACE__HAS_OPERATION:
-                getHasOperation().clear();
-                getHasOperation().addAll((Collection<? extends Operation>)newValue);
+            case ToscaPackage.INTERFACE__OPERATIONS:
+                getOperations().clear();
+                getOperations().addAll((Collection<? extends Operation>)newValue);
                 return;
-            case ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT:
-                getInterface_hasInput().clear();
-                getInterface_hasInput().addAll((Collection<? extends Input>)newValue);
+            case ToscaPackage.INTERFACE__INPUTS:
+                getInputs().clear();
+                getInputs().addAll((Collection<? extends Property>)newValue);
+                return;
+            case ToscaPackage.INTERFACE__TYPE:
+                setType((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -212,11 +259,14 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
             case ToscaPackage.INTERFACE__INTERFACE_NAME:
                 setInterface_name(INTERFACE_NAME_EDEFAULT);
                 return;
-            case ToscaPackage.INTERFACE__HAS_OPERATION:
-                getHasOperation().clear();
+            case ToscaPackage.INTERFACE__OPERATIONS:
+                getOperations().clear();
                 return;
-            case ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT:
-                getInterface_hasInput().clear();
+            case ToscaPackage.INTERFACE__INPUTS:
+                getInputs().clear();
+                return;
+            case ToscaPackage.INTERFACE__TYPE:
+                setType(TYPE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -232,10 +282,12 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
         switch (featureID) {
             case ToscaPackage.INTERFACE__INTERFACE_NAME:
                 return INTERFACE_NAME_EDEFAULT == null ? interface_name != null : !INTERFACE_NAME_EDEFAULT.equals(interface_name);
-            case ToscaPackage.INTERFACE__HAS_OPERATION:
-                return hasOperation != null && !hasOperation.isEmpty();
-            case ToscaPackage.INTERFACE__INTERFACE_HAS_INPUT:
-                return interface_hasInput != null && !interface_hasInput.isEmpty();
+            case ToscaPackage.INTERFACE__OPERATIONS:
+                return operations != null && !operations.isEmpty();
+            case ToscaPackage.INTERFACE__INPUTS:
+                return inputs != null && !inputs.isEmpty();
+            case ToscaPackage.INTERFACE__TYPE:
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
         }
         return super.eIsSet(featureID);
     }
@@ -252,6 +304,8 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (interface_name: ");
         result.append(interface_name);
+        result.append(", type: ");
+        result.append(type);
         result.append(')');
         return result.toString();
     }
