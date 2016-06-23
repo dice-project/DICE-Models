@@ -4,6 +4,7 @@
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>sample_ddsm.xmi</semanticResources>
   <semanticResources>sample_tosca.xmi</semanticResources>
+  <semanticResources>ddsm.genmodel</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_IsbQgDO5EeaZAvb3skSphQ">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_Kq6WcDO5EeaZAvb3skSphQ" name="ddsm class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Kq6WcTO5EeaZAvb3skSphQ" source="DANNOTATION_CUSTOMIZATION_KEY">

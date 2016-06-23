@@ -20,5 +20,6 @@ public interface CloudElementValidator {
 
     boolean validateResource(EList<Resource> value);
     boolean validateProperty(EList<Property> value);
-    boolean validateCloudElementId(String value);
+    boolean validateElementId(String value);
+    boolean validateDescription(String value);
 }

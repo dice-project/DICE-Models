@@ -5,7 +5,6 @@
 package ddsm.validation;
 
 import ddsm.CloudElement;
-import ddsm.Provider;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -19,7 +18,6 @@ public interface DDSMValidator {
     boolean validate();
 
     boolean validateCloudelement(EList<CloudElement> value);
-    boolean validateProvider(EList<Provider> value);
-    boolean validateName(String value);
     boolean validateModelId(String value);
+    boolean validateDescription(String value);
 }

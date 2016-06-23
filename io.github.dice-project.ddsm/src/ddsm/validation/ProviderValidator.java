@@ -4,9 +4,7 @@
  */
 package ddsm.validation;
 
-import ddsm.Property;
-
-import org.eclipse.emf.common.util.EList;
+import ddsm.ProviderType;
 
 /**
  * A sample validator interface for {@link ddsm.Provider}.
@@ -18,7 +16,5 @@ public interface ProviderValidator {
     boolean validate();
 
     boolean validateCredentialsPath(String value);
-    boolean validateName(String value);
-    boolean validateProperty(EList<Property> value);
-    boolean validateProviderId(String value);
+    boolean validateType(ProviderType value);
 }

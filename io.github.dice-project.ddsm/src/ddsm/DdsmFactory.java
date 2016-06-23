@@ -22,15 +22,6 @@ public interface DdsmFactory extends EFactory {
     DdsmFactory eINSTANCE = ddsm.impl.DdsmFactoryImpl.init();
 
     /**
-     * Returns a new object of class '<em>Cloud Element</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Cloud Element</em>'.
-     * @generated
-     */
-    CloudElement createCloudElement();
-
-    /**
      * Returns a new object of class '<em>Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -49,15 +40,6 @@ public interface DdsmFactory extends EFactory {
     Resource createResource();
 
     /**
-     * Returns a new object of class '<em>Component</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Component</em>'.
-     * @generated
-     */
-    Component createComponent();
-
-    /**
      * Returns a new object of class '<em>Internal Component</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -65,24 +47,6 @@ public interface DdsmFactory extends EFactory {
      * @generated
      */
     InternalComponent createInternalComponent();
-
-    /**
-     * Returns a new object of class '<em>Execution Platform</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Execution Platform</em>'.
-     * @generated
-     */
-    ExecutionPlatform createExecutionPlatform();
-
-    /**
-     * Returns a new object of class '<em>Port</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Port</em>'.
-     * @generated
-     */
-    Port createPort();
 
     /**
      * Returns a new object of class '<em>Required Port</em>'.
@@ -184,24 +148,6 @@ public interface DdsmFactory extends EFactory {
     LifeCycle createLifeCycle();
 
     /**
-     * Returns a new object of class '<em>Chef Recipe</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Chef Recipe</em>'.
-     * @generated
-     */
-    ChefRecipe createChefRecipe();
-
-    /**
-     * Returns a new object of class '<em>Offer</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Offer</em>'.
-     * @generated
-     */
-    Offer createOffer();
-
-    /**
      * Returns a new object of class '<em>Storm Supervisor</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -209,33 +155,6 @@ public interface DdsmFactory extends EFactory {
      * @generated
      */
     StormSupervisor createStormSupervisor();
-
-    /**
-     * Returns a new object of class '<em>Medium Host</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Medium Host</em>'.
-     * @generated
-     */
-    MediumHost createMediumHost();
-
-    /**
-     * Returns a new object of class '<em>Small Host</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Small Host</em>'.
-     * @generated
-     */
-    SmallHost createSmallHost();
-
-    /**
-     * Returns a new object of class '<em>Large Host</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Large Host</em>'.
-     * @generated
-     */
-    LargeHost createLargeHost();
 
     /**
      * Returns a new object of class '<em>Storm Nimbus</em>'.
@@ -265,15 +184,6 @@ public interface DdsmFactory extends EFactory {
     Kafka createKafka();
 
     /**
-     * Returns a new object of class '<em>Load Balancer</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Load Balancer</em>'.
-     * @generated
-     */
-    LoadBalancer createLoadBalancer();
-
-    /**
      * Returns a new object of class '<em>Cluster</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -281,6 +191,60 @@ public interface DdsmFactory extends EFactory {
      * @generated
      */
     Cluster createCluster();
+
+    /**
+     * Returns a new object of class '<em>Client Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Client Node</em>'.
+     * @generated
+     */
+    ClientNode createClientNode();
+
+    /**
+     * Returns a new object of class '<em>Yarn Resource Manager</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Yarn Resource Manager</em>'.
+     * @generated
+     */
+    YarnResourceManager createYarnResourceManager();
+
+    /**
+     * Returns a new object of class '<em>Yarn Node Manager</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Yarn Node Manager</em>'.
+     * @generated
+     */
+    YarnNodeManager createYarnNodeManager();
+
+    /**
+     * Returns a new object of class '<em>HDFS Name Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>HDFS Name Node</em>'.
+     * @generated
+     */
+    HDFSNameNode createHDFSNameNode();
+
+    /**
+     * Returns a new object of class '<em>HDFS Data Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>HDFS Data Node</em>'.
+     * @generated
+     */
+    HDFSDataNode createHDFSDataNode();
+
+    /**
+     * Returns a new object of class '<em>Script</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Script</em>'.
+     * @generated
+     */
+    Script createScript();
 
     /**
      * Returns the package supported by this factory.

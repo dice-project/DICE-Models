@@ -2,9 +2,6 @@
  */
 package ddsm;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,16 +13,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ddsm.Provider#getCredentialsPath <em>Credentials Path</em>}</li>
- *   <li>{@link ddsm.Provider#getName <em>Name</em>}</li>
- *   <li>{@link ddsm.Provider#getProperty <em>Property</em>}</li>
- *   <li>{@link ddsm.Provider#getProviderId <em>Provider Id</em>}</li>
+ *   <li>{@link ddsm.Provider#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getProvider()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Represents a generic provider of Clouds services.'"
  * @generated
  */
-public interface Provider extends EObject {
+public interface Provider extends CloudElement {
     /**
      * Returns the value of the '<em><b>Credentials Path</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -53,71 +48,32 @@ public interface Provider extends EObject {
     void setCredentialsPath(String value);
 
     /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * Returns the value of the '<em><b>Type</b></em>' attribute.
+     * The literals are from the enumeration {@link ddsm.ProviderType}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Type</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ddsm.DdsmPackage#getProvider_Name()
+     * @return the value of the '<em>Type</em>' attribute.
+     * @see ddsm.ProviderType
+     * @see #setType(ProviderType)
+     * @see ddsm.DdsmPackage#getProvider_Type()
      * @model
      * @generated
      */
-    String getName();
+    ProviderType getType();
 
     /**
-     * Sets the value of the '{@link ddsm.Provider#getName <em>Name</em>}' attribute.
+     * Sets the value of the '{@link ddsm.Provider#getType <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
+     * @param value the new value of the '<em>Type</em>' attribute.
+     * @see ddsm.ProviderType
+     * @see #getType()
      * @generated
      */
-    void setName(String value);
-
-    /**
-     * Returns the value of the '<em><b>Property</b></em>' containment reference list.
-     * The list contents are of type {@link ddsm.Property}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Property</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Property</em>' containment reference list.
-     * @see ddsm.DdsmPackage#getProvider_Property()
-     * @model containment="true"
-     * @generated
-     */
-    EList<Property> getProperty();
-
-    /**
-     * Returns the value of the '<em><b>Provider Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Provider Id</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Provider Id</em>' attribute.
-     * @see #setProviderId(String)
-     * @see ddsm.DdsmPackage#getProvider_ProviderId()
-     * @model id="true"
-     * @generated
-     */
-    String getProviderId();
-
-    /**
-     * Sets the value of the '{@link ddsm.Provider#getProviderId <em>Provider Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Provider Id</em>' attribute.
-     * @see #getProviderId()
-     * @generated
-     */
-    void setProviderId(String value);
+    void setType(ProviderType value);
 
 } // Provider

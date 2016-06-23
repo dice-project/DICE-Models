@@ -10,35 +10,29 @@ Package ddsm <http://ddsm/1.0>
   Class CloudElement
     Reference resource : Resource<<0..*>>
     Reference property : Property<<0..*>>
-    Attribute cloudElementId : EString
+    Attribute elementId : EString<<1..1>>
+    Attribute description : EString
 
   Class Property
-    Attribute name : EString
     Attribute value : EString
-    Attribute propertyId : EString
+    Attribute propertyId : EString<<1..1>>
 
   Class Resource
-    Attribute name : EString
-    Attribute resourceId : EString
-    Attribute value : EString
+    Attribute resourceId : EString<<1..1>>
+    Reference scripts : Script<<0..*>>
 
   Class Component -> CloudElement
     Reference providedport : ProvidedPort<<0..*>>
     Reference providedexecutionplatform : ProvidedExecutionPlatform<<0..*>>
-    Attribute name : EString
 
   Class InternalComponent -> Component
     Reference requiredport : RequiredPort<<0..*>>
     Reference internalcomponent : InternalComponent<<0..*>>
     Reference requiredexecutionplatform : RequiredExecutionPlatform<<0..*>>
 
-  Class ExecutionPlatform
-    Reference owner : Component
-    Attribute executionPlatformId : EString
+  Class ExecutionPlatform -> CloudElement
 
-  Class Port
-    Reference component : Component
-    Attribute portId : EString
+  Class Port -> CloudElement
 
   Class RequiredPort -> Port
 
@@ -47,7 +41,6 @@ Package ddsm <http://ddsm/1.0>
   Class RequiredExecutionPlatform -> ExecutionPlatform
 
   Class ProvidedExecutionPlatform -> ExecutionPlatform
-    Reference offer : Offer<<0..*>>
 
   Class Relationship -> CloudElement
     Reference providedport : ProvidedPort
@@ -58,21 +51,16 @@ Package ddsm <http://ddsm/1.0>
   Class ExecutionBinding -> CloudElement
     Reference requiredexecutionplatform : RequiredExecutionPlatform
     Reference providedexecutionplatform : ProvidedExecutionPlatform
-    Attribute name : EString
-    Attribute bindingId : EString
 
   Class ExternalComponent -> Component
     Reference provider : Provider<<1..1>>
 
-  Class Provider
+  Class Provider -> CloudElement
     Attribute credentialsPath : EString
-    Attribute name : EString
-    Reference property : Property<<0..*>>
-    Attribute providerId : EString
+    Attribute type : ProviderType
 
   Class VM -> ExternalComponent
     Attribute is64os : EString
-    Attribute location : EString
     Attribute imageId : EString
     Attribute maxCores : EString
     Attribute maxRam : EString
@@ -87,12 +75,13 @@ Package ddsm <http://ddsm/1.0>
     Attribute sshKey : EString
     Attribute publicAddress : EString
     Attribute instances : EString
+    Attribute location : EString
+    Attribute genericSize : VMSize
 
   Class DDSM
     Reference cloudelement : CloudElement<<0..*>>
-    Reference provider : Provider<<0..*>>
-    Attribute name : EString
     Attribute modelId : EString
+    Attribute description : EString
 
   Class LifeCycle -> Resource
     Attribute downloadCommand : EString
@@ -100,21 +89,7 @@ Package ddsm <http://ddsm/1.0>
     Attribute startCommand : EString
     Attribute stopCommand : EString
 
-  Class ChefRecipe -> Resource
-    Attribute recipeUrl : EString
-    Attribute recipePath : EString
-
-  Class Offer
-    Attribute name : EString
-    Attribute value : EString
-
   Class StormSupervisor -> InternalComponent
-
-  Class MediumHost -> VM
-
-  Class SmallHost -> VM
-
-  Class LargeHost -> VM
 
   Class StormNimbus -> InternalComponent
 
@@ -122,7 +97,31 @@ Package ddsm <http://ddsm/1.0>
 
   Class Kafka -> InternalComponent
 
-  Class LoadBalancer -> ExternalComponent
-
-  Class Cluster -> CloudElement
+  Class Cluster -> ExternalComponent
     Reference hasVm : VM
+
+  Class ClientNode -> InternalComponent
+    Attribute type : EString<<1..1>>
+    Attribute artifactUrl : EString
+    Attribute mainClass : EString
+
+  Class YarnResourceManager -> InternalComponent
+
+  Class YarnNodeManager -> InternalComponent
+
+  Class HDFSNameNode -> InternalComponent
+
+  Class HDFSDataNode -> InternalComponent
+
+  Class Script
+    Attribute scriptId : EString<<1..1>>
+    Attribute scriptUri : EString<<1..1>>
+
+  Enum VMSize
+    Literal Small = 0
+    Literal Medium = 1
+    Literal Large = 2
+
+  Enum ProviderType
+    Literal Flexiant = 0
+    Literal Openstack = 1

@@ -18,6 +18,4 @@ public interface ExecutionBindingValidator {
 
     boolean validateRequiredexecutionplatform(RequiredExecutionPlatform value);
     boolean validateProvidedexecutionplatform(ProvidedExecutionPlatform value);
-    boolean validateName(String value);
-    boolean validateBindingId(String value);
 }

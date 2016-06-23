@@ -4,6 +4,7 @@
  */
 package ddsm.validation;
 
+import ddsm.VMSize;
 
 /**
  * A sample validator interface for {@link ddsm.VM}.
@@ -15,7 +16,6 @@ public interface VMValidator {
     boolean validate();
 
     boolean validateIs64os(String value);
-    boolean validateLocation(String value);
     boolean validateImageId(String value);
     boolean validateMaxCores(String value);
     boolean validateMaxRam(String value);
@@ -30,4 +30,6 @@ public interface VMValidator {
     boolean validateSshKey(String value);
     boolean validatePublicAddress(String value);
     boolean validateInstances(String value);
+    boolean validateLocation(String value);
+    boolean validateGenericSize(VMSize value);
 }

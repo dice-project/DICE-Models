@@ -33,12 +33,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ddsm.impl.CloudElementImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link ddsm.impl.CloudElementImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link ddsm.impl.CloudElementImpl#getCloudElementId <em>Cloud Element Id</em>}</li>
+ *   <li>{@link ddsm.impl.CloudElementImpl#getElementId <em>Element Id</em>}</li>
+ *   <li>{@link ddsm.impl.CloudElementImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CloudElementImpl extends MinimalEObjectImpl.Container implements CloudElement {
+public abstract class CloudElementImpl extends MinimalEObjectImpl.Container implements CloudElement {
     /**
      * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -60,24 +61,44 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
     protected EList<Property> property;
 
     /**
-     * The default value of the '{@link #getCloudElementId() <em>Cloud Element Id</em>}' attribute.
+     * The default value of the '{@link #getElementId() <em>Element Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getCloudElementId()
+     * @see #getElementId()
      * @generated
      * @ordered
      */
-    protected static final String CLOUD_ELEMENT_ID_EDEFAULT = null;
+    protected static final String ELEMENT_ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCloudElementId() <em>Cloud Element Id</em>}' attribute.
+     * The cached value of the '{@link #getElementId() <em>Element Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getCloudElementId()
+     * @see #getElementId()
      * @generated
      * @ordered
      */
-    protected String cloudElementId = CLOUD_ELEMENT_ID_EDEFAULT;
+    protected String elementId = ELEMENT_ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
+    protected static final String DESCRIPTION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
+    protected String description = DESCRIPTION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -127,8 +148,8 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getCloudElementId() {
-        return cloudElementId;
+    public String getElementId() {
+        return elementId;
     }
 
     /**
@@ -136,11 +157,32 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCloudElementId(String newCloudElementId) {
-        String oldCloudElementId = cloudElementId;
-        cloudElementId = newCloudElementId;
+    public void setElementId(String newElementId) {
+        String oldElementId = elementId;
+        elementId = newElementId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLOUD_ELEMENT__CLOUD_ELEMENT_ID, oldCloudElementId, cloudElementId));
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLOUD_ELEMENT__ELEMENT_ID, oldElementId, elementId));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDescription(String newDescription) {
+        String oldDescription = description;
+        description = newDescription;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLOUD_ELEMENT__DESCRIPTION, oldDescription, description));
     }
 
     /**
@@ -171,8 +213,10 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
                 return getResource();
             case DdsmPackage.CLOUD_ELEMENT__PROPERTY:
                 return getProperty();
-            case DdsmPackage.CLOUD_ELEMENT__CLOUD_ELEMENT_ID:
-                return getCloudElementId();
+            case DdsmPackage.CLOUD_ELEMENT__ELEMENT_ID:
+                return getElementId();
+            case DdsmPackage.CLOUD_ELEMENT__DESCRIPTION:
+                return getDescription();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -194,8 +238,11 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
                 getProperty().clear();
                 getProperty().addAll((Collection<? extends Property>)newValue);
                 return;
-            case DdsmPackage.CLOUD_ELEMENT__CLOUD_ELEMENT_ID:
-                setCloudElementId((String)newValue);
+            case DdsmPackage.CLOUD_ELEMENT__ELEMENT_ID:
+                setElementId((String)newValue);
+                return;
+            case DdsmPackage.CLOUD_ELEMENT__DESCRIPTION:
+                setDescription((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -215,8 +262,11 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
             case DdsmPackage.CLOUD_ELEMENT__PROPERTY:
                 getProperty().clear();
                 return;
-            case DdsmPackage.CLOUD_ELEMENT__CLOUD_ELEMENT_ID:
-                setCloudElementId(CLOUD_ELEMENT_ID_EDEFAULT);
+            case DdsmPackage.CLOUD_ELEMENT__ELEMENT_ID:
+                setElementId(ELEMENT_ID_EDEFAULT);
+                return;
+            case DdsmPackage.CLOUD_ELEMENT__DESCRIPTION:
+                setDescription(DESCRIPTION_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -234,8 +284,10 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
                 return resource != null && !resource.isEmpty();
             case DdsmPackage.CLOUD_ELEMENT__PROPERTY:
                 return property != null && !property.isEmpty();
-            case DdsmPackage.CLOUD_ELEMENT__CLOUD_ELEMENT_ID:
-                return CLOUD_ELEMENT_ID_EDEFAULT == null ? cloudElementId != null : !CLOUD_ELEMENT_ID_EDEFAULT.equals(cloudElementId);
+            case DdsmPackage.CLOUD_ELEMENT__ELEMENT_ID:
+                return ELEMENT_ID_EDEFAULT == null ? elementId != null : !ELEMENT_ID_EDEFAULT.equals(elementId);
+            case DdsmPackage.CLOUD_ELEMENT__DESCRIPTION:
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
         }
         return super.eIsSet(featureID);
     }
@@ -250,8 +302,10 @@ public class CloudElementImpl extends MinimalEObjectImpl.Container implements Cl
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (cloudElementId: ");
-        result.append(cloudElementId);
+        result.append(" (elementId: ");
+        result.append(elementId);
+        result.append(", description: ");
+        result.append(description);
         result.append(')');
         return result.toString();
     }

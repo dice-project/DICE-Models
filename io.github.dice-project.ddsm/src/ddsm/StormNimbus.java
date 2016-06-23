@@ -10,7 +10,7 @@ package ddsm;
  *
  *
  * @see ddsm.DdsmPackage#getStormNimbus()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of the Storm nimbus master process.'"
  * @generated
  */
 public interface StormNimbus extends InternalComponent {

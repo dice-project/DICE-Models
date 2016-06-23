@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ClusterImpl extends CloudElementImpl implements Cluster {
+public class ClusterImpl extends ExternalComponentImpl implements Cluster {
     /**
      * The cached value of the '{@link #getHasVm() <em>Has Vm</em>}' reference.
      * <!-- begin-user-doc -->

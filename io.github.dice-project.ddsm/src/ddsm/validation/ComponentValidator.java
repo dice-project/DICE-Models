@@ -20,5 +20,4 @@ public interface ComponentValidator {
 
     boolean validateProvidedport(EList<ProvidedPort> value);
     boolean validateProvidedexecutionplatform(EList<ProvidedExecutionPlatform> value);
-    boolean validateName(String value);
 }

@@ -14,7 +14,6 @@ package ddsm.validation;
 public interface PropertyValidator {
     boolean validate();
 
-    boolean validateName(String value);
     boolean validateValue(String value);
     boolean validatePropertyId(String value);
 }

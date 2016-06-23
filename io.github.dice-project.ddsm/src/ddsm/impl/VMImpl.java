@@ -4,6 +4,7 @@ package ddsm.impl;
 
 import ddsm.DdsmPackage;
 import ddsm.VM;
+import ddsm.VMSize;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link ddsm.impl.VMImpl#getIs64os <em>Is64os</em>}</li>
- *   <li>{@link ddsm.impl.VMImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getImageId <em>Image Id</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getMaxCores <em>Max Cores</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getMaxRam <em>Max Ram</em>}</li>
@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link ddsm.impl.VMImpl#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getPublicAddress <em>Public Address</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getInstances <em>Instances</em>}</li>
+ *   <li>{@link ddsm.impl.VMImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link ddsm.impl.VMImpl#getGenericSize <em>Generic Size</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,26 +61,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * @ordered
      */
     protected String is64os = IS64OS_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocation()
-     * @generated
-     * @ordered
-     */
-    protected static final String LOCATION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocation()
-     * @generated
-     * @ordered
-     */
-    protected String location = LOCATION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getImageId() <em>Image Id</em>}' attribute.
@@ -361,6 +343,46 @@ public class VMImpl extends ExternalComponentImpl implements VM {
     protected String instances = INSTANCES_EDEFAULT;
 
     /**
+     * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocation()
+     * @generated
+     * @ordered
+     */
+    protected static final String LOCATION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocation()
+     * @generated
+     * @ordered
+     */
+    protected String location = LOCATION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getGenericSize() <em>Generic Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getGenericSize()
+     * @generated
+     * @ordered
+     */
+    protected static final VMSize GENERIC_SIZE_EDEFAULT = VMSize.SMALL;
+
+    /**
+     * The cached value of the '{@link #getGenericSize() <em>Generic Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getGenericSize()
+     * @generated
+     * @ordered
+     */
+    protected VMSize genericSize = GENERIC_SIZE_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -398,27 +420,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         is64os = newIs64os;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__IS64OS, oldIs64os, is64os));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getLocation() {
-        return location;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocation(String newLocation) {
-        String oldLocation = location;
-        location = newLocation;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__LOCATION, oldLocation, location));
     }
 
     /**
@@ -720,13 +721,53 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocation(String newLocation) {
+        String oldLocation = location;
+        location = newLocation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__LOCATION, oldLocation, location));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public VMSize getGenericSize() {
+        return genericSize;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setGenericSize(VMSize newGenericSize) {
+        VMSize oldGenericSize = genericSize;
+        genericSize = newGenericSize == null ? GENERIC_SIZE_EDEFAULT : newGenericSize;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__GENERIC_SIZE, oldGenericSize, genericSize));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case DdsmPackage.VM__IS64OS:
                 return getIs64os();
-            case DdsmPackage.VM__LOCATION:
-                return getLocation();
             case DdsmPackage.VM__IMAGE_ID:
                 return getImageId();
             case DdsmPackage.VM__MAX_CORES:
@@ -755,6 +796,10 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return getPublicAddress();
             case DdsmPackage.VM__INSTANCES:
                 return getInstances();
+            case DdsmPackage.VM__LOCATION:
+                return getLocation();
+            case DdsmPackage.VM__GENERIC_SIZE:
+                return getGenericSize();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -769,9 +814,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         switch (featureID) {
             case DdsmPackage.VM__IS64OS:
                 setIs64os((String)newValue);
-                return;
-            case DdsmPackage.VM__LOCATION:
-                setLocation((String)newValue);
                 return;
             case DdsmPackage.VM__IMAGE_ID:
                 setImageId((String)newValue);
@@ -815,6 +857,12 @@ public class VMImpl extends ExternalComponentImpl implements VM {
             case DdsmPackage.VM__INSTANCES:
                 setInstances((String)newValue);
                 return;
+            case DdsmPackage.VM__LOCATION:
+                setLocation((String)newValue);
+                return;
+            case DdsmPackage.VM__GENERIC_SIZE:
+                setGenericSize((VMSize)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -829,9 +877,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         switch (featureID) {
             case DdsmPackage.VM__IS64OS:
                 setIs64os(IS64OS_EDEFAULT);
-                return;
-            case DdsmPackage.VM__LOCATION:
-                setLocation(LOCATION_EDEFAULT);
                 return;
             case DdsmPackage.VM__IMAGE_ID:
                 setImageId(IMAGE_ID_EDEFAULT);
@@ -875,6 +920,12 @@ public class VMImpl extends ExternalComponentImpl implements VM {
             case DdsmPackage.VM__INSTANCES:
                 setInstances(INSTANCES_EDEFAULT);
                 return;
+            case DdsmPackage.VM__LOCATION:
+                setLocation(LOCATION_EDEFAULT);
+                return;
+            case DdsmPackage.VM__GENERIC_SIZE:
+                setGenericSize(GENERIC_SIZE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -889,8 +940,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         switch (featureID) {
             case DdsmPackage.VM__IS64OS:
                 return IS64OS_EDEFAULT == null ? is64os != null : !IS64OS_EDEFAULT.equals(is64os);
-            case DdsmPackage.VM__LOCATION:
-                return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
             case DdsmPackage.VM__IMAGE_ID:
                 return IMAGE_ID_EDEFAULT == null ? imageId != null : !IMAGE_ID_EDEFAULT.equals(imageId);
             case DdsmPackage.VM__MAX_CORES:
@@ -919,6 +968,10 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return PUBLIC_ADDRESS_EDEFAULT == null ? publicAddress != null : !PUBLIC_ADDRESS_EDEFAULT.equals(publicAddress);
             case DdsmPackage.VM__INSTANCES:
                 return INSTANCES_EDEFAULT == null ? instances != null : !INSTANCES_EDEFAULT.equals(instances);
+            case DdsmPackage.VM__LOCATION:
+                return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+            case DdsmPackage.VM__GENERIC_SIZE:
+                return genericSize != GENERIC_SIZE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -935,8 +988,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (is64os: ");
         result.append(is64os);
-        result.append(", location: ");
-        result.append(location);
         result.append(", imageId: ");
         result.append(imageId);
         result.append(", maxCores: ");
@@ -965,6 +1016,10 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         result.append(publicAddress);
         result.append(", instances: ");
         result.append(instances);
+        result.append(", location: ");
+        result.append(location);
+        result.append(", genericSize: ");
+        result.append(genericSize);
         result.append(')');
         return result.toString();
     }

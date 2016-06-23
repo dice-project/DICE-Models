@@ -19,7 +19,7 @@ package ddsm;
  * </ul>
  *
  * @see ddsm.DdsmPackage#getLifeCycle()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='test generation'"
  * @generated
  */
 public interface LifeCycle extends Resource {

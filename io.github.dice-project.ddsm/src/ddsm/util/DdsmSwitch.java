@@ -102,12 +102,14 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.EXECUTION_PLATFORM: {
                 ExecutionPlatform executionPlatform = (ExecutionPlatform)theEObject;
                 T result = caseExecutionPlatform(executionPlatform);
+                if (result == null) result = caseCloudElement(executionPlatform);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case DdsmPackage.PORT: {
                 Port port = (Port)theEObject;
                 T result = casePort(port);
+                if (result == null) result = caseCloudElement(port);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -115,6 +117,7 @@ public class DdsmSwitch<T> extends Switch<T> {
                 RequiredPort requiredPort = (RequiredPort)theEObject;
                 T result = caseRequiredPort(requiredPort);
                 if (result == null) result = casePort(requiredPort);
+                if (result == null) result = caseCloudElement(requiredPort);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -122,6 +125,7 @@ public class DdsmSwitch<T> extends Switch<T> {
                 ProvidedPort providedPort = (ProvidedPort)theEObject;
                 T result = caseProvidedPort(providedPort);
                 if (result == null) result = casePort(providedPort);
+                if (result == null) result = caseCloudElement(providedPort);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -129,6 +133,7 @@ public class DdsmSwitch<T> extends Switch<T> {
                 RequiredExecutionPlatform requiredExecutionPlatform = (RequiredExecutionPlatform)theEObject;
                 T result = caseRequiredExecutionPlatform(requiredExecutionPlatform);
                 if (result == null) result = caseExecutionPlatform(requiredExecutionPlatform);
+                if (result == null) result = caseCloudElement(requiredExecutionPlatform);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -136,6 +141,7 @@ public class DdsmSwitch<T> extends Switch<T> {
                 ProvidedExecutionPlatform providedExecutionPlatform = (ProvidedExecutionPlatform)theEObject;
                 T result = caseProvidedExecutionPlatform(providedExecutionPlatform);
                 if (result == null) result = caseExecutionPlatform(providedExecutionPlatform);
+                if (result == null) result = caseCloudElement(providedExecutionPlatform);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -164,6 +170,7 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.PROVIDER: {
                 Provider provider = (Provider)theEObject;
                 T result = caseProvider(provider);
+                if (result == null) result = caseCloudElement(provider);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -189,55 +196,12 @@ public class DdsmSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.CHEF_RECIPE: {
-                ChefRecipe chefRecipe = (ChefRecipe)theEObject;
-                T result = caseChefRecipe(chefRecipe);
-                if (result == null) result = caseResource(chefRecipe);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.OFFER: {
-                Offer offer = (Offer)theEObject;
-                T result = caseOffer(offer);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case DdsmPackage.STORM_SUPERVISOR: {
                 StormSupervisor stormSupervisor = (StormSupervisor)theEObject;
                 T result = caseStormSupervisor(stormSupervisor);
                 if (result == null) result = caseInternalComponent(stormSupervisor);
                 if (result == null) result = caseComponent(stormSupervisor);
                 if (result == null) result = caseCloudElement(stormSupervisor);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.MEDIUM_HOST: {
-                MediumHost mediumHost = (MediumHost)theEObject;
-                T result = caseMediumHost(mediumHost);
-                if (result == null) result = caseVM(mediumHost);
-                if (result == null) result = caseExternalComponent(mediumHost);
-                if (result == null) result = caseComponent(mediumHost);
-                if (result == null) result = caseCloudElement(mediumHost);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.SMALL_HOST: {
-                SmallHost smallHost = (SmallHost)theEObject;
-                T result = caseSmallHost(smallHost);
-                if (result == null) result = caseVM(smallHost);
-                if (result == null) result = caseExternalComponent(smallHost);
-                if (result == null) result = caseComponent(smallHost);
-                if (result == null) result = caseCloudElement(smallHost);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.LARGE_HOST: {
-                LargeHost largeHost = (LargeHost)theEObject;
-                T result = caseLargeHost(largeHost);
-                if (result == null) result = caseVM(largeHost);
-                if (result == null) result = caseExternalComponent(largeHost);
-                if (result == null) result = caseComponent(largeHost);
-                if (result == null) result = caseCloudElement(largeHost);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -268,19 +232,63 @@ public class DdsmSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.LOAD_BALANCER: {
-                LoadBalancer loadBalancer = (LoadBalancer)theEObject;
-                T result = caseLoadBalancer(loadBalancer);
-                if (result == null) result = caseExternalComponent(loadBalancer);
-                if (result == null) result = caseComponent(loadBalancer);
-                if (result == null) result = caseCloudElement(loadBalancer);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case DdsmPackage.CLUSTER: {
                 Cluster cluster = (Cluster)theEObject;
                 T result = caseCluster(cluster);
+                if (result == null) result = caseExternalComponent(cluster);
+                if (result == null) result = caseComponent(cluster);
                 if (result == null) result = caseCloudElement(cluster);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CLIENT_NODE: {
+                ClientNode clientNode = (ClientNode)theEObject;
+                T result = caseClientNode(clientNode);
+                if (result == null) result = caseInternalComponent(clientNode);
+                if (result == null) result = caseComponent(clientNode);
+                if (result == null) result = caseCloudElement(clientNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.YARN_RESOURCE_MANAGER: {
+                YarnResourceManager yarnResourceManager = (YarnResourceManager)theEObject;
+                T result = caseYarnResourceManager(yarnResourceManager);
+                if (result == null) result = caseInternalComponent(yarnResourceManager);
+                if (result == null) result = caseComponent(yarnResourceManager);
+                if (result == null) result = caseCloudElement(yarnResourceManager);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.YARN_NODE_MANAGER: {
+                YarnNodeManager yarnNodeManager = (YarnNodeManager)theEObject;
+                T result = caseYarnNodeManager(yarnNodeManager);
+                if (result == null) result = caseInternalComponent(yarnNodeManager);
+                if (result == null) result = caseComponent(yarnNodeManager);
+                if (result == null) result = caseCloudElement(yarnNodeManager);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.HDFS_NAME_NODE: {
+                HDFSNameNode hdfsNameNode = (HDFSNameNode)theEObject;
+                T result = caseHDFSNameNode(hdfsNameNode);
+                if (result == null) result = caseInternalComponent(hdfsNameNode);
+                if (result == null) result = caseComponent(hdfsNameNode);
+                if (result == null) result = caseCloudElement(hdfsNameNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.HDFS_DATA_NODE: {
+                HDFSDataNode hdfsDataNode = (HDFSDataNode)theEObject;
+                T result = caseHDFSDataNode(hdfsDataNode);
+                if (result == null) result = caseInternalComponent(hdfsDataNode);
+                if (result == null) result = caseComponent(hdfsDataNode);
+                if (result == null) result = caseCloudElement(hdfsDataNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.SCRIPT: {
+                Script script = (Script)theEObject;
+                T result = caseScript(script);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -559,36 +567,6 @@ public class DdsmSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Chef Recipe</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Chef Recipe</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseChefRecipe(ChefRecipe object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Offer</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Offer</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseOffer(Offer object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Storm Supervisor</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -600,51 +578,6 @@ public class DdsmSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseStormSupervisor(StormSupervisor object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Medium Host</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Medium Host</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseMediumHost(MediumHost object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Small Host</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Small Host</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSmallHost(SmallHost object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Large Host</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Large Host</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLargeHost(LargeHost object) {
         return null;
     }
 
@@ -694,21 +627,6 @@ public class DdsmSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Load Balancer</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Load Balancer</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLoadBalancer(LoadBalancer object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Cluster</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -720,6 +638,96 @@ public class DdsmSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseCluster(Cluster object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Client Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Client Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseClientNode(ClientNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Yarn Resource Manager</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Yarn Resource Manager</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseYarnResourceManager(YarnResourceManager object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Yarn Node Manager</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Yarn Node Manager</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseYarnNodeManager(YarnNodeManager object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>HDFS Name Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>HDFS Name Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHDFSNameNode(HDFSNameNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>HDFS Data Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>HDFS Data Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHDFSDataNode(HDFSDataNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Script</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Script</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScript(Script object) {
         return null;
     }
 

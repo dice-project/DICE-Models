@@ -2,7 +2,7 @@
  */
 package ddsm.impl;
 
-import ddsm.ChefRecipe;
+import ddsm.ClientNode;
 import ddsm.CloudElement;
 import ddsm.Cluster;
 import ddsm.Component;
@@ -11,29 +11,32 @@ import ddsm.DdsmPackage;
 import ddsm.ExecutionBinding;
 import ddsm.ExecutionPlatform;
 import ddsm.ExternalComponent;
+import ddsm.HDFSDataNode;
+import ddsm.HDFSNameNode;
 import ddsm.InternalComponent;
 import ddsm.Kafka;
-import ddsm.LargeHost;
 import ddsm.LifeCycle;
-import ddsm.LoadBalancer;
-import ddsm.MediumHost;
-import ddsm.Offer;
 import ddsm.Port;
 import ddsm.Property;
 import ddsm.ProvidedExecutionPlatform;
 import ddsm.ProvidedPort;
 import ddsm.Provider;
+import ddsm.ProviderType;
 import ddsm.Relationship;
 import ddsm.RequiredExecutionPlatform;
 import ddsm.RequiredPort;
 import ddsm.Resource;
-import ddsm.SmallHost;
+import ddsm.Script;
 import ddsm.StormNimbus;
 import ddsm.StormSupervisor;
+import ddsm.VMSize;
+import ddsm.YarnNodeManager;
+import ddsm.YarnResourceManager;
 import ddsm.Zookeeper;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -177,42 +180,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass chefRecipeEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass offerEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass stormSupervisorEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass mediumHostEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass smallHostEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass largeHostEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -240,14 +208,63 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass loadBalancerEClass = null;
+    private EClass clusterEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass clusterEClass = null;
+    private EClass clientNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass yarnResourceManagerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass yarnNodeManagerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass hdfsNameNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass hdfsDataNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scriptEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum vmSizeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum providerTypeEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -342,8 +359,17 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCloudElement_CloudElementId() {
+    public EAttribute getCloudElement_ElementId() {
         return (EAttribute)cloudElementEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCloudElement_Description() {
+        return (EAttribute)cloudElementEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -360,7 +386,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProperty_Name() {
+    public EAttribute getProperty_Value() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
     }
 
@@ -369,17 +395,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProperty_Value() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getProperty_PropertyId() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -396,7 +413,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getResource_Name() {
+    public EAttribute getResource_ResourceId() {
         return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
     }
 
@@ -405,17 +422,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getResource_ResourceId() {
-        return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getResource_Value() {
-        return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+    public EReference getResource_Scripts() {
+        return (EReference)resourceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -443,15 +451,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EReference getComponent_Providedexecutionplatform() {
         return (EReference)componentEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getComponent_Name() {
-        return (EAttribute)componentEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -504,44 +503,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getExecutionPlatform_Owner() {
-        return (EReference)executionPlatformEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getExecutionPlatform_ExecutionPlatformId() {
-        return (EAttribute)executionPlatformEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getPort() {
         return portEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getPort_Component() {
-        return (EReference)portEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPort_PortId() {
-        return (EAttribute)portEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -578,15 +541,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EClass getProvidedExecutionPlatform() {
         return providedExecutionPlatformEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getProvidedExecutionPlatform_Offer() {
-        return (EReference)providedExecutionPlatformEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -666,24 +620,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getExecutionBinding_Name() {
-        return (EAttribute)executionBindingEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getExecutionBinding_BindingId() {
-        return (EAttribute)executionBindingEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getExternalComponent() {
         return externalComponentEClass;
     }
@@ -720,26 +656,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProvider_Name() {
+    public EAttribute getProvider_Type() {
         return (EAttribute)providerEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getProvider_Property() {
-        return (EReference)providerEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getProvider_ProviderId() {
-        return (EAttribute)providerEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -765,7 +683,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_Location() {
+    public EAttribute getVM_ImageId() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(1);
     }
 
@@ -774,7 +692,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_ImageId() {
+    public EAttribute getVM_MaxCores() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(2);
     }
 
@@ -783,7 +701,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MaxCores() {
+    public EAttribute getVM_MaxRam() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(3);
     }
 
@@ -792,7 +710,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MaxRam() {
+    public EAttribute getVM_MaxStorage() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(4);
     }
 
@@ -801,7 +719,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MaxStorage() {
+    public EAttribute getVM_MinCores() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(5);
     }
 
@@ -810,7 +728,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MinCores() {
+    public EAttribute getVM_MinRam() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(6);
     }
 
@@ -819,7 +737,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MinRam() {
+    public EAttribute getVM_MinStorage() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(7);
     }
 
@@ -828,7 +746,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_MinStorage() {
+    public EAttribute getVM_Os() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(8);
     }
 
@@ -837,7 +755,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_Os() {
+    public EAttribute getVM_PrivateKey() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(9);
     }
 
@@ -846,7 +764,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_PrivateKey() {
+    public EAttribute getVM_ProviderSpecificTypeName() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(10);
     }
 
@@ -855,7 +773,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_ProviderSpecificTypeName() {
+    public EAttribute getVM_SecurityGroup() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(11);
     }
 
@@ -864,7 +782,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_SecurityGroup() {
+    public EAttribute getVM_SshKey() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(12);
     }
 
@@ -873,7 +791,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_SshKey() {
+    public EAttribute getVM_PublicAddress() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(13);
     }
 
@@ -882,7 +800,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_PublicAddress() {
+    public EAttribute getVM_Instances() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(14);
     }
 
@@ -891,8 +809,17 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_Instances() {
+    public EAttribute getVM_Location() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(15);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getVM_GenericSize() {
+        return (EAttribute)vmEClass.getEStructuralFeatures().get(16);
     }
 
     /**
@@ -918,26 +845,17 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getDDSM_Provider() {
-        return (EReference)ddsmEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDDSM_Name() {
-        return (EAttribute)ddsmEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getDDSM_ModelId() {
-        return (EAttribute)ddsmEClass.getEStructuralFeatures().get(3);
+        return (EAttribute)ddsmEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDDSM_Description() {
+        return (EAttribute)ddsmEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -990,89 +908,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getChefRecipe() {
-        return chefRecipeEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getChefRecipe_RecipeUrl() {
-        return (EAttribute)chefRecipeEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getChefRecipe_RecipePath() {
-        return (EAttribute)chefRecipeEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getOffer() {
-        return offerEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getOffer_Name() {
-        return (EAttribute)offerEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getOffer_Value() {
-        return (EAttribute)offerEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getStormSupervisor() {
         return stormSupervisorEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getMediumHost() {
-        return mediumHostEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getSmallHost() {
-        return smallHostEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getLargeHost() {
-        return largeHostEClass;
     }
 
     /**
@@ -1107,15 +944,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getLoadBalancer() {
-        return loadBalancerEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getCluster() {
         return clusterEClass;
     }
@@ -1127,6 +955,123 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EReference getCluster_HasVm() {
         return (EReference)clusterEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getClientNode() {
+        return clientNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getClientNode_Type() {
+        return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getClientNode_ArtifactUrl() {
+        return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getClientNode_MainClass() {
+        return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getYarnResourceManager() {
+        return yarnResourceManagerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getYarnNodeManager() {
+        return yarnNodeManagerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getHDFSNameNode() {
+        return hdfsNameNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getHDFSDataNode() {
+        return hdfsDataNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getScript() {
+        return scriptEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScript_ScriptId() {
+        return (EAttribute)scriptEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScript_ScriptUri() {
+        return (EAttribute)scriptEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getVMSize() {
+        return vmSizeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getProviderType() {
+        return providerTypeEEnum;
     }
 
     /**
@@ -1160,22 +1105,20 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         cloudElementEClass = createEClass(CLOUD_ELEMENT);
         createEReference(cloudElementEClass, CLOUD_ELEMENT__RESOURCE);
         createEReference(cloudElementEClass, CLOUD_ELEMENT__PROPERTY);
-        createEAttribute(cloudElementEClass, CLOUD_ELEMENT__CLOUD_ELEMENT_ID);
+        createEAttribute(cloudElementEClass, CLOUD_ELEMENT__ELEMENT_ID);
+        createEAttribute(cloudElementEClass, CLOUD_ELEMENT__DESCRIPTION);
 
         propertyEClass = createEClass(PROPERTY);
-        createEAttribute(propertyEClass, PROPERTY__NAME);
         createEAttribute(propertyEClass, PROPERTY__VALUE);
         createEAttribute(propertyEClass, PROPERTY__PROPERTY_ID);
 
         resourceEClass = createEClass(RESOURCE);
-        createEAttribute(resourceEClass, RESOURCE__NAME);
         createEAttribute(resourceEClass, RESOURCE__RESOURCE_ID);
-        createEAttribute(resourceEClass, RESOURCE__VALUE);
+        createEReference(resourceEClass, RESOURCE__SCRIPTS);
 
         componentEClass = createEClass(COMPONENT);
         createEReference(componentEClass, COMPONENT__PROVIDEDPORT);
         createEReference(componentEClass, COMPONENT__PROVIDEDEXECUTIONPLATFORM);
-        createEAttribute(componentEClass, COMPONENT__NAME);
 
         internalComponentEClass = createEClass(INTERNAL_COMPONENT);
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDPORT);
@@ -1183,12 +1126,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM);
 
         executionPlatformEClass = createEClass(EXECUTION_PLATFORM);
-        createEReference(executionPlatformEClass, EXECUTION_PLATFORM__OWNER);
-        createEAttribute(executionPlatformEClass, EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID);
 
         portEClass = createEClass(PORT);
-        createEReference(portEClass, PORT__COMPONENT);
-        createEAttribute(portEClass, PORT__PORT_ID);
 
         requiredPortEClass = createEClass(REQUIRED_PORT);
 
@@ -1197,7 +1136,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         requiredExecutionPlatformEClass = createEClass(REQUIRED_EXECUTION_PLATFORM);
 
         providedExecutionPlatformEClass = createEClass(PROVIDED_EXECUTION_PLATFORM);
-        createEReference(providedExecutionPlatformEClass, PROVIDED_EXECUTION_PLATFORM__OFFER);
 
         relationshipEClass = createEClass(RELATIONSHIP);
         createEReference(relationshipEClass, RELATIONSHIP__PROVIDEDPORT);
@@ -1208,21 +1146,16 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         executionBindingEClass = createEClass(EXECUTION_BINDING);
         createEReference(executionBindingEClass, EXECUTION_BINDING__REQUIREDEXECUTIONPLATFORM);
         createEReference(executionBindingEClass, EXECUTION_BINDING__PROVIDEDEXECUTIONPLATFORM);
-        createEAttribute(executionBindingEClass, EXECUTION_BINDING__NAME);
-        createEAttribute(executionBindingEClass, EXECUTION_BINDING__BINDING_ID);
 
         externalComponentEClass = createEClass(EXTERNAL_COMPONENT);
         createEReference(externalComponentEClass, EXTERNAL_COMPONENT__PROVIDER);
 
         providerEClass = createEClass(PROVIDER);
         createEAttribute(providerEClass, PROVIDER__CREDENTIALS_PATH);
-        createEAttribute(providerEClass, PROVIDER__NAME);
-        createEReference(providerEClass, PROVIDER__PROPERTY);
-        createEAttribute(providerEClass, PROVIDER__PROVIDER_ID);
+        createEAttribute(providerEClass, PROVIDER__TYPE);
 
         vmEClass = createEClass(VM);
         createEAttribute(vmEClass, VM__IS64OS);
-        createEAttribute(vmEClass, VM__LOCATION);
         createEAttribute(vmEClass, VM__IMAGE_ID);
         createEAttribute(vmEClass, VM__MAX_CORES);
         createEAttribute(vmEClass, VM__MAX_RAM);
@@ -1237,12 +1170,13 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(vmEClass, VM__SSH_KEY);
         createEAttribute(vmEClass, VM__PUBLIC_ADDRESS);
         createEAttribute(vmEClass, VM__INSTANCES);
+        createEAttribute(vmEClass, VM__LOCATION);
+        createEAttribute(vmEClass, VM__GENERIC_SIZE);
 
         ddsmEClass = createEClass(DDSM);
         createEReference(ddsmEClass, DDSM__CLOUDELEMENT);
-        createEReference(ddsmEClass, DDSM__PROVIDER);
-        createEAttribute(ddsmEClass, DDSM__NAME);
         createEAttribute(ddsmEClass, DDSM__MODEL_ID);
+        createEAttribute(ddsmEClass, DDSM__DESCRIPTION);
 
         lifeCycleEClass = createEClass(LIFE_CYCLE);
         createEAttribute(lifeCycleEClass, LIFE_CYCLE__DOWNLOAD_COMMAND);
@@ -1250,21 +1184,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(lifeCycleEClass, LIFE_CYCLE__START_COMMAND);
         createEAttribute(lifeCycleEClass, LIFE_CYCLE__STOP_COMMAND);
 
-        chefRecipeEClass = createEClass(CHEF_RECIPE);
-        createEAttribute(chefRecipeEClass, CHEF_RECIPE__RECIPE_URL);
-        createEAttribute(chefRecipeEClass, CHEF_RECIPE__RECIPE_PATH);
-
-        offerEClass = createEClass(OFFER);
-        createEAttribute(offerEClass, OFFER__NAME);
-        createEAttribute(offerEClass, OFFER__VALUE);
-
         stormSupervisorEClass = createEClass(STORM_SUPERVISOR);
-
-        mediumHostEClass = createEClass(MEDIUM_HOST);
-
-        smallHostEClass = createEClass(SMALL_HOST);
-
-        largeHostEClass = createEClass(LARGE_HOST);
 
         stormNimbusEClass = createEClass(STORM_NIMBUS);
 
@@ -1272,10 +1192,29 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         kafkaEClass = createEClass(KAFKA);
 
-        loadBalancerEClass = createEClass(LOAD_BALANCER);
-
         clusterEClass = createEClass(CLUSTER);
         createEReference(clusterEClass, CLUSTER__HAS_VM);
+
+        clientNodeEClass = createEClass(CLIENT_NODE);
+        createEAttribute(clientNodeEClass, CLIENT_NODE__TYPE);
+        createEAttribute(clientNodeEClass, CLIENT_NODE__ARTIFACT_URL);
+        createEAttribute(clientNodeEClass, CLIENT_NODE__MAIN_CLASS);
+
+        yarnResourceManagerEClass = createEClass(YARN_RESOURCE_MANAGER);
+
+        yarnNodeManagerEClass = createEClass(YARN_NODE_MANAGER);
+
+        hdfsNameNodeEClass = createEClass(HDFS_NAME_NODE);
+
+        hdfsDataNodeEClass = createEClass(HDFS_DATA_NODE);
+
+        scriptEClass = createEClass(SCRIPT);
+        createEAttribute(scriptEClass, SCRIPT__SCRIPT_ID);
+        createEAttribute(scriptEClass, SCRIPT__SCRIPT_URI);
+
+        // Create enums
+        vmSizeEEnum = createEEnum(VM_SIZE);
+        providerTypeEEnum = createEEnum(PROVIDER_TYPE);
     }
 
     /**
@@ -1308,6 +1247,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         // Add supertypes to classes
         componentEClass.getESuperTypes().add(this.getCloudElement());
         internalComponentEClass.getESuperTypes().add(this.getComponent());
+        executionPlatformEClass.getESuperTypes().add(this.getCloudElement());
+        portEClass.getESuperTypes().add(this.getCloudElement());
         requiredPortEClass.getESuperTypes().add(this.getPort());
         providedPortEClass.getESuperTypes().add(this.getPort());
         requiredExecutionPlatformEClass.getESuperTypes().add(this.getExecutionPlatform());
@@ -1315,52 +1256,47 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         relationshipEClass.getESuperTypes().add(this.getCloudElement());
         executionBindingEClass.getESuperTypes().add(this.getCloudElement());
         externalComponentEClass.getESuperTypes().add(this.getComponent());
+        providerEClass.getESuperTypes().add(this.getCloudElement());
         vmEClass.getESuperTypes().add(this.getExternalComponent());
         lifeCycleEClass.getESuperTypes().add(this.getResource());
-        chefRecipeEClass.getESuperTypes().add(this.getResource());
         stormSupervisorEClass.getESuperTypes().add(this.getInternalComponent());
-        mediumHostEClass.getESuperTypes().add(this.getVM());
-        smallHostEClass.getESuperTypes().add(this.getVM());
-        largeHostEClass.getESuperTypes().add(this.getVM());
         stormNimbusEClass.getESuperTypes().add(this.getInternalComponent());
         zookeeperEClass.getESuperTypes().add(this.getInternalComponent());
         kafkaEClass.getESuperTypes().add(this.getInternalComponent());
-        loadBalancerEClass.getESuperTypes().add(this.getExternalComponent());
-        clusterEClass.getESuperTypes().add(this.getCloudElement());
+        clusterEClass.getESuperTypes().add(this.getExternalComponent());
+        clientNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        yarnResourceManagerEClass.getESuperTypes().add(this.getInternalComponent());
+        yarnNodeManagerEClass.getESuperTypes().add(this.getInternalComponent());
+        hdfsNameNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        hdfsDataNodeEClass.getESuperTypes().add(this.getInternalComponent());
 
         // Initialize classes, features, and operations; add parameters
-        initEClass(cloudElementEClass, CloudElement.class, "CloudElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(cloudElementEClass, CloudElement.class, "CloudElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCloudElement_Resource(), this.getResource(), null, "resource", null, 0, -1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getCloudElement_Property(), this.getProperty(), null, "property", null, 0, -1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCloudElement_CloudElementId(), ecorePackage.getEString(), "cloudElementId", null, 0, 1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCloudElement_ElementId(), ecorePackage.getEString(), "elementId", null, 1, 1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCloudElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProperty_PropertyId(), ecorePackage.getEString(), "propertyId", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getProperty_PropertyId(), ecorePackage.getEString(), "propertyId", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getResource_ResourceId(), ecorePackage.getEString(), "resourceId", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getResource_Value(), ecorePackage.getEString(), "value", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_ResourceId(), ecorePackage.getEString(), "resourceId", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getResource_Scripts(), this.getScript(), null, "scripts", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getComponent_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getComponent_Providedexecutionplatform(), this.getProvidedExecutionPlatform(), null, "providedexecutionplatform", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(internalComponentEClass, InternalComponent.class, "InternalComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getInternalComponent_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getInternalComponent_Internalcomponent(), this.getInternalComponent(), null, "internalcomponent", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getInternalComponent_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(executionPlatformEClass, ExecutionPlatform.class, "ExecutionPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getExecutionPlatform_Owner(), this.getComponent(), null, "owner", null, 0, 1, ExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getExecutionPlatform_ExecutionPlatformId(), ecorePackage.getEString(), "executionPlatformId", null, 0, 1, ExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(executionPlatformEClass, ExecutionPlatform.class, "ExecutionPlatform", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getPort_Component(), this.getComponent(), null, "component", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getPort_PortId(), ecorePackage.getEString(), "portId", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(portEClass, Port.class, "Port", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(requiredPortEClass, RequiredPort.class, "RequiredPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1369,7 +1305,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEClass(requiredExecutionPlatformEClass, RequiredExecutionPlatform.class, "RequiredExecutionPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(providedExecutionPlatformEClass, ProvidedExecutionPlatform.class, "ProvidedExecutionPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getProvidedExecutionPlatform_Offer(), this.getOffer(), null, "offer", null, 0, -1, ProvidedExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getRelationship_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1380,21 +1315,16 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEClass(executionBindingEClass, ExecutionBinding.class, "ExecutionBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getExecutionBinding_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getExecutionBinding_Providedexecutionplatform(), this.getProvidedExecutionPlatform(), null, "providedexecutionplatform", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getExecutionBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getExecutionBinding_BindingId(), ecorePackage.getEString(), "bindingId", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(externalComponentEClass, ExternalComponent.class, "ExternalComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getExternalComponent_Provider(), this.getProvider(), null, "provider", null, 1, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(providerEClass, Provider.class, "Provider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getProvider_CredentialsPath(), ecorePackage.getEString(), "credentialsPath", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProvider_Name(), ecorePackage.getEString(), "name", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getProvider_Property(), this.getProperty(), null, "property", null, 0, -1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProvider_ProviderId(), ecorePackage.getEString(), "providerId", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getProvider_Type(), this.getProviderType(), "type", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(vmEClass, ddsm.VM.class, "VM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getVM_Is64os(), ecorePackage.getEString(), "is64os", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getVM_Location(), ecorePackage.getEString(), "location", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_ImageId(), ecorePackage.getEString(), "imageId", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_MaxCores(), ecorePackage.getEString(), "maxCores", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_MaxRam(), ecorePackage.getEString(), "maxRam", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1409,12 +1339,13 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getVM_SshKey(), ecorePackage.getEString(), "sshKey", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_PublicAddress(), ecorePackage.getEString(), "publicAddress", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_Instances(), ecorePackage.getEString(), "instances", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getVM_Location(), ecorePackage.getEString(), "location", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getVM_GenericSize(), this.getVMSize(), "genericSize", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(ddsmEClass, ddsm.DDSM.class, "DDSM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDDSM_Cloudelement(), this.getCloudElement(), null, "cloudelement", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getDDSM_Provider(), this.getProvider(), null, "provider", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDDSM_Name(), ecorePackage.getEString(), "name", null, 0, 1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDDSM_ModelId(), ecorePackage.getEString(), "modelId", null, 0, 1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDDSM_Description(), ecorePackage.getEString(), "description", null, 0, 1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(lifeCycleEClass, LifeCycle.class, "LifeCycle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getLifeCycle_DownloadCommand(), ecorePackage.getEString(), "downloadCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1422,21 +1353,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getLifeCycle_StartCommand(), ecorePackage.getEString(), "startCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getLifeCycle_StopCommand(), ecorePackage.getEString(), "stopCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(chefRecipeEClass, ChefRecipe.class, "ChefRecipe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getChefRecipe_RecipeUrl(), ecorePackage.getEString(), "recipeUrl", null, 0, 1, ChefRecipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getChefRecipe_RecipePath(), ecorePackage.getEString(), "recipePath", null, 0, 1, ChefRecipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(offerEClass, Offer.class, "Offer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getOffer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Offer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getOffer_Value(), ecorePackage.getEString(), "value", null, 0, 1, Offer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
         initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(mediumHostEClass, MediumHost.class, "MediumHost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(smallHostEClass, SmallHost.class, "SmallHost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(largeHostEClass, LargeHost.class, "LargeHost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(stormNimbusEClass, StormNimbus.class, "StormNimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1444,13 +1361,225 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         initEClass(kafkaEClass, Kafka.class, "Kafka", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(loadBalancerEClass, LoadBalancer.class, "LoadBalancer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
         initEClass(clusterEClass, Cluster.class, "Cluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCluster_HasVm(), this.getVM(), null, "hasVm", null, 0, 1, Cluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(clientNodeEClass, ClientNode.class, "ClientNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getClientNode_Type(), ecorePackage.getEString(), "type", null, 1, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getClientNode_ArtifactUrl(), ecorePackage.getEString(), "artifactUrl", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getClientNode_MainClass(), ecorePackage.getEString(), "mainClass", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(yarnResourceManagerEClass, YarnResourceManager.class, "YarnResourceManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(yarnNodeManagerEClass, YarnNodeManager.class, "YarnNodeManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(hdfsNameNodeEClass, HDFSNameNode.class, "HDFSNameNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(hdfsDataNodeEClass, HDFSDataNode.class, "HDFSDataNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getScript_ScriptId(), ecorePackage.getEString(), "scriptId", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getScript_ScriptUri(), ecorePackage.getEString(), "scriptUri", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        // Initialize enums and add enum literals
+        initEEnum(vmSizeEEnum, VMSize.class, "VMSize");
+        addEEnumLiteral(vmSizeEEnum, VMSize.SMALL);
+        addEEnumLiteral(vmSizeEEnum, VMSize.MEDIUM);
+        addEEnumLiteral(vmSizeEEnum, VMSize.LARGE);
+
+        initEEnum(providerTypeEEnum, ProviderType.class, "ProviderType");
+        addEEnumLiteral(providerTypeEEnum, ProviderType.FLEXIANT);
+        addEEnumLiteral(providerTypeEEnum, ProviderType.OPENSTACK);
+
         // Create resource
         createResource(eNS_URI);
+
+        // Create annotations
+        // http://es.unizar.disco/dice/profiles/generator
+        createGeneratorAnnotations();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://es.unizar.disco/dice/profiles/generator</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createGeneratorAnnotations() {
+        String source = "http://es.unizar.disco/dice/profiles/generator";	
+        addAnnotation
+          (this, 
+           source, 
+           new String[] {
+           });	
+        addAnnotation
+          (cloudElementEClass, 
+           source, 
+           new String[] {
+             "description", "Abstract class, inherit from MODACloudsML which capture common concepts shared by \nmost of the classes specified in meta-model. For example a class extending CloudElement can have Properties and \nResouces associated."
+           });	
+        addAnnotation
+          (propertyEClass, 
+           source, 
+           new String[] {
+             "description", "Represents a generic properties, specified by a pair of <id,value> and owned by a CloudElement.\n"
+           });	
+        addAnnotation
+          (resourceEClass, 
+           source, 
+           new String[] {
+             "description", "Represents a resource associated to an element which might be used to support the deployment and configuration of the such element. \nFor instance a Resource may detail the deployment script of a CloudElement (e.g. an InternalComponent or an ExecutionBinding)."
+           });	
+        addAnnotation
+          (componentEClass, 
+           source, 
+           new String[] {
+             "description", "Inherit from MODACloudsML, it represents a reusable type of cloud component (e.g. a virtual machine or an application)."
+           });	
+        addAnnotation
+          (internalComponentEClass, 
+           source, 
+           new String[] {
+             "description", "Inherit from MODACloudsML, this represents a component that is managed by the application provider,\nor the developer (e.g. a Big Data application)."
+           });	
+        addAnnotation
+          (executionPlatformEClass, 
+           source, 
+           new String[] {
+             "description", "Inherited from MODACloudsML, it represents an generic hosting interface of a Component."
+           });	
+        addAnnotation
+          (portEClass, 
+           source, 
+           new String[] {
+             "description", "Represents an interface (provided or required) of a Component.\nIt is tipically used to link components in order to enable communication."
+           });	
+        addAnnotation
+          (requiredPortEClass, 
+           source, 
+           new String[] {
+             "description", "A specific type of Port which specify that a Component requires to \ncommunicate and consume a features (e.g.access to a database) provided by another Component."
+           });	
+        addAnnotation
+          (providedPortEClass, 
+           source, 
+           new String[] {
+             "description", "A specific type of Port which specify that a Component provides features (e.g.access to a database) which can be accessed by another Component."
+           });	
+        addAnnotation
+          (requiredExecutionPlatformEClass, 
+           source, 
+           new String[] {
+             "description", "A specific type of ExecutionPlatform providing hosting facilities (e.g. an execution environment, like a VM or a web server) to a Component."
+           });	
+        addAnnotation
+          (providedExecutionPlatformEClass, 
+           source, 
+           new String[] {
+             "description", "A specific type of ExecutionPlatform which requires hosting (e.g. a Big Data application requires a Big Data platform) from a Component."
+           });	
+        addAnnotation
+          (relationshipEClass, 
+           source, 
+           new String[] {
+             "description", "test generation"
+           });	
+        addAnnotation
+          (executionBindingEClass, 
+           source, 
+           new String[] {
+             "description", "Represents a binding between a RequiredExecutionPlatform and a ProvidedExecutionPlatform of two components, meaning that the first component will be hosted on the second one according to the specified binding."
+           });	
+        addAnnotation
+          (externalComponentEClass, 
+           source, 
+           new String[] {
+             "description", "Inherit from MODACloudsML, this represents a component that is managed by an external provider, for instance a AWS EC2 virtual machine."
+           });	
+        addAnnotation
+          (providerEClass, 
+           source, 
+           new String[] {
+             "description", "Represents a generic provider of Clouds services."
+           });	
+        addAnnotation
+          (vmEClass, 
+           source, 
+           new String[] {
+             "description", "It is an specific ExternalComponent representing the well know concept of virtual machine.\nIt is possible to the size of the VM in terms of RAM and CPU and Storage size ranges, \nthe preferred operating system, the enabled ports, the desired public address and the number of executing instances,\nor the replication factor. It as been customized in the context of DICE to be able to specify DICE specific type of VM."
+           });	
+        addAnnotation
+          (ddsmEClass, 
+           source, 
+           new String[] {
+             "description", "test generation"
+           });	
+        addAnnotation
+          (lifeCycleEClass, 
+           source, 
+           new String[] {
+             "description", "test generation"
+           });	
+        addAnnotation
+          (stormSupervisorEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of the Storm supervisor slave process."
+           });	
+        addAnnotation
+          (stormNimbusEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of the Storm nimbus master process."
+           });	
+        addAnnotation
+          (zookeeperEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a Zookeeper cluster."
+           });	
+        addAnnotation
+          (kafkaEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a Kafka cluster."
+           });	
+        addAnnotation
+          (clusterEClass, 
+           source, 
+           new String[] {
+             "description", "Inherited from MODACloudsML, it represents a collection of virtual machines on a particular Provider. One Provider can host several Clusters.."
+           });	
+        addAnnotation
+          (clientNodeEClass, 
+           source, 
+           new String[] {
+             "description", "test generation"
+           });	
+        addAnnotation
+          (yarnResourceManagerEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN ResourceManager master process."
+           });	
+        addAnnotation
+          (yarnNodeManagerEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN  NodeManager slave process."
+           });	
+        addAnnotation
+          (hdfsNameNodeEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN ResourceManager master process."
+           });	
+        addAnnotation
+          (hdfsDataNodeEClass, 
+           source, 
+           new String[] {
+             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN ResourceManager master process."
+           });
     }
 
 } //DdsmPackageImpl

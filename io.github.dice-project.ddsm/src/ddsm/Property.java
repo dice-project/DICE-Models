@@ -13,42 +13,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ddsm.Property#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.Property#getValue <em>Value</em>}</li>
  *   <li>{@link ddsm.Property#getPropertyId <em>Property Id</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getProperty()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Represents a generic properties, specified by a pair of <id,value> and owned by a CloudElement.\n'"
  * @generated
  */
 public interface Property extends EObject {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ddsm.DdsmPackage#getProperty_Name()
-     * @model
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ddsm.Property#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
-
     /**
      * Returns the value of the '<em><b>Value</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -86,7 +59,7 @@ public interface Property extends EObject {
      * @return the value of the '<em>Property Id</em>' attribute.
      * @see #setPropertyId(String)
      * @see ddsm.DdsmPackage#getProperty_PropertyId()
-     * @model
+     * @model id="true" required="true"
      * @generated
      */
     String getPropertyId();

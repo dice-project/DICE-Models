@@ -16,13 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ddsm.DDSM#getCloudelement <em>Cloudelement</em>}</li>
- *   <li>{@link ddsm.DDSM#getProvider <em>Provider</em>}</li>
- *   <li>{@link ddsm.DDSM#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.DDSM#getModelId <em>Model Id</em>}</li>
+ *   <li>{@link ddsm.DDSM#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getDDSM()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='test generation'"
  * @generated
  */
 public interface DDSM extends EObject {
@@ -41,48 +40,6 @@ public interface DDSM extends EObject {
      * @generated
      */
     EList<CloudElement> getCloudelement();
-
-    /**
-     * Returns the value of the '<em><b>Provider</b></em>' containment reference list.
-     * The list contents are of type {@link ddsm.Provider}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Provider</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Provider</em>' containment reference list.
-     * @see ddsm.DdsmPackage#getDDSM_Provider()
-     * @model containment="true"
-     * @generated
-     */
-    EList<Provider> getProvider();
-
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ddsm.DdsmPackage#getDDSM_Name()
-     * @model
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ddsm.DDSM#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
 
     /**
      * Returns the value of the '<em><b>Model Id</b></em>' attribute.
@@ -109,5 +66,31 @@ public interface DDSM extends EObject {
      * @generated
      */
     void setModelId(String value);
+
+    /**
+     * Returns the value of the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Description</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Description</em>' attribute.
+     * @see #setDescription(String)
+     * @see ddsm.DdsmPackage#getDDSM_Description()
+     * @model
+     * @generated
+     */
+    String getDescription();
+
+    /**
+     * Sets the value of the '{@link ddsm.DDSM#getDescription <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Description</em>' attribute.
+     * @see #getDescription()
+     * @generated
+     */
+    void setDescription(String value);
 
 } // DDSM

@@ -16,7 +16,7 @@ package ddsm;
  * </ul>
  *
  * @see ddsm.DdsmPackage#getExternalComponent()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Inherit from MODACloudsML, this represents a component that is managed by an external provider, for instance a AWS EC2 virtual machine.'"
  * @generated
  */
 public interface ExternalComponent extends Component {

@@ -4,6 +4,7 @@ package ddsm;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -85,13 +86,22 @@ public interface DdsmPackage extends EPackage {
     int CLOUD_ELEMENT__PROPERTY = 1;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLOUD_ELEMENT__CLOUD_ELEMENT_ID = 2;
+    int CLOUD_ELEMENT__ELEMENT_ID = 2;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLOUD_ELEMENT__DESCRIPTION = 3;
 
     /**
      * The number of structural features of the '<em>Cloud Element</em>' class.
@@ -100,7 +110,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLOUD_ELEMENT_FEATURE_COUNT = 3;
+    int CLOUD_ELEMENT_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Cloud Element</em>' class.
@@ -122,22 +132,13 @@ public interface DdsmPackage extends EPackage {
     int PROPERTY = 1;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY__NAME = 0;
-
-    /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY__VALUE = 1;
+    int PROPERTY__VALUE = 0;
 
     /**
      * The feature id for the '<em><b>Property Id</b></em>' attribute.
@@ -146,7 +147,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__PROPERTY_ID = 2;
+    int PROPERTY__PROPERTY_ID = 1;
 
     /**
      * The number of structural features of the '<em>Property</em>' class.
@@ -155,7 +156,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_FEATURE_COUNT = 3;
+    int PROPERTY_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Property</em>' class.
@@ -177,31 +178,22 @@ public interface DdsmPackage extends EPackage {
     int RESOURCE = 2;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RESOURCE__NAME = 0;
-
-    /**
      * The feature id for the '<em><b>Resource Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RESOURCE__RESOURCE_ID = 1;
+    int RESOURCE__RESOURCE_ID = 0;
 
     /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RESOURCE__VALUE = 2;
+    int RESOURCE__SCRIPTS = 1;
 
     /**
      * The number of structural features of the '<em>Resource</em>' class.
@@ -210,7 +202,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_FEATURE_COUNT = 3;
+    int RESOURCE_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Resource</em>' class.
@@ -250,13 +242,22 @@ public interface DdsmPackage extends EPackage {
     int COMPONENT__PROPERTY = CLOUD_ELEMENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPONENT__CLOUD_ELEMENT_ID = CLOUD_ELEMENT__CLOUD_ELEMENT_ID;
+    int COMPONENT__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -277,22 +278,13 @@ public interface DdsmPackage extends EPackage {
     int COMPONENT__PROVIDEDEXECUTIONPLATFORM = CLOUD_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPONENT__NAME = CLOUD_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
      * The number of structural features of the '<em>Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPONENT_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 3;
+    int COMPONENT_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Component</em>' class.
@@ -332,13 +324,22 @@ public interface DdsmPackage extends EPackage {
     int INTERNAL_COMPONENT__PROPERTY = COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INTERNAL_COMPONENT__CLOUD_ELEMENT_ID = COMPONENT__CLOUD_ELEMENT_ID;
+    int INTERNAL_COMPONENT__ELEMENT_ID = COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERNAL_COMPONENT__DESCRIPTION = COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -357,15 +358,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM = COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_COMPONENT__NAME = COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -423,22 +415,40 @@ public interface DdsmPackage extends EPackage {
     int EXECUTION_PLATFORM = 5;
 
     /**
-     * The feature id for the '<em><b>Owner</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXECUTION_PLATFORM__OWNER = 0;
+    int EXECUTION_PLATFORM__RESOURCE = CLOUD_ELEMENT__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Execution Platform Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID = 1;
+    int EXECUTION_PLATFORM__PROPERTY = CLOUD_ELEMENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXECUTION_PLATFORM__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXECUTION_PLATFORM__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Execution Platform</em>' class.
@@ -447,7 +457,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXECUTION_PLATFORM_FEATURE_COUNT = 2;
+    int EXECUTION_PLATFORM_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Execution Platform</em>' class.
@@ -456,7 +466,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXECUTION_PLATFORM_OPERATION_COUNT = 0;
+    int EXECUTION_PLATFORM_OPERATION_COUNT = CLOUD_ELEMENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.PortImpl <em>Port</em>}' class.
@@ -469,22 +479,40 @@ public interface DdsmPackage extends EPackage {
     int PORT = 6;
 
     /**
-     * The feature id for the '<em><b>Component</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PORT__COMPONENT = 0;
+    int PORT__RESOURCE = CLOUD_ELEMENT__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Port Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PORT__PORT_ID = 1;
+    int PORT__PROPERTY = CLOUD_ELEMENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PORT__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PORT__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Port</em>' class.
@@ -493,7 +521,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PORT_FEATURE_COUNT = 2;
+    int PORT_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Port</em>' class.
@@ -502,7 +530,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PORT_OPERATION_COUNT = 0;
+    int PORT_OPERATION_COUNT = CLOUD_ELEMENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.RequiredPortImpl <em>Required Port</em>}' class.
@@ -515,22 +543,40 @@ public interface DdsmPackage extends EPackage {
     int REQUIRED_PORT = 7;
 
     /**
-     * The feature id for the '<em><b>Component</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_PORT__COMPONENT = PORT__COMPONENT;
+    int REQUIRED_PORT__RESOURCE = PORT__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Port Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_PORT__PORT_ID = PORT__PORT_ID;
+    int REQUIRED_PORT__PROPERTY = PORT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_PORT__ELEMENT_ID = PORT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_PORT__DESCRIPTION = PORT__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Required Port</em>' class.
@@ -561,22 +607,40 @@ public interface DdsmPackage extends EPackage {
     int PROVIDED_PORT = 8;
 
     /**
-     * The feature id for the '<em><b>Component</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_PORT__COMPONENT = PORT__COMPONENT;
+    int PROVIDED_PORT__RESOURCE = PORT__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Port Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_PORT__PORT_ID = PORT__PORT_ID;
+    int PROVIDED_PORT__PROPERTY = PORT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_PORT__ELEMENT_ID = PORT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_PORT__DESCRIPTION = PORT__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Provided Port</em>' class.
@@ -607,22 +671,40 @@ public interface DdsmPackage extends EPackage {
     int REQUIRED_EXECUTION_PLATFORM = 9;
 
     /**
-     * The feature id for the '<em><b>Owner</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_EXECUTION_PLATFORM__OWNER = EXECUTION_PLATFORM__OWNER;
+    int REQUIRED_EXECUTION_PLATFORM__RESOURCE = EXECUTION_PLATFORM__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Execution Platform Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID = EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID;
+    int REQUIRED_EXECUTION_PLATFORM__PROPERTY = EXECUTION_PLATFORM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_EXECUTION_PLATFORM__ELEMENT_ID = EXECUTION_PLATFORM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_EXECUTION_PLATFORM__DESCRIPTION = EXECUTION_PLATFORM__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Required Execution Platform</em>' class.
@@ -653,31 +735,40 @@ public interface DdsmPackage extends EPackage {
     int PROVIDED_EXECUTION_PLATFORM = 10;
 
     /**
-     * The feature id for the '<em><b>Owner</b></em>' reference.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_EXECUTION_PLATFORM__OWNER = EXECUTION_PLATFORM__OWNER;
+    int PROVIDED_EXECUTION_PLATFORM__RESOURCE = EXECUTION_PLATFORM__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Execution Platform Id</b></em>' attribute.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID = EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID;
+    int PROVIDED_EXECUTION_PLATFORM__PROPERTY = EXECUTION_PLATFORM__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Offer</b></em>' containment reference list.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_EXECUTION_PLATFORM__OFFER = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
+    int PROVIDED_EXECUTION_PLATFORM__ELEMENT_ID = EXECUTION_PLATFORM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_EXECUTION_PLATFORM__DESCRIPTION = EXECUTION_PLATFORM__DESCRIPTION;
 
     /**
      * The number of structural features of the '<em>Provided Execution Platform</em>' class.
@@ -686,7 +777,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 1;
+    int PROVIDED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Provided Execution Platform</em>' class.
@@ -726,13 +817,22 @@ public interface DdsmPackage extends EPackage {
     int RELATIONSHIP__PROPERTY = CLOUD_ELEMENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RELATIONSHIP__CLOUD_ELEMENT_ID = CLOUD_ELEMENT__CLOUD_ELEMENT_ID;
+    int RELATIONSHIP__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RELATIONSHIP__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' reference.
@@ -817,13 +917,22 @@ public interface DdsmPackage extends EPackage {
     int EXECUTION_BINDING__PROPERTY = CLOUD_ELEMENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXECUTION_BINDING__CLOUD_ELEMENT_ID = CLOUD_ELEMENT__CLOUD_ELEMENT_ID;
+    int EXECUTION_BINDING__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXECUTION_BINDING__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' reference.
@@ -844,31 +953,13 @@ public interface DdsmPackage extends EPackage {
     int EXECUTION_BINDING__PROVIDEDEXECUTIONPLATFORM = CLOUD_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EXECUTION_BINDING__NAME = CLOUD_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Binding Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EXECUTION_BINDING__BINDING_ID = CLOUD_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
      * The number of structural features of the '<em>Execution Binding</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXECUTION_BINDING_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 4;
+    int EXECUTION_BINDING_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Execution Binding</em>' class.
@@ -908,13 +999,22 @@ public interface DdsmPackage extends EPackage {
     int EXTERNAL_COMPONENT__PROPERTY = COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXTERNAL_COMPONENT__CLOUD_ELEMENT_ID = COMPONENT__CLOUD_ELEMENT_ID;
+    int EXTERNAL_COMPONENT__ELEMENT_ID = COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__DESCRIPTION = COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -933,15 +1033,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int EXTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM = COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EXTERNAL_COMPONENT__NAME = COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -981,22 +1072,13 @@ public interface DdsmPackage extends EPackage {
     int PROVIDER = 14;
 
     /**
-     * The feature id for the '<em><b>Credentials Path</b></em>' attribute.
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDER__CREDENTIALS_PATH = 0;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROVIDER__NAME = 1;
+    int PROVIDER__RESOURCE = CLOUD_ELEMENT__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1005,16 +1087,43 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDER__PROPERTY = 2;
+    int PROVIDER__PROPERTY = CLOUD_ELEMENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Provider Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDER__PROVIDER_ID = 3;
+    int PROVIDER__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDER__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Credentials Path</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDER__CREDENTIALS_PATH = CLOUD_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDER__TYPE = CLOUD_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Provider</em>' class.
@@ -1023,7 +1132,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDER_FEATURE_COUNT = 4;
+    int PROVIDER_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Provider</em>' class.
@@ -1032,7 +1141,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDER_OPERATION_COUNT = 0;
+    int PROVIDER_OPERATION_COUNT = CLOUD_ELEMENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.VMImpl <em>VM</em>}' class.
@@ -1063,13 +1172,22 @@ public interface DdsmPackage extends EPackage {
     int VM__PROPERTY = EXTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VM__CLOUD_ELEMENT_ID = EXTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int VM__ELEMENT_ID = EXTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__DESCRIPTION = EXTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -1090,15 +1208,6 @@ public interface DdsmPackage extends EPackage {
     int VM__PROVIDEDEXECUTIONPLATFORM = EXTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int VM__NAME = EXTERNAL_COMPONENT__NAME;
-
-    /**
      * The feature id for the '<em><b>Provider</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1117,22 +1226,13 @@ public interface DdsmPackage extends EPackage {
     int VM__IS64OS = EXTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int VM__LOCATION = EXTERNAL_COMPONENT_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Image Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VM__IMAGE_ID = EXTERNAL_COMPONENT_FEATURE_COUNT + 2;
+    int VM__IMAGE_ID = EXTERNAL_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Max Cores</b></em>' attribute.
@@ -1141,7 +1241,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MAX_CORES = EXTERNAL_COMPONENT_FEATURE_COUNT + 3;
+    int VM__MAX_CORES = EXTERNAL_COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Max Ram</b></em>' attribute.
@@ -1150,7 +1250,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MAX_RAM = EXTERNAL_COMPONENT_FEATURE_COUNT + 4;
+    int VM__MAX_RAM = EXTERNAL_COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Max Storage</b></em>' attribute.
@@ -1159,7 +1259,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MAX_STORAGE = EXTERNAL_COMPONENT_FEATURE_COUNT + 5;
+    int VM__MAX_STORAGE = EXTERNAL_COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Min Cores</b></em>' attribute.
@@ -1168,7 +1268,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MIN_CORES = EXTERNAL_COMPONENT_FEATURE_COUNT + 6;
+    int VM__MIN_CORES = EXTERNAL_COMPONENT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Min Ram</b></em>' attribute.
@@ -1177,7 +1277,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MIN_RAM = EXTERNAL_COMPONENT_FEATURE_COUNT + 7;
+    int VM__MIN_RAM = EXTERNAL_COMPONENT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Min Storage</b></em>' attribute.
@@ -1186,7 +1286,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__MIN_STORAGE = EXTERNAL_COMPONENT_FEATURE_COUNT + 8;
+    int VM__MIN_STORAGE = EXTERNAL_COMPONENT_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Os</b></em>' attribute.
@@ -1195,7 +1295,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__OS = EXTERNAL_COMPONENT_FEATURE_COUNT + 9;
+    int VM__OS = EXTERNAL_COMPONENT_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Private Key</b></em>' attribute.
@@ -1204,7 +1304,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__PRIVATE_KEY = EXTERNAL_COMPONENT_FEATURE_COUNT + 10;
+    int VM__PRIVATE_KEY = EXTERNAL_COMPONENT_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Provider Specific Type Name</b></em>' attribute.
@@ -1213,7 +1313,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__PROVIDER_SPECIFIC_TYPE_NAME = EXTERNAL_COMPONENT_FEATURE_COUNT + 11;
+    int VM__PROVIDER_SPECIFIC_TYPE_NAME = EXTERNAL_COMPONENT_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Security Group</b></em>' attribute.
@@ -1222,7 +1322,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__SECURITY_GROUP = EXTERNAL_COMPONENT_FEATURE_COUNT + 12;
+    int VM__SECURITY_GROUP = EXTERNAL_COMPONENT_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Ssh Key</b></em>' attribute.
@@ -1231,7 +1331,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__SSH_KEY = EXTERNAL_COMPONENT_FEATURE_COUNT + 13;
+    int VM__SSH_KEY = EXTERNAL_COMPONENT_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Public Address</b></em>' attribute.
@@ -1240,7 +1340,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__PUBLIC_ADDRESS = EXTERNAL_COMPONENT_FEATURE_COUNT + 14;
+    int VM__PUBLIC_ADDRESS = EXTERNAL_COMPONENT_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Instances</b></em>' attribute.
@@ -1249,7 +1349,25 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM__INSTANCES = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
+    int VM__INSTANCES = EXTERNAL_COMPONENT_FEATURE_COUNT + 14;
+
+    /**
+     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__LOCATION = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
+
+    /**
+     * The feature id for the '<em><b>Generic Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__GENERIC_SIZE = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
 
     /**
      * The number of structural features of the '<em>VM</em>' class.
@@ -1258,7 +1376,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
+    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 17;
 
     /**
      * The number of operations of the '<em>VM</em>' class.
@@ -1289,31 +1407,22 @@ public interface DdsmPackage extends EPackage {
     int DDSM__CLOUDELEMENT = 0;
 
     /**
-     * The feature id for the '<em><b>Provider</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DDSM__PROVIDER = 1;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DDSM__NAME = 2;
-
-    /**
      * The feature id for the '<em><b>Model Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DDSM__MODEL_ID = 3;
+    int DDSM__MODEL_ID = 1;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DDSM__DESCRIPTION = 2;
 
     /**
      * The number of structural features of the '<em>DDSM</em>' class.
@@ -1322,7 +1431,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DDSM_FEATURE_COUNT = 4;
+    int DDSM_FEATURE_COUNT = 3;
 
     /**
      * The number of operations of the '<em>DDSM</em>' class.
@@ -1344,15 +1453,6 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE = 17;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__NAME = RESOURCE__NAME;
-
-    /**
      * The feature id for the '<em><b>Resource Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1362,13 +1462,13 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__RESOURCE_ID = RESOURCE__RESOURCE_ID;
 
     /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIFE_CYCLE__VALUE = RESOURCE__VALUE;
+    int LIFE_CYCLE__SCRIPTS = RESOURCE__SCRIPTS;
 
     /**
      * The feature id for the '<em><b>Download Command</b></em>' attribute.
@@ -1425,125 +1525,6 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.ChefRecipeImpl <em>Chef Recipe</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.ChefRecipeImpl
-     * @see ddsm.impl.DdsmPackageImpl#getChefRecipe()
-     * @generated
-     */
-    int CHEF_RECIPE = 18;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE__NAME = RESOURCE__NAME;
-
-    /**
-     * The feature id for the '<em><b>Resource Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE__RESOURCE_ID = RESOURCE__RESOURCE_ID;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE__VALUE = RESOURCE__VALUE;
-
-    /**
-     * The feature id for the '<em><b>Recipe Url</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE__RECIPE_URL = RESOURCE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Recipe Path</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE__RECIPE_PATH = RESOURCE_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>Chef Recipe</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
-
-    /**
-     * The number of operations of the '<em>Chef Recipe</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHEF_RECIPE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.OfferImpl <em>Offer</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.OfferImpl
-     * @see ddsm.impl.DdsmPackageImpl#getOffer()
-     * @generated
-     */
-    int OFFER = 19;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int OFFER__NAME = 0;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int OFFER__VALUE = 1;
-
-    /**
-     * The number of structural features of the '<em>Offer</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int OFFER_FEATURE_COUNT = 2;
-
-    /**
-     * The number of operations of the '<em>Offer</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int OFFER_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link ddsm.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1551,7 +1532,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getStormSupervisor()
      * @generated
      */
-    int STORM_SUPERVISOR = 20;
+    int STORM_SUPERVISOR = 18;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -1572,13 +1553,22 @@ public interface DdsmPackage extends EPackage {
     int STORM_SUPERVISOR__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__CLOUD_ELEMENT_ID = INTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int STORM_SUPERVISOR__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_SUPERVISOR__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -1597,15 +1587,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int STORM_SUPERVISOR__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STORM_SUPERVISOR__NAME = INTERNAL_COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -1653,711 +1634,6 @@ public interface DdsmPackage extends EPackage {
     int STORM_SUPERVISOR_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.MediumHostImpl <em>Medium Host</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.MediumHostImpl
-     * @see ddsm.impl.DdsmPackageImpl#getMediumHost()
-     * @generated
-     */
-    int MEDIUM_HOST = 21;
-
-    /**
-     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__RESOURCE = VM__RESOURCE;
-
-    /**
-     * The feature id for the '<em><b>Property</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PROPERTY = VM__PROPERTY;
-
-    /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__CLOUD_ELEMENT_ID = VM__CLOUD_ELEMENT_ID;
-
-    /**
-     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PROVIDEDPORT = VM__PROVIDEDPORT;
-
-    /**
-     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PROVIDEDEXECUTIONPLATFORM = VM__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__NAME = VM__NAME;
-
-    /**
-     * The feature id for the '<em><b>Provider</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PROVIDER = VM__PROVIDER;
-
-    /**
-     * The feature id for the '<em><b>Is64os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__IS64OS = VM__IS64OS;
-
-    /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__LOCATION = VM__LOCATION;
-
-    /**
-     * The feature id for the '<em><b>Image Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__IMAGE_ID = VM__IMAGE_ID;
-
-    /**
-     * The feature id for the '<em><b>Max Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MAX_CORES = VM__MAX_CORES;
-
-    /**
-     * The feature id for the '<em><b>Max Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MAX_RAM = VM__MAX_RAM;
-
-    /**
-     * The feature id for the '<em><b>Max Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MAX_STORAGE = VM__MAX_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Min Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MIN_CORES = VM__MIN_CORES;
-
-    /**
-     * The feature id for the '<em><b>Min Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MIN_RAM = VM__MIN_RAM;
-
-    /**
-     * The feature id for the '<em><b>Min Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__MIN_STORAGE = VM__MIN_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__OS = VM__OS;
-
-    /**
-     * The feature id for the '<em><b>Private Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PRIVATE_KEY = VM__PRIVATE_KEY;
-
-    /**
-     * The feature id for the '<em><b>Provider Specific Type Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PROVIDER_SPECIFIC_TYPE_NAME = VM__PROVIDER_SPECIFIC_TYPE_NAME;
-
-    /**
-     * The feature id for the '<em><b>Security Group</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__SECURITY_GROUP = VM__SECURITY_GROUP;
-
-    /**
-     * The feature id for the '<em><b>Ssh Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__SSH_KEY = VM__SSH_KEY;
-
-    /**
-     * The feature id for the '<em><b>Public Address</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__PUBLIC_ADDRESS = VM__PUBLIC_ADDRESS;
-
-    /**
-     * The feature id for the '<em><b>Instances</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST__INSTANCES = VM__INSTANCES;
-
-    /**
-     * The number of structural features of the '<em>Medium Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST_FEATURE_COUNT = VM_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Medium Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MEDIUM_HOST_OPERATION_COUNT = VM_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.SmallHostImpl <em>Small Host</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.SmallHostImpl
-     * @see ddsm.impl.DdsmPackageImpl#getSmallHost()
-     * @generated
-     */
-    int SMALL_HOST = 22;
-
-    /**
-     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__RESOURCE = VM__RESOURCE;
-
-    /**
-     * The feature id for the '<em><b>Property</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PROPERTY = VM__PROPERTY;
-
-    /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__CLOUD_ELEMENT_ID = VM__CLOUD_ELEMENT_ID;
-
-    /**
-     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PROVIDEDPORT = VM__PROVIDEDPORT;
-
-    /**
-     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PROVIDEDEXECUTIONPLATFORM = VM__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__NAME = VM__NAME;
-
-    /**
-     * The feature id for the '<em><b>Provider</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PROVIDER = VM__PROVIDER;
-
-    /**
-     * The feature id for the '<em><b>Is64os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__IS64OS = VM__IS64OS;
-
-    /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__LOCATION = VM__LOCATION;
-
-    /**
-     * The feature id for the '<em><b>Image Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__IMAGE_ID = VM__IMAGE_ID;
-
-    /**
-     * The feature id for the '<em><b>Max Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MAX_CORES = VM__MAX_CORES;
-
-    /**
-     * The feature id for the '<em><b>Max Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MAX_RAM = VM__MAX_RAM;
-
-    /**
-     * The feature id for the '<em><b>Max Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MAX_STORAGE = VM__MAX_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Min Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MIN_CORES = VM__MIN_CORES;
-
-    /**
-     * The feature id for the '<em><b>Min Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MIN_RAM = VM__MIN_RAM;
-
-    /**
-     * The feature id for the '<em><b>Min Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__MIN_STORAGE = VM__MIN_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__OS = VM__OS;
-
-    /**
-     * The feature id for the '<em><b>Private Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PRIVATE_KEY = VM__PRIVATE_KEY;
-
-    /**
-     * The feature id for the '<em><b>Provider Specific Type Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PROVIDER_SPECIFIC_TYPE_NAME = VM__PROVIDER_SPECIFIC_TYPE_NAME;
-
-    /**
-     * The feature id for the '<em><b>Security Group</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__SECURITY_GROUP = VM__SECURITY_GROUP;
-
-    /**
-     * The feature id for the '<em><b>Ssh Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__SSH_KEY = VM__SSH_KEY;
-
-    /**
-     * The feature id for the '<em><b>Public Address</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__PUBLIC_ADDRESS = VM__PUBLIC_ADDRESS;
-
-    /**
-     * The feature id for the '<em><b>Instances</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST__INSTANCES = VM__INSTANCES;
-
-    /**
-     * The number of structural features of the '<em>Small Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST_FEATURE_COUNT = VM_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Small Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SMALL_HOST_OPERATION_COUNT = VM_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.LargeHostImpl <em>Large Host</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.LargeHostImpl
-     * @see ddsm.impl.DdsmPackageImpl#getLargeHost()
-     * @generated
-     */
-    int LARGE_HOST = 23;
-
-    /**
-     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__RESOURCE = VM__RESOURCE;
-
-    /**
-     * The feature id for the '<em><b>Property</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PROPERTY = VM__PROPERTY;
-
-    /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__CLOUD_ELEMENT_ID = VM__CLOUD_ELEMENT_ID;
-
-    /**
-     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PROVIDEDPORT = VM__PROVIDEDPORT;
-
-    /**
-     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PROVIDEDEXECUTIONPLATFORM = VM__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__NAME = VM__NAME;
-
-    /**
-     * The feature id for the '<em><b>Provider</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PROVIDER = VM__PROVIDER;
-
-    /**
-     * The feature id for the '<em><b>Is64os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__IS64OS = VM__IS64OS;
-
-    /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__LOCATION = VM__LOCATION;
-
-    /**
-     * The feature id for the '<em><b>Image Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__IMAGE_ID = VM__IMAGE_ID;
-
-    /**
-     * The feature id for the '<em><b>Max Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MAX_CORES = VM__MAX_CORES;
-
-    /**
-     * The feature id for the '<em><b>Max Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MAX_RAM = VM__MAX_RAM;
-
-    /**
-     * The feature id for the '<em><b>Max Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MAX_STORAGE = VM__MAX_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Min Cores</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MIN_CORES = VM__MIN_CORES;
-
-    /**
-     * The feature id for the '<em><b>Min Ram</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MIN_RAM = VM__MIN_RAM;
-
-    /**
-     * The feature id for the '<em><b>Min Storage</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__MIN_STORAGE = VM__MIN_STORAGE;
-
-    /**
-     * The feature id for the '<em><b>Os</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__OS = VM__OS;
-
-    /**
-     * The feature id for the '<em><b>Private Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PRIVATE_KEY = VM__PRIVATE_KEY;
-
-    /**
-     * The feature id for the '<em><b>Provider Specific Type Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PROVIDER_SPECIFIC_TYPE_NAME = VM__PROVIDER_SPECIFIC_TYPE_NAME;
-
-    /**
-     * The feature id for the '<em><b>Security Group</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__SECURITY_GROUP = VM__SECURITY_GROUP;
-
-    /**
-     * The feature id for the '<em><b>Ssh Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__SSH_KEY = VM__SSH_KEY;
-
-    /**
-     * The feature id for the '<em><b>Public Address</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__PUBLIC_ADDRESS = VM__PUBLIC_ADDRESS;
-
-    /**
-     * The feature id for the '<em><b>Instances</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST__INSTANCES = VM__INSTANCES;
-
-    /**
-     * The number of structural features of the '<em>Large Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST_FEATURE_COUNT = VM_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Large Host</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LARGE_HOST_OPERATION_COUNT = VM_OPERATION_COUNT + 0;
-
-    /**
      * The meta object id for the '{@link ddsm.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2365,7 +1641,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getStormNimbus()
      * @generated
      */
-    int STORM_NIMBUS = 24;
+    int STORM_NIMBUS = 19;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2386,13 +1662,22 @@ public interface DdsmPackage extends EPackage {
     int STORM_NIMBUS__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__CLOUD_ELEMENT_ID = INTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int STORM_NIMBUS__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_NIMBUS__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2411,15 +1696,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int STORM_NIMBUS__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STORM_NIMBUS__NAME = INTERNAL_COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2474,7 +1750,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getZookeeper()
      * @generated
      */
-    int ZOOKEEPER = 25;
+    int ZOOKEEPER = 20;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2495,13 +1771,22 @@ public interface DdsmPackage extends EPackage {
     int ZOOKEEPER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__CLOUD_ELEMENT_ID = INTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int ZOOKEEPER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2520,15 +1805,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int ZOOKEEPER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ZOOKEEPER__NAME = INTERNAL_COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2583,7 +1859,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getKafka()
      * @generated
      */
-    int KAFKA = 26;
+    int KAFKA = 21;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2604,13 +1880,22 @@ public interface DdsmPackage extends EPackage {
     int KAFKA__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int KAFKA__CLOUD_ELEMENT_ID = INTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int KAFKA__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int KAFKA__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2629,15 +1914,6 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int KAFKA__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int KAFKA__NAME = INTERNAL_COMPONENT__NAME;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2685,14 +1961,14 @@ public interface DdsmPackage extends EPackage {
     int KAFKA_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.LoadBalancerImpl <em>Load Balancer</em>}' class.
+     * The meta object id for the '{@link ddsm.impl.ClusterImpl <em>Cluster</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.LoadBalancerImpl
-     * @see ddsm.impl.DdsmPackageImpl#getLoadBalancer()
+     * @see ddsm.impl.ClusterImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCluster()
      * @generated
      */
-    int LOAD_BALANCER = 27;
+    int CLUSTER = 22;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2701,7 +1977,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__RESOURCE = EXTERNAL_COMPONENT__RESOURCE;
+    int CLUSTER__RESOURCE = EXTERNAL_COMPONENT__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2710,16 +1986,25 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__PROPERTY = EXTERNAL_COMPONENT__PROPERTY;
+    int CLUSTER__PROPERTY = EXTERNAL_COMPONENT__PROPERTY;
 
     /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__CLOUD_ELEMENT_ID = EXTERNAL_COMPONENT__CLOUD_ELEMENT_ID;
+    int CLUSTER__ELEMENT_ID = EXTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__DESCRIPTION = EXTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2728,7 +2013,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__PROVIDEDPORT = EXTERNAL_COMPONENT__PROVIDEDPORT;
+    int CLUSTER__PROVIDEDPORT = EXTERNAL_COMPONENT__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2737,16 +2022,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__PROVIDEDEXECUTIONPLATFORM = EXTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOAD_BALANCER__NAME = EXTERNAL_COMPONENT__NAME;
+    int CLUSTER__PROVIDEDEXECUTIONPLATFORM = EXTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -2755,62 +2031,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LOAD_BALANCER__PROVIDER = EXTERNAL_COMPONENT__PROVIDER;
-
-    /**
-     * The number of structural features of the '<em>Load Balancer</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOAD_BALANCER_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Load Balancer</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOAD_BALANCER_OPERATION_COUNT = EXTERNAL_COMPONENT_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.ClusterImpl <em>Cluster</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.ClusterImpl
-     * @see ddsm.impl.DdsmPackageImpl#getCluster()
-     * @generated
-     */
-    int CLUSTER = 28;
-
-    /**
-     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CLUSTER__RESOURCE = CLOUD_ELEMENT__RESOURCE;
-
-    /**
-     * The feature id for the '<em><b>Property</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CLUSTER__PROPERTY = CLOUD_ELEMENT__PROPERTY;
-
-    /**
-     * The feature id for the '<em><b>Cloud Element Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CLUSTER__CLOUD_ELEMENT_ID = CLOUD_ELEMENT__CLOUD_ELEMENT_ID;
+    int CLUSTER__PROVIDER = EXTERNAL_COMPONENT__PROVIDER;
 
     /**
      * The feature id for the '<em><b>Has Vm</b></em>' reference.
@@ -2819,7 +2040,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__HAS_VM = CLOUD_ELEMENT_FEATURE_COUNT + 0;
+    int CLUSTER__HAS_VM = EXTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Cluster</em>' class.
@@ -2828,7 +2049,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 1;
+    int CLUSTER_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Cluster</em>' class.
@@ -2837,7 +2058,645 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER_OPERATION_COUNT = CLOUD_ELEMENT_OPERATION_COUNT + 0;
+    int CLUSTER_OPERATION_COUNT = EXTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.ClientNodeImpl <em>Client Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.ClientNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getClientNode()
+     * @generated
+     */
+    int CLIENT_NODE = 23;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__TYPE = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Artifact Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__ARTIFACT_URL = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Main Class</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__MAIN_CLASS = INTERNAL_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Client Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Client Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.YarnResourceManagerImpl <em>Yarn Resource Manager</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.YarnResourceManagerImpl
+     * @see ddsm.impl.DdsmPackageImpl#getYarnResourceManager()
+     * @generated
+     */
+    int YARN_RESOURCE_MANAGER = 24;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>Yarn Resource Manager</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Yarn Resource Manager</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.YarnNodeManagerImpl <em>Yarn Node Manager</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.YarnNodeManagerImpl
+     * @see ddsm.impl.DdsmPackageImpl#getYarnNodeManager()
+     * @generated
+     */
+    int YARN_NODE_MANAGER = 25;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>Yarn Node Manager</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Yarn Node Manager</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.HDFSNameNodeImpl <em>HDFS Name Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.HDFSNameNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getHDFSNameNode()
+     * @generated
+     */
+    int HDFS_NAME_NODE = 26;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>HDFS Name Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>HDFS Name Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.HDFSDataNodeImpl <em>HDFS Data Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.HDFSDataNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getHDFSDataNode()
+     * @generated
+     */
+    int HDFS_DATA_NODE = 27;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>HDFS Data Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>HDFS Data Node</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.ScriptImpl <em>Script</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.ScriptImpl
+     * @see ddsm.impl.DdsmPackageImpl#getScript()
+     * @generated
+     */
+    int SCRIPT = 28;
+
+    /**
+     * The feature id for the '<em><b>Script Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT__SCRIPT_ID = 0;
+
+    /**
+     * The feature id for the '<em><b>Script Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT__SCRIPT_URI = 1;
+
+    /**
+     * The number of structural features of the '<em>Script</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Script</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.VMSize <em>VM Size</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.VMSize
+     * @see ddsm.impl.DdsmPackageImpl#getVMSize()
+     * @generated
+     */
+    int VM_SIZE = 29;
+
+    /**
+     * The meta object id for the '{@link ddsm.ProviderType <em>Provider Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.ProviderType
+     * @see ddsm.impl.DdsmPackageImpl#getProviderType()
+     * @generated
+     */
+    int PROVIDER_TYPE = 30;
 
 
     /**
@@ -2873,15 +2732,26 @@ public interface DdsmPackage extends EPackage {
     EReference getCloudElement_Property();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.CloudElement#getCloudElementId <em>Cloud Element Id</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.CloudElement#getElementId <em>Element Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Cloud Element Id</em>'.
-     * @see ddsm.CloudElement#getCloudElementId()
+     * @return the meta object for the attribute '<em>Element Id</em>'.
+     * @see ddsm.CloudElement#getElementId()
      * @see #getCloudElement()
      * @generated
      */
-    EAttribute getCloudElement_CloudElementId();
+    EAttribute getCloudElement_ElementId();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.CloudElement#getDescription <em>Description</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Description</em>'.
+     * @see ddsm.CloudElement#getDescription()
+     * @see #getCloudElement()
+     * @generated
+     */
+    EAttribute getCloudElement_Description();
 
     /**
      * Returns the meta object for class '{@link ddsm.Property <em>Property</em>}'.
@@ -2892,17 +2762,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getProperty();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Property#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Property#getName()
-     * @see #getProperty()
-     * @generated
-     */
-    EAttribute getProperty_Name();
 
     /**
      * Returns the meta object for the attribute '{@link ddsm.Property#getValue <em>Value</em>}'.
@@ -2937,17 +2796,6 @@ public interface DdsmPackage extends EPackage {
     EClass getResource();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Resource#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Resource#getName()
-     * @see #getResource()
-     * @generated
-     */
-    EAttribute getResource_Name();
-
-    /**
      * Returns the meta object for the attribute '{@link ddsm.Resource#getResourceId <em>Resource Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2959,15 +2807,15 @@ public interface DdsmPackage extends EPackage {
     EAttribute getResource_ResourceId();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Resource#getValue <em>Value</em>}'.
+     * Returns the meta object for the containment reference list '{@link ddsm.Resource#getScripts <em>Scripts</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Value</em>'.
-     * @see ddsm.Resource#getValue()
+     * @return the meta object for the containment reference list '<em>Scripts</em>'.
+     * @see ddsm.Resource#getScripts()
      * @see #getResource()
      * @generated
      */
-    EAttribute getResource_Value();
+    EReference getResource_Scripts();
 
     /**
      * Returns the meta object for class '{@link ddsm.Component <em>Component</em>}'.
@@ -3000,17 +2848,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EReference getComponent_Providedexecutionplatform();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Component#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Component#getName()
-     * @see #getComponent()
-     * @generated
-     */
-    EAttribute getComponent_Name();
 
     /**
      * Returns the meta object for class '{@link ddsm.InternalComponent <em>Internal Component</em>}'.
@@ -3066,28 +2903,6 @@ public interface DdsmPackage extends EPackage {
     EClass getExecutionPlatform();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.ExecutionPlatform#getOwner <em>Owner</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Owner</em>'.
-     * @see ddsm.ExecutionPlatform#getOwner()
-     * @see #getExecutionPlatform()
-     * @generated
-     */
-    EReference getExecutionPlatform_Owner();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.ExecutionPlatform#getExecutionPlatformId <em>Execution Platform Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Execution Platform Id</em>'.
-     * @see ddsm.ExecutionPlatform#getExecutionPlatformId()
-     * @see #getExecutionPlatform()
-     * @generated
-     */
-    EAttribute getExecutionPlatform_ExecutionPlatformId();
-
-    /**
      * Returns the meta object for class '{@link ddsm.Port <em>Port</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3096,28 +2911,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getPort();
-
-    /**
-     * Returns the meta object for the reference '{@link ddsm.Port#getComponent <em>Component</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Component</em>'.
-     * @see ddsm.Port#getComponent()
-     * @see #getPort()
-     * @generated
-     */
-    EReference getPort_Component();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Port#getPortId <em>Port Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Port Id</em>'.
-     * @see ddsm.Port#getPortId()
-     * @see #getPort()
-     * @generated
-     */
-    EAttribute getPort_PortId();
 
     /**
      * Returns the meta object for class '{@link ddsm.RequiredPort <em>Required Port</em>}'.
@@ -3158,17 +2951,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getProvidedExecutionPlatform();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ddsm.ProvidedExecutionPlatform#getOffer <em>Offer</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Offer</em>'.
-     * @see ddsm.ProvidedExecutionPlatform#getOffer()
-     * @see #getProvidedExecutionPlatform()
-     * @generated
-     */
-    EReference getProvidedExecutionPlatform_Offer();
 
     /**
      * Returns the meta object for class '{@link ddsm.Relationship <em>Relationship</em>}'.
@@ -3257,28 +3039,6 @@ public interface DdsmPackage extends EPackage {
     EReference getExecutionBinding_Providedexecutionplatform();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.ExecutionBinding#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.ExecutionBinding#getName()
-     * @see #getExecutionBinding()
-     * @generated
-     */
-    EAttribute getExecutionBinding_Name();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.ExecutionBinding#getBindingId <em>Binding Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Binding Id</em>'.
-     * @see ddsm.ExecutionBinding#getBindingId()
-     * @see #getExecutionBinding()
-     * @generated
-     */
-    EAttribute getExecutionBinding_BindingId();
-
-    /**
      * Returns the meta object for class '{@link ddsm.ExternalComponent <em>External Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3321,37 +3081,15 @@ public interface DdsmPackage extends EPackage {
     EAttribute getProvider_CredentialsPath();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Provider#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Provider#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Provider#getName()
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see ddsm.Provider#getType()
      * @see #getProvider()
      * @generated
      */
-    EAttribute getProvider_Name();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ddsm.Provider#getProperty <em>Property</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Property</em>'.
-     * @see ddsm.Provider#getProperty()
-     * @see #getProvider()
-     * @generated
-     */
-    EReference getProvider_Property();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Provider#getProviderId <em>Provider Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Provider Id</em>'.
-     * @see ddsm.Provider#getProviderId()
-     * @see #getProvider()
-     * @generated
-     */
-    EAttribute getProvider_ProviderId();
+    EAttribute getProvider_Type();
 
     /**
      * Returns the meta object for class '{@link ddsm.VM <em>VM</em>}'.
@@ -3373,17 +3111,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EAttribute getVM_Is64os();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.VM#getLocation <em>Location</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Location</em>'.
-     * @see ddsm.VM#getLocation()
-     * @see #getVM()
-     * @generated
-     */
-    EAttribute getVM_Location();
 
     /**
      * Returns the meta object for the attribute '{@link ddsm.VM#getImageId <em>Image Id</em>}'.
@@ -3540,6 +3267,28 @@ public interface DdsmPackage extends EPackage {
     EAttribute getVM_Instances();
 
     /**
+     * Returns the meta object for the attribute '{@link ddsm.VM#getLocation <em>Location</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Location</em>'.
+     * @see ddsm.VM#getLocation()
+     * @see #getVM()
+     * @generated
+     */
+    EAttribute getVM_Location();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.VM#getGenericSize <em>Generic Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Generic Size</em>'.
+     * @see ddsm.VM#getGenericSize()
+     * @see #getVM()
+     * @generated
+     */
+    EAttribute getVM_GenericSize();
+
+    /**
      * Returns the meta object for class '{@link ddsm.DDSM <em>DDSM</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3561,28 +3310,6 @@ public interface DdsmPackage extends EPackage {
     EReference getDDSM_Cloudelement();
 
     /**
-     * Returns the meta object for the containment reference list '{@link ddsm.DDSM#getProvider <em>Provider</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Provider</em>'.
-     * @see ddsm.DDSM#getProvider()
-     * @see #getDDSM()
-     * @generated
-     */
-    EReference getDDSM_Provider();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.DDSM#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.DDSM#getName()
-     * @see #getDDSM()
-     * @generated
-     */
-    EAttribute getDDSM_Name();
-
-    /**
      * Returns the meta object for the attribute '{@link ddsm.DDSM#getModelId <em>Model Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3592,6 +3319,17 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EAttribute getDDSM_ModelId();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.DDSM#getDescription <em>Description</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Description</em>'.
+     * @see ddsm.DDSM#getDescription()
+     * @see #getDDSM()
+     * @generated
+     */
+    EAttribute getDDSM_Description();
 
     /**
      * Returns the meta object for class '{@link ddsm.LifeCycle <em>Life Cycle</em>}'.
@@ -3648,70 +3386,6 @@ public interface DdsmPackage extends EPackage {
     EAttribute getLifeCycle_StopCommand();
 
     /**
-     * Returns the meta object for class '{@link ddsm.ChefRecipe <em>Chef Recipe</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Chef Recipe</em>'.
-     * @see ddsm.ChefRecipe
-     * @generated
-     */
-    EClass getChefRecipe();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.ChefRecipe#getRecipeUrl <em>Recipe Url</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Recipe Url</em>'.
-     * @see ddsm.ChefRecipe#getRecipeUrl()
-     * @see #getChefRecipe()
-     * @generated
-     */
-    EAttribute getChefRecipe_RecipeUrl();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.ChefRecipe#getRecipePath <em>Recipe Path</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Recipe Path</em>'.
-     * @see ddsm.ChefRecipe#getRecipePath()
-     * @see #getChefRecipe()
-     * @generated
-     */
-    EAttribute getChefRecipe_RecipePath();
-
-    /**
-     * Returns the meta object for class '{@link ddsm.Offer <em>Offer</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Offer</em>'.
-     * @see ddsm.Offer
-     * @generated
-     */
-    EClass getOffer();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Offer#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Offer#getName()
-     * @see #getOffer()
-     * @generated
-     */
-    EAttribute getOffer_Name();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Offer#getValue <em>Value</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Value</em>'.
-     * @see ddsm.Offer#getValue()
-     * @see #getOffer()
-     * @generated
-     */
-    EAttribute getOffer_Value();
-
-    /**
      * Returns the meta object for class '{@link ddsm.StormSupervisor <em>Storm Supervisor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3720,36 +3394,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getStormSupervisor();
-
-    /**
-     * Returns the meta object for class '{@link ddsm.MediumHost <em>Medium Host</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Medium Host</em>'.
-     * @see ddsm.MediumHost
-     * @generated
-     */
-    EClass getMediumHost();
-
-    /**
-     * Returns the meta object for class '{@link ddsm.SmallHost <em>Small Host</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Small Host</em>'.
-     * @see ddsm.SmallHost
-     * @generated
-     */
-    EClass getSmallHost();
-
-    /**
-     * Returns the meta object for class '{@link ddsm.LargeHost <em>Large Host</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Large Host</em>'.
-     * @see ddsm.LargeHost
-     * @generated
-     */
-    EClass getLargeHost();
 
     /**
      * Returns the meta object for class '{@link ddsm.StormNimbus <em>Storm Nimbus</em>}'.
@@ -3782,16 +3426,6 @@ public interface DdsmPackage extends EPackage {
     EClass getKafka();
 
     /**
-     * Returns the meta object for class '{@link ddsm.LoadBalancer <em>Load Balancer</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Load Balancer</em>'.
-     * @see ddsm.LoadBalancer
-     * @generated
-     */
-    EClass getLoadBalancer();
-
-    /**
      * Returns the meta object for class '{@link ddsm.Cluster <em>Cluster</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3811,6 +3445,141 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EReference getCluster_HasVm();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.ClientNode <em>Client Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Client Node</em>'.
+     * @see ddsm.ClientNode
+     * @generated
+     */
+    EClass getClientNode();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see ddsm.ClientNode#getType()
+     * @see #getClientNode()
+     * @generated
+     */
+    EAttribute getClientNode_Type();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getArtifactUrl <em>Artifact Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Artifact Url</em>'.
+     * @see ddsm.ClientNode#getArtifactUrl()
+     * @see #getClientNode()
+     * @generated
+     */
+    EAttribute getClientNode_ArtifactUrl();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getMainClass <em>Main Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Main Class</em>'.
+     * @see ddsm.ClientNode#getMainClass()
+     * @see #getClientNode()
+     * @generated
+     */
+    EAttribute getClientNode_MainClass();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.YarnResourceManager <em>Yarn Resource Manager</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Yarn Resource Manager</em>'.
+     * @see ddsm.YarnResourceManager
+     * @generated
+     */
+    EClass getYarnResourceManager();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.YarnNodeManager <em>Yarn Node Manager</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Yarn Node Manager</em>'.
+     * @see ddsm.YarnNodeManager
+     * @generated
+     */
+    EClass getYarnNodeManager();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.HDFSNameNode <em>HDFS Name Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>HDFS Name Node</em>'.
+     * @see ddsm.HDFSNameNode
+     * @generated
+     */
+    EClass getHDFSNameNode();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.HDFSDataNode <em>HDFS Data Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>HDFS Data Node</em>'.
+     * @see ddsm.HDFSDataNode
+     * @generated
+     */
+    EClass getHDFSDataNode();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.Script <em>Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Script</em>'.
+     * @see ddsm.Script
+     * @generated
+     */
+    EClass getScript();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Script#getScriptId <em>Script Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script Id</em>'.
+     * @see ddsm.Script#getScriptId()
+     * @see #getScript()
+     * @generated
+     */
+    EAttribute getScript_ScriptId();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Script#getScriptUri <em>Script Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script Uri</em>'.
+     * @see ddsm.Script#getScriptUri()
+     * @see #getScript()
+     * @generated
+     */
+    EAttribute getScript_ScriptUri();
+
+    /**
+     * Returns the meta object for enum '{@link ddsm.VMSize <em>VM Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>VM Size</em>'.
+     * @see ddsm.VMSize
+     * @generated
+     */
+    EEnum getVMSize();
+
+    /**
+     * Returns the meta object for enum '{@link ddsm.ProviderType <em>Provider Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Provider Type</em>'.
+     * @see ddsm.ProviderType
+     * @generated
+     */
+    EEnum getProviderType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -3862,12 +3631,20 @@ public interface DdsmPackage extends EPackage {
         EReference CLOUD_ELEMENT__PROPERTY = eINSTANCE.getCloudElement_Property();
 
         /**
-         * The meta object literal for the '<em><b>Cloud Element Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Element Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CLOUD_ELEMENT__CLOUD_ELEMENT_ID = eINSTANCE.getCloudElement_CloudElementId();
+        EAttribute CLOUD_ELEMENT__ELEMENT_ID = eINSTANCE.getCloudElement_ElementId();
+
+        /**
+         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLOUD_ELEMENT__DESCRIPTION = eINSTANCE.getCloudElement_Description();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.PropertyImpl <em>Property</em>}' class.
@@ -3878,14 +3655,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass PROPERTY = eINSTANCE.getProperty();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3914,14 +3683,6 @@ public interface DdsmPackage extends EPackage {
         EClass RESOURCE = eINSTANCE.getResource();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
-
-        /**
          * The meta object literal for the '<em><b>Resource Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3930,12 +3691,12 @@ public interface DdsmPackage extends EPackage {
         EAttribute RESOURCE__RESOURCE_ID = eINSTANCE.getResource_ResourceId();
 
         /**
-         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RESOURCE__VALUE = eINSTANCE.getResource_Value();
+        EReference RESOURCE__SCRIPTS = eINSTANCE.getResource_Scripts();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ComponentImpl <em>Component</em>}' class.
@@ -3962,14 +3723,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EReference COMPONENT__PROVIDEDEXECUTIONPLATFORM = eINSTANCE.getComponent_Providedexecutionplatform();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.InternalComponentImpl <em>Internal Component</em>}' class.
@@ -4016,22 +3769,6 @@ public interface DdsmPackage extends EPackage {
         EClass EXECUTION_PLATFORM = eINSTANCE.getExecutionPlatform();
 
         /**
-         * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference EXECUTION_PLATFORM__OWNER = eINSTANCE.getExecutionPlatform_Owner();
-
-        /**
-         * The meta object literal for the '<em><b>Execution Platform Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EXECUTION_PLATFORM__EXECUTION_PLATFORM_ID = eINSTANCE.getExecutionPlatform_ExecutionPlatformId();
-
-        /**
          * The meta object literal for the '{@link ddsm.impl.PortImpl <em>Port</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4040,22 +3777,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass PORT = eINSTANCE.getPort();
-
-        /**
-         * The meta object literal for the '<em><b>Component</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference PORT__COMPONENT = eINSTANCE.getPort_Component();
-
-        /**
-         * The meta object literal for the '<em><b>Port Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PORT__PORT_ID = eINSTANCE.getPort_PortId();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.RequiredPortImpl <em>Required Port</em>}' class.
@@ -4096,14 +3817,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass PROVIDED_EXECUTION_PLATFORM = eINSTANCE.getProvidedExecutionPlatform();
-
-        /**
-         * The meta object literal for the '<em><b>Offer</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference PROVIDED_EXECUTION_PLATFORM__OFFER = eINSTANCE.getProvidedExecutionPlatform_Offer();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -4174,22 +3887,6 @@ public interface DdsmPackage extends EPackage {
         EReference EXECUTION_BINDING__PROVIDEDEXECUTIONPLATFORM = eINSTANCE.getExecutionBinding_Providedexecutionplatform();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EXECUTION_BINDING__NAME = eINSTANCE.getExecutionBinding_Name();
-
-        /**
-         * The meta object literal for the '<em><b>Binding Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EXECUTION_BINDING__BINDING_ID = eINSTANCE.getExecutionBinding_BindingId();
-
-        /**
          * The meta object literal for the '{@link ddsm.impl.ExternalComponentImpl <em>External Component</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4226,28 +3923,12 @@ public interface DdsmPackage extends EPackage {
         EAttribute PROVIDER__CREDENTIALS_PATH = eINSTANCE.getProvider_CredentialsPath();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROVIDER__NAME = eINSTANCE.getProvider_Name();
-
-        /**
-         * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference PROVIDER__PROPERTY = eINSTANCE.getProvider_Property();
-
-        /**
-         * The meta object literal for the '<em><b>Provider Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PROVIDER__PROVIDER_ID = eINSTANCE.getProvider_ProviderId();
+        EAttribute PROVIDER__TYPE = eINSTANCE.getProvider_Type();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.VMImpl <em>VM</em>}' class.
@@ -4266,14 +3947,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EAttribute VM__IS64OS = eINSTANCE.getVM_Is64os();
-
-        /**
-         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute VM__LOCATION = eINSTANCE.getVM_Location();
 
         /**
          * The meta object literal for the '<em><b>Image Id</b></em>' attribute feature.
@@ -4388,6 +4061,22 @@ public interface DdsmPackage extends EPackage {
         EAttribute VM__INSTANCES = eINSTANCE.getVM_Instances();
 
         /**
+         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VM__LOCATION = eINSTANCE.getVM_Location();
+
+        /**
+         * The meta object literal for the '<em><b>Generic Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VM__GENERIC_SIZE = eINSTANCE.getVM_GenericSize();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.DDSMImpl <em>DDSM</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4406,28 +4095,20 @@ public interface DdsmPackage extends EPackage {
         EReference DDSM__CLOUDELEMENT = eINSTANCE.getDDSM_Cloudelement();
 
         /**
-         * The meta object literal for the '<em><b>Provider</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DDSM__PROVIDER = eINSTANCE.getDDSM_Provider();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DDSM__NAME = eINSTANCE.getDDSM_Name();
-
-        /**
          * The meta object literal for the '<em><b>Model Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute DDSM__MODEL_ID = eINSTANCE.getDDSM_ModelId();
+
+        /**
+         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DDSM__DESCRIPTION = eINSTANCE.getDDSM_Description();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.LifeCycleImpl <em>Life Cycle</em>}' class.
@@ -4472,58 +4153,6 @@ public interface DdsmPackage extends EPackage {
         EAttribute LIFE_CYCLE__STOP_COMMAND = eINSTANCE.getLifeCycle_StopCommand();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.ChefRecipeImpl <em>Chef Recipe</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.ChefRecipeImpl
-         * @see ddsm.impl.DdsmPackageImpl#getChefRecipe()
-         * @generated
-         */
-        EClass CHEF_RECIPE = eINSTANCE.getChefRecipe();
-
-        /**
-         * The meta object literal for the '<em><b>Recipe Url</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute CHEF_RECIPE__RECIPE_URL = eINSTANCE.getChefRecipe_RecipeUrl();
-
-        /**
-         * The meta object literal for the '<em><b>Recipe Path</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute CHEF_RECIPE__RECIPE_PATH = eINSTANCE.getChefRecipe_RecipePath();
-
-        /**
-         * The meta object literal for the '{@link ddsm.impl.OfferImpl <em>Offer</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.OfferImpl
-         * @see ddsm.impl.DdsmPackageImpl#getOffer()
-         * @generated
-         */
-        EClass OFFER = eINSTANCE.getOffer();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute OFFER__NAME = eINSTANCE.getOffer_Name();
-
-        /**
-         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute OFFER__VALUE = eINSTANCE.getOffer_Value();
-
-        /**
          * The meta object literal for the '{@link ddsm.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4532,36 +4161,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass STORM_SUPERVISOR = eINSTANCE.getStormSupervisor();
-
-        /**
-         * The meta object literal for the '{@link ddsm.impl.MediumHostImpl <em>Medium Host</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.MediumHostImpl
-         * @see ddsm.impl.DdsmPackageImpl#getMediumHost()
-         * @generated
-         */
-        EClass MEDIUM_HOST = eINSTANCE.getMediumHost();
-
-        /**
-         * The meta object literal for the '{@link ddsm.impl.SmallHostImpl <em>Small Host</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.SmallHostImpl
-         * @see ddsm.impl.DdsmPackageImpl#getSmallHost()
-         * @generated
-         */
-        EClass SMALL_HOST = eINSTANCE.getSmallHost();
-
-        /**
-         * The meta object literal for the '{@link ddsm.impl.LargeHostImpl <em>Large Host</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.LargeHostImpl
-         * @see ddsm.impl.DdsmPackageImpl#getLargeHost()
-         * @generated
-         */
-        EClass LARGE_HOST = eINSTANCE.getLargeHost();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
@@ -4594,16 +4193,6 @@ public interface DdsmPackage extends EPackage {
         EClass KAFKA = eINSTANCE.getKafka();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.LoadBalancerImpl <em>Load Balancer</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ddsm.impl.LoadBalancerImpl
-         * @see ddsm.impl.DdsmPackageImpl#getLoadBalancer()
-         * @generated
-         */
-        EClass LOAD_BALANCER = eINSTANCE.getLoadBalancer();
-
-        /**
          * The meta object literal for the '{@link ddsm.impl.ClusterImpl <em>Cluster</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4620,6 +4209,126 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EReference CLUSTER__HAS_VM = eINSTANCE.getCluster_HasVm();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.ClientNodeImpl <em>Client Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.ClientNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getClientNode()
+         * @generated
+         */
+        EClass CLIENT_NODE = eINSTANCE.getClientNode();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_NODE__TYPE = eINSTANCE.getClientNode_Type();
+
+        /**
+         * The meta object literal for the '<em><b>Artifact Url</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_NODE__ARTIFACT_URL = eINSTANCE.getClientNode_ArtifactUrl();
+
+        /**
+         * The meta object literal for the '<em><b>Main Class</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_NODE__MAIN_CLASS = eINSTANCE.getClientNode_MainClass();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.YarnResourceManagerImpl <em>Yarn Resource Manager</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.YarnResourceManagerImpl
+         * @see ddsm.impl.DdsmPackageImpl#getYarnResourceManager()
+         * @generated
+         */
+        EClass YARN_RESOURCE_MANAGER = eINSTANCE.getYarnResourceManager();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.YarnNodeManagerImpl <em>Yarn Node Manager</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.YarnNodeManagerImpl
+         * @see ddsm.impl.DdsmPackageImpl#getYarnNodeManager()
+         * @generated
+         */
+        EClass YARN_NODE_MANAGER = eINSTANCE.getYarnNodeManager();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.HDFSNameNodeImpl <em>HDFS Name Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.HDFSNameNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getHDFSNameNode()
+         * @generated
+         */
+        EClass HDFS_NAME_NODE = eINSTANCE.getHDFSNameNode();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.HDFSDataNodeImpl <em>HDFS Data Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.HDFSDataNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getHDFSDataNode()
+         * @generated
+         */
+        EClass HDFS_DATA_NODE = eINSTANCE.getHDFSDataNode();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.ScriptImpl <em>Script</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.ScriptImpl
+         * @see ddsm.impl.DdsmPackageImpl#getScript()
+         * @generated
+         */
+        EClass SCRIPT = eINSTANCE.getScript();
+
+        /**
+         * The meta object literal for the '<em><b>Script Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT__SCRIPT_ID = eINSTANCE.getScript_ScriptId();
+
+        /**
+         * The meta object literal for the '<em><b>Script Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT__SCRIPT_URI = eINSTANCE.getScript_ScriptUri();
+
+        /**
+         * The meta object literal for the '{@link ddsm.VMSize <em>VM Size</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.VMSize
+         * @see ddsm.impl.DdsmPackageImpl#getVMSize()
+         * @generated
+         */
+        EEnum VM_SIZE = eINSTANCE.getVMSize();
+
+        /**
+         * The meta object literal for the '{@link ddsm.ProviderType <em>Provider Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.ProviderType
+         * @see ddsm.impl.DdsmPackageImpl#getProviderType()
+         * @generated
+         */
+        EEnum PROVIDER_TYPE = eINSTANCE.getProviderType();
 
     }
 

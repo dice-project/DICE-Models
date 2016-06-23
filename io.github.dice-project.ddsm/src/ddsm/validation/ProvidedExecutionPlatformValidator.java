@@ -4,9 +4,6 @@
  */
 package ddsm.validation;
 
-import ddsm.Offer;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link ddsm.ProvidedExecutionPlatform}.
@@ -17,5 +14,4 @@ import org.eclipse.emf.common.util.EList;
 public interface ProvidedExecutionPlatformValidator {
     boolean validate();
 
-    boolean validateOffer(EList<Offer> value);
 }

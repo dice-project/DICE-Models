@@ -2,6 +2,8 @@
  */
 package ddsm;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,42 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ddsm.Resource#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.Resource#getResourceId <em>Resource Id</em>}</li>
- *   <li>{@link ddsm.Resource#getValue <em>Value</em>}</li>
+ *   <li>{@link ddsm.Resource#getScripts <em>Scripts</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getResource()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Represents a resource associated to an element which might be used to support the deployment and configuration of the such element. \nFor instance a Resource may detail the deployment script of a CloudElement (e.g. an InternalComponent or an ExecutionBinding).'"
  * @generated
  */
 public interface Resource extends EObject {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ddsm.DdsmPackage#getResource_Name()
-     * @model
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ddsm.Resource#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
-
     /**
      * Returns the value of the '<em><b>Resource Id</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -60,7 +35,7 @@ public interface Resource extends EObject {
      * @return the value of the '<em>Resource Id</em>' attribute.
      * @see #setResourceId(String)
      * @see ddsm.DdsmPackage#getResource_ResourceId()
-     * @model
+     * @model id="true" required="true"
      * @generated
      */
     String getResourceId();
@@ -76,29 +51,19 @@ public interface Resource extends EObject {
     void setResourceId(String value);
 
     /**
-     * Returns the value of the '<em><b>Value</b></em>' attribute.
+     * Returns the value of the '<em><b>Scripts</b></em>' containment reference list.
+     * The list contents are of type {@link ddsm.Script}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Value</em>' attribute isn't clear,
+     * If the meaning of the '<em>Scripts</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Value</em>' attribute.
-     * @see #setValue(String)
-     * @see ddsm.DdsmPackage#getResource_Value()
-     * @model
+     * @return the value of the '<em>Scripts</em>' containment reference list.
+     * @see ddsm.DdsmPackage#getResource_Scripts()
+     * @model containment="true"
      * @generated
      */
-    String getValue();
-
-    /**
-     * Sets the value of the '{@link ddsm.Resource#getValue <em>Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value</em>' attribute.
-     * @see #getValue()
-     * @generated
-     */
-    void setValue(String value);
+    EList<Script> getScripts();
 
 } // Resource

@@ -4,13 +4,23 @@ package ddsm.impl;
 
 import ddsm.DdsmPackage;
 import ddsm.Resource;
+import ddsm.Script;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,34 +30,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ddsm.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.impl.ResourceImpl#getResourceId <em>Resource Id</em>}</li>
- *   <li>{@link ddsm.impl.ResourceImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getScripts <em>Scripts</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
     /**
      * The default value of the '{@link #getResourceId() <em>Resource Id</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -69,24 +58,14 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     protected String resourceId = RESOURCE_ID_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getScripts()
      * @generated
      * @ordered
      */
-    protected static final String VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getValue()
-     * @generated
-     * @ordered
-     */
-    protected String value = VALUE_EDEFAULT;
+    protected EList<Script> scripts;
 
     /**
      * <!-- begin-user-doc -->
@@ -105,27 +84,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     @Override
     protected EClass eStaticClass() {
         return DdsmPackage.Literals.RESOURCE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__NAME, oldName, name));
     }
 
     /**
@@ -154,8 +112,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue() {
-        return value;
+    public EList<Script> getScripts() {
+        if (scripts == null) {
+            scripts = new EObjectContainmentEList<Script>(Script.class, this, DdsmPackage.RESOURCE__SCRIPTS);
+        }
+        return scripts;
     }
 
     /**
@@ -163,11 +124,13 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(String newValue) {
-        String oldValue = value;
-        value = newValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__VALUE, oldValue, value));
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case DdsmPackage.RESOURCE__SCRIPTS:
+                return ((InternalEList<?>)getScripts()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
@@ -178,12 +141,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case DdsmPackage.RESOURCE__NAME:
-                return getName();
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 return getResourceId();
-            case DdsmPackage.RESOURCE__VALUE:
-                return getValue();
+            case DdsmPackage.RESOURCE__SCRIPTS:
+                return getScripts();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -193,17 +154,16 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case DdsmPackage.RESOURCE__NAME:
-                setName((String)newValue);
-                return;
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 setResourceId((String)newValue);
                 return;
-            case DdsmPackage.RESOURCE__VALUE:
-                setValue((String)newValue);
+            case DdsmPackage.RESOURCE__SCRIPTS:
+                getScripts().clear();
+                getScripts().addAll((Collection<? extends Script>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -217,14 +177,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case DdsmPackage.RESOURCE__NAME:
-                setName(NAME_EDEFAULT);
-                return;
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 setResourceId(RESOURCE_ID_EDEFAULT);
                 return;
-            case DdsmPackage.RESOURCE__VALUE:
-                setValue(VALUE_EDEFAULT);
+            case DdsmPackage.RESOURCE__SCRIPTS:
+                getScripts().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -238,12 +195,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case DdsmPackage.RESOURCE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 return RESOURCE_ID_EDEFAULT == null ? resourceId != null : !RESOURCE_ID_EDEFAULT.equals(resourceId);
-            case DdsmPackage.RESOURCE__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+            case DdsmPackage.RESOURCE__SCRIPTS:
+                return scripts != null && !scripts.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -258,12 +213,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(", resourceId: ");
+        result.append(" (resourceId: ");
         result.append(resourceId);
-        result.append(", value: ");
-        result.append(value);
         result.append(')');
         return result.toString();
     }

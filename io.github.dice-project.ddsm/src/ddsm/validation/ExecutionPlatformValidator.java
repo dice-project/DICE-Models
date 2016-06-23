@@ -4,7 +4,6 @@
  */
 package ddsm.validation;
 
-import ddsm.Component;
 
 /**
  * A sample validator interface for {@link ddsm.ExecutionPlatform}.
@@ -15,6 +14,4 @@ import ddsm.Component;
 public interface ExecutionPlatformValidator {
     boolean validate();
 
-    boolean validateOwner(Component value);
-    boolean validateExecutionPlatformId(String value);
 }

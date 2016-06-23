@@ -10,7 +10,7 @@ package ddsm;
  *
  *
  * @see ddsm.DdsmPackage#getRequiredPort()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='A specific type of Port which specify that a Component requires to \ncommunicate and consume a features (e.g.access to a database) provided by another Component.'"
  * @generated
  */
 public interface RequiredPort extends Port {

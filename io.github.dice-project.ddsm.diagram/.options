@@ -1,7 +1,0 @@
-# Tracing options for the io.github.dice-project.ddsm.diagram plug-in
-
-# Common issues
-io.github.dice-project.ddsm.diagram/debug=false
-
-# Visual IDs
-io.github.dice-project.ddsm.diagram/debug/visualID=false

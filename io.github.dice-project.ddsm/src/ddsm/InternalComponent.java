@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see ddsm.DdsmPackage#getInternalComponent()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Inherit from MODACloudsML, this represents a component that is managed by the application provider,\nor the developer (e.g. a Big Data application).'"
  * @generated
  */
 public interface InternalComponent extends Component {

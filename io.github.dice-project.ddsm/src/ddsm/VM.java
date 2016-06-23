@@ -13,7 +13,6 @@ package ddsm;
  * </p>
  * <ul>
  *   <li>{@link ddsm.VM#getIs64os <em>Is64os</em>}</li>
- *   <li>{@link ddsm.VM#getLocation <em>Location</em>}</li>
  *   <li>{@link ddsm.VM#getImageId <em>Image Id</em>}</li>
  *   <li>{@link ddsm.VM#getMaxCores <em>Max Cores</em>}</li>
  *   <li>{@link ddsm.VM#getMaxRam <em>Max Ram</em>}</li>
@@ -28,10 +27,12 @@ package ddsm;
  *   <li>{@link ddsm.VM#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.VM#getPublicAddress <em>Public Address</em>}</li>
  *   <li>{@link ddsm.VM#getInstances <em>Instances</em>}</li>
+ *   <li>{@link ddsm.VM#getLocation <em>Location</em>}</li>
+ *   <li>{@link ddsm.VM#getGenericSize <em>Generic Size</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getVM()
- * @model
+ * @model annotation="http://es.unizar.disco/dice/profiles/generator description='It is an specific ExternalComponent representing the well know concept of virtual machine.\nIt is possible to the size of the VM in terms of RAM and CPU and Storage size ranges, \nthe preferred operating system, the enabled ports, the desired public address and the number of executing instances,\nor the replication factor. It as been customized in the context of DICE to be able to specify DICE specific type of VM.'"
  * @generated
  */
 public interface VM extends ExternalComponent {
@@ -60,32 +61,6 @@ public interface VM extends ExternalComponent {
      * @generated
      */
     void setIs64os(String value);
-
-    /**
-     * Returns the value of the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Location</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Location</em>' attribute.
-     * @see #setLocation(String)
-     * @see ddsm.DdsmPackage#getVM_Location()
-     * @model
-     * @generated
-     */
-    String getLocation();
-
-    /**
-     * Sets the value of the '{@link ddsm.VM#getLocation <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Location</em>' attribute.
-     * @see #getLocation()
-     * @generated
-     */
-    void setLocation(String value);
 
     /**
      * Returns the value of the '<em><b>Image Id</b></em>' attribute.
@@ -450,5 +425,60 @@ public interface VM extends ExternalComponent {
      * @generated
      */
     void setInstances(String value);
+
+    /**
+     * Returns the value of the '<em><b>Location</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Location</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Location</em>' attribute.
+     * @see #setLocation(String)
+     * @see ddsm.DdsmPackage#getVM_Location()
+     * @model
+     * @generated
+     */
+    String getLocation();
+
+    /**
+     * Sets the value of the '{@link ddsm.VM#getLocation <em>Location</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Location</em>' attribute.
+     * @see #getLocation()
+     * @generated
+     */
+    void setLocation(String value);
+
+    /**
+     * Returns the value of the '<em><b>Generic Size</b></em>' attribute.
+     * The literals are from the enumeration {@link ddsm.VMSize}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Generic Size</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Generic Size</em>' attribute.
+     * @see ddsm.VMSize
+     * @see #setGenericSize(VMSize)
+     * @see ddsm.DdsmPackage#getVM_GenericSize()
+     * @model
+     * @generated
+     */
+    VMSize getGenericSize();
+
+    /**
+     * Sets the value of the '{@link ddsm.VM#getGenericSize <em>Generic Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Generic Size</em>' attribute.
+     * @see ddsm.VMSize
+     * @see #getGenericSize()
+     * @generated
+     */
+    void setGenericSize(VMSize value);
 
 } // VM

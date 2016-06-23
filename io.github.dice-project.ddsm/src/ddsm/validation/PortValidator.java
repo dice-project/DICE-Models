@@ -4,7 +4,6 @@
  */
 package ddsm.validation;
 
-import ddsm.Component;
 
 /**
  * A sample validator interface for {@link ddsm.Port}.
@@ -15,6 +14,4 @@ import ddsm.Component;
 public interface PortValidator {
     boolean validate();
 
-    boolean validateComponent(Component value);
-    boolean validatePortId(String value);
 }

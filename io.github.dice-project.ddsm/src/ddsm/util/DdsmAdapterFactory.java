@@ -140,28 +140,8 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
                 return createLifeCycleAdapter();
             }
             @Override
-            public Adapter caseChefRecipe(ChefRecipe object) {
-                return createChefRecipeAdapter();
-            }
-            @Override
-            public Adapter caseOffer(Offer object) {
-                return createOfferAdapter();
-            }
-            @Override
             public Adapter caseStormSupervisor(StormSupervisor object) {
                 return createStormSupervisorAdapter();
-            }
-            @Override
-            public Adapter caseMediumHost(MediumHost object) {
-                return createMediumHostAdapter();
-            }
-            @Override
-            public Adapter caseSmallHost(SmallHost object) {
-                return createSmallHostAdapter();
-            }
-            @Override
-            public Adapter caseLargeHost(LargeHost object) {
-                return createLargeHostAdapter();
             }
             @Override
             public Adapter caseStormNimbus(StormNimbus object) {
@@ -176,12 +156,32 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
                 return createKafkaAdapter();
             }
             @Override
-            public Adapter caseLoadBalancer(LoadBalancer object) {
-                return createLoadBalancerAdapter();
-            }
-            @Override
             public Adapter caseCluster(Cluster object) {
                 return createClusterAdapter();
+            }
+            @Override
+            public Adapter caseClientNode(ClientNode object) {
+                return createClientNodeAdapter();
+            }
+            @Override
+            public Adapter caseYarnResourceManager(YarnResourceManager object) {
+                return createYarnResourceManagerAdapter();
+            }
+            @Override
+            public Adapter caseYarnNodeManager(YarnNodeManager object) {
+                return createYarnNodeManagerAdapter();
+            }
+            @Override
+            public Adapter caseHDFSNameNode(HDFSNameNode object) {
+                return createHDFSNameNodeAdapter();
+            }
+            @Override
+            public Adapter caseHDFSDataNode(HDFSDataNode object) {
+                return createHDFSDataNodeAdapter();
+            }
+            @Override
+            public Adapter caseScript(Script object) {
+                return createScriptAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -456,34 +456,6 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.ChefRecipe <em>Chef Recipe</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.ChefRecipe
-     * @generated
-     */
-    public Adapter createChefRecipeAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.Offer <em>Offer</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.Offer
-     * @generated
-     */
-    public Adapter createOfferAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link ddsm.StormSupervisor <em>Storm Supervisor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -494,48 +466,6 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createStormSupervisorAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.MediumHost <em>Medium Host</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.MediumHost
-     * @generated
-     */
-    public Adapter createMediumHostAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.SmallHost <em>Small Host</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.SmallHost
-     * @generated
-     */
-    public Adapter createSmallHostAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.LargeHost <em>Large Host</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.LargeHost
-     * @generated
-     */
-    public Adapter createLargeHostAdapter() {
         return null;
     }
 
@@ -582,20 +512,6 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.LoadBalancer <em>Load Balancer</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.LoadBalancer
-     * @generated
-     */
-    public Adapter createLoadBalancerAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link ddsm.Cluster <em>Cluster</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -606,6 +522,90 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createClusterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.ClientNode <em>Client Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.ClientNode
+     * @generated
+     */
+    public Adapter createClientNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.YarnResourceManager <em>Yarn Resource Manager</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.YarnResourceManager
+     * @generated
+     */
+    public Adapter createYarnResourceManagerAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.YarnNodeManager <em>Yarn Node Manager</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.YarnNodeManager
+     * @generated
+     */
+    public Adapter createYarnNodeManagerAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.HDFSNameNode <em>HDFS Name Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.HDFSNameNode
+     * @generated
+     */
+    public Adapter createHDFSNameNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.HDFSDataNode <em>HDFS Data Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.HDFSDataNode
+     * @generated
+     */
+    public Adapter createHDFSDataNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.Script <em>Script</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.Script
+     * @generated
+     */
+    public Adapter createScriptAdapter() {
         return null;
     }
 
