@@ -330,7 +330,7 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * @generated
      * @ordered
      */
-    protected static final String INSTANCES_EDEFAULT = null;
+    protected static final Integer INSTANCES_EDEFAULT = new Integer(1);
 
     /**
      * The cached value of the '{@link #getInstances() <em>Instances</em>}' attribute.
@@ -340,7 +340,7 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * @generated
      * @ordered
      */
-    protected String instances = INSTANCES_EDEFAULT;
+    protected Integer instances = INSTANCES_EDEFAULT;
 
     /**
      * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -700,7 +700,7 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getInstances() {
+    public Integer getInstances() {
         return instances;
     }
 
@@ -709,8 +709,8 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInstances(String newInstances) {
-        String oldInstances = instances;
+    public void setInstances(Integer newInstances) {
+        Integer oldInstances = instances;
         instances = newInstances;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__INSTANCES, oldInstances, instances));
@@ -855,7 +855,7 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 setPublicAddress((String)newValue);
                 return;
             case DdsmPackage.VM__INSTANCES:
-                setInstances((String)newValue);
+                setInstances((Integer)newValue);
                 return;
             case DdsmPackage.VM__LOCATION:
                 setLocation((String)newValue);

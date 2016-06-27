@@ -43,13 +43,16 @@
     <genClasses ecoreClass="ddsm.ecore#//ExecutionPlatform"/>
     <genClasses ecoreClass="ddsm.ecore#//Port"/>
     <genClasses ecoreClass="ddsm.ecore#//RequiredPort"/>
-    <genClasses ecoreClass="ddsm.ecore#//ProvidedPort"/>
+    <genClasses ecoreClass="ddsm.ecore#//ProvidedPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ProvidedPort/owner"/>
+    </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//RequiredExecutionPlatform"/>
-    <genClasses ecoreClass="ddsm.ecore#//ProvidedExecutionPlatform"/>
+    <genClasses ecoreClass="ddsm.ecore#//ProvidedExecutionPlatform">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ProvidedExecutionPlatform/owner"/>
+    </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//Relationship">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Relationship/providedport"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Relationship/requiredport"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Relationship/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Relationship/relationshipId"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//ExecutionBinding">
@@ -88,10 +91,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//DDSM/description"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//LifeCycle">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/downloadCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/installCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/startCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//LifeCycle/stopCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/downloadCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/installCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/startCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/stopCommand"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/preconfigureCommand"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/createCommand"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//StormSupervisor"/>
     <genClasses ecoreClass="ddsm.ecore#//StormNimbus"/>

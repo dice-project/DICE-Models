@@ -10,7 +10,8 @@
       <!-- @generated ddsm -->
       <package
             uri="http://ddsm/1.0"
-            class="ddsm.DdsmPackage"/>
+            class="ddsm.DdsmPackage"
+            genModel="model/ddsm.genmodel"/>
    </extension>
 
 </plugin>

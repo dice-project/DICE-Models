@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link ddsm.impl.RelationshipImpl#getProvidedport <em>Providedport</em>}</li>
  *   <li>{@link ddsm.impl.RelationshipImpl#getRequiredport <em>Requiredport</em>}</li>
- *   <li>{@link ddsm.impl.RelationshipImpl#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.impl.RelationshipImpl#getRelationshipId <em>Relationship Id</em>}</li>
  * </ul>
  *
@@ -50,26 +49,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
      * @ordered
      */
     protected RequiredPort requiredport;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
 
     /**
      * The default value of the '{@link #getRelationshipId() <em>Relationship Id</em>}' attribute.
@@ -191,27 +170,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RELATIONSHIP__NAME, oldName, name));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getRelationshipId() {
         return relationshipId;
     }
@@ -242,8 +200,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 if (resolve) return getRequiredport();
                 return basicGetRequiredport();
-            case DdsmPackage.RELATIONSHIP__NAME:
-                return getName();
             case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
                 return getRelationshipId();
         }
@@ -263,9 +219,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
                 return;
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 setRequiredport((RequiredPort)newValue);
-                return;
-            case DdsmPackage.RELATIONSHIP__NAME:
-                setName((String)newValue);
                 return;
             case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
                 setRelationshipId((String)newValue);
@@ -288,9 +241,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 setRequiredport((RequiredPort)null);
                 return;
-            case DdsmPackage.RELATIONSHIP__NAME:
-                setName(NAME_EDEFAULT);
-                return;
             case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
                 setRelationshipId(RELATIONSHIP_ID_EDEFAULT);
                 return;
@@ -310,8 +260,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
                 return providedport != null;
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 return requiredport != null;
-            case DdsmPackage.RELATIONSHIP__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
                 return RELATIONSHIP_ID_EDEFAULT == null ? relationshipId != null : !RELATIONSHIP_ID_EDEFAULT.equals(relationshipId);
         }
@@ -328,9 +276,7 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(", relationshipId: ");
+        result.append(" (relationshipId: ");
         result.append(relationshipId);
         result.append(')');
         return result.toString();

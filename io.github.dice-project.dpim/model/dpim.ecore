@@ -94,5 +94,6 @@
     <eLiterals name="Cassandra"/>
     <eLiterals name="MySQL" value="1" literal=""/>
     <eLiterals name="MongoDB" value="2"/>
+    <eLiterals name="HDFS" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

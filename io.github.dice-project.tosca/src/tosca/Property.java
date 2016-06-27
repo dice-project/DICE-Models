@@ -33,7 +33,7 @@ public interface Property extends EObject {
      * @return the value of the '<em>Property name</em>' attribute.
      * @see #setProperty_name(String)
      * @see tosca.ToscaPackage#getProperty_Property_name()
-     * @model id="true" required="true"
+     * @model unique="false" required="true"
      * @generated
      */
     String getProperty_name();

@@ -14,7 +14,6 @@ package ddsm;
  * <ul>
  *   <li>{@link ddsm.Relationship#getProvidedport <em>Providedport</em>}</li>
  *   <li>{@link ddsm.Relationship#getRequiredport <em>Requiredport</em>}</li>
- *   <li>{@link ddsm.Relationship#getName <em>Name</em>}</li>
  *   <li>{@link ddsm.Relationship#getRelationshipId <em>Relationship Id</em>}</li>
  * </ul>
  *
@@ -74,32 +73,6 @@ public interface Relationship extends CloudElement {
      * @generated
      */
     void setRequiredport(RequiredPort value);
-
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ddsm.DdsmPackage#getRelationship_Name()
-     * @model
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ddsm.Relationship#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
 
     /**
      * Returns the value of the '<em><b>Relationship Id</b></em>' attribute.

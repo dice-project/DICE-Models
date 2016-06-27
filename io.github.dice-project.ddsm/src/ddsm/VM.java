@@ -402,6 +402,7 @@ public interface VM extends ExternalComponent {
 
     /**
      * Returns the value of the '<em><b>Instances</b></em>' attribute.
+     * The default value is <code>"1"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Instances</em>' attribute isn't clear,
@@ -409,12 +410,12 @@ public interface VM extends ExternalComponent {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Instances</em>' attribute.
-     * @see #setInstances(String)
+     * @see #setInstances(Integer)
      * @see ddsm.DdsmPackage#getVM_Instances()
-     * @model
+     * @model default="1"
      * @generated
      */
-    String getInstances();
+    Integer getInstances();
 
     /**
      * Sets the value of the '{@link ddsm.VM#getInstances <em>Instances</em>}' attribute.
@@ -424,7 +425,7 @@ public interface VM extends ExternalComponent {
      * @see #getInstances()
      * @generated
      */
-    void setInstances(String value);
+    void setInstances(Integer value);
 
     /**
      * Returns the value of the '<em><b>Location</b></em>' attribute.

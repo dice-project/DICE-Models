@@ -50,6 +50,8 @@
         eType="#//InternalComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredexecutionplatform"
         upperBound="-1" eType="#//RequiredExecutionPlatform" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFrontend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlatform" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -60,6 +62,8 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents an interface (provided or required) of a Component.&#xA;It is tipically used to link components in order to enable communication."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLocal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredPort" eSuperTypes="#//Port">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -70,16 +74,19 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="A specific type of Port which specify that a Component provides features (e.g.access to a database) which can be accessed by another Component."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredExecutionPlatform" eSuperTypes="#//ExecutionPlatform">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="A specific type of ExecutionPlatform providing hosting facilities (e.g. an execution environment, like a VM or a web server) to a Component."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedExecutionPlatform" eSuperTypes="#//ExecutionPlatform">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="A specific type of ExecutionPlatform which requires hosting (e.g. a Big Data application requires a Big Data platform) from a Component."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -87,7 +94,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedport" eType="#//ProvidedPort"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredport" eType="#//RequiredPort"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionBinding" eSuperTypes="#//CloudElement">
@@ -105,6 +111,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
         eType="#//Provider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="region" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Provider" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -132,8 +143,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sshKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instances" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instances" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericSize" eType="#//VMSize"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDSM">
@@ -150,10 +161,12 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="test generation"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="downloadCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stopCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconfigureCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createCommand" eType="#//Script"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -179,7 +192,8 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Inherited from MODACloudsML, it represents a collection of virtual machines on a particular Provider. One Provider can host several Clusters.."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasVm" eType="#//VM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasVm" upperBound="-1"
+        eType="#//VM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClientNode" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">

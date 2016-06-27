@@ -4,6 +4,7 @@
  */
 package ddsm.validation;
 
+import ddsm.Script;
 
 /**
  * A sample validator interface for {@link ddsm.LifeCycle}.
@@ -14,8 +15,10 @@ package ddsm.validation;
 public interface LifeCycleValidator {
     boolean validate();
 
-    boolean validateDownloadCommand(String value);
-    boolean validateInstallCommand(String value);
-    boolean validateStartCommand(String value);
-    boolean validateStopCommand(String value);
+    boolean validateDownloadCommand(Script value);
+    boolean validateInstallCommand(Script value);
+    boolean validateStartCommand(Script value);
+    boolean validateStopCommand(Script value);
+    boolean validatePreconfigureCommand(Script value);
+    boolean validateCreateCommand(Script value);
 }

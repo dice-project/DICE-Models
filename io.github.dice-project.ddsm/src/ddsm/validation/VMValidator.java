@@ -29,7 +29,7 @@ public interface VMValidator {
     boolean validateSecurityGroup(String value);
     boolean validateSshKey(String value);
     boolean validatePublicAddress(String value);
-    boolean validateInstances(String value);
+    boolean validateInstances(Integer value);
     boolean validateLocation(String value);
     boolean validateGenericSize(VMSize value);
 }

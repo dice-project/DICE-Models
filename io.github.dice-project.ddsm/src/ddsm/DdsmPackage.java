@@ -643,13 +643,22 @@ public interface DdsmPackage extends EPackage {
     int PROVIDED_PORT__DESCRIPTION = PORT__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Owner</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_PORT__OWNER = PORT_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Provided Port</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 0;
+    int PROVIDED_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Provided Port</em>' class.
@@ -771,13 +780,22 @@ public interface DdsmPackage extends EPackage {
     int PROVIDED_EXECUTION_PLATFORM__DESCRIPTION = EXECUTION_PLATFORM__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Owner</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_EXECUTION_PLATFORM__OWNER = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Provided Execution Platform</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROVIDED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
+    int PROVIDED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Provided Execution Platform</em>' class.
@@ -853,22 +871,13 @@ public interface DdsmPackage extends EPackage {
     int RELATIONSHIP__REQUIREDPORT = CLOUD_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RELATIONSHIP__NAME = CLOUD_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Relationship Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RELATIONSHIP__RELATIONSHIP_ID = CLOUD_ELEMENT_FEATURE_COUNT + 3;
+    int RELATIONSHIP__RELATIONSHIP_ID = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Relationship</em>' class.
@@ -877,7 +886,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RELATIONSHIP_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 4;
+    int RELATIONSHIP_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The number of operations of the '<em>Relationship</em>' class.
@@ -1471,7 +1480,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__SCRIPTS = RESOURCE__SCRIPTS;
 
     /**
-     * The feature id for the '<em><b>Download Command</b></em>' attribute.
+     * The feature id for the '<em><b>Download Command</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1480,7 +1489,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__DOWNLOAD_COMMAND = RESOURCE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Install Command</b></em>' attribute.
+     * The feature id for the '<em><b>Install Command</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1489,7 +1498,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__INSTALL_COMMAND = RESOURCE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Start Command</b></em>' attribute.
+     * The feature id for the '<em><b>Start Command</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1498,7 +1507,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__START_COMMAND = RESOURCE_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Stop Command</b></em>' attribute.
+     * The feature id for the '<em><b>Stop Command</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1507,13 +1516,31 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__STOP_COMMAND = RESOURCE_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Preconfigure Command</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIFE_CYCLE__PRECONFIGURE_COMMAND = RESOURCE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Create Command</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIFE_CYCLE__CREATE_COMMAND = RESOURCE_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>Life Cycle</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIFE_CYCLE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 4;
+    int LIFE_CYCLE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>Life Cycle</em>' class.
@@ -2933,6 +2960,17 @@ public interface DdsmPackage extends EPackage {
     EClass getProvidedPort();
 
     /**
+     * Returns the meta object for the reference '{@link ddsm.ProvidedPort#getOwner <em>Owner</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Owner</em>'.
+     * @see ddsm.ProvidedPort#getOwner()
+     * @see #getProvidedPort()
+     * @generated
+     */
+    EReference getProvidedPort_Owner();
+
+    /**
      * Returns the meta object for class '{@link ddsm.RequiredExecutionPlatform <em>Required Execution Platform</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2951,6 +2989,17 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getProvidedExecutionPlatform();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.ProvidedExecutionPlatform#getOwner <em>Owner</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Owner</em>'.
+     * @see ddsm.ProvidedExecutionPlatform#getOwner()
+     * @see #getProvidedExecutionPlatform()
+     * @generated
+     */
+    EReference getProvidedExecutionPlatform_Owner();
 
     /**
      * Returns the meta object for class '{@link ddsm.Relationship <em>Relationship</em>}'.
@@ -2983,17 +3032,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EReference getRelationship_Requiredport();
-
-    /**
-     * Returns the meta object for the attribute '{@link ddsm.Relationship#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ddsm.Relationship#getName()
-     * @see #getRelationship()
-     * @generated
-     */
-    EAttribute getRelationship_Name();
 
     /**
      * Returns the meta object for the attribute '{@link ddsm.Relationship#getRelationshipId <em>Relationship Id</em>}'.
@@ -3342,48 +3380,70 @@ public interface DdsmPackage extends EPackage {
     EClass getLifeCycle();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.LifeCycle#getDownloadCommand <em>Download Command</em>}'.
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getDownloadCommand <em>Download Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Download Command</em>'.
+     * @return the meta object for the reference '<em>Download Command</em>'.
      * @see ddsm.LifeCycle#getDownloadCommand()
      * @see #getLifeCycle()
      * @generated
      */
-    EAttribute getLifeCycle_DownloadCommand();
+    EReference getLifeCycle_DownloadCommand();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.LifeCycle#getInstallCommand <em>Install Command</em>}'.
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getInstallCommand <em>Install Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Install Command</em>'.
+     * @return the meta object for the reference '<em>Install Command</em>'.
      * @see ddsm.LifeCycle#getInstallCommand()
      * @see #getLifeCycle()
      * @generated
      */
-    EAttribute getLifeCycle_InstallCommand();
+    EReference getLifeCycle_InstallCommand();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.LifeCycle#getStartCommand <em>Start Command</em>}'.
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getStartCommand <em>Start Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Start Command</em>'.
+     * @return the meta object for the reference '<em>Start Command</em>'.
      * @see ddsm.LifeCycle#getStartCommand()
      * @see #getLifeCycle()
      * @generated
      */
-    EAttribute getLifeCycle_StartCommand();
+    EReference getLifeCycle_StartCommand();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.LifeCycle#getStopCommand <em>Stop Command</em>}'.
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getStopCommand <em>Stop Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Stop Command</em>'.
+     * @return the meta object for the reference '<em>Stop Command</em>'.
      * @see ddsm.LifeCycle#getStopCommand()
      * @see #getLifeCycle()
      * @generated
      */
-    EAttribute getLifeCycle_StopCommand();
+    EReference getLifeCycle_StopCommand();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getPreconfigureCommand <em>Preconfigure Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Preconfigure Command</em>'.
+     * @see ddsm.LifeCycle#getPreconfigureCommand()
+     * @see #getLifeCycle()
+     * @generated
+     */
+    EReference getLifeCycle_PreconfigureCommand();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getCreateCommand <em>Create Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Create Command</em>'.
+     * @see ddsm.LifeCycle#getCreateCommand()
+     * @see #getLifeCycle()
+     * @generated
+     */
+    EReference getLifeCycle_CreateCommand();
 
     /**
      * Returns the meta object for class '{@link ddsm.StormSupervisor <em>Storm Supervisor</em>}'.
@@ -3799,6 +3859,14 @@ public interface DdsmPackage extends EPackage {
         EClass PROVIDED_PORT = eINSTANCE.getProvidedPort();
 
         /**
+         * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROVIDED_PORT__OWNER = eINSTANCE.getProvidedPort_Owner();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.RequiredExecutionPlatformImpl <em>Required Execution Platform</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3817,6 +3885,14 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass PROVIDED_EXECUTION_PLATFORM = eINSTANCE.getProvidedExecutionPlatform();
+
+        /**
+         * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROVIDED_EXECUTION_PLATFORM__OWNER = eINSTANCE.getProvidedExecutionPlatform_Owner();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -3843,14 +3919,6 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EReference RELATIONSHIP__REQUIREDPORT = eINSTANCE.getRelationship_Requiredport();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute RELATIONSHIP__NAME = eINSTANCE.getRelationship_Name();
 
         /**
          * The meta object literal for the '<em><b>Relationship Id</b></em>' attribute feature.
@@ -4121,36 +4189,52 @@ public interface DdsmPackage extends EPackage {
         EClass LIFE_CYCLE = eINSTANCE.getLifeCycle();
 
         /**
-         * The meta object literal for the '<em><b>Download Command</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Download Command</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIFE_CYCLE__DOWNLOAD_COMMAND = eINSTANCE.getLifeCycle_DownloadCommand();
+        EReference LIFE_CYCLE__DOWNLOAD_COMMAND = eINSTANCE.getLifeCycle_DownloadCommand();
 
         /**
-         * The meta object literal for the '<em><b>Install Command</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Install Command</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIFE_CYCLE__INSTALL_COMMAND = eINSTANCE.getLifeCycle_InstallCommand();
+        EReference LIFE_CYCLE__INSTALL_COMMAND = eINSTANCE.getLifeCycle_InstallCommand();
 
         /**
-         * The meta object literal for the '<em><b>Start Command</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Start Command</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIFE_CYCLE__START_COMMAND = eINSTANCE.getLifeCycle_StartCommand();
+        EReference LIFE_CYCLE__START_COMMAND = eINSTANCE.getLifeCycle_StartCommand();
 
         /**
-         * The meta object literal for the '<em><b>Stop Command</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Stop Command</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIFE_CYCLE__STOP_COMMAND = eINSTANCE.getLifeCycle_StopCommand();
+        EReference LIFE_CYCLE__STOP_COMMAND = eINSTANCE.getLifeCycle_StopCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Preconfigure Command</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference LIFE_CYCLE__PRECONFIGURE_COMMAND = eINSTANCE.getLifeCycle_PreconfigureCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Create Command</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference LIFE_CYCLE__CREATE_COMMAND = eINSTANCE.getLifeCycle_CreateCommand();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.

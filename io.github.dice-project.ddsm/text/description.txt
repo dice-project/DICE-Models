@@ -37,15 +37,16 @@ Package ddsm <http://ddsm/1.0>
   Class RequiredPort -> Port
 
   Class ProvidedPort -> Port
+    Reference owner : Component<<1..1>>
 
   Class RequiredExecutionPlatform -> ExecutionPlatform
 
   Class ProvidedExecutionPlatform -> ExecutionPlatform
+    Reference owner : Component<<1..1>>
 
   Class Relationship -> CloudElement
     Reference providedport : ProvidedPort
     Reference requiredport : RequiredPort
-    Attribute name : EString
     Attribute relationshipId : EString
 
   Class ExecutionBinding -> CloudElement
@@ -74,7 +75,7 @@ Package ddsm <http://ddsm/1.0>
     Attribute securityGroup : EString
     Attribute sshKey : EString
     Attribute publicAddress : EString
-    Attribute instances : EString
+    Attribute instances : EIntegerObject
     Attribute location : EString
     Attribute genericSize : VMSize
 
@@ -84,10 +85,12 @@ Package ddsm <http://ddsm/1.0>
     Attribute description : EString
 
   Class LifeCycle -> Resource
-    Attribute downloadCommand : EString
-    Attribute installCommand : EString
-    Attribute startCommand : EString
-    Attribute stopCommand : EString
+    Reference downloadCommand : Script
+    Reference installCommand : Script
+    Reference startCommand : Script
+    Reference stopCommand : Script
+    Reference preconfigureCommand : Script
+    Reference createCommand : Script
 
   Class StormSupervisor -> InternalComponent
 
