@@ -95,7 +95,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedport" eType="#//ProvidedPort"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredport" eType="#//RequiredPort"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionBinding" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
