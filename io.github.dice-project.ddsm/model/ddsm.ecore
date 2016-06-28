@@ -161,12 +161,18 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="test generation"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="downloadCommand" eType="#//Script"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="installCommand" eType="#//Script"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="startCommand" eType="#//Script"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stopCommand" eType="#//Script"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preconfigureCommand" eType="#//Script"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="createCommand" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="downloadCommand" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installCommand" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startCommand" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stopCommand" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconfigureCommand" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createCommand" eType="#//Script"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
