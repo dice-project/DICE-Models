@@ -69,6 +69,7 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="A specific type of Port which specify that a Component requires to &#xA;communicate and consume a features (e.g.access to a database) provided by another Component."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedPort" eSuperTypes="#//Port">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
