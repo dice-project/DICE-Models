@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ddsm.DdsmFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface DdsmPackage extends EPackage {
@@ -132,22 +134,22 @@ public interface DdsmPackage extends EPackage {
     int PROPERTY = 1;
 
     /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY__VALUE = 0;
-
-    /**
      * The feature id for the '<em><b>Property Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY__PROPERTY_ID = 1;
+    int PROPERTY__PROPERTY_ID = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY__VALUE = 1;
 
     /**
      * The number of structural features of the '<em>Property</em>' class.
@@ -187,7 +189,7 @@ public interface DdsmPackage extends EPackage {
     int RESOURCE__RESOURCE_ID = 0;
 
     /**
-     * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
+     * The feature id for the '<em><b>Scripts</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -387,13 +389,22 @@ public interface DdsmPackage extends EPackage {
     int INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM = COMPONENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERNAL_COMPONENT__PUBLIC_PORTS = COMPONENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Internal Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 3;
+    int INTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Internal Component</em>' class.
@@ -515,13 +526,31 @@ public interface DdsmPackage extends EPackage {
     int PORT__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Is Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PORT__IS_LOCAL = CLOUD_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PORT__PORT_NUMBER = CLOUD_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Port</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PORT_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 0;
+    int PORT_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Port</em>' class.
@@ -579,13 +608,40 @@ public interface DdsmPackage extends EPackage {
     int REQUIRED_PORT__DESCRIPTION = PORT__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Is Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_PORT__IS_LOCAL = PORT__IS_LOCAL;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_PORT__PORT_NUMBER = PORT__PORT_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Is Mandatory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_PORT__IS_MANDATORY = PORT_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Required Port</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 0;
+    int REQUIRED_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Required Port</em>' class.
@@ -641,6 +697,24 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int PROVIDED_PORT__DESCRIPTION = PORT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Is Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_PORT__IS_LOCAL = PORT__IS_LOCAL;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROVIDED_PORT__PORT_NUMBER = PORT__PORT_NUMBER;
 
     /**
      * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -716,13 +790,22 @@ public interface DdsmPackage extends EPackage {
     int REQUIRED_EXECUTION_PLATFORM__DESCRIPTION = EXECUTION_PLATFORM__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Is Mandatory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REQUIRED_EXECUTION_PLATFORM__IS_MANDATORY = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Required Execution Platform</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REQUIRED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 0;
+    int REQUIRED_EXECUTION_PLATFORM_FEATURE_COUNT = EXECUTION_PLATFORM_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Required Execution Platform</em>' class.
@@ -871,22 +954,13 @@ public interface DdsmPackage extends EPackage {
     int RELATIONSHIP__REQUIREDPORT = CLOUD_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Relationship Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RELATIONSHIP__RELATIONSHIP_ID = CLOUD_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
      * The number of structural features of the '<em>Relationship</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RELATIONSHIP_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 3;
+    int RELATIONSHIP_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Relationship</em>' class.
@@ -1053,13 +1127,58 @@ public interface DdsmPackage extends EPackage {
     int EXTERNAL_COMPONENT__PROVIDER = COMPONENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__LOCATION = COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Login</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__LOGIN = COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__PASSWORD = COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Region</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__REGION = COMPONENT_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Service Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__SERVICE_TYPE = COMPONENT_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>External Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+    int EXTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>External Component</em>' class.
@@ -1226,6 +1345,51 @@ public interface DdsmPackage extends EPackage {
     int VM__PROVIDER = EXTERNAL_COMPONENT__PROVIDER;
 
     /**
+     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__LOCATION = EXTERNAL_COMPONENT__LOCATION;
+
+    /**
+     * The feature id for the '<em><b>Login</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__LOGIN = EXTERNAL_COMPONENT__LOGIN;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__PASSWORD = EXTERNAL_COMPONENT__PASSWORD;
+
+    /**
+     * The feature id for the '<em><b>Region</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__REGION = EXTERNAL_COMPONENT__REGION;
+
+    /**
+     * The feature id for the '<em><b>Service Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__SERVICE_TYPE = EXTERNAL_COMPONENT__SERVICE_TYPE;
+
+    /**
      * The feature id for the '<em><b>Is64os</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1361,22 +1525,13 @@ public interface DdsmPackage extends EPackage {
     int VM__INSTANCES = EXTERNAL_COMPONENT_FEATURE_COUNT + 14;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int VM__LOCATION = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
-
-    /**
      * The feature id for the '<em><b>Generic Size</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VM__GENERIC_SIZE = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
+    int VM__GENERIC_SIZE = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
 
     /**
      * The number of structural features of the '<em>VM</em>' class.
@@ -1385,7 +1540,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 17;
+    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
 
     /**
      * The number of operations of the '<em>VM</em>' class.
@@ -1434,13 +1589,31 @@ public interface DdsmPackage extends EPackage {
     int DDSM__DESCRIPTION = 2;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DDSM__PROPERTIES = 3;
+
+    /**
+     * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DDSM__RESOURCES = 4;
+
+    /**
      * The number of structural features of the '<em>DDSM</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DDSM_FEATURE_COUNT = 3;
+    int DDSM_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>DDSM</em>' class.
@@ -1471,7 +1644,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__RESOURCE_ID = RESOURCE__RESOURCE_ID;
 
     /**
-     * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
+     * The feature id for the '<em><b>Scripts</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1480,7 +1653,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__SCRIPTS = RESOURCE__SCRIPTS;
 
     /**
-     * The feature id for the '<em><b>Download Command</b></em>' reference.
+     * The feature id for the '<em><b>Download Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1489,7 +1662,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__DOWNLOAD_COMMAND = RESOURCE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Install Command</b></em>' reference.
+     * The feature id for the '<em><b>Install Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1498,7 +1671,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__INSTALL_COMMAND = RESOURCE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Start Command</b></em>' reference.
+     * The feature id for the '<em><b>Start Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1507,7 +1680,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__START_COMMAND = RESOURCE_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Stop Command</b></em>' reference.
+     * The feature id for the '<em><b>Stop Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1516,7 +1689,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__STOP_COMMAND = RESOURCE_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Preconfigure Command</b></em>' reference.
+     * The feature id for the '<em><b>Preconfigure Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1525,7 +1698,7 @@ public interface DdsmPackage extends EPackage {
     int LIFE_CYCLE__PRECONFIGURE_COMMAND = RESOURCE_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Create Command</b></em>' reference.
+     * The feature id for the '<em><b>Create Command</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1643,6 +1816,15 @@ public interface DdsmPackage extends EPackage {
     int STORM_SUPERVISOR__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_SUPERVISOR__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+
+    /**
      * The number of structural features of the '<em>Storm Supervisor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1750,6 +1932,15 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int STORM_NIMBUS__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_NIMBUS__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
 
     /**
      * The number of structural features of the '<em>Storm Nimbus</em>' class.
@@ -1861,6 +2052,15 @@ public interface DdsmPackage extends EPackage {
     int ZOOKEEPER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+
+    /**
      * The number of structural features of the '<em>Zookeeper</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1970,6 +2170,15 @@ public interface DdsmPackage extends EPackage {
     int KAFKA__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int KAFKA__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+
+    /**
      * The number of structural features of the '<em>Kafka</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2061,7 +2270,52 @@ public interface DdsmPackage extends EPackage {
     int CLUSTER__PROVIDER = EXTERNAL_COMPONENT__PROVIDER;
 
     /**
-     * The feature id for the '<em><b>Has Vm</b></em>' reference.
+     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__LOCATION = EXTERNAL_COMPONENT__LOCATION;
+
+    /**
+     * The feature id for the '<em><b>Login</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__LOGIN = EXTERNAL_COMPONENT__LOGIN;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__PASSWORD = EXTERNAL_COMPONENT__PASSWORD;
+
+    /**
+     * The feature id for the '<em><b>Region</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__REGION = EXTERNAL_COMPONENT__REGION;
+
+    /**
+     * The feature id for the '<em><b>Service Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLUSTER__SERVICE_TYPE = EXTERNAL_COMPONENT__SERVICE_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Has Vm</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2177,6 +2431,15 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int CLIENT_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2315,6 +2578,15 @@ public interface DdsmPackage extends EPackage {
     int YARN_RESOURCE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_RESOURCE_MANAGER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+
+    /**
      * The number of structural features of the '<em>Yarn Resource Manager</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2422,6 +2694,15 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int YARN_NODE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int YARN_NODE_MANAGER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
 
     /**
      * The number of structural features of the '<em>Yarn Node Manager</em>' class.
@@ -2533,6 +2814,15 @@ public interface DdsmPackage extends EPackage {
     int HDFS_NAME_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_NAME_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+
+    /**
      * The number of structural features of the '<em>HDFS Name Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2640,6 +2930,15 @@ public interface DdsmPackage extends EPackage {
      * @ordered
      */
     int HDFS_DATA_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HDFS_DATA_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
 
     /**
      * The number of structural features of the '<em>HDFS Data Node</em>' class.
@@ -2834,10 +3133,10 @@ public interface DdsmPackage extends EPackage {
     EAttribute getResource_ResourceId();
 
     /**
-     * Returns the meta object for the containment reference list '{@link ddsm.Resource#getScripts <em>Scripts</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.Resource#getScripts <em>Scripts</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Scripts</em>'.
+     * @return the meta object for the containment reference '<em>Scripts</em>'.
      * @see ddsm.Resource#getScripts()
      * @see #getResource()
      * @generated
@@ -2920,6 +3219,17 @@ public interface DdsmPackage extends EPackage {
     EReference getInternalComponent_Requiredexecutionplatform();
 
     /**
+     * Returns the meta object for the attribute list '{@link ddsm.InternalComponent#getPublicPorts <em>Public Ports</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Public Ports</em>'.
+     * @see ddsm.InternalComponent#getPublicPorts()
+     * @see #getInternalComponent()
+     * @generated
+     */
+    EAttribute getInternalComponent_PublicPorts();
+
+    /**
      * Returns the meta object for class '{@link ddsm.ExecutionPlatform <em>Execution Platform</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2940,6 +3250,28 @@ public interface DdsmPackage extends EPackage {
     EClass getPort();
 
     /**
+     * Returns the meta object for the attribute '{@link ddsm.Port#isIsLocal <em>Is Local</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Local</em>'.
+     * @see ddsm.Port#isIsLocal()
+     * @see #getPort()
+     * @generated
+     */
+    EAttribute getPort_IsLocal();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Port#getPortNumber <em>Port Number</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port Number</em>'.
+     * @see ddsm.Port#getPortNumber()
+     * @see #getPort()
+     * @generated
+     */
+    EAttribute getPort_PortNumber();
+
+    /**
      * Returns the meta object for class '{@link ddsm.RequiredPort <em>Required Port</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2948,6 +3280,17 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getRequiredPort();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.RequiredPort#isIsMandatory <em>Is Mandatory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Mandatory</em>'.
+     * @see ddsm.RequiredPort#isIsMandatory()
+     * @see #getRequiredPort()
+     * @generated
+     */
+    EAttribute getRequiredPort_IsMandatory();
 
     /**
      * Returns the meta object for class '{@link ddsm.ProvidedPort <em>Provided Port</em>}'.
@@ -2979,6 +3322,17 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EClass getRequiredExecutionPlatform();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.RequiredExecutionPlatform#isIsMandatory <em>Is Mandatory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Mandatory</em>'.
+     * @see ddsm.RequiredExecutionPlatform#isIsMandatory()
+     * @see #getRequiredExecutionPlatform()
+     * @generated
+     */
+    EAttribute getRequiredExecutionPlatform_IsMandatory();
 
     /**
      * Returns the meta object for class '{@link ddsm.ProvidedExecutionPlatform <em>Provided Execution Platform</em>}'.
@@ -3034,17 +3388,6 @@ public interface DdsmPackage extends EPackage {
     EReference getRelationship_Requiredport();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Relationship#getRelationshipId <em>Relationship Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Relationship Id</em>'.
-     * @see ddsm.Relationship#getRelationshipId()
-     * @see #getRelationship()
-     * @generated
-     */
-    EAttribute getRelationship_RelationshipId();
-
-    /**
      * Returns the meta object for class '{@link ddsm.ExecutionBinding <em>Execution Binding</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3096,6 +3439,61 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EReference getExternalComponent_Provider();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getLocation <em>Location</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Location</em>'.
+     * @see ddsm.ExternalComponent#getLocation()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_Location();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getLogin <em>Login</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Login</em>'.
+     * @see ddsm.ExternalComponent#getLogin()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_Login();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getPassword <em>Password</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Password</em>'.
+     * @see ddsm.ExternalComponent#getPassword()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_Password();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getRegion <em>Region</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Region</em>'.
+     * @see ddsm.ExternalComponent#getRegion()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_Region();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getServiceType <em>Service Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Service Type</em>'.
+     * @see ddsm.ExternalComponent#getServiceType()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_ServiceType();
 
     /**
      * Returns the meta object for class '{@link ddsm.Provider <em>Provider</em>}'.
@@ -3305,17 +3703,6 @@ public interface DdsmPackage extends EPackage {
     EAttribute getVM_Instances();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.VM#getLocation <em>Location</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Location</em>'.
-     * @see ddsm.VM#getLocation()
-     * @see #getVM()
-     * @generated
-     */
-    EAttribute getVM_Location();
-
-    /**
      * Returns the meta object for the attribute '{@link ddsm.VM#getGenericSize <em>Generic Size</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3370,6 +3757,28 @@ public interface DdsmPackage extends EPackage {
     EAttribute getDDSM_Description();
 
     /**
+     * Returns the meta object for the containment reference list '{@link ddsm.DDSM#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see ddsm.DDSM#getProperties()
+     * @see #getDDSM()
+     * @generated
+     */
+    EReference getDDSM_Properties();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ddsm.DDSM#getResources <em>Resources</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Resources</em>'.
+     * @see ddsm.DDSM#getResources()
+     * @see #getDDSM()
+     * @generated
+     */
+    EReference getDDSM_Resources();
+
+    /**
      * Returns the meta object for class '{@link ddsm.LifeCycle <em>Life Cycle</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3380,10 +3789,10 @@ public interface DdsmPackage extends EPackage {
     EClass getLifeCycle();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getDownloadCommand <em>Download Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getDownloadCommand <em>Download Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Download Command</em>'.
+     * @return the meta object for the containment reference '<em>Download Command</em>'.
      * @see ddsm.LifeCycle#getDownloadCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3391,10 +3800,10 @@ public interface DdsmPackage extends EPackage {
     EReference getLifeCycle_DownloadCommand();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getInstallCommand <em>Install Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getInstallCommand <em>Install Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Install Command</em>'.
+     * @return the meta object for the containment reference '<em>Install Command</em>'.
      * @see ddsm.LifeCycle#getInstallCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3402,10 +3811,10 @@ public interface DdsmPackage extends EPackage {
     EReference getLifeCycle_InstallCommand();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getStartCommand <em>Start Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getStartCommand <em>Start Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Start Command</em>'.
+     * @return the meta object for the containment reference '<em>Start Command</em>'.
      * @see ddsm.LifeCycle#getStartCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3413,10 +3822,10 @@ public interface DdsmPackage extends EPackage {
     EReference getLifeCycle_StartCommand();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getStopCommand <em>Stop Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getStopCommand <em>Stop Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Stop Command</em>'.
+     * @return the meta object for the containment reference '<em>Stop Command</em>'.
      * @see ddsm.LifeCycle#getStopCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3424,10 +3833,10 @@ public interface DdsmPackage extends EPackage {
     EReference getLifeCycle_StopCommand();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getPreconfigureCommand <em>Preconfigure Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getPreconfigureCommand <em>Preconfigure Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Preconfigure Command</em>'.
+     * @return the meta object for the containment reference '<em>Preconfigure Command</em>'.
      * @see ddsm.LifeCycle#getPreconfigureCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3435,10 +3844,10 @@ public interface DdsmPackage extends EPackage {
     EReference getLifeCycle_PreconfigureCommand();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.LifeCycle#getCreateCommand <em>Create Command</em>}'.
+     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getCreateCommand <em>Create Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Create Command</em>'.
+     * @return the meta object for the containment reference '<em>Create Command</em>'.
      * @see ddsm.LifeCycle#getCreateCommand()
      * @see #getLifeCycle()
      * @generated
@@ -3496,10 +3905,10 @@ public interface DdsmPackage extends EPackage {
     EClass getCluster();
 
     /**
-     * Returns the meta object for the reference '{@link ddsm.Cluster#getHasVm <em>Has Vm</em>}'.
+     * Returns the meta object for the reference list '{@link ddsm.Cluster#getHasVm <em>Has Vm</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Has Vm</em>'.
+     * @return the meta object for the reference list '<em>Has Vm</em>'.
      * @see ddsm.Cluster#getHasVm()
      * @see #getCluster()
      * @generated
@@ -3751,7 +4160,7 @@ public interface DdsmPackage extends EPackage {
         EAttribute RESOURCE__RESOURCE_ID = eINSTANCE.getResource_ResourceId();
 
         /**
-         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -3819,6 +4228,14 @@ public interface DdsmPackage extends EPackage {
         EReference INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM = eINSTANCE.getInternalComponent_Requiredexecutionplatform();
 
         /**
+         * The meta object literal for the '<em><b>Public Ports</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute INTERNAL_COMPONENT__PUBLIC_PORTS = eINSTANCE.getInternalComponent_PublicPorts();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.ExecutionPlatformImpl <em>Execution Platform</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3839,6 +4256,22 @@ public interface DdsmPackage extends EPackage {
         EClass PORT = eINSTANCE.getPort();
 
         /**
+         * The meta object literal for the '<em><b>Is Local</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PORT__IS_LOCAL = eINSTANCE.getPort_IsLocal();
+
+        /**
+         * The meta object literal for the '<em><b>Port Number</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PORT__PORT_NUMBER = eINSTANCE.getPort_PortNumber();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.RequiredPortImpl <em>Required Port</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3847,6 +4280,14 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass REQUIRED_PORT = eINSTANCE.getRequiredPort();
+
+        /**
+         * The meta object literal for the '<em><b>Is Mandatory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REQUIRED_PORT__IS_MANDATORY = eINSTANCE.getRequiredPort_IsMandatory();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ProvidedPortImpl <em>Provided Port</em>}' class.
@@ -3875,6 +4316,14 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EClass REQUIRED_EXECUTION_PLATFORM = eINSTANCE.getRequiredExecutionPlatform();
+
+        /**
+         * The meta object literal for the '<em><b>Is Mandatory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REQUIRED_EXECUTION_PLATFORM__IS_MANDATORY = eINSTANCE.getRequiredExecutionPlatform_IsMandatory();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ProvidedExecutionPlatformImpl <em>Provided Execution Platform</em>}' class.
@@ -3921,14 +4370,6 @@ public interface DdsmPackage extends EPackage {
         EReference RELATIONSHIP__REQUIREDPORT = eINSTANCE.getRelationship_Requiredport();
 
         /**
-         * The meta object literal for the '<em><b>Relationship Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute RELATIONSHIP__RELATIONSHIP_ID = eINSTANCE.getRelationship_RelationshipId();
-
-        /**
          * The meta object literal for the '{@link ddsm.impl.ExecutionBindingImpl <em>Execution Binding</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3971,6 +4412,46 @@ public interface DdsmPackage extends EPackage {
          * @generated
          */
         EReference EXTERNAL_COMPONENT__PROVIDER = eINSTANCE.getExternalComponent_Provider();
+
+        /**
+         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__LOCATION = eINSTANCE.getExternalComponent_Location();
+
+        /**
+         * The meta object literal for the '<em><b>Login</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__LOGIN = eINSTANCE.getExternalComponent_Login();
+
+        /**
+         * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__PASSWORD = eINSTANCE.getExternalComponent_Password();
+
+        /**
+         * The meta object literal for the '<em><b>Region</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__REGION = eINSTANCE.getExternalComponent_Region();
+
+        /**
+         * The meta object literal for the '<em><b>Service Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__SERVICE_TYPE = eINSTANCE.getExternalComponent_ServiceType();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ProviderImpl <em>Provider</em>}' class.
@@ -4129,14 +4610,6 @@ public interface DdsmPackage extends EPackage {
         EAttribute VM__INSTANCES = eINSTANCE.getVM_Instances();
 
         /**
-         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute VM__LOCATION = eINSTANCE.getVM_Location();
-
-        /**
          * The meta object literal for the '<em><b>Generic Size</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4179,6 +4652,22 @@ public interface DdsmPackage extends EPackage {
         EAttribute DDSM__DESCRIPTION = eINSTANCE.getDDSM_Description();
 
         /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DDSM__PROPERTIES = eINSTANCE.getDDSM_Properties();
+
+        /**
+         * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DDSM__RESOURCES = eINSTANCE.getDDSM_Resources();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.LifeCycleImpl <em>Life Cycle</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4189,7 +4678,7 @@ public interface DdsmPackage extends EPackage {
         EClass LIFE_CYCLE = eINSTANCE.getLifeCycle();
 
         /**
-         * The meta object literal for the '<em><b>Download Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Download Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4197,7 +4686,7 @@ public interface DdsmPackage extends EPackage {
         EReference LIFE_CYCLE__DOWNLOAD_COMMAND = eINSTANCE.getLifeCycle_DownloadCommand();
 
         /**
-         * The meta object literal for the '<em><b>Install Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Install Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4205,7 +4694,7 @@ public interface DdsmPackage extends EPackage {
         EReference LIFE_CYCLE__INSTALL_COMMAND = eINSTANCE.getLifeCycle_InstallCommand();
 
         /**
-         * The meta object literal for the '<em><b>Start Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Start Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4213,7 +4702,7 @@ public interface DdsmPackage extends EPackage {
         EReference LIFE_CYCLE__START_COMMAND = eINSTANCE.getLifeCycle_StartCommand();
 
         /**
-         * The meta object literal for the '<em><b>Stop Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Stop Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4221,7 +4710,7 @@ public interface DdsmPackage extends EPackage {
         EReference LIFE_CYCLE__STOP_COMMAND = eINSTANCE.getLifeCycle_StopCommand();
 
         /**
-         * The meta object literal for the '<em><b>Preconfigure Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Preconfigure Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4229,7 +4718,7 @@ public interface DdsmPackage extends EPackage {
         EReference LIFE_CYCLE__PRECONFIGURE_COMMAND = eINSTANCE.getLifeCycle_PreconfigureCommand();
 
         /**
-         * The meta object literal for the '<em><b>Create Command</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Create Command</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -4287,7 +4776,7 @@ public interface DdsmPackage extends EPackage {
         EClass CLUSTER = eINSTANCE.getCluster();
 
         /**
-         * The meta object literal for the '<em><b>Has Vm</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Has Vm</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

@@ -22,4 +22,6 @@ public interface InternalComponentValidator {
     boolean validateRequiredport(EList<RequiredPort> value);
     boolean validateInternalcomponent(EList<InternalComponent> value);
     boolean validateRequiredexecutionplatform(EList<RequiredExecutionPlatform> value);
+
+    boolean validatePublicPorts(EList<Integer> value);
 }

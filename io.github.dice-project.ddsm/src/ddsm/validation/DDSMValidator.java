@@ -6,6 +6,8 @@ package ddsm.validation;
 
 import ddsm.CloudElement;
 
+import ddsm.Property;
+import ddsm.Resource;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -20,4 +22,8 @@ public interface DDSMValidator {
     boolean validateCloudelement(EList<CloudElement> value);
     boolean validateModelId(String value);
     boolean validateDescription(String value);
+
+    boolean validateProperties(EList<Property> value);
+
+    boolean validateResources(EList<Resource> value);
 }

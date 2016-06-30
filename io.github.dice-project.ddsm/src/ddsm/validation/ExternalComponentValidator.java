@@ -16,4 +16,14 @@ public interface ExternalComponentValidator {
     boolean validate();
 
     boolean validateProvider(Provider value);
+
+    boolean validateLocation(String value);
+
+    boolean validateLogin(String value);
+
+    boolean validatePassword(String value);
+
+    boolean validateRegion(String value);
+
+    boolean validateServiceType(String value);
 }

@@ -5,6 +5,7 @@
 package ddsm.validation;
 
 import ddsm.VM;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link ddsm.Cluster}.
@@ -14,6 +15,8 @@ import ddsm.VM;
  */
 public interface ClusterValidator {
     boolean validate();
+
+    boolean validateHasVm(EList<VM> value);
 
     boolean validateHasVm(VM value);
 }

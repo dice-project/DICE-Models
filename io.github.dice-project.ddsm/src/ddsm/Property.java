@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ddsm.Property#getValue <em>Value</em>}</li>
  *   <li>{@link ddsm.Property#getPropertyId <em>Property Id</em>}</li>
+ *   <li>{@link ddsm.Property#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getProperty()
@@ -33,7 +33,7 @@ public interface Property extends EObject {
      * @return the value of the '<em>Value</em>' attribute.
      * @see #setValue(String)
      * @see ddsm.DdsmPackage#getProperty_Value()
-     * @model
+     * @model required="true"
      * @generated
      */
     String getValue();

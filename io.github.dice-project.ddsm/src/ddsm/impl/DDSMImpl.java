@@ -6,6 +6,8 @@ import ddsm.CloudElement;
 import ddsm.DDSM;
 import ddsm.DdsmPackage;
 
+import ddsm.Property;
+import ddsm.Resource;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ddsm.impl.DDSMImpl#getCloudelement <em>Cloudelement</em>}</li>
  *   <li>{@link ddsm.impl.DDSMImpl#getModelId <em>Model Id</em>}</li>
  *   <li>{@link ddsm.impl.DDSMImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link ddsm.impl.DDSMImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link ddsm.impl.DDSMImpl#getResources <em>Resources</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +91,26 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
      * @ordered
      */
     protected String description = DESCRIPTION_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<Property> properties;
+
+    /**
+     * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResources()
+     * @generated
+     * @ordered
+     */
+    protected EList<Resource> resources;
 
     /**
      * <!-- begin-user-doc -->
@@ -166,11 +190,39 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Property> getProperties() {
+        if (properties == null) {
+            properties = new EObjectContainmentEList<Property>(Property.class, this, DdsmPackage.DDSM__PROPERTIES);
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Resource> getResources() {
+        if (resources == null) {
+            resources = new EObjectContainmentEList<Resource>(Resource.class, this, DdsmPackage.DDSM__RESOURCES);
+        }
+        return resources;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case DdsmPackage.DDSM__CLOUDELEMENT:
                 return ((InternalEList<?>)getCloudelement()).basicRemove(otherEnd, msgs);
+            case DdsmPackage.DDSM__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case DdsmPackage.DDSM__RESOURCES:
+                return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -189,6 +241,10 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
                 return getModelId();
             case DdsmPackage.DDSM__DESCRIPTION:
                 return getDescription();
+            case DdsmPackage.DDSM__PROPERTIES:
+                return getProperties();
+            case DdsmPackage.DDSM__RESOURCES:
+                return getResources();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -212,6 +268,14 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
             case DdsmPackage.DDSM__DESCRIPTION:
                 setDescription((String)newValue);
                 return;
+            case DdsmPackage.DDSM__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
+                return;
+            case DdsmPackage.DDSM__RESOURCES:
+                getResources().clear();
+                getResources().addAll((Collection<? extends Resource>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -233,6 +297,12 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
             case DdsmPackage.DDSM__DESCRIPTION:
                 setDescription(DESCRIPTION_EDEFAULT);
                 return;
+            case DdsmPackage.DDSM__PROPERTIES:
+                getProperties().clear();
+                return;
+            case DdsmPackage.DDSM__RESOURCES:
+                getResources().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -251,6 +321,10 @@ public class DDSMImpl extends MinimalEObjectImpl.Container implements DDSM {
                 return MODEL_ID_EDEFAULT == null ? modelId != null : !MODEL_ID_EDEFAULT.equals(modelId);
             case DdsmPackage.DDSM__DESCRIPTION:
                 return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+            case DdsmPackage.DDSM__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case DdsmPackage.DDSM__RESOURCES:
+                return resources != null && !resources.isEmpty();
         }
         return super.eIsSet(featureID);
     }

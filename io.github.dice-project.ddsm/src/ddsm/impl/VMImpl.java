@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link ddsm.impl.VMImpl#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getPublicAddress <em>Public Address</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getInstances <em>Instances</em>}</li>
- *   <li>{@link ddsm.impl.VMImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getGenericSize <em>Generic Size</em>}</li>
  * </ul>
  *
@@ -341,26 +340,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * @ordered
      */
     protected Integer instances = INSTANCES_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocation()
-     * @generated
-     * @ordered
-     */
-    protected static final String LOCATION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocation()
-     * @generated
-     * @ordered
-     */
-    protected String location = LOCATION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getGenericSize() <em>Generic Size</em>}' attribute.
@@ -721,27 +700,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLocation() {
-        return location;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocation(String newLocation) {
-        String oldLocation = location;
-        location = newLocation;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__LOCATION, oldLocation, location));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public VMSize getGenericSize() {
         return genericSize;
     }
@@ -796,8 +754,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return getPublicAddress();
             case DdsmPackage.VM__INSTANCES:
                 return getInstances();
-            case DdsmPackage.VM__LOCATION:
-                return getLocation();
             case DdsmPackage.VM__GENERIC_SIZE:
                 return getGenericSize();
         }
@@ -856,9 +812,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return;
             case DdsmPackage.VM__INSTANCES:
                 setInstances((Integer)newValue);
-                return;
-            case DdsmPackage.VM__LOCATION:
-                setLocation((String)newValue);
                 return;
             case DdsmPackage.VM__GENERIC_SIZE:
                 setGenericSize((VMSize)newValue);
@@ -920,9 +873,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
             case DdsmPackage.VM__INSTANCES:
                 setInstances(INSTANCES_EDEFAULT);
                 return;
-            case DdsmPackage.VM__LOCATION:
-                setLocation(LOCATION_EDEFAULT);
-                return;
             case DdsmPackage.VM__GENERIC_SIZE:
                 setGenericSize(GENERIC_SIZE_EDEFAULT);
                 return;
@@ -968,8 +918,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return PUBLIC_ADDRESS_EDEFAULT == null ? publicAddress != null : !PUBLIC_ADDRESS_EDEFAULT.equals(publicAddress);
             case DdsmPackage.VM__INSTANCES:
                 return INSTANCES_EDEFAULT == null ? instances != null : !INSTANCES_EDEFAULT.equals(instances);
-            case DdsmPackage.VM__LOCATION:
-                return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
             case DdsmPackage.VM__GENERIC_SIZE:
                 return genericSize != GENERIC_SIZE_EDEFAULT;
         }
@@ -1016,8 +964,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         result.append(publicAddress);
         result.append(", instances: ");
         result.append(instances);
-        result.append(", location: ");
-        result.append(location);
         result.append(", genericSize: ");
         result.append(genericSize);
         result.append(')');

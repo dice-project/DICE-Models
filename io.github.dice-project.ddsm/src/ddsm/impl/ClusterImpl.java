@@ -6,12 +6,10 @@ import ddsm.Cluster;
 import ddsm.DdsmPackage;
 import ddsm.VM;
 
-import org.eclipse.emf.common.notify.Notification;
-
+import java.util.Collection;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +26,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ClusterImpl extends ExternalComponentImpl implements Cluster {
     /**
-     * The cached value of the '{@link #getHasVm() <em>Has Vm</em>}' reference.
+     * The cached value of the '{@link #getHasVm() <em>Has Vm</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getHasVm()
      * @generated
      * @ordered
      */
-    protected VM hasVm;
+    protected EList<VM> hasVm;
 
     /**
      * <!-- begin-user-doc -->
@@ -61,37 +59,11 @@ public class ClusterImpl extends ExternalComponentImpl implements Cluster {
      * <!-- end-user-doc -->
      * @generated
      */
-    public VM getHasVm() {
-        if (hasVm != null && hasVm.eIsProxy()) {
-            InternalEObject oldHasVm = (InternalEObject)hasVm;
-            hasVm = (VM)eResolveProxy(oldHasVm);
-            if (hasVm != oldHasVm) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.CLUSTER__HAS_VM, oldHasVm, hasVm));
-            }
+    public EList<VM> getHasVm() {
+        if (hasVm == null) {
+            hasVm = new EObjectResolvingEList<VM>(VM.class, this, DdsmPackage.CLUSTER__HAS_VM);
         }
         return hasVm;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public VM basicGetHasVm() {
-        return hasVm;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setHasVm(VM newHasVm) {
-        VM oldHasVm = hasVm;
-        hasVm = newHasVm;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLUSTER__HAS_VM, oldHasVm, hasVm));
     }
 
     /**
@@ -103,8 +75,7 @@ public class ClusterImpl extends ExternalComponentImpl implements Cluster {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case DdsmPackage.CLUSTER__HAS_VM:
-                if (resolve) return getHasVm();
-                return basicGetHasVm();
+                return getHasVm();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -114,11 +85,13 @@ public class ClusterImpl extends ExternalComponentImpl implements Cluster {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case DdsmPackage.CLUSTER__HAS_VM:
-                setHasVm((VM)newValue);
+                getHasVm().clear();
+                getHasVm().addAll((Collection<? extends VM>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -133,7 +106,7 @@ public class ClusterImpl extends ExternalComponentImpl implements Cluster {
     public void eUnset(int featureID) {
         switch (featureID) {
             case DdsmPackage.CLUSTER__HAS_VM:
-                setHasVm((VM)null);
+                getHasVm().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -148,7 +121,7 @@ public class ClusterImpl extends ExternalComponentImpl implements Cluster {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case DdsmPackage.CLUSTER__HAS_VM:
-                return hasVm != null;
+                return hasVm != null && !hasVm.isEmpty();
         }
         return super.eIsSet(featureID);
     }

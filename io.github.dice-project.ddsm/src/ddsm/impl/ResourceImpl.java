@@ -5,22 +5,13 @@ package ddsm.impl;
 import ddsm.DdsmPackage;
 import ddsm.Resource;
 import ddsm.Script;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,14 +49,14 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     protected String resourceId = RESOURCE_ID_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' containment reference list.
+     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getScripts()
      * @generated
      * @ordered
      */
-    protected EList<Script> scripts;
+    protected Script scripts;
 
     /**
      * <!-- begin-user-doc -->
@@ -112,11 +103,42 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Script> getScripts() {
-        if (scripts == null) {
-            scripts = new EObjectContainmentEList<Script>(Script.class, this, DdsmPackage.RESOURCE__SCRIPTS);
-        }
+    public Script getScripts() {
         return scripts;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetScripts(Script newScripts, NotificationChain msgs) {
+        Script oldScripts = scripts;
+        scripts = newScripts;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__SCRIPTS, oldScripts, newScripts);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setScripts(Script newScripts) {
+        if (newScripts != scripts) {
+            NotificationChain msgs = null;
+            if (scripts != null)
+                msgs = ((InternalEObject)scripts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.RESOURCE__SCRIPTS, null, msgs);
+            if (newScripts != null)
+                msgs = ((InternalEObject)newScripts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.RESOURCE__SCRIPTS, null, msgs);
+            msgs = basicSetScripts(newScripts, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__SCRIPTS, newScripts, newScripts));
     }
 
     /**
@@ -128,7 +150,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case DdsmPackage.RESOURCE__SCRIPTS:
-                return ((InternalEList<?>)getScripts()).basicRemove(otherEnd, msgs);
+                return basicSetScripts(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -162,8 +184,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
                 setResourceId((String)newValue);
                 return;
             case DdsmPackage.RESOURCE__SCRIPTS:
-                getScripts().clear();
-                getScripts().addAll((Collection<? extends Script>)newValue);
+                setScripts((Script)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -181,7 +202,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
                 setResourceId(RESOURCE_ID_EDEFAULT);
                 return;
             case DdsmPackage.RESOURCE__SCRIPTS:
-                getScripts().clear();
+                setScripts((Script)null);
                 return;
         }
         super.eUnset(featureID);
@@ -198,7 +219,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 return RESOURCE_ID_EDEFAULT == null ? resourceId != null : !RESOURCE_ID_EDEFAULT.equals(resourceId);
             case DdsmPackage.RESOURCE__SCRIPTS:
-                return scripts != null && !scripts.isEmpty();
+                return scripts != null;
         }
         return super.eIsSet(featureID);
     }

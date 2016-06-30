@@ -34,12 +34,14 @@ import ddsm.YarnNodeManager;
 import ddsm.YarnResourceManager;
 import ddsm.Zookeeper;
 
+import ddsm.util.DdsmValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -318,6 +320,15 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         // Initialize created meta-data
         theDdsmPackage.initializePackageContents();
 
+        // Register package validator
+        EValidator.Registry.INSTANCE.put
+            (theDdsmPackage, 
+             new EValidator.Descriptor() {
+                 public EValidator getEValidator() {
+                     return DdsmValidator.INSTANCE;
+                 }
+             });
+
         // Mark meta-data to indicate it can't be changed
         theDdsmPackage.freeze();
 
@@ -387,7 +398,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * @generated
      */
     public EAttribute getProperty_Value() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -396,7 +407,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * @generated
      */
     public EAttribute getProperty_PropertyId() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -494,6 +505,15 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getInternalComponent_PublicPorts() {
+        return (EAttribute)internalComponentEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getExecutionPlatform() {
         return executionPlatformEClass;
     }
@@ -512,8 +532,35 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getPort_IsLocal() {
+        return (EAttribute)portEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPort_PortNumber() {
+        return (EAttribute)portEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getRequiredPort() {
         return requiredPortEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRequiredPort_IsMandatory() {
+        return (EAttribute)requiredPortEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -541,6 +588,15 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EClass getRequiredExecutionPlatform() {
         return requiredExecutionPlatformEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRequiredExecutionPlatform_IsMandatory() {
+        return (EAttribute)requiredExecutionPlatformEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -593,15 +649,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getRelationship_RelationshipId() {
-        return (EAttribute)relationshipEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getExecutionBinding() {
         return executionBindingEClass;
     }
@@ -640,6 +687,51 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EReference getExternalComponent_Provider() {
         return (EReference)externalComponentEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalComponent_Location() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalComponent_Login() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalComponent_Password() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalComponent_Region() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalComponent_ServiceType() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -818,17 +910,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_Location() {
-        return (EAttribute)vmEClass.getEStructuralFeatures().get(15);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getVM_GenericSize() {
-        return (EAttribute)vmEClass.getEStructuralFeatures().get(16);
+        return (EAttribute)vmEClass.getEStructuralFeatures().get(15);
     }
 
     /**
@@ -865,6 +948,24 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      */
     public EAttribute getDDSM_Description() {
         return (EAttribute)ddsmEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDDSM_Properties() {
+        return (EReference)ddsmEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDDSM_Resources() {
+        return (EReference)ddsmEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1136,8 +1237,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(cloudElementEClass, CLOUD_ELEMENT__DESCRIPTION);
 
         propertyEClass = createEClass(PROPERTY);
-        createEAttribute(propertyEClass, PROPERTY__VALUE);
         createEAttribute(propertyEClass, PROPERTY__PROPERTY_ID);
+        createEAttribute(propertyEClass, PROPERTY__VALUE);
 
         resourceEClass = createEClass(RESOURCE);
         createEAttribute(resourceEClass, RESOURCE__RESOURCE_ID);
@@ -1151,17 +1252,22 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDPORT);
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__INTERNALCOMPONENT);
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM);
+        createEAttribute(internalComponentEClass, INTERNAL_COMPONENT__PUBLIC_PORTS);
 
         executionPlatformEClass = createEClass(EXECUTION_PLATFORM);
 
         portEClass = createEClass(PORT);
+        createEAttribute(portEClass, PORT__IS_LOCAL);
+        createEAttribute(portEClass, PORT__PORT_NUMBER);
 
         requiredPortEClass = createEClass(REQUIRED_PORT);
+        createEAttribute(requiredPortEClass, REQUIRED_PORT__IS_MANDATORY);
 
         providedPortEClass = createEClass(PROVIDED_PORT);
         createEReference(providedPortEClass, PROVIDED_PORT__OWNER);
 
         requiredExecutionPlatformEClass = createEClass(REQUIRED_EXECUTION_PLATFORM);
+        createEAttribute(requiredExecutionPlatformEClass, REQUIRED_EXECUTION_PLATFORM__IS_MANDATORY);
 
         providedExecutionPlatformEClass = createEClass(PROVIDED_EXECUTION_PLATFORM);
         createEReference(providedExecutionPlatformEClass, PROVIDED_EXECUTION_PLATFORM__OWNER);
@@ -1169,7 +1275,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         relationshipEClass = createEClass(RELATIONSHIP);
         createEReference(relationshipEClass, RELATIONSHIP__PROVIDEDPORT);
         createEReference(relationshipEClass, RELATIONSHIP__REQUIREDPORT);
-        createEAttribute(relationshipEClass, RELATIONSHIP__RELATIONSHIP_ID);
 
         executionBindingEClass = createEClass(EXECUTION_BINDING);
         createEReference(executionBindingEClass, EXECUTION_BINDING__REQUIREDEXECUTIONPLATFORM);
@@ -1177,6 +1282,11 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         externalComponentEClass = createEClass(EXTERNAL_COMPONENT);
         createEReference(externalComponentEClass, EXTERNAL_COMPONENT__PROVIDER);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__LOCATION);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__LOGIN);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__PASSWORD);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__REGION);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__SERVICE_TYPE);
 
         providerEClass = createEClass(PROVIDER);
         createEAttribute(providerEClass, PROVIDER__CREDENTIALS_PATH);
@@ -1198,13 +1308,14 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(vmEClass, VM__SSH_KEY);
         createEAttribute(vmEClass, VM__PUBLIC_ADDRESS);
         createEAttribute(vmEClass, VM__INSTANCES);
-        createEAttribute(vmEClass, VM__LOCATION);
         createEAttribute(vmEClass, VM__GENERIC_SIZE);
 
         ddsmEClass = createEClass(DDSM);
         createEReference(ddsmEClass, DDSM__CLOUDELEMENT);
         createEAttribute(ddsmEClass, DDSM__MODEL_ID);
         createEAttribute(ddsmEClass, DDSM__DESCRIPTION);
+        createEReference(ddsmEClass, DDSM__PROPERTIES);
+        createEReference(ddsmEClass, DDSM__RESOURCES);
 
         lifeCycleEClass = createEClass(LIFE_CYCLE);
         createEReference(lifeCycleEClass, LIFE_CYCLE__DOWNLOAD_COMMAND);
@@ -1308,12 +1419,12 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getCloudElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, CloudElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProperty_PropertyId(), ecorePackage.getEString(), "propertyId", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getResource_ResourceId(), ecorePackage.getEString(), "resourceId", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getResource_Scripts(), this.getScript(), null, "scripts", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getResource_Scripts(), this.getScript(), null, "scripts", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getComponent_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1323,17 +1434,22 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEReference(getInternalComponent_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getInternalComponent_Internalcomponent(), this.getInternalComponent(), null, "internalcomponent", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getInternalComponent_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getInternalComponent_PublicPorts(), ecorePackage.getEIntegerObject(), "publicPorts", "0", 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(executionPlatformEClass, ExecutionPlatform.class, "ExecutionPlatform", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(portEClass, Port.class, "Port", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getPort_IsLocal(), ecorePackage.getEBoolean(), "isLocal", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getPort_PortNumber(), ecorePackage.getEString(), "portNumber", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(requiredPortEClass, RequiredPort.class, "RequiredPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getRequiredPort_IsMandatory(), ecorePackage.getEBoolean(), "isMandatory", null, 0, 1, RequiredPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(providedPortEClass, ProvidedPort.class, "ProvidedPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProvidedPort_Owner(), this.getComponent(), null, "owner", null, 1, 1, ProvidedPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(requiredExecutionPlatformEClass, RequiredExecutionPlatform.class, "RequiredExecutionPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getRequiredExecutionPlatform_IsMandatory(), ecorePackage.getEBoolean(), "isMandatory", null, 0, 1, RequiredExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(providedExecutionPlatformEClass, ProvidedExecutionPlatform.class, "ProvidedExecutionPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProvidedExecutionPlatform_Owner(), this.getComponent(), null, "owner", null, 1, 1, ProvidedExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1341,7 +1457,6 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getRelationship_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getRelationship_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getRelationship_RelationshipId(), ecorePackage.getEString(), "relationshipId", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(executionBindingEClass, ExecutionBinding.class, "ExecutionBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getExecutionBinding_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1349,6 +1464,11 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         initEClass(externalComponentEClass, ExternalComponent.class, "ExternalComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getExternalComponent_Provider(), this.getProvider(), null, "provider", null, 1, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_Location(), ecorePackage.getEString(), "location", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_Login(), ecorePackage.getEString(), "login", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_Password(), ecorePackage.getEString(), "password", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_Region(), ecorePackage.getEString(), "region", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_ServiceType(), ecorePackage.getEString(), "serviceType", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(providerEClass, Provider.class, "Provider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getProvider_CredentialsPath(), ecorePackage.getEString(), "credentialsPath", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1370,21 +1490,22 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getVM_SshKey(), ecorePackage.getEString(), "sshKey", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_PublicAddress(), ecorePackage.getEString(), "publicAddress", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_Instances(), ecorePackage.getEIntegerObject(), "instances", "1", 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getVM_Location(), ecorePackage.getEString(), "location", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_GenericSize(), this.getVMSize(), "genericSize", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(ddsmEClass, ddsm.DDSM.class, "DDSM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDDSM_Cloudelement(), this.getCloudElement(), null, "cloudelement", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDDSM_ModelId(), ecorePackage.getEString(), "modelId", null, 0, 1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDDSM_Description(), ecorePackage.getEString(), "description", null, 0, 1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDDSM_Properties(), this.getProperty(), null, "properties", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDDSM_Resources(), this.getResource(), null, "resources", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(lifeCycleEClass, LifeCycle.class, "LifeCycle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLifeCycle_DownloadCommand(), this.getScript(), null, "downloadCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_InstallCommand(), this.getScript(), null, "installCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_StartCommand(), this.getScript(), null, "startCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_StopCommand(), this.getScript(), null, "stopCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_PreconfigureCommand(), this.getScript(), null, "preconfigureCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_CreateCommand(), this.getScript(), null, "createCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_DownloadCommand(), this.getScript(), null, "downloadCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_InstallCommand(), this.getScript(), null, "installCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_StartCommand(), this.getScript(), null, "startCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_StopCommand(), this.getScript(), null, "stopCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_PreconfigureCommand(), this.getScript(), null, "preconfigureCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLifeCycle_CreateCommand(), this.getScript(), null, "createCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1395,7 +1516,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEClass(kafkaEClass, Kafka.class, "Kafka", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(clusterEClass, Cluster.class, "Cluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCluster_HasVm(), this.getVM(), null, "hasVm", null, 0, 1, Cluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCluster_HasVm(), this.getVM(), null, "hasVm", null, 0, -1, Cluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(clientNodeEClass, ClientNode.class, "ClientNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getClientNode_Type(), ecorePackage.getEString(), "type", null, 1, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1430,6 +1551,12 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         // Create annotations
         // http://es.unizar.disco/dice/profiles/generator
         createGeneratorAnnotations();
+        // http://www.eclipse.org/OCL/Import
+        createImportAnnotations();
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations();
+        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+        createPivotAnnotations();
     }
 
     /**
@@ -1612,6 +1739,87 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
            source, 
            new String[] {
              "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN ResourceManager master process."
+           });
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createImportAnnotations() {
+        String source = "http://www.eclipse.org/OCL/Import";	
+        addAnnotation
+          (this, 
+           source, 
+           new String[] {
+             "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+           });
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore";	
+        addAnnotation
+          (this, 
+           source, 
+           new String[] {
+             "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+             "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+             "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+           });	
+        addAnnotation
+          (stormSupervisorEClass, 
+           source, 
+           new String[] {
+             "constraints", "mustRequireZookeeperAndNimbus"
+           });	
+        addAnnotation
+          (stormNimbusEClass, 
+           source, 
+           new String[] {
+             "constraints", "mustRequireZookeeper mustProvideNimbusAccess"
+           });	
+        addAnnotation
+          (zookeeperEClass, 
+           source, 
+           new String[] {
+             "constraints", "mustProvideZookeeperAccess"
+           });
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createPivotAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
+        addAnnotation
+          (stormSupervisorEClass, 
+           source, 
+           new String[] {
+             "mustRequireZookeeperAndNimbus", "requiredport -> size() > 1"
+           });	
+        addAnnotation
+          (stormNimbusEClass, 
+           source, 
+           new String[] {
+             "mustRequireZookeeper", "requiredport -> size() > 0",
+             "mustProvideNimbusAccess", "providedport -> size() > 0"
+           });	
+        addAnnotation
+          (zookeeperEClass, 
+           source, 
+           new String[] {
+             "mustProvideZookeeperAccess", "providedport -> size() > 0"
            });
     }
 

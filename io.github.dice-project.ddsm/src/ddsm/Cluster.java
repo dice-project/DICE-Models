@@ -2,6 +2,8 @@
  */
 package ddsm;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -21,29 +23,19 @@ package ddsm;
  */
 public interface Cluster extends ExternalComponent {
     /**
-     * Returns the value of the '<em><b>Has Vm</b></em>' reference.
+     * Returns the value of the '<em><b>Has Vm</b></em>' reference list.
+     * The list contents are of type {@link ddsm.VM}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Has Vm</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Has Vm</em>' reference.
-     * @see #setHasVm(VM)
+     * @return the value of the '<em>Has Vm</em>' reference list.
      * @see ddsm.DdsmPackage#getCluster_HasVm()
      * @model
      * @generated
      */
-    VM getHasVm();
-
-    /**
-     * Sets the value of the '{@link ddsm.Cluster#getHasVm <em>Has Vm</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Has Vm</em>' reference.
-     * @see #getHasVm()
-     * @generated
-     */
-    void setHasVm(VM value);
+    EList<VM> getHasVm();
 
 } // Cluster

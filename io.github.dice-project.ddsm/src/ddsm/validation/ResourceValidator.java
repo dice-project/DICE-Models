@@ -18,5 +18,7 @@ public interface ResourceValidator {
     boolean validate();
 
     boolean validateResourceId(String value);
+    boolean validateScripts(Script value);
+
     boolean validateScripts(EList<Script> value);
 }

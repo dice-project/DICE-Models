@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ddsm.InternalComponent#getRequiredport <em>Requiredport</em>}</li>
  *   <li>{@link ddsm.InternalComponent#getInternalcomponent <em>Internalcomponent</em>}</li>
  *   <li>{@link ddsm.InternalComponent#getRequiredexecutionplatform <em>Requiredexecutionplatform</em>}</li>
+ *   <li>{@link ddsm.InternalComponent#getPublicPorts <em>Public Ports</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getInternalComponent()
@@ -70,5 +71,21 @@ public interface InternalComponent extends Component {
      * @generated
      */
     EList<RequiredExecutionPlatform> getRequiredexecutionplatform();
+
+    /**
+     * Returns the value of the '<em><b>Public Ports</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.Integer}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Public Ports</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Public Ports</em>' attribute list.
+     * @see ddsm.DdsmPackage#getInternalComponent_PublicPorts()
+     * @model default="0"
+     * @generated
+     */
+    EList<Integer> getPublicPorts();
 
 } // InternalComponent

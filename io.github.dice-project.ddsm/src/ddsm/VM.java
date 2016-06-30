@@ -27,7 +27,6 @@ package ddsm;
  *   <li>{@link ddsm.VM#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.VM#getPublicAddress <em>Public Address</em>}</li>
  *   <li>{@link ddsm.VM#getInstances <em>Instances</em>}</li>
- *   <li>{@link ddsm.VM#getLocation <em>Location</em>}</li>
  *   <li>{@link ddsm.VM#getGenericSize <em>Generic Size</em>}</li>
  * </ul>
  *
@@ -426,32 +425,6 @@ public interface VM extends ExternalComponent {
      * @generated
      */
     void setInstances(Integer value);
-
-    /**
-     * Returns the value of the '<em><b>Location</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Location</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Location</em>' attribute.
-     * @see #setLocation(String)
-     * @see ddsm.DdsmPackage#getVM_Location()
-     * @model
-     * @generated
-     */
-    String getLocation();
-
-    /**
-     * Sets the value of the '{@link ddsm.VM#getLocation <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Location</em>' attribute.
-     * @see #getLocation()
-     * @generated
-     */
-    void setLocation(String value);
 
     /**
      * Returns the value of the '<em><b>Generic Size</b></em>' attribute.

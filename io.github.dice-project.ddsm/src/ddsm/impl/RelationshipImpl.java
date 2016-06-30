@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link ddsm.impl.RelationshipImpl#getProvidedport <em>Providedport</em>}</li>
  *   <li>{@link ddsm.impl.RelationshipImpl#getRequiredport <em>Requiredport</em>}</li>
- *   <li>{@link ddsm.impl.RelationshipImpl#getRelationshipId <em>Relationship Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,26 +48,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
      * @ordered
      */
     protected RequiredPort requiredport;
-
-    /**
-     * The default value of the '{@link #getRelationshipId() <em>Relationship Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelationshipId()
-     * @generated
-     * @ordered
-     */
-    protected static final String RELATIONSHIP_ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getRelationshipId() <em>Relationship Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelationshipId()
-     * @generated
-     * @ordered
-     */
-    protected String relationshipId = RELATIONSHIP_ID_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -170,27 +149,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getRelationshipId() {
-        return relationshipId;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRelationshipId(String newRelationshipId) {
-        String oldRelationshipId = relationshipId;
-        relationshipId = newRelationshipId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID, oldRelationshipId, relationshipId));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -200,8 +158,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 if (resolve) return getRequiredport();
                 return basicGetRequiredport();
-            case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
-                return getRelationshipId();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -219,9 +175,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
                 return;
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 setRequiredport((RequiredPort)newValue);
-                return;
-            case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
-                setRelationshipId((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -241,9 +194,6 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 setRequiredport((RequiredPort)null);
                 return;
-            case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
-                setRelationshipId(RELATIONSHIP_ID_EDEFAULT);
-                return;
         }
         super.eUnset(featureID);
     }
@@ -260,26 +210,8 @@ public class RelationshipImpl extends CloudElementImpl implements Relationship {
                 return providedport != null;
             case DdsmPackage.RELATIONSHIP__REQUIREDPORT:
                 return requiredport != null;
-            case DdsmPackage.RELATIONSHIP__RELATIONSHIP_ID:
-                return RELATIONSHIP_ID_EDEFAULT == null ? relationshipId != null : !RELATIONSHIP_ID_EDEFAULT.equals(relationshipId);
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (relationshipId: ");
-        result.append(relationshipId);
-        result.append(')');
-        return result.toString();
     }
 
 } //RelationshipImpl

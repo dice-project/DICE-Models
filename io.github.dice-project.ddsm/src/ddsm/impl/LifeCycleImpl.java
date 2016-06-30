@@ -8,6 +8,7 @@ import ddsm.Script;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -33,7 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     /**
-     * The cached value of the '{@link #getDownloadCommand() <em>Download Command</em>}' reference.
+     * The cached value of the '{@link #getDownloadCommand() <em>Download Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getDownloadCommand()
@@ -43,7 +44,7 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     protected Script downloadCommand;
 
     /**
-     * The cached value of the '{@link #getInstallCommand() <em>Install Command</em>}' reference.
+     * The cached value of the '{@link #getInstallCommand() <em>Install Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getInstallCommand()
@@ -53,7 +54,7 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     protected Script installCommand;
 
     /**
-     * The cached value of the '{@link #getStartCommand() <em>Start Command</em>}' reference.
+     * The cached value of the '{@link #getStartCommand() <em>Start Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getStartCommand()
@@ -63,7 +64,7 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     protected Script startCommand;
 
     /**
-     * The cached value of the '{@link #getStopCommand() <em>Stop Command</em>}' reference.
+     * The cached value of the '{@link #getStopCommand() <em>Stop Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getStopCommand()
@@ -73,7 +74,7 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     protected Script stopCommand;
 
     /**
-     * The cached value of the '{@link #getPreconfigureCommand() <em>Preconfigure Command</em>}' reference.
+     * The cached value of the '{@link #getPreconfigureCommand() <em>Preconfigure Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getPreconfigureCommand()
@@ -83,7 +84,7 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     protected Script preconfigureCommand;
 
     /**
-     * The cached value of the '{@link #getCreateCommand() <em>Create Command</em>}' reference.
+     * The cached value of the '{@link #getCreateCommand() <em>Create Command</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getCreateCommand()
@@ -117,14 +118,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getDownloadCommand() {
-        if (downloadCommand != null && downloadCommand.eIsProxy()) {
-            InternalEObject oldDownloadCommand = (InternalEObject)downloadCommand;
-            downloadCommand = (Script)eResolveProxy(oldDownloadCommand);
-            if (downloadCommand != oldDownloadCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, oldDownloadCommand, downloadCommand));
-            }
-        }
         return downloadCommand;
     }
 
@@ -133,8 +126,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetDownloadCommand() {
-        return downloadCommand;
+    public NotificationChain basicSetDownloadCommand(Script newDownloadCommand, NotificationChain msgs) {
+        Script oldDownloadCommand = downloadCommand;
+        downloadCommand = newDownloadCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, oldDownloadCommand, newDownloadCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -143,10 +142,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setDownloadCommand(Script newDownloadCommand) {
-        Script oldDownloadCommand = downloadCommand;
-        downloadCommand = newDownloadCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, oldDownloadCommand, downloadCommand));
+        if (newDownloadCommand != downloadCommand) {
+            NotificationChain msgs = null;
+            if (downloadCommand != null)
+                msgs = ((InternalEObject)downloadCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, null, msgs);
+            if (newDownloadCommand != null)
+                msgs = ((InternalEObject)newDownloadCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, null, msgs);
+            msgs = basicSetDownloadCommand(newDownloadCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND, newDownloadCommand, newDownloadCommand));
     }
 
     /**
@@ -155,14 +161,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getInstallCommand() {
-        if (installCommand != null && installCommand.eIsProxy()) {
-            InternalEObject oldInstallCommand = (InternalEObject)installCommand;
-            installCommand = (Script)eResolveProxy(oldInstallCommand);
-            if (installCommand != oldInstallCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, oldInstallCommand, installCommand));
-            }
-        }
         return installCommand;
     }
 
@@ -171,8 +169,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetInstallCommand() {
-        return installCommand;
+    public NotificationChain basicSetInstallCommand(Script newInstallCommand, NotificationChain msgs) {
+        Script oldInstallCommand = installCommand;
+        installCommand = newInstallCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, oldInstallCommand, newInstallCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -181,10 +185,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setInstallCommand(Script newInstallCommand) {
-        Script oldInstallCommand = installCommand;
-        installCommand = newInstallCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, oldInstallCommand, installCommand));
+        if (newInstallCommand != installCommand) {
+            NotificationChain msgs = null;
+            if (installCommand != null)
+                msgs = ((InternalEObject)installCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, null, msgs);
+            if (newInstallCommand != null)
+                msgs = ((InternalEObject)newInstallCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, null, msgs);
+            msgs = basicSetInstallCommand(newInstallCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND, newInstallCommand, newInstallCommand));
     }
 
     /**
@@ -193,14 +204,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getStartCommand() {
-        if (startCommand != null && startCommand.eIsProxy()) {
-            InternalEObject oldStartCommand = (InternalEObject)startCommand;
-            startCommand = (Script)eResolveProxy(oldStartCommand);
-            if (startCommand != oldStartCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__START_COMMAND, oldStartCommand, startCommand));
-            }
-        }
         return startCommand;
     }
 
@@ -209,8 +212,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetStartCommand() {
-        return startCommand;
+    public NotificationChain basicSetStartCommand(Script newStartCommand, NotificationChain msgs) {
+        Script oldStartCommand = startCommand;
+        startCommand = newStartCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__START_COMMAND, oldStartCommand, newStartCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -219,10 +228,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setStartCommand(Script newStartCommand) {
-        Script oldStartCommand = startCommand;
-        startCommand = newStartCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__START_COMMAND, oldStartCommand, startCommand));
+        if (newStartCommand != startCommand) {
+            NotificationChain msgs = null;
+            if (startCommand != null)
+                msgs = ((InternalEObject)startCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__START_COMMAND, null, msgs);
+            if (newStartCommand != null)
+                msgs = ((InternalEObject)newStartCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__START_COMMAND, null, msgs);
+            msgs = basicSetStartCommand(newStartCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__START_COMMAND, newStartCommand, newStartCommand));
     }
 
     /**
@@ -231,14 +247,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getStopCommand() {
-        if (stopCommand != null && stopCommand.eIsProxy()) {
-            InternalEObject oldStopCommand = (InternalEObject)stopCommand;
-            stopCommand = (Script)eResolveProxy(oldStopCommand);
-            if (stopCommand != oldStopCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__STOP_COMMAND, oldStopCommand, stopCommand));
-            }
-        }
         return stopCommand;
     }
 
@@ -247,8 +255,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetStopCommand() {
-        return stopCommand;
+    public NotificationChain basicSetStopCommand(Script newStopCommand, NotificationChain msgs) {
+        Script oldStopCommand = stopCommand;
+        stopCommand = newStopCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__STOP_COMMAND, oldStopCommand, newStopCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -257,10 +271,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setStopCommand(Script newStopCommand) {
-        Script oldStopCommand = stopCommand;
-        stopCommand = newStopCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__STOP_COMMAND, oldStopCommand, stopCommand));
+        if (newStopCommand != stopCommand) {
+            NotificationChain msgs = null;
+            if (stopCommand != null)
+                msgs = ((InternalEObject)stopCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__STOP_COMMAND, null, msgs);
+            if (newStopCommand != null)
+                msgs = ((InternalEObject)newStopCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__STOP_COMMAND, null, msgs);
+            msgs = basicSetStopCommand(newStopCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__STOP_COMMAND, newStopCommand, newStopCommand));
     }
 
     /**
@@ -269,14 +290,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getPreconfigureCommand() {
-        if (preconfigureCommand != null && preconfigureCommand.eIsProxy()) {
-            InternalEObject oldPreconfigureCommand = (InternalEObject)preconfigureCommand;
-            preconfigureCommand = (Script)eResolveProxy(oldPreconfigureCommand);
-            if (preconfigureCommand != oldPreconfigureCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, oldPreconfigureCommand, preconfigureCommand));
-            }
-        }
         return preconfigureCommand;
     }
 
@@ -285,8 +298,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetPreconfigureCommand() {
-        return preconfigureCommand;
+    public NotificationChain basicSetPreconfigureCommand(Script newPreconfigureCommand, NotificationChain msgs) {
+        Script oldPreconfigureCommand = preconfigureCommand;
+        preconfigureCommand = newPreconfigureCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, oldPreconfigureCommand, newPreconfigureCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -295,10 +314,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setPreconfigureCommand(Script newPreconfigureCommand) {
-        Script oldPreconfigureCommand = preconfigureCommand;
-        preconfigureCommand = newPreconfigureCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, oldPreconfigureCommand, preconfigureCommand));
+        if (newPreconfigureCommand != preconfigureCommand) {
+            NotificationChain msgs = null;
+            if (preconfigureCommand != null)
+                msgs = ((InternalEObject)preconfigureCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, null, msgs);
+            if (newPreconfigureCommand != null)
+                msgs = ((InternalEObject)newPreconfigureCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, null, msgs);
+            msgs = basicSetPreconfigureCommand(newPreconfigureCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND, newPreconfigureCommand, newPreconfigureCommand));
     }
 
     /**
@@ -307,14 +333,6 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public Script getCreateCommand() {
-        if (createCommand != null && createCommand.eIsProxy()) {
-            InternalEObject oldCreateCommand = (InternalEObject)createCommand;
-            createCommand = (Script)eResolveProxy(oldCreateCommand);
-            if (createCommand != oldCreateCommand) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, oldCreateCommand, createCommand));
-            }
-        }
         return createCommand;
     }
 
@@ -323,8 +341,14 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script basicGetCreateCommand() {
-        return createCommand;
+    public NotificationChain basicSetCreateCommand(Script newCreateCommand, NotificationChain msgs) {
+        Script oldCreateCommand = createCommand;
+        createCommand = newCreateCommand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, oldCreateCommand, newCreateCommand);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -333,10 +357,41 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
      * @generated
      */
     public void setCreateCommand(Script newCreateCommand) {
-        Script oldCreateCommand = createCommand;
-        createCommand = newCreateCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, oldCreateCommand, createCommand));
+        if (newCreateCommand != createCommand) {
+            NotificationChain msgs = null;
+            if (createCommand != null)
+                msgs = ((InternalEObject)createCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, null, msgs);
+            if (newCreateCommand != null)
+                msgs = ((InternalEObject)newCreateCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, null, msgs);
+            msgs = basicSetCreateCommand(newCreateCommand, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.LIFE_CYCLE__CREATE_COMMAND, newCreateCommand, newCreateCommand));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND:
+                return basicSetDownloadCommand(null, msgs);
+            case DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND:
+                return basicSetInstallCommand(null, msgs);
+            case DdsmPackage.LIFE_CYCLE__START_COMMAND:
+                return basicSetStartCommand(null, msgs);
+            case DdsmPackage.LIFE_CYCLE__STOP_COMMAND:
+                return basicSetStopCommand(null, msgs);
+            case DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND:
+                return basicSetPreconfigureCommand(null, msgs);
+            case DdsmPackage.LIFE_CYCLE__CREATE_COMMAND:
+                return basicSetCreateCommand(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
@@ -348,23 +403,17 @@ public class LifeCycleImpl extends ResourceImpl implements LifeCycle {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case DdsmPackage.LIFE_CYCLE__DOWNLOAD_COMMAND:
-                if (resolve) return getDownloadCommand();
-                return basicGetDownloadCommand();
+                return getDownloadCommand();
             case DdsmPackage.LIFE_CYCLE__INSTALL_COMMAND:
-                if (resolve) return getInstallCommand();
-                return basicGetInstallCommand();
+                return getInstallCommand();
             case DdsmPackage.LIFE_CYCLE__START_COMMAND:
-                if (resolve) return getStartCommand();
-                return basicGetStartCommand();
+                return getStartCommand();
             case DdsmPackage.LIFE_CYCLE__STOP_COMMAND:
-                if (resolve) return getStopCommand();
-                return basicGetStopCommand();
+                return getStopCommand();
             case DdsmPackage.LIFE_CYCLE__PRECONFIGURE_COMMAND:
-                if (resolve) return getPreconfigureCommand();
-                return basicGetPreconfigureCommand();
+                return getPreconfigureCommand();
             case DdsmPackage.LIFE_CYCLE__CREATE_COMMAND:
-                if (resolve) return getCreateCommand();
-                return basicGetCreateCommand();
+                return getCreateCommand();
         }
         return super.eGet(featureID, resolve, coreType);
     }

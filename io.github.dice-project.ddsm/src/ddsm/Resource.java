@@ -2,8 +2,6 @@
  */
 package ddsm;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -51,19 +49,29 @@ public interface Resource extends EObject {
     void setResourceId(String value);
 
     /**
-     * Returns the value of the '<em><b>Scripts</b></em>' containment reference list.
-     * The list contents are of type {@link ddsm.Script}.
+     * Returns the value of the '<em><b>Scripts</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scripts</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Scripts</em>' containment reference list.
+     * @return the value of the '<em>Scripts</em>' containment reference.
+     * @see #setScripts(Script)
      * @see ddsm.DdsmPackage#getResource_Scripts()
-     * @model containment="true"
+     * @model containment="true" required="true"
      * @generated
      */
-    EList<Script> getScripts();
+    Script getScripts();
+
+    /**
+     * Sets the value of the '{@link ddsm.Resource#getScripts <em>Scripts</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Scripts</em>' containment reference.
+     * @see #getScripts()
+     * @generated
+     */
+    void setScripts(Script value);
 
 } // Resource

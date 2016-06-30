@@ -14,12 +14,12 @@ Package ddsm <http://ddsm/1.0>
     Attribute description : EString
 
   Class Property
-    Attribute value : EString
     Attribute propertyId : EString<<1..1>>
+    Attribute value : EString<<1..1>>
 
   Class Resource
     Attribute resourceId : EString<<1..1>>
-    Reference scripts : Script<<0..*>>
+    Reference scripts : Script<<1..1>>
 
   Class Component -> CloudElement
     Reference providedport : ProvidedPort<<0..*>>
@@ -29,17 +29,22 @@ Package ddsm <http://ddsm/1.0>
     Reference requiredport : RequiredPort<<0..*>>
     Reference internalcomponent : InternalComponent<<0..*>>
     Reference requiredexecutionplatform : RequiredExecutionPlatform<<0..*>>
+    Attribute publicPorts : EIntegerObject<<0..*>>
 
   Class ExecutionPlatform -> CloudElement
 
   Class Port -> CloudElement
+    Attribute isLocal : EBoolean
+    Attribute portNumber : EString
 
   Class RequiredPort -> Port
+    Attribute isMandatory : EBoolean
 
   Class ProvidedPort -> Port
     Reference owner : Component<<1..1>>
 
   Class RequiredExecutionPlatform -> ExecutionPlatform
+    Attribute isMandatory : EBoolean
 
   Class ProvidedExecutionPlatform -> ExecutionPlatform
     Reference owner : Component<<1..1>>
@@ -47,7 +52,6 @@ Package ddsm <http://ddsm/1.0>
   Class Relationship -> CloudElement
     Reference providedport : ProvidedPort
     Reference requiredport : RequiredPort
-    Attribute relationshipId : EString
 
   Class ExecutionBinding -> CloudElement
     Reference requiredexecutionplatform : RequiredExecutionPlatform
@@ -55,6 +59,11 @@ Package ddsm <http://ddsm/1.0>
 
   Class ExternalComponent -> Component
     Reference provider : Provider<<1..1>>
+    Attribute location : EString
+    Attribute login : EString
+    Attribute password : EString
+    Attribute region : EString
+    Attribute serviceType : EString
 
   Class Provider -> CloudElement
     Attribute credentialsPath : EString
@@ -76,13 +85,14 @@ Package ddsm <http://ddsm/1.0>
     Attribute sshKey : EString
     Attribute publicAddress : EString
     Attribute instances : EIntegerObject
-    Attribute location : EString
     Attribute genericSize : VMSize
 
   Class DDSM
     Reference cloudelement : CloudElement<<0..*>>
     Attribute modelId : EString
     Attribute description : EString
+    Reference properties : Property<<0..*>>
+    Reference resources : Resource<<0..*>>
 
   Class LifeCycle -> Resource
     Reference downloadCommand : Script
@@ -101,7 +111,7 @@ Package ddsm <http://ddsm/1.0>
   Class Kafka -> InternalComponent
 
   Class Cluster -> ExternalComponent
-    Reference hasVm : VM
+    Reference hasVm : VM<<0..*>>
 
   Class ClientNode -> InternalComponent
     Attribute type : EString<<1..1>>
