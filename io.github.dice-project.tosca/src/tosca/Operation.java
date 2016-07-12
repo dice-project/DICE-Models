@@ -38,7 +38,7 @@ public interface Operation extends EObject {
      * @return the value of the '<em>Operation name</em>' attribute.
      * @see #setOperation_name(String)
      * @see tosca.ToscaPackage#getOperation_Operation_name()
-     * @model id="true" required="true"
+     * @model
      * @generated
      */
     String getOperation_name();

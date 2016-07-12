@@ -36,8 +36,8 @@ import tosca.ToscaPackage;
  *   <li>{@link tosca.impl.RelationshipImpl#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link tosca.impl.RelationshipImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link tosca.impl.RelationshipImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getSourceInterfaces <em>Source Interfaces</em>}</li>
- *   <li>{@link tosca.impl.RelationshipImpl#getTargetInterfaces <em>Target Interfaces</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getSource_interfaces <em>Source interfaces</em>}</li>
+ *   <li>{@link tosca.impl.RelationshipImpl#getTarget_interfaces <em>Target interfaces</em>}</li>
  *   <li>{@link tosca.impl.RelationshipImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link tosca.impl.RelationshipImpl#getRelationship_name <em>Relationship name</em>}</li>
  * </ul>
@@ -96,24 +96,24 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
     protected EList<Attribute> attributes;
 
     /**
-     * The cached value of the '{@link #getSourceInterfaces() <em>Source Interfaces</em>}' containment reference list.
+     * The cached value of the '{@link #getSource_interfaces() <em>Source interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSourceInterfaces()
+     * @see #getSource_interfaces()
      * @generated
      * @ordered
      */
-    protected EList<Interface> sourceInterfaces;
+    protected EList<Interface> source_interfaces;
 
     /**
-     * The cached value of the '{@link #getTargetInterfaces() <em>Target Interfaces</em>}' containment reference list.
+     * The cached value of the '{@link #getTarget_interfaces() <em>Target interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getTargetInterfaces()
+     * @see #getTarget_interfaces()
      * @generated
      * @ordered
      */
-    protected EList<Interface> targetInterfaces;
+    protected EList<Interface> target_interfaces;
 
     /**
      * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
@@ -236,11 +236,11 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Interface> getSourceInterfaces() {
-        if (sourceInterfaces == null) {
-            sourceInterfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES);
+    public EList<Interface> getSource_interfaces() {
+        if (source_interfaces == null) {
+            source_interfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES);
         }
-        return sourceInterfaces;
+        return source_interfaces;
     }
 
     /**
@@ -248,11 +248,11 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Interface> getTargetInterfaces() {
-        if (targetInterfaces == null) {
-            targetInterfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__TARGET_INTERFACES);
+    public EList<Interface> getTarget_interfaces() {
+        if (target_interfaces == null) {
+            target_interfaces = new EObjectContainmentEList<Interface>(Interface.class, this, ToscaPackage.RELATIONSHIP__TARGET_INTERFACES);
         }
-        return targetInterfaces;
+        return target_interfaces;
     }
 
     /**
@@ -312,9 +312,9 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
             case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
                 return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
             case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
-                return ((InternalEList<?>)getSourceInterfaces()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)getSource_interfaces()).basicRemove(otherEnd, msgs);
             case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
-                return ((InternalEList<?>)getTargetInterfaces()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)getTarget_interfaces()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -336,9 +336,9 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
             case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
                 return getAttributes();
             case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
-                return getSourceInterfaces();
+                return getSource_interfaces();
             case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
-                return getTargetInterfaces();
+                return getTarget_interfaces();
             case ToscaPackage.RELATIONSHIP__TARGET:
                 return getTarget();
             case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:
@@ -372,12 +372,12 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
                 getAttributes().addAll((Collection<? extends Attribute>)newValue);
                 return;
             case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
-                getSourceInterfaces().clear();
-                getSourceInterfaces().addAll((Collection<? extends Interface>)newValue);
+                getSource_interfaces().clear();
+                getSource_interfaces().addAll((Collection<? extends Interface>)newValue);
                 return;
             case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
-                getTargetInterfaces().clear();
-                getTargetInterfaces().addAll((Collection<? extends Interface>)newValue);
+                getTarget_interfaces().clear();
+                getTarget_interfaces().addAll((Collection<? extends Interface>)newValue);
                 return;
             case ToscaPackage.RELATIONSHIP__TARGET:
                 setTarget((String)newValue);
@@ -410,10 +410,10 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
                 getAttributes().clear();
                 return;
             case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
-                getSourceInterfaces().clear();
+                getSource_interfaces().clear();
                 return;
             case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
-                getTargetInterfaces().clear();
+                getTarget_interfaces().clear();
                 return;
             case ToscaPackage.RELATIONSHIP__TARGET:
                 setTarget(TARGET_EDEFAULT);
@@ -442,9 +442,9 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
             case ToscaPackage.RELATIONSHIP__ATTRIBUTES:
                 return attributes != null && !attributes.isEmpty();
             case ToscaPackage.RELATIONSHIP__SOURCE_INTERFACES:
-                return sourceInterfaces != null && !sourceInterfaces.isEmpty();
+                return source_interfaces != null && !source_interfaces.isEmpty();
             case ToscaPackage.RELATIONSHIP__TARGET_INTERFACES:
-                return targetInterfaces != null && !targetInterfaces.isEmpty();
+                return target_interfaces != null && !target_interfaces.isEmpty();
             case ToscaPackage.RELATIONSHIP__TARGET:
                 return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
             case ToscaPackage.RELATIONSHIP__RELATIONSHIP_NAME:

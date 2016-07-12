@@ -276,7 +276,7 @@ public interface ToscaPackage extends EPackage {
     int RELATIONSHIP__ATTRIBUTES = 3;
 
     /**
-     * The feature id for the '<em><b>Source Interfaces</b></em>' containment reference list.
+     * The feature id for the '<em><b>Source interfaces</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -285,7 +285,7 @@ public interface ToscaPackage extends EPackage {
     int RELATIONSHIP__SOURCE_INTERFACES = 4;
 
     /**
-     * The feature id for the '<em><b>Target Interfaces</b></em>' containment reference list.
+     * The feature id for the '<em><b>Target interfaces</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1225,26 +1225,26 @@ public interface ToscaPackage extends EPackage {
     EReference getRelationship_Attributes();
 
     /**
-     * Returns the meta object for the containment reference list '{@link tosca.Relationship#getSourceInterfaces <em>Source Interfaces</em>}'.
+     * Returns the meta object for the containment reference list '{@link tosca.Relationship#getSource_interfaces <em>Source interfaces</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Source Interfaces</em>'.
-     * @see tosca.Relationship#getSourceInterfaces()
+     * @return the meta object for the containment reference list '<em>Source interfaces</em>'.
+     * @see tosca.Relationship#getSource_interfaces()
      * @see #getRelationship()
      * @generated
      */
-    EReference getRelationship_SourceInterfaces();
+    EReference getRelationship_Source_interfaces();
 
     /**
-     * Returns the meta object for the containment reference list '{@link tosca.Relationship#getTargetInterfaces <em>Target Interfaces</em>}'.
+     * Returns the meta object for the containment reference list '{@link tosca.Relationship#getTarget_interfaces <em>Target interfaces</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Target Interfaces</em>'.
-     * @see tosca.Relationship#getTargetInterfaces()
+     * @return the meta object for the containment reference list '<em>Target interfaces</em>'.
+     * @see tosca.Relationship#getTarget_interfaces()
      * @see #getRelationship()
      * @generated
      */
-    EReference getRelationship_TargetInterfaces();
+    EReference getRelationship_Target_interfaces();
 
     /**
      * Returns the meta object for the attribute '{@link tosca.Relationship#getTarget <em>Target</em>}'.
@@ -2019,20 +2019,20 @@ public interface ToscaPackage extends EPackage {
         EReference RELATIONSHIP__ATTRIBUTES = eINSTANCE.getRelationship_Attributes();
 
         /**
-         * The meta object literal for the '<em><b>Source Interfaces</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Source interfaces</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RELATIONSHIP__SOURCE_INTERFACES = eINSTANCE.getRelationship_SourceInterfaces();
+        EReference RELATIONSHIP__SOURCE_INTERFACES = eINSTANCE.getRelationship_Source_interfaces();
 
         /**
-         * The meta object literal for the '<em><b>Target Interfaces</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Target interfaces</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RELATIONSHIP__TARGET_INTERFACES = eINSTANCE.getRelationship_TargetInterfaces();
+        EReference RELATIONSHIP__TARGET_INTERFACES = eINSTANCE.getRelationship_Target_interfaces();
 
         /**
          * The meta object literal for the '<em><b>Target</b></em>' attribute feature.

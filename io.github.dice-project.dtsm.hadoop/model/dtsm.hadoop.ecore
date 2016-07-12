@@ -1,245 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hadoop" nsURI="http://io.github.dice-project/dtsm/hadoop/1.0"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hadoop" nsURI="http://io.github.dice-project/dtsm/hadoop-framework/1.0"
     nsPrefix="dtsm.hadoop">
-  <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-    <details key="name" value="DiceDomainModel::DTSM::Hadoop"/>
-    <details key="profileName" value="DICE::DICE_UML_Extensions::DTSM::Hadoop"/>
-  </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="HadoopSpecificationModel">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity defines different configurations that are set by the developer and are required during the job execution. These information will be passed to the master node to define how the job should be scheduled."/>
-      <details key="extends" value="DiceDomainModel::DTSM::Core::WorkflowSpecification"/>
-    </eAnnotations>
-    <eOperations name="submit"/>
-    <eOperations name="Main"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="associated_to_HadoopMRrunner"
-        lowerBound="1" eType="#//HadoopMRrunner" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapperClass" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="combinerclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfReduceTasks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputKeyClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputValueClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="joinerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isJobSucceded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRJob" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReduceJob">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="job_reject_penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="think_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_cuncurrent_executions"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_cuncurrent_executions"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution_time_deadline"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRrunner">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents the application runner. After the application as been designed with all its components (Mapper, Reducer), this runner is responsible to effectively submit the application to the Hadoop runtime system."/>
-    </eAnnotations>
-    <eOperations name="runJob"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordWriter"
-        upperBound="-1" eType="#//RecordWriter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_RecordReader"
-        lowerBound="1" eType="#//RecordReader" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_DBaccessManager"
-        eType="#//DBaccessManager" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Scheduler" eType="#//Scheduler"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Reducer" eType="#//Reducer"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_tester" upperBound="-1"
-        eType="#//Tester" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_Joiner" eType="#//Joiner"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains_mappr" lowerBound="1"
-        eType="#//Mapper" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MapTaskReport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReduceTaskRepor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clusterStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runningJobs" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobQueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Map">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DBaccessManager">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents the driver the Hadoop application uses to access a data store. It allow to specify property like the url to the database and the username and password required to access it. Moreover through this class the application can directly operate on the databse."/>
-    </eAnnotations>
-    <eOperations name="startHsqlDbServer"/>
-    <eOperations name="createConnection"/>
-    <eOperations name="shutdown"/>
-    <eOperations name="initialise"/>
-    <eOperations name="dropTables"/>
-    <eOperations name="createTables"/>
-    <eOperations name="populateAccess"/>
-    <eOperations name="verify"/>
-    <eOperations name="run"/>
-    <eOperations name="main"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOracle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMySQL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DB_URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DRIVER_CLASS" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="server" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Conditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OrderByFeildName" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FieldNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RecordWriter">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="RecordWriter writes the output &lt;key, value> pairs to an output file."/>
-    </eAnnotations>
-    <eOperations name="write"/>
-    <eOperations name="close"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalSynch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="out" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RecordReader">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="The record reader breaks the data into key/value pairs for input to the Mapper."/>
-    </eAnnotations>
-    <eOperations name="getProgress"/>
-    <eOperations name="nextKeyValue"/>
-    <eOperations name="getCurrentKey"/>
-    <eOperations name="getCurrentValue"/>
-    <eOperations name="initialize"/>
-    <eOperations name="close"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uses_InputSplitDataSpec"
-        lowerBound="1" eType="#//InputSplitDataSpec" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uses_KeyValueGenerator"
-        eType="#//KeyValueGenerator" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInputSplitable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputFormatType" lowerBound="1"
-        eType="#//HadoopInputFormatEnum"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapper">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="it is an implementation of map task that will be executed on some slave node in the deployed cluster, it will generate key-value pairs to be passed to reducers."/>
-    </eAnnotations>
-    <eOperations name="Map"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reducer">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="it is an implementation of reduce task that will be executed on slave nodes, like map task. The key-value pairs made by reducers will be saved back into some storage like HDFS or an instance of a RDBMS."/>
-    </eAnnotations>
-    <eOperations name="reduce"/>
-    <eOperations name="cleanup"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reducer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tester">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents a generic suite of tests for a Mapper or a Reducer."/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Reducer" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Reduce">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="The Scheduler in an Hadoop system is the component responsible assign key-value pairs produced by a Mapper to the proper Reducer. Each Scheduler is responsible for a given set of hosts (a cluster) and a give set of keys."/>
-    </eAnnotations>
-    <eOperations name="readFile"/>
-    <eOperations name="Schedule"/>
-    <eOperations name="config"/>
-    <eOperations name="getNewFileSplits"/>
-    <eOperations name="pickBestHost"/>
-    <eOperations name="PickBestSplits"/>
-    <eOperations name="Solve"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="USE" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LOG" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slotsPerHost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RemainingSplits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="realSplits" upperBound="-1"
-        eType="#//SplitEType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Splits" upperBound="-1"
-        eType="#//SplitEType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" lowerBound="1" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manages_host" lowerBound="1"
-        upperBound="-1" eType="#//Host"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manages_split" lowerBound="1"
-        upperBound="-1" eType="#//Split"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduler_type" eType="#//SchedulerType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Joiner">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents a component used by the Hadoop application to join the output of a set of reducers."/>
-    </eAnnotations>
-    <eOperations name="PrintUsage"/>
-    <eOperations name="run"/>
-    <eOperations name="main"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="REDUCES_PER_HOST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Partitioner">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="partitioner_type" eType="#//PartitionerType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Host">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity simply represents an host, like a virtual machine."/>
-    </eAnnotations>
-    <eOperations name="Host"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splits" lowerBound="1"
-        upperBound="-1" eType="#//SplitEType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Combiner">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="combiner_type" eType="ecore:EEnum ../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//ReduceType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Split">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represent a piece of the application input data (i.e. a line in a file), that can be processed in parallel."/>
-    </eAnnotations>
-    <eOperations name="Split"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssigned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dpim.ecore#//ComputeNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="combiner" eType="#//Combiner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scheduler" eType="#//Scheduler"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partitioner" eType="#//Partitioner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runOn" eType="#//YARN"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRInputSpecs">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents the specification of the Hadoop application, like the path to the input text file to process."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HadoopMRPhase" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//MapReducePhase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution_time_deadline"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reduce_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="map_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputSplitDataSpec">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="it gives the intuition to the developer about the structure of input files that should be read and written back into storage node i.e. HDFS data nodes."/>
-    </eAnnotations>
-    <eOperations name="ReadOp"/>
-    <eOperations name="WriteOp"/>
-    <eOperations name="CompareOp"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="offSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinSplitSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SchedulerType">
+    <eLiterals name="FairScheduler"/>
+    <eLiterals name="CapacityScheduler" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyValueGenerator">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity represents an element of an Hadoop application able to generate key-value pairs."/>
-    </eAnnotations>
-    <eOperations name="generateKeyValPairs"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generates" lowerBound="1"
-        upperBound="-1" eType="#//KeyValuePairs" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="PartitionerType">
+    <eLiterals name="BinaryPartitioner"/>
+    <eLiterals name="HashPartitioner" value="1"/>
+    <eLiterals name="KeyFieldBasedPartitioner" value="2"/>
+    <eLiterals name="TotalOrderPartitioner" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyValuePairs">
-    <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
-      <details key="description" value="This entity simply represents a key-value pairs produced by the Hadoop application."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YARNNodeManager">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="health_check_interval"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="health_check_timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_healty_disks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_disk_utilization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="SplitEType" instanceTypeName="Split"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="connection" instanceClassName="java.sql.connection"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="HadoopInputFormatEnum">
-    <eLiterals name="TextInputFormat"/>
-    <eLiterals name="FixedLengthInputFormat" value="1"/>
-    <eLiterals name="SequenceFileInputFormat" value="2"/>
-    <eLiterals name="KeyValueTextInputFormat" value="3"/>
-    <eLiterals name="NLineInputFormat" value="4"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YARNResourceManager">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="client_thread_count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodemanager_connect_retry_time"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="application_master_timeout"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="application_master_max_attempts"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="container_liveness_monitor_frequency"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="node_manager_liveness_timeout"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_container_ram" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_container_ram" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_container_ncore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_container_ncore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodemanagers_heartbeat_interval"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YARN">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMasterNode" lowerBound="1"
+        eType="#//YARNResourceManager"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSlaveNodes" lowerBound="1"
+        eType="#//YARNNodeManager"/>
   </eClassifiers>
 </ecore:EPackage>

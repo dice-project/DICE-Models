@@ -36,12 +36,18 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configureCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configureCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -62,9 +68,6 @@
         eType="#//InternalComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredexecutionplatform"
         upperBound="-1" eType="#//RequiredExecutionPlatform" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicPorts" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
-        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionPlatform" abstract="true" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -159,6 +162,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instances" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericSize" eType="#//VMSize"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicPorts" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDSM">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -184,6 +190,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="mustRequireZookeeperAndNimbus" value="requiredport -> size() > 1"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workerStartTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="120"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpuCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="400"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="memoryCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="4096"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heartbeatFrequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormNimbus" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -196,6 +210,18 @@
       <details key="mustRequireZookeeper" value="requiredport -> size() > 0"/>
       <details key="mustProvideNimbusAccess" value="providedport -> size() > 0"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="30"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supervisorTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="60"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="monitorFrequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="100000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryTimes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="2000"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zookeeper" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -207,6 +233,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="mustProvideZookeeperAccess" value="providedport -> size() > 0"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tickTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="1500"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="syncLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kafka" eSuperTypes="#//InternalComponent">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -260,5 +292,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ChefResource" eSuperTypes="#//Resource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cookbookId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StormCluster" eSuperTypes="#//Cluster">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number_of_workers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
 </ecore:EPackage>

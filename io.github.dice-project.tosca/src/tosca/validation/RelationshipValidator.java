@@ -23,6 +23,10 @@ public interface RelationshipValidator {
     boolean validateInterfaces(EList<Interface> value);
     boolean validateProperties(EList<Property> value);
     boolean validateAttributes(EList<Attribute> value);
+    boolean validateSource_interfaces(EList<Interface> value);
+
+    boolean validateTarget_interfaces(EList<Interface> value);
+
     boolean validateSourceInterfaces(EList<Interface> value);
     boolean validateTargetInterfaces(EList<Interface> value);
     boolean validateTarget(String value);

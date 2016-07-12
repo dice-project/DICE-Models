@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="storm_framework" nsURI="http://io.github.dice-project/dtsm/storm-framework/1.0"
-    nsPrefix="dtsm.storm-framework">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="storm" nsURI="http://io.github.dice-project/dtsm/storm-framework/1.0"
+    nsPrefix="dtsm.storm">
   <eClassifiers xsi:type="ecore:EClass" name="Bolt" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//DAGNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinTTF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="d" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -15,6 +15,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormTopology" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//DirectAcyclicGraph">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormApplication" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//ComputeNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasManager" eType="#//Nimbus"/>
@@ -28,6 +29,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryTimes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPendingSpout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nettyMessagingMinWait"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sleepSpoutWaitStrategy"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Supervisor" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="workerSatrtTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

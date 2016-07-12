@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link tosca.Relationship#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link tosca.Relationship#getProperties <em>Properties</em>}</li>
  *   <li>{@link tosca.Relationship#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link tosca.Relationship#getSourceInterfaces <em>Source Interfaces</em>}</li>
- *   <li>{@link tosca.Relationship#getTargetInterfaces <em>Target Interfaces</em>}</li>
+ *   <li>{@link tosca.Relationship#getSource_interfaces <em>Source interfaces</em>}</li>
+ *   <li>{@link tosca.Relationship#getTarget_interfaces <em>Target interfaces</em>}</li>
  *   <li>{@link tosca.Relationship#getTarget <em>Target</em>}</li>
  *   <li>{@link tosca.Relationship#getRelationship_name <em>Relationship name</em>}</li>
  * </ul>
@@ -105,36 +105,36 @@ public interface Relationship extends EObject {
     EList<Attribute> getAttributes();
 
     /**
-     * Returns the value of the '<em><b>Source Interfaces</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Source interfaces</b></em>' containment reference list.
      * The list contents are of type {@link tosca.Interface}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Source Interfaces</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Source interfaces</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Source Interfaces</em>' containment reference list.
-     * @see tosca.ToscaPackage#getRelationship_SourceInterfaces()
+     * @return the value of the '<em>Source interfaces</em>' containment reference list.
+     * @see tosca.ToscaPackage#getRelationship_Source_interfaces()
      * @model containment="true"
      * @generated
      */
-    EList<Interface> getSourceInterfaces();
+    EList<Interface> getSource_interfaces();
 
     /**
-     * Returns the value of the '<em><b>Target Interfaces</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Target interfaces</b></em>' containment reference list.
      * The list contents are of type {@link tosca.Interface}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Target Interfaces</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Target interfaces</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Target Interfaces</em>' containment reference list.
-     * @see tosca.ToscaPackage#getRelationship_TargetInterfaces()
+     * @return the value of the '<em>Target interfaces</em>' containment reference list.
+     * @see tosca.ToscaPackage#getRelationship_Target_interfaces()
      * @model containment="true"
      * @generated
      */
-    EList<Interface> getTargetInterfaces();
+    EList<Interface> getTarget_interfaces();
 
     /**
      * Returns the value of the '<em><b>Target</b></em>' attribute.
@@ -173,7 +173,7 @@ public interface Relationship extends EObject {
      * @return the value of the '<em>Relationship name</em>' attribute.
      * @see #setRelationship_name(String)
      * @see tosca.ToscaPackage#getRelationship_Relationship_name()
-     * @model id="true" required="true"
+     * @model
      * @generated
      */
     String getRelationship_name();

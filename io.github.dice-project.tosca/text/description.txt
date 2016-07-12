@@ -19,7 +19,7 @@ Package tosca <http://tosca/1.0>
     Reference capabilities : Capability<<0..*>>
 
   Class Interface
-    Attribute interface_name : EString<<1..1>>
+    Attribute interface_name : EString
     Reference operations : Operation<<0..*>>
     Reference inputs : Property<<0..*>>
     Attribute type : EString<<1..1>>
@@ -29,10 +29,10 @@ Package tosca <http://tosca/1.0>
     Reference interfaces : Interface<<0..*>>
     Reference properties : Property<<0..*>>
     Reference attributes : Attribute<<0..*>>
-    Reference sourceInterfaces : Interface<<0..*>>
-    Reference targetInterfaces : Interface<<0..*>>
+    Reference source_interfaces : Interface<<0..*>>
+    Reference target_interfaces : Interface<<0..*>>
     Attribute target : EString
-    Attribute relationship_name : EString<<1..1>>
+    Attribute relationship_name : EString
 
   Class Property
     Attribute property_name : EString<<1..1>>
@@ -47,7 +47,7 @@ Package tosca <http://tosca/1.0>
     Attribute capabiity : EString<<1..1>>
 
   Class Operation
-    Attribute operation_name : EString<<1..1>>
+    Attribute operation_name : EString
     Attribute description : EString
     Reference inputs : Property<<0..*>>
     Attribute dependentArtifacts : EString<<0..*>>

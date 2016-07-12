@@ -27,8 +27,7 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="An interface defines a named interface that can be associated with a Node or Relationship Type.&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface_name" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
@@ -46,13 +45,12 @@
         eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceInterfaces" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source_interfaces" upperBound="-1"
         eType="#//Interface" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetInterfaces" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target_interfaces" upperBound="-1"
         eType="#//Interface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationship_name" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationship_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -85,8 +83,7 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="An operation defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).&#xA;For the accurate description refer to the TOSCA standard document \cite{toscayaml}."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation_name" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//Property" containment="true"/>
