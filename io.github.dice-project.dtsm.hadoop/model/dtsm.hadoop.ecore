@@ -13,12 +13,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapper" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Map">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="performance_profile" eType="#//MapPerformanceProfile"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reducer" eSuperTypes="../../io.github.dice-project.dtsm.core/model/dtsm.core.ecore#//Reduce">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="performance_profile" eType="#//ReducePerformanceProfile"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduler_type" eType="#//SchedulerType"/>
@@ -40,8 +38,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reduce_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="map_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SchedulerType">
     <eLiterals name="FairScheduler"/>
@@ -84,5 +80,25 @@
         eType="#//YARNResourceManager"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasSlaveNodes" lowerBound="1"
         eType="#//YARNNodeManager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapPerformanceProfile" eSuperTypes="#//PerformanceProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vmType" lowerBound="1"
+        eType="ecore:EEnum ../../io.github.dice-project.ddsm/model/ddsm.ecore#//VMSize"
+        changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReducePerformanceProfile" eSuperTypes="#//PerformanceProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_exec_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_shuffle_time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PerformanceProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="performanceProfileId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceVm" lowerBound="1"
+        eType="ecore:EEnum ../../io.github.dice-project.ddsm/model/ddsm.ecore#//VMSize"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceProvider" eType="ecore:EEnum ../../io.github.dice-project.ddsm/model/ddsm.ecore#//ProviderType"/>
   </eClassifiers>
 </ecore:EPackage>
