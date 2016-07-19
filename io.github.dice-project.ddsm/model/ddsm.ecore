@@ -163,8 +163,7 @@
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericSize" eType="#//VMSize"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicPorts" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
-        defaultValueLiteral="0"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDSM">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -245,7 +244,7 @@
       <details key="description" value="Specilization of an InternalComponent introduced in the context of DICE which captures &#xA;the deployment and configuration details of a Kafka cluster."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cluster" eSuperTypes="#//ExternalComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Cluster" eSuperTypes="#//CloudElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Inherited from MODACloudsML, it represents a collection of virtual machines on a particular Provider. One Provider can host several Clusters.."/>
     </eAnnotations>
@@ -257,8 +256,8 @@
       <details key="description" value="test generation"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submits" lowerBound="1"
+        upperBound="-1" eType="#//JobSubmission"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="VMSize">
     <eLiterals name="Small"/>
@@ -294,6 +293,17 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StormCluster" eSuperTypes="#//Cluster">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number_of_workers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nimbusHost" lowerBound="1"
+        eType="#//VM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zookeeperHost" lowerBound="1"
+        eType="#//VM"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobSubmission">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasNext" upperBound="-1"
+        eType="#//JobSubmission"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
