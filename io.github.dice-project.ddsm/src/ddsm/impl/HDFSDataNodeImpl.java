@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class HDFSDataNodeImpl extends InternalComponentImpl implements HDFSDataNode {
+public class HDFSDataNodeImpl extends SlaveNodeImpl implements HDFSDataNode {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

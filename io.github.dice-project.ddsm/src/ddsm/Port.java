@@ -22,7 +22,6 @@ package ddsm;
  * @generated
  */
 public interface Port extends CloudElement {
-
     /**
      * Returns the value of the '<em><b>Is Local</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -74,4 +73,5 @@ public interface Port extends CloudElement {
      * @generated
      */
     void setPortNumber(String value);
+
 } // Port

@@ -5,9 +5,9 @@ package ddsm.impl;
 import ddsm.CloudElement;
 import ddsm.DDSM;
 import ddsm.DdsmPackage;
-
 import ddsm.Property;
 import ddsm.Resource;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

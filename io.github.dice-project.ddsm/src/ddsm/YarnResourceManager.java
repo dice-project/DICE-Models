@@ -13,5 +13,5 @@ package ddsm;
  * @model annotation="http://es.unizar.disco/dice/profiles/generator description='Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a the YARN ResourceManager master process.'"
  * @generated
  */
-public interface YarnResourceManager extends InternalComponent {
+public interface YarnResourceManager extends MasterNode {
 } // YarnResourceManager

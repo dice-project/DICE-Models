@@ -15,7 +15,5 @@ public interface PortValidator {
     boolean validate();
 
     boolean validateIsLocal(boolean value);
-
     boolean validatePortNumber(String value);
-
 }

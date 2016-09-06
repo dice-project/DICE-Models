@@ -4,6 +4,8 @@
  */
 package ddsm.validation;
 
+import ddsm.Crontab;
+import ddsm.JobSubmission;
 
 /**
  * A sample validator interface for {@link ddsm.ClientNode}.
@@ -14,7 +16,8 @@ package ddsm.validation;
 public interface ClientNodeValidator {
     boolean validate();
 
-    boolean validateType(String value);
-    boolean validateArtifactUrl(String value);
-    boolean validateMainClass(String value);
+    boolean validateSubmits(JobSubmission value);
+    boolean validateSkipRunningJob(boolean value);
+    boolean validateNumberOfSubmissions(int value);
+    boolean validateHasSchedule(Crontab value);
 }

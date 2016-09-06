@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class YarnNodeManagerImpl extends InternalComponentImpl implements YarnNodeManager {
+public class YarnNodeManagerImpl extends SlaveNodeImpl implements YarnNodeManager {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -3,11 +3,14 @@
 package ddsm.impl;
 
 import ddsm.ClientNode;
+import ddsm.Crontab;
 import ddsm.DdsmPackage;
+import ddsm.JobSubmission;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -19,73 +22,74 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ddsm.impl.ClientNodeImpl#getType <em>Type</em>}</li>
- *   <li>{@link ddsm.impl.ClientNodeImpl#getArtifactUrl <em>Artifact Url</em>}</li>
- *   <li>{@link ddsm.impl.ClientNodeImpl#getMainClass <em>Main Class</em>}</li>
+ *   <li>{@link ddsm.impl.ClientNodeImpl#getSubmits <em>Submits</em>}</li>
+ *   <li>{@link ddsm.impl.ClientNodeImpl#isSkipRunningJob <em>Skip Running Job</em>}</li>
+ *   <li>{@link ddsm.impl.ClientNodeImpl#getNumberOfSubmissions <em>Number Of Submissions</em>}</li>
+ *   <li>{@link ddsm.impl.ClientNodeImpl#getHasSchedule <em>Has Schedule</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ClientNodeImpl extends InternalComponentImpl implements ClientNode {
     /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * The cached value of the '{@link #getSubmits() <em>Submits</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getType()
+     * @see #getSubmits()
      * @generated
      * @ordered
      */
-    protected static final String TYPE_EDEFAULT = null;
+    protected JobSubmission submits;
 
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * The default value of the '{@link #isSkipRunningJob() <em>Skip Running Job</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getType()
+     * @see #isSkipRunningJob()
      * @generated
      * @ordered
      */
-    protected String type = TYPE_EDEFAULT;
+    protected static final boolean SKIP_RUNNING_JOB_EDEFAULT = false;
 
     /**
-     * The default value of the '{@link #getArtifactUrl() <em>Artifact Url</em>}' attribute.
+     * The cached value of the '{@link #isSkipRunningJob() <em>Skip Running Job</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArtifactUrl()
+     * @see #isSkipRunningJob()
      * @generated
      * @ordered
      */
-    protected static final String ARTIFACT_URL_EDEFAULT = null;
+    protected boolean skipRunningJob = SKIP_RUNNING_JOB_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getArtifactUrl() <em>Artifact Url</em>}' attribute.
+     * The default value of the '{@link #getNumberOfSubmissions() <em>Number Of Submissions</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArtifactUrl()
+     * @see #getNumberOfSubmissions()
      * @generated
      * @ordered
      */
-    protected String artifactUrl = ARTIFACT_URL_EDEFAULT;
+    protected static final int NUMBER_OF_SUBMISSIONS_EDEFAULT = 1;
 
     /**
-     * The default value of the '{@link #getMainClass() <em>Main Class</em>}' attribute.
+     * The cached value of the '{@link #getNumberOfSubmissions() <em>Number Of Submissions</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMainClass()
+     * @see #getNumberOfSubmissions()
      * @generated
      * @ordered
      */
-    protected static final String MAIN_CLASS_EDEFAULT = null;
+    protected int numberOfSubmissions = NUMBER_OF_SUBMISSIONS_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getMainClass() <em>Main Class</em>}' attribute.
+     * The cached value of the '{@link #getHasSchedule() <em>Has Schedule</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMainClass()
+     * @see #getHasSchedule()
      * @generated
      * @ordered
      */
-    protected String mainClass = MAIN_CLASS_EDEFAULT;
+    protected Crontab hasSchedule;
 
     /**
      * <!-- begin-user-doc -->
@@ -111,8 +115,16 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getType() {
-        return type;
+    public JobSubmission getSubmits() {
+        if (submits != null && submits.eIsProxy()) {
+            InternalEObject oldSubmits = (InternalEObject)submits;
+            submits = (JobSubmission)eResolveProxy(oldSubmits);
+            if (submits != oldSubmits) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.CLIENT_NODE__SUBMITS, oldSubmits, submits));
+            }
+        }
+        return submits;
     }
 
     /**
@@ -120,11 +132,20 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(String newType) {
-        String oldType = type;
-        type = newType;
+    public JobSubmission basicGetSubmits() {
+        return submits;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSubmits(JobSubmission newSubmits) {
+        JobSubmission oldSubmits = submits;
+        submits = newSubmits;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__TYPE, oldType, type));
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__SUBMITS, oldSubmits, submits));
     }
 
     /**
@@ -132,8 +153,8 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getArtifactUrl() {
-        return artifactUrl;
+    public boolean isSkipRunningJob() {
+        return skipRunningJob;
     }
 
     /**
@@ -141,11 +162,11 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setArtifactUrl(String newArtifactUrl) {
-        String oldArtifactUrl = artifactUrl;
-        artifactUrl = newArtifactUrl;
+    public void setSkipRunningJob(boolean newSkipRunningJob) {
+        boolean oldSkipRunningJob = skipRunningJob;
+        skipRunningJob = newSkipRunningJob;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__ARTIFACT_URL, oldArtifactUrl, artifactUrl));
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__SKIP_RUNNING_JOB, oldSkipRunningJob, skipRunningJob));
     }
 
     /**
@@ -153,8 +174,8 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getMainClass() {
-        return mainClass;
+    public int getNumberOfSubmissions() {
+        return numberOfSubmissions;
     }
 
     /**
@@ -162,11 +183,49 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setMainClass(String newMainClass) {
-        String oldMainClass = mainClass;
-        mainClass = newMainClass;
+    public void setNumberOfSubmissions(int newNumberOfSubmissions) {
+        int oldNumberOfSubmissions = numberOfSubmissions;
+        numberOfSubmissions = newNumberOfSubmissions;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__MAIN_CLASS, oldMainClass, mainClass));
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__NUMBER_OF_SUBMISSIONS, oldNumberOfSubmissions, numberOfSubmissions));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Crontab getHasSchedule() {
+        if (hasSchedule != null && hasSchedule.eIsProxy()) {
+            InternalEObject oldHasSchedule = (InternalEObject)hasSchedule;
+            hasSchedule = (Crontab)eResolveProxy(oldHasSchedule);
+            if (hasSchedule != oldHasSchedule) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DdsmPackage.CLIENT_NODE__HAS_SCHEDULE, oldHasSchedule, hasSchedule));
+            }
+        }
+        return hasSchedule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Crontab basicGetHasSchedule() {
+        return hasSchedule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHasSchedule(Crontab newHasSchedule) {
+        Crontab oldHasSchedule = hasSchedule;
+        hasSchedule = newHasSchedule;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.CLIENT_NODE__HAS_SCHEDULE, oldHasSchedule, hasSchedule));
     }
 
     /**
@@ -177,12 +236,16 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case DdsmPackage.CLIENT_NODE__TYPE:
-                return getType();
-            case DdsmPackage.CLIENT_NODE__ARTIFACT_URL:
-                return getArtifactUrl();
-            case DdsmPackage.CLIENT_NODE__MAIN_CLASS:
-                return getMainClass();
+            case DdsmPackage.CLIENT_NODE__SUBMITS:
+                if (resolve) return getSubmits();
+                return basicGetSubmits();
+            case DdsmPackage.CLIENT_NODE__SKIP_RUNNING_JOB:
+                return isSkipRunningJob();
+            case DdsmPackage.CLIENT_NODE__NUMBER_OF_SUBMISSIONS:
+                return getNumberOfSubmissions();
+            case DdsmPackage.CLIENT_NODE__HAS_SCHEDULE:
+                if (resolve) return getHasSchedule();
+                return basicGetHasSchedule();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -195,14 +258,17 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case DdsmPackage.CLIENT_NODE__TYPE:
-                setType((String)newValue);
+            case DdsmPackage.CLIENT_NODE__SUBMITS:
+                setSubmits((JobSubmission)newValue);
                 return;
-            case DdsmPackage.CLIENT_NODE__ARTIFACT_URL:
-                setArtifactUrl((String)newValue);
+            case DdsmPackage.CLIENT_NODE__SKIP_RUNNING_JOB:
+                setSkipRunningJob((Boolean)newValue);
                 return;
-            case DdsmPackage.CLIENT_NODE__MAIN_CLASS:
-                setMainClass((String)newValue);
+            case DdsmPackage.CLIENT_NODE__NUMBER_OF_SUBMISSIONS:
+                setNumberOfSubmissions((Integer)newValue);
+                return;
+            case DdsmPackage.CLIENT_NODE__HAS_SCHEDULE:
+                setHasSchedule((Crontab)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -216,14 +282,17 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case DdsmPackage.CLIENT_NODE__TYPE:
-                setType(TYPE_EDEFAULT);
+            case DdsmPackage.CLIENT_NODE__SUBMITS:
+                setSubmits((JobSubmission)null);
                 return;
-            case DdsmPackage.CLIENT_NODE__ARTIFACT_URL:
-                setArtifactUrl(ARTIFACT_URL_EDEFAULT);
+            case DdsmPackage.CLIENT_NODE__SKIP_RUNNING_JOB:
+                setSkipRunningJob(SKIP_RUNNING_JOB_EDEFAULT);
                 return;
-            case DdsmPackage.CLIENT_NODE__MAIN_CLASS:
-                setMainClass(MAIN_CLASS_EDEFAULT);
+            case DdsmPackage.CLIENT_NODE__NUMBER_OF_SUBMISSIONS:
+                setNumberOfSubmissions(NUMBER_OF_SUBMISSIONS_EDEFAULT);
+                return;
+            case DdsmPackage.CLIENT_NODE__HAS_SCHEDULE:
+                setHasSchedule((Crontab)null);
                 return;
         }
         super.eUnset(featureID);
@@ -237,12 +306,14 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case DdsmPackage.CLIENT_NODE__TYPE:
-                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-            case DdsmPackage.CLIENT_NODE__ARTIFACT_URL:
-                return ARTIFACT_URL_EDEFAULT == null ? artifactUrl != null : !ARTIFACT_URL_EDEFAULT.equals(artifactUrl);
-            case DdsmPackage.CLIENT_NODE__MAIN_CLASS:
-                return MAIN_CLASS_EDEFAULT == null ? mainClass != null : !MAIN_CLASS_EDEFAULT.equals(mainClass);
+            case DdsmPackage.CLIENT_NODE__SUBMITS:
+                return submits != null;
+            case DdsmPackage.CLIENT_NODE__SKIP_RUNNING_JOB:
+                return skipRunningJob != SKIP_RUNNING_JOB_EDEFAULT;
+            case DdsmPackage.CLIENT_NODE__NUMBER_OF_SUBMISSIONS:
+                return numberOfSubmissions != NUMBER_OF_SUBMISSIONS_EDEFAULT;
+            case DdsmPackage.CLIENT_NODE__HAS_SCHEDULE:
+                return hasSchedule != null;
         }
         return super.eIsSet(featureID);
     }
@@ -257,12 +328,10 @@ public class ClientNodeImpl extends InternalComponentImpl implements ClientNode 
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: ");
-        result.append(type);
-        result.append(", artifactUrl: ");
-        result.append(artifactUrl);
-        result.append(", mainClass: ");
-        result.append(mainClass);
+        result.append(" (skipRunningJob: ");
+        result.append(skipRunningJob);
+        result.append(", numberOfSubmissions: ");
+        result.append(numberOfSubmissions);
         result.append(')');
         return result.toString();
     }

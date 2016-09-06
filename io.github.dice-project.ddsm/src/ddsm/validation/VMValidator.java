@@ -6,6 +6,8 @@ package ddsm.validation;
 
 import ddsm.VMSize;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * A sample validator interface for {@link ddsm.VM}.
  * This doesn't really do anything, and it's not a real EMF artifact.
@@ -29,7 +31,7 @@ public interface VMValidator {
     boolean validateSecurityGroup(String value);
     boolean validateSshKey(String value);
     boolean validatePublicAddress(String value);
-    boolean validateInstances(Integer value);
-    boolean validateLocation(String value);
     boolean validateGenericSize(VMSize value);
+    boolean validateInstances(int value);
+    boolean validatePublicPorts(EList<Integer> value);
 }

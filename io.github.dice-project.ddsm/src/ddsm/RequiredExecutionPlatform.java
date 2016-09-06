@@ -20,7 +20,6 @@ package ddsm;
  * @generated
  */
 public interface RequiredExecutionPlatform extends ExecutionPlatform {
-
     /**
      * Returns the value of the '<em><b>Is Mandatory</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface RequiredExecutionPlatform extends ExecutionPlatform {
      * @generated
      */
     void setIsMandatory(boolean value);
+
 } // RequiredExecutionPlatform

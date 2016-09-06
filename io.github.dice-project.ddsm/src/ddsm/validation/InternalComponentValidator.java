@@ -4,7 +4,6 @@
  */
 package ddsm.validation;
 
-import ddsm.InternalComponent;
 import ddsm.RequiredExecutionPlatform;
 import ddsm.RequiredPort;
 
@@ -20,8 +19,5 @@ public interface InternalComponentValidator {
     boolean validate();
 
     boolean validateRequiredport(EList<RequiredPort> value);
-    boolean validateInternalcomponent(EList<InternalComponent> value);
     boolean validateRequiredexecutionplatform(EList<RequiredExecutionPlatform> value);
-
-    boolean validatePublicPorts(EList<Integer> value);
 }

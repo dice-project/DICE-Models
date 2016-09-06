@@ -29,7 +29,12 @@
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/resourceId"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//Resource/scripts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/downloadCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/createCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/configureCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/installCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/startCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Resource/stopCommand"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//Component/providedport"/>
@@ -37,9 +42,7 @@
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//InternalComponent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/requiredport"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/internalcomponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//InternalComponent/requiredexecutionplatform"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//InternalComponent/publicPorts"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//ExecutionPlatform"/>
     <genClasses ecoreClass="ddsm.ecore#//Port">
@@ -73,6 +76,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExternalComponent/password"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExternalComponent/region"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExternalComponent/serviceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ExternalComponent/endPoint"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//Provider">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Provider/credentialsPath"/>
@@ -93,8 +97,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/securityGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/sshKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/publicAddress"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/instances"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/genericSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/instances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//VM/publicPorts"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//DDSM">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//DDSM/cloudelement"/>
@@ -103,33 +108,72 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//DDSM/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ddsm.ecore#//DDSM/resources"/>
     </genClasses>
-    <genClasses ecoreClass="ddsm.ecore#//LifeCycle">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/downloadCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/installCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/startCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/stopCommand"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/preconfigureCommand"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//LifeCycle/createCommand"/>
+    <genClasses ecoreClass="ddsm.ecore#//Supervisor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Supervisor/workerStartTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Supervisor/cpuCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Supervisor/memoryCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Supervisor/heartbeatFrequency"/>
     </genClasses>
-    <genClasses ecoreClass="ddsm.ecore#//StormSupervisor"/>
-    <genClasses ecoreClass="ddsm.ecore#//StormNimbus"/>
-    <genClasses ecoreClass="ddsm.ecore#//Zookeeper"/>
-    <genClasses ecoreClass="ddsm.ecore#//Kafka"/>
-    <genClasses ecoreClass="ddsm.ecore#//Cluster">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//Cluster/hasVm"/>
+    <genClasses ecoreClass="ddsm.ecore#//Nimbus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/taskTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/supervisorFrequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/queueSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/monitorFrequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/retryTimes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Nimbus/retryInterval"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ZookeeperServer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ZookeeperServer/tickTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ZookeeperServer/syncLimit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ZookeeperServer/initLimit"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//ClientNode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ClientNode/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ClientNode/artifactUrl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ClientNode/mainClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ClientNode/submits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ClientNode/skipRunningJob"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ClientNode/numberOfSubmissions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//ClientNode/hasSchedule"/>
     </genClasses>
     <genClasses ecoreClass="ddsm.ecore#//YarnResourceManager"/>
     <genClasses ecoreClass="ddsm.ecore#//YarnNodeManager"/>
     <genClasses ecoreClass="ddsm.ecore#//HDFSNameNode"/>
     <genClasses ecoreClass="ddsm.ecore#//HDFSDataNode"/>
-    <genClasses ecoreClass="ddsm.ecore#//Script">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Script/scriptId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Script/scriptUri"/>
+    <genClasses ecoreClass="ddsm.ecore#//ChefResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//ChefResource/cookbookId"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//StormCluster"/>
+    <genClasses ecoreClass="ddsm.ecore#//JobSubmission">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//JobSubmission/artifactUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//JobSubmission/mainClass"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//MasterNode"/>
+    <genClasses ecoreClass="ddsm.ecore#//SlaveNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//SlaveNode/hasMaster"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//ZookeeperQuorum"/>
+    <genClasses ecoreClass="ddsm.ecore#//CassandraWorker"/>
+    <genClasses ecoreClass="ddsm.ecore#//ZookeeperCluster"/>
+    <genClasses ecoreClass="ddsm.ecore#//CassandraCluster"/>
+    <genClasses ecoreClass="ddsm.ecore#//PeerNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//PeerNode/belongsToQuorum"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//PeersQuorum"/>
+    <genClasses ecoreClass="ddsm.ecore#//PeerToPeerPlatform">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//PeerToPeerPlatform/requiresPeerVm"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//MasterSlavePlatform">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//MasterSlavePlatform/requiresMasterVm"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//MasterSlavePlatform/requiresSlaveVm"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//CassandraQuorum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ddsm.ecore#//CassandraQuorum/requires_bootstrapping_seed"/>
+    </genClasses>
+    <genClasses ecoreClass="ddsm.ecore#//CassandraSeed"/>
+    <genClasses ecoreClass="ddsm.ecore#//Crontab">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Crontab/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Crontab/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Crontab/dayOfMonth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Crontab/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ddsm.ecore#//Crontab/dayOfWeek"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

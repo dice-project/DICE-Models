@@ -2,6 +2,7 @@
  */
 package ddsm;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +27,9 @@ package ddsm;
  *   <li>{@link ddsm.VM#getSecurityGroup <em>Security Group</em>}</li>
  *   <li>{@link ddsm.VM#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.VM#getPublicAddress <em>Public Address</em>}</li>
- *   <li>{@link ddsm.VM#getInstances <em>Instances</em>}</li>
  *   <li>{@link ddsm.VM#getGenericSize <em>Generic Size</em>}</li>
+ *   <li>{@link ddsm.VM#getInstances <em>Instances</em>}</li>
+ *   <li>{@link ddsm.VM#getPublicPorts <em>Public Ports</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getVM()
@@ -400,33 +402,6 @@ public interface VM extends ExternalComponent {
     void setPublicAddress(String value);
 
     /**
-     * Returns the value of the '<em><b>Instances</b></em>' attribute.
-     * The default value is <code>"1"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Instances</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Instances</em>' attribute.
-     * @see #setInstances(Integer)
-     * @see ddsm.DdsmPackage#getVM_Instances()
-     * @model default="1"
-     * @generated
-     */
-    Integer getInstances();
-
-    /**
-     * Sets the value of the '{@link ddsm.VM#getInstances <em>Instances</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Instances</em>' attribute.
-     * @see #getInstances()
-     * @generated
-     */
-    void setInstances(Integer value);
-
-    /**
      * Returns the value of the '<em><b>Generic Size</b></em>' attribute.
      * The literals are from the enumeration {@link ddsm.VMSize}.
      * <!-- begin-user-doc -->
@@ -454,5 +429,48 @@ public interface VM extends ExternalComponent {
      * @generated
      */
     void setGenericSize(VMSize value);
+
+    /**
+     * Returns the value of the '<em><b>Instances</b></em>' attribute.
+     * The default value is <code>"1"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Instances</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Instances</em>' attribute.
+     * @see #setInstances(int)
+     * @see ddsm.DdsmPackage#getVM_Instances()
+     * @model default="1"
+     * @generated
+     */
+    int getInstances();
+
+    /**
+     * Sets the value of the '{@link ddsm.VM#getInstances <em>Instances</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Instances</em>' attribute.
+     * @see #getInstances()
+     * @generated
+     */
+    void setInstances(int value);
+
+    /**
+     * Returns the value of the '<em><b>Public Ports</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.Integer}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Public Ports</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Public Ports</em>' attribute list.
+     * @see ddsm.DdsmPackage#getVM_PublicPorts()
+     * @model default="80"
+     * @generated
+     */
+    EList<Integer> getPublicPorts();
 
 } // VM

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class HDFSNameNodeImpl extends InternalComponentImpl implements HDFSNameNode {
+public class HDFSNameNodeImpl extends MasterNodeImpl implements HDFSNameNode {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

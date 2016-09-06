@@ -189,13 +189,58 @@ public interface DdsmPackage extends EPackage {
     int RESOURCE__RESOURCE_ID = 0;
 
     /**
-     * The feature id for the '<em><b>Scripts</b></em>' containment reference.
+     * The feature id for the '<em><b>Download Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RESOURCE__SCRIPTS = 1;
+    int RESOURCE__DOWNLOAD_COMMAND = 1;
+
+    /**
+     * The feature id for the '<em><b>Create Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESOURCE__CREATE_COMMAND = 2;
+
+    /**
+     * The feature id for the '<em><b>Configure Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESOURCE__CONFIGURE_COMMAND = 3;
+
+    /**
+     * The feature id for the '<em><b>Install Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESOURCE__INSTALL_COMMAND = 4;
+
+    /**
+     * The feature id for the '<em><b>Start Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESOURCE__START_COMMAND = 5;
+
+    /**
+     * The feature id for the '<em><b>Stop Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESOURCE__STOP_COMMAND = 6;
 
     /**
      * The number of structural features of the '<em>Resource</em>' class.
@@ -204,7 +249,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_FEATURE_COUNT = 2;
+    int RESOURCE_FEATURE_COUNT = 7;
 
     /**
      * The number of operations of the '<em>Resource</em>' class.
@@ -371,31 +416,13 @@ public interface DdsmPackage extends EPackage {
     int INTERNAL_COMPONENT__REQUIREDPORT = COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_COMPONENT__INTERNALCOMPONENT = COMPONENT_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM = COMPONENT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_COMPONENT__PUBLIC_PORTS = COMPONENT_FEATURE_COUNT + 3;
+    int INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM = COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Internal Component</em>' class.
@@ -404,7 +431,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
+    int INTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Internal Component</em>' class.
@@ -1172,13 +1199,22 @@ public interface DdsmPackage extends EPackage {
     int EXTERNAL_COMPONENT__SERVICE_TYPE = COMPONENT_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>End Point</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_COMPONENT__END_POINT = COMPONENT_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>External Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 6;
+    int EXTERNAL_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 7;
 
     /**
      * The number of operations of the '<em>External Component</em>' class.
@@ -1390,6 +1426,15 @@ public interface DdsmPackage extends EPackage {
     int VM__SERVICE_TYPE = EXTERNAL_COMPONENT__SERVICE_TYPE;
 
     /**
+     * The feature id for the '<em><b>End Point</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__END_POINT = EXTERNAL_COMPONENT__END_POINT;
+
+    /**
      * The feature id for the '<em><b>Is64os</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1516,22 +1561,31 @@ public interface DdsmPackage extends EPackage {
     int VM__PUBLIC_ADDRESS = EXTERNAL_COMPONENT_FEATURE_COUNT + 13;
 
     /**
-     * The feature id for the '<em><b>Instances</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int VM__INSTANCES = EXTERNAL_COMPONENT_FEATURE_COUNT + 14;
-
-    /**
      * The feature id for the '<em><b>Generic Size</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VM__GENERIC_SIZE = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
+    int VM__GENERIC_SIZE = EXTERNAL_COMPONENT_FEATURE_COUNT + 14;
+
+    /**
+     * The feature id for the '<em><b>Instances</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__INSTANCES = EXTERNAL_COMPONENT_FEATURE_COUNT + 15;
+
+    /**
+     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VM__PUBLIC_PORTS = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
 
     /**
      * The number of structural features of the '<em>VM</em>' class.
@@ -1540,7 +1594,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 16;
+    int VM_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 17;
 
     /**
      * The number of operations of the '<em>VM</em>' class.
@@ -1625,114 +1679,14 @@ public interface DdsmPackage extends EPackage {
     int DDSM_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.LifeCycleImpl <em>Life Cycle</em>}' class.
+     * The meta object id for the '{@link ddsm.impl.SlaveNodeImpl <em>Slave Node</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.LifeCycleImpl
-     * @see ddsm.impl.DdsmPackageImpl#getLifeCycle()
+     * @see ddsm.impl.SlaveNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getSlaveNode()
      * @generated
      */
-    int LIFE_CYCLE = 17;
-
-    /**
-     * The feature id for the '<em><b>Resource Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__RESOURCE_ID = RESOURCE__RESOURCE_ID;
-
-    /**
-     * The feature id for the '<em><b>Scripts</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__SCRIPTS = RESOURCE__SCRIPTS;
-
-    /**
-     * The feature id for the '<em><b>Download Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__DOWNLOAD_COMMAND = RESOURCE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Install Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__INSTALL_COMMAND = RESOURCE_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Start Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__START_COMMAND = RESOURCE_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Stop Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__STOP_COMMAND = RESOURCE_FEATURE_COUNT + 3;
-
-    /**
-     * The feature id for the '<em><b>Preconfigure Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__PRECONFIGURE_COMMAND = RESOURCE_FEATURE_COUNT + 4;
-
-    /**
-     * The feature id for the '<em><b>Create Command</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE__CREATE_COMMAND = RESOURCE_FEATURE_COUNT + 5;
-
-    /**
-     * The number of structural features of the '<em>Life Cycle</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 6;
-
-    /**
-     * The number of operations of the '<em>Life Cycle</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIFE_CYCLE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.StormSupervisorImpl
-     * @see ddsm.impl.DdsmPackageImpl#getStormSupervisor()
-     * @generated
-     */
-    int STORM_SUPERVISOR = 18;
+    int SLAVE_NODE = 29;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -1741,7 +1695,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int SLAVE_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1750,7 +1704,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int SLAVE_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -1759,7 +1713,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int SLAVE_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1768,7 +1722,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int SLAVE_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -1777,7 +1731,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int SLAVE_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -1786,7 +1740,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int SLAVE_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -1795,16 +1749,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STORM_SUPERVISOR__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int SLAVE_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -1813,44 +1758,44 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int SLAVE_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Has Master</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int SLAVE_NODE__HAS_MASTER = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Storm Supervisor</em>' class.
+     * The number of structural features of the '<em>Slave Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int SLAVE_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
 
     /**
-     * The number of operations of the '<em>Storm Supervisor</em>' class.
+     * The number of operations of the '<em>Slave Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_SUPERVISOR_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int SLAVE_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
+     * The meta object id for the '{@link ddsm.impl.SupervisorImpl <em>Supervisor</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.StormNimbusImpl
-     * @see ddsm.impl.DdsmPackageImpl#getStormNimbus()
+     * @see ddsm.impl.SupervisorImpl
+     * @see ddsm.impl.DdsmPackageImpl#getSupervisor()
      * @generated
      */
-    int STORM_NIMBUS = 19;
+    int SUPERVISOR = 17;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -1859,7 +1804,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int SUPERVISOR__RESOURCE = SLAVE_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1868,7 +1813,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int SUPERVISOR__PROPERTY = SLAVE_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -1877,7 +1822,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int SUPERVISOR__ELEMENT_ID = SLAVE_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1886,7 +1831,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int SUPERVISOR__DESCRIPTION = SLAVE_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -1895,7 +1840,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int SUPERVISOR__PROVIDEDPORT = SLAVE_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -1904,7 +1849,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int SUPERVISOR__PROVIDEDEXECUTIONPLATFORM = SLAVE_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -1913,16 +1858,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STORM_NIMBUS__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int SUPERVISOR__REQUIREDPORT = SLAVE_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -1931,44 +1867,80 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int SUPERVISOR__REQUIREDEXECUTIONPLATFORM = SLAVE_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Has Master</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int SUPERVISOR__HAS_MASTER = SLAVE_NODE__HAS_MASTER;
 
     /**
-     * The number of structural features of the '<em>Storm Nimbus</em>' class.
+     * The feature id for the '<em><b>Worker Start Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int SUPERVISOR__WORKER_START_TIMEOUT = SLAVE_NODE_FEATURE_COUNT + 0;
 
     /**
-     * The number of operations of the '<em>Storm Nimbus</em>' class.
+     * The feature id for the '<em><b>Cpu Capacity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORM_NIMBUS_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int SUPERVISOR__CPU_CAPACITY = SLAVE_NODE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.ZookeeperImpl <em>Zookeeper</em>}' class.
+     * The feature id for the '<em><b>Memory Capacity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.ZookeeperImpl
-     * @see ddsm.impl.DdsmPackageImpl#getZookeeper()
+     * @generated
+     * @ordered
+     */
+    int SUPERVISOR__MEMORY_CAPACITY = SLAVE_NODE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Heartbeat Frequency</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUPERVISOR__HEARTBEAT_FREQUENCY = SLAVE_NODE_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Supervisor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUPERVISOR_FEATURE_COUNT = SLAVE_NODE_FEATURE_COUNT + 4;
+
+    /**
+     * The number of operations of the '<em>Supervisor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUPERVISOR_OPERATION_COUNT = SLAVE_NODE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.MasterNodeImpl <em>Master Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.MasterNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getMasterNode()
      * @generated
      */
-    int ZOOKEEPER = 20;
+    int MASTER_NODE = 28;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -1977,7 +1949,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int MASTER_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1986,7 +1958,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int MASTER_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -1995,7 +1967,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int MASTER_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2004,7 +1976,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int MASTER_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2013,7 +1985,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int MASTER_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2022,7 +1994,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int MASTER_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2031,16 +2003,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ZOOKEEPER__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int MASTER_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2049,44 +2012,35 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int MASTER_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The number of structural features of the '<em>Master Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ZOOKEEPER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int MASTER_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Zookeeper</em>' class.
+     * The number of operations of the '<em>Master Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ZOOKEEPER_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int MASTER_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
 
     /**
-     * The number of operations of the '<em>Zookeeper</em>' class.
+     * The meta object id for the '{@link ddsm.impl.NimbusImpl <em>Nimbus</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ZOOKEEPER_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ddsm.impl.KafkaImpl <em>Kafka</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ddsm.impl.KafkaImpl
-     * @see ddsm.impl.DdsmPackageImpl#getKafka()
+     * @see ddsm.impl.NimbusImpl
+     * @see ddsm.impl.DdsmPackageImpl#getNimbus()
      * @generated
      */
-    int KAFKA = 21;
+    int NIMBUS = 18;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2095,7 +2049,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int NIMBUS__RESOURCE = MASTER_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2104,7 +2058,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int NIMBUS__PROPERTY = MASTER_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2113,7 +2067,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int NIMBUS__ELEMENT_ID = MASTER_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2122,7 +2076,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int NIMBUS__DESCRIPTION = MASTER_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2131,7 +2085,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int NIMBUS__PROVIDEDPORT = MASTER_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2140,7 +2094,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int NIMBUS__PROVIDEDEXECUTIONPLATFORM = MASTER_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2149,16 +2103,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int KAFKA__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int NIMBUS__REQUIREDPORT = MASTER_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2167,44 +2112,89 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int KAFKA__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int NIMBUS__REQUIREDEXECUTIONPLATFORM = MASTER_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Task Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int KAFKA__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int NIMBUS__TASK_TIMEOUT = MASTER_NODE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Kafka</em>' class.
+     * The feature id for the '<em><b>Supervisor Frequency</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int KAFKA_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int NIMBUS__SUPERVISOR_FREQUENCY = MASTER_NODE_FEATURE_COUNT + 1;
 
     /**
-     * The number of operations of the '<em>Kafka</em>' class.
+     * The feature id for the '<em><b>Queue Size</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int KAFKA_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int NIMBUS__QUEUE_SIZE = MASTER_NODE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.ClusterImpl <em>Cluster</em>}' class.
+     * The feature id for the '<em><b>Monitor Frequency</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.ClusterImpl
-     * @see ddsm.impl.DdsmPackageImpl#getCluster()
+     * @generated
+     * @ordered
+     */
+    int NIMBUS__MONITOR_FREQUENCY = MASTER_NODE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Retry Times</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NIMBUS__RETRY_TIMES = MASTER_NODE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Retry Interval</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NIMBUS__RETRY_INTERVAL = MASTER_NODE_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>Nimbus</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NIMBUS_FEATURE_COUNT = MASTER_NODE_FEATURE_COUNT + 6;
+
+    /**
+     * The number of operations of the '<em>Nimbus</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NIMBUS_OPERATION_COUNT = MASTER_NODE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.PeerNodeImpl <em>Peer Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.PeerNodeImpl
+     * @see ddsm.impl.DdsmPackageImpl#getPeerNode()
      * @generated
      */
-    int CLUSTER = 22;
+    int PEER_NODE = 34;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2213,7 +2203,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__RESOURCE = EXTERNAL_COMPONENT__RESOURCE;
+    int PEER_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2222,7 +2212,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__PROPERTY = EXTERNAL_COMPONENT__PROPERTY;
+    int PEER_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2231,7 +2221,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__ELEMENT_ID = EXTERNAL_COMPONENT__ELEMENT_ID;
+    int PEER_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2240,7 +2230,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__DESCRIPTION = EXTERNAL_COMPONENT__DESCRIPTION;
+    int PEER_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2249,7 +2239,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__PROVIDEDPORT = EXTERNAL_COMPONENT__PROVIDEDPORT;
+    int PEER_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2258,88 +2248,188 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLUSTER__PROVIDEDEXECUTIONPLATFORM = EXTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int PEER_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Provider</b></em>' reference.
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__PROVIDER = EXTERNAL_COMPONENT__PROVIDER;
+    int PEER_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__LOCATION = EXTERNAL_COMPONENT__LOCATION;
+    int PEER_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Login</b></em>' attribute.
+     * The feature id for the '<em><b>Belongs To Quorum</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__LOGIN = EXTERNAL_COMPONENT__LOGIN;
+    int PEER_NODE__BELONGS_TO_QUORUM = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * The number of structural features of the '<em>Peer Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__PASSWORD = EXTERNAL_COMPONENT__PASSWORD;
+    int PEER_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Region</b></em>' attribute.
+     * The number of operations of the '<em>Peer Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__REGION = EXTERNAL_COMPONENT__REGION;
+    int PEER_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Service Type</b></em>' attribute.
+     * The meta object id for the '{@link ddsm.impl.ZookeeperServerImpl <em>Zookeeper Server</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.ZookeeperServerImpl
+     * @see ddsm.impl.DdsmPackageImpl#getZookeeperServer()
+     * @generated
+     */
+    int ZOOKEEPER_SERVER = 19;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__SERVICE_TYPE = EXTERNAL_COMPONENT__SERVICE_TYPE;
+    int ZOOKEEPER_SERVER__RESOURCE = PEER_NODE__RESOURCE;
 
     /**
-     * The feature id for the '<em><b>Has Vm</b></em>' reference list.
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER__HAS_VM = EXTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int ZOOKEEPER_SERVER__PROPERTY = PEER_NODE__PROPERTY;
 
     /**
-     * The number of structural features of the '<em>Cluster</em>' class.
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER_FEATURE_COUNT = EXTERNAL_COMPONENT_FEATURE_COUNT + 1;
+    int ZOOKEEPER_SERVER__ELEMENT_ID = PEER_NODE__ELEMENT_ID;
 
     /**
-     * The number of operations of the '<em>Cluster</em>' class.
+     * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLUSTER_OPERATION_COUNT = EXTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int ZOOKEEPER_SERVER__DESCRIPTION = PEER_NODE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__PROVIDEDPORT = PEER_NODE__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__PROVIDEDEXECUTIONPLATFORM = PEER_NODE__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__REQUIREDPORT = PEER_NODE__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__REQUIREDEXECUTIONPLATFORM = PEER_NODE__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Belongs To Quorum</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__BELONGS_TO_QUORUM = PEER_NODE__BELONGS_TO_QUORUM;
+
+    /**
+     * The feature id for the '<em><b>Tick Time</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__TICK_TIME = PEER_NODE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Sync Limit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__SYNC_LIMIT = PEER_NODE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Init Limit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER__INIT_LIMIT = PEER_NODE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Zookeeper Server</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER_FEATURE_COUNT = PEER_NODE_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Zookeeper Server</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_SERVER_OPERATION_COUNT = PEER_NODE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.ClientNodeImpl <em>Client Node</em>}' class.
@@ -2349,7 +2439,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getClientNode()
      * @generated
      */
-    int CLIENT_NODE = 23;
+    int CLIENT_NODE = 20;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2415,15 +2505,6 @@ public interface DdsmPackage extends EPackage {
     int CLIENT_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
 
     /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CLIENT_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
-
-    /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2433,40 +2514,40 @@ public interface DdsmPackage extends EPackage {
     int CLIENT_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Submits</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int CLIENT_NODE__SUBMITS = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * The feature id for the '<em><b>Skip Running Job</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_NODE__TYPE = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int CLIENT_NODE__SKIP_RUNNING_JOB = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Artifact Url</b></em>' attribute.
+     * The feature id for the '<em><b>Number Of Submissions</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_NODE__ARTIFACT_URL = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
+    int CLIENT_NODE__NUMBER_OF_SUBMISSIONS = INTERNAL_COMPONENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Main Class</b></em>' attribute.
+     * The feature id for the '<em><b>Has Schedule</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_NODE__MAIN_CLASS = INTERNAL_COMPONENT_FEATURE_COUNT + 2;
+    int CLIENT_NODE__HAS_SCHEDULE = INTERNAL_COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Client Node</em>' class.
@@ -2475,7 +2556,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CLIENT_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 3;
+    int CLIENT_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Client Node</em>' class.
@@ -2494,7 +2575,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getYarnResourceManager()
      * @generated
      */
-    int YARN_RESOURCE_MANAGER = 24;
+    int YARN_RESOURCE_MANAGER = 21;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2503,7 +2584,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int YARN_RESOURCE_MANAGER__RESOURCE = MASTER_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2512,7 +2593,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int YARN_RESOURCE_MANAGER__PROPERTY = MASTER_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2521,7 +2602,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int YARN_RESOURCE_MANAGER__ELEMENT_ID = MASTER_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2530,7 +2611,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int YARN_RESOURCE_MANAGER__DESCRIPTION = MASTER_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2539,7 +2620,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int YARN_RESOURCE_MANAGER__PROVIDEDPORT = MASTER_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2548,7 +2629,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int YARN_RESOURCE_MANAGER__PROVIDEDEXECUTIONPLATFORM = MASTER_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2557,16 +2638,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int YARN_RESOURCE_MANAGER__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int YARN_RESOURCE_MANAGER__REQUIREDPORT = MASTER_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2575,16 +2647,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int YARN_RESOURCE_MANAGER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int YARN_RESOURCE_MANAGER__REQUIREDEXECUTIONPLATFORM = MASTER_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
      * The number of structural features of the '<em>Yarn Resource Manager</em>' class.
@@ -2593,7 +2656,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int YARN_RESOURCE_MANAGER_FEATURE_COUNT = MASTER_NODE_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Yarn Resource Manager</em>' class.
@@ -2602,7 +2665,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_RESOURCE_MANAGER_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int YARN_RESOURCE_MANAGER_OPERATION_COUNT = MASTER_NODE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.YarnNodeManagerImpl <em>Yarn Node Manager</em>}' class.
@@ -2612,7 +2675,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getYarnNodeManager()
      * @generated
      */
-    int YARN_NODE_MANAGER = 25;
+    int YARN_NODE_MANAGER = 22;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2621,7 +2684,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int YARN_NODE_MANAGER__RESOURCE = SLAVE_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2630,7 +2693,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int YARN_NODE_MANAGER__PROPERTY = SLAVE_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2639,7 +2702,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int YARN_NODE_MANAGER__ELEMENT_ID = SLAVE_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2648,7 +2711,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int YARN_NODE_MANAGER__DESCRIPTION = SLAVE_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2657,7 +2720,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int YARN_NODE_MANAGER__PROVIDEDPORT = SLAVE_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2666,7 +2729,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int YARN_NODE_MANAGER__PROVIDEDEXECUTIONPLATFORM = SLAVE_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2675,16 +2738,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int YARN_NODE_MANAGER__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int YARN_NODE_MANAGER__REQUIREDPORT = SLAVE_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2693,16 +2747,16 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int YARN_NODE_MANAGER__REQUIREDEXECUTIONPLATFORM = SLAVE_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Has Master</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int YARN_NODE_MANAGER__HAS_MASTER = SLAVE_NODE__HAS_MASTER;
 
     /**
      * The number of structural features of the '<em>Yarn Node Manager</em>' class.
@@ -2711,7 +2765,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int YARN_NODE_MANAGER_FEATURE_COUNT = SLAVE_NODE_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Yarn Node Manager</em>' class.
@@ -2720,7 +2774,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int YARN_NODE_MANAGER_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int YARN_NODE_MANAGER_OPERATION_COUNT = SLAVE_NODE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.HDFSNameNodeImpl <em>HDFS Name Node</em>}' class.
@@ -2730,7 +2784,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getHDFSNameNode()
      * @generated
      */
-    int HDFS_NAME_NODE = 26;
+    int HDFS_NAME_NODE = 23;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2739,7 +2793,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int HDFS_NAME_NODE__RESOURCE = MASTER_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2748,7 +2802,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int HDFS_NAME_NODE__PROPERTY = MASTER_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2757,7 +2811,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int HDFS_NAME_NODE__ELEMENT_ID = MASTER_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2766,7 +2820,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int HDFS_NAME_NODE__DESCRIPTION = MASTER_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2775,7 +2829,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int HDFS_NAME_NODE__PROVIDEDPORT = MASTER_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2784,7 +2838,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int HDFS_NAME_NODE__PROVIDEDEXECUTIONPLATFORM = MASTER_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2793,16 +2847,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int HDFS_NAME_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int HDFS_NAME_NODE__REQUIREDPORT = MASTER_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2811,16 +2856,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
-
-    /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int HDFS_NAME_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int HDFS_NAME_NODE__REQUIREDEXECUTIONPLATFORM = MASTER_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
      * The number of structural features of the '<em>HDFS Name Node</em>' class.
@@ -2829,7 +2865,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int HDFS_NAME_NODE_FEATURE_COUNT = MASTER_NODE_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>HDFS Name Node</em>' class.
@@ -2838,7 +2874,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_NAME_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int HDFS_NAME_NODE_OPERATION_COUNT = MASTER_NODE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ddsm.impl.HDFSDataNodeImpl <em>HDFS Data Node</em>}' class.
@@ -2848,7 +2884,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getHDFSDataNode()
      * @generated
      */
-    int HDFS_DATA_NODE = 27;
+    int HDFS_DATA_NODE = 24;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -2857,7 +2893,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+    int HDFS_DATA_NODE__RESOURCE = SLAVE_NODE__RESOURCE;
 
     /**
      * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -2866,7 +2902,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+    int HDFS_DATA_NODE__PROPERTY = SLAVE_NODE__PROPERTY;
 
     /**
      * The feature id for the '<em><b>Element Id</b></em>' attribute.
@@ -2875,7 +2911,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+    int HDFS_DATA_NODE__ELEMENT_ID = SLAVE_NODE__ELEMENT_ID;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2884,7 +2920,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+    int HDFS_DATA_NODE__DESCRIPTION = SLAVE_NODE__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
@@ -2893,7 +2929,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+    int HDFS_DATA_NODE__PROVIDEDPORT = SLAVE_NODE__PROVIDEDPORT;
 
     /**
      * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
@@ -2902,7 +2938,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+    int HDFS_DATA_NODE__PROVIDEDEXECUTIONPLATFORM = SLAVE_NODE__PROVIDEDEXECUTIONPLATFORM;
 
     /**
      * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
@@ -2911,16 +2947,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
-
-    /**
-     * The feature id for the '<em><b>Internalcomponent</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int HDFS_DATA_NODE__INTERNALCOMPONENT = INTERNAL_COMPONENT__INTERNALCOMPONENT;
+    int HDFS_DATA_NODE__REQUIREDPORT = SLAVE_NODE__REQUIREDPORT;
 
     /**
      * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
@@ -2929,16 +2956,16 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+    int HDFS_DATA_NODE__REQUIREDEXECUTIONPLATFORM = SLAVE_NODE__REQUIREDEXECUTIONPLATFORM;
 
     /**
-     * The feature id for the '<em><b>Public Ports</b></em>' attribute list.
+     * The feature id for the '<em><b>Has Master</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE__PUBLIC_PORTS = INTERNAL_COMPONENT__PUBLIC_PORTS;
+    int HDFS_DATA_NODE__HAS_MASTER = SLAVE_NODE__HAS_MASTER;
 
     /**
      * The number of structural features of the '<em>HDFS Data Node</em>' class.
@@ -2947,7 +2974,7 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+    int HDFS_DATA_NODE_FEATURE_COUNT = SLAVE_NODE_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>HDFS Data Node</em>' class.
@@ -2956,53 +2983,1343 @@ public interface DdsmPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HDFS_DATA_NODE_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+    int HDFS_DATA_NODE_OPERATION_COUNT = SLAVE_NODE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ddsm.impl.ScriptImpl <em>Script</em>}' class.
+     * The meta object id for the '{@link ddsm.impl.ChefResourceImpl <em>Chef Resource</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ddsm.impl.ScriptImpl
-     * @see ddsm.impl.DdsmPackageImpl#getScript()
+     * @see ddsm.impl.ChefResourceImpl
+     * @see ddsm.impl.DdsmPackageImpl#getChefResource()
      * @generated
      */
-    int SCRIPT = 28;
+    int CHEF_RESOURCE = 25;
 
     /**
-     * The feature id for the '<em><b>Script Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT__SCRIPT_ID = 0;
-
-    /**
-     * The feature id for the '<em><b>Script Uri</b></em>' attribute.
+     * The feature id for the '<em><b>Resource Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT__SCRIPT_URI = 1;
+    int CHEF_RESOURCE__RESOURCE_ID = RESOURCE__RESOURCE_ID;
 
     /**
-     * The number of structural features of the '<em>Script</em>' class.
+     * The feature id for the '<em><b>Download Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_FEATURE_COUNT = 2;
+    int CHEF_RESOURCE__DOWNLOAD_COMMAND = RESOURCE__DOWNLOAD_COMMAND;
 
     /**
-     * The number of operations of the '<em>Script</em>' class.
+     * The feature id for the '<em><b>Create Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_OPERATION_COUNT = 0;
+    int CHEF_RESOURCE__CREATE_COMMAND = RESOURCE__CREATE_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Configure Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE__CONFIGURE_COMMAND = RESOURCE__CONFIGURE_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Install Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE__INSTALL_COMMAND = RESOURCE__INSTALL_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Start Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE__START_COMMAND = RESOURCE__START_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Stop Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE__STOP_COMMAND = RESOURCE__STOP_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Cookbook Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE__COOKBOOK_ID = RESOURCE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Chef Resource</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Chef Resource</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHEF_RESOURCE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.MasterSlavePlatformImpl <em>Master Slave Platform</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.MasterSlavePlatformImpl
+     * @see ddsm.impl.DdsmPackageImpl#getMasterSlavePlatform()
+     * @generated
+     */
+    int MASTER_SLAVE_PLATFORM = 37;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires Master Vm</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__REQUIRES_MASTER_VM = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Requires Slave Vm</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM__REQUIRES_SLAVE_VM = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Master Slave Platform</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Master Slave Platform</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SLAVE_PLATFORM_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.StormClusterImpl <em>Storm Cluster</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.StormClusterImpl
+     * @see ddsm.impl.DdsmPackageImpl#getStormCluster()
+     * @generated
+     */
+    int STORM_CLUSTER = 26;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__RESOURCE = MASTER_SLAVE_PLATFORM__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__PROPERTY = MASTER_SLAVE_PLATFORM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__ELEMENT_ID = MASTER_SLAVE_PLATFORM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__DESCRIPTION = MASTER_SLAVE_PLATFORM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__PROVIDEDPORT = MASTER_SLAVE_PLATFORM__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__PROVIDEDEXECUTIONPLATFORM = MASTER_SLAVE_PLATFORM__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__REQUIREDPORT = MASTER_SLAVE_PLATFORM__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__REQUIREDEXECUTIONPLATFORM = MASTER_SLAVE_PLATFORM__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires Master Vm</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__REQUIRES_MASTER_VM = MASTER_SLAVE_PLATFORM__REQUIRES_MASTER_VM;
+
+    /**
+     * The feature id for the '<em><b>Requires Slave Vm</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER__REQUIRES_SLAVE_VM = MASTER_SLAVE_PLATFORM__REQUIRES_SLAVE_VM;
+
+    /**
+     * The number of structural features of the '<em>Storm Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER_FEATURE_COUNT = MASTER_SLAVE_PLATFORM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Storm Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORM_CLUSTER_OPERATION_COUNT = MASTER_SLAVE_PLATFORM_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.JobSubmissionImpl <em>Job Submission</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.JobSubmissionImpl
+     * @see ddsm.impl.DdsmPackageImpl#getJobSubmission()
+     * @generated
+     */
+    int JOB_SUBMISSION = 27;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__RESOURCE = CLOUD_ELEMENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__PROPERTY = CLOUD_ELEMENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__ELEMENT_ID = CLOUD_ELEMENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__DESCRIPTION = CLOUD_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Artifact Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__ARTIFACT_URL = CLOUD_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Main Class</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION__MAIN_CLASS = CLOUD_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Job Submission</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION_FEATURE_COUNT = CLOUD_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Job Submission</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JOB_SUBMISSION_OPERATION_COUNT = CLOUD_ELEMENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.PeersQuorumImpl <em>Peers Quorum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.PeersQuorumImpl
+     * @see ddsm.impl.DdsmPackageImpl#getPeersQuorum()
+     * @generated
+     */
+    int PEERS_QUORUM = 35;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>Peers Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Peers Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEERS_QUORUM_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.ZookeeperQuorumImpl <em>Zookeeper Quorum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.ZookeeperQuorumImpl
+     * @see ddsm.impl.DdsmPackageImpl#getZookeeperQuorum()
+     * @generated
+     */
+    int ZOOKEEPER_QUORUM = 30;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__RESOURCE = PEERS_QUORUM__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__PROPERTY = PEERS_QUORUM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__ELEMENT_ID = PEERS_QUORUM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__DESCRIPTION = PEERS_QUORUM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__PROVIDEDPORT = PEERS_QUORUM__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__PROVIDEDEXECUTIONPLATFORM = PEERS_QUORUM__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__REQUIREDPORT = PEERS_QUORUM__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM__REQUIREDEXECUTIONPLATFORM = PEERS_QUORUM__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>Zookeeper Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM_FEATURE_COUNT = PEERS_QUORUM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Zookeeper Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_QUORUM_OPERATION_COUNT = PEERS_QUORUM_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.CassandraWorkerImpl <em>Cassandra Worker</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.CassandraWorkerImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCassandraWorker()
+     * @generated
+     */
+    int CASSANDRA_WORKER = 31;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__RESOURCE = PEER_NODE__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__PROPERTY = PEER_NODE__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__ELEMENT_ID = PEER_NODE__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__DESCRIPTION = PEER_NODE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__PROVIDEDPORT = PEER_NODE__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__PROVIDEDEXECUTIONPLATFORM = PEER_NODE__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__REQUIREDPORT = PEER_NODE__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__REQUIREDEXECUTIONPLATFORM = PEER_NODE__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Belongs To Quorum</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER__BELONGS_TO_QUORUM = PEER_NODE__BELONGS_TO_QUORUM;
+
+    /**
+     * The number of structural features of the '<em>Cassandra Worker</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER_FEATURE_COUNT = PEER_NODE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Cassandra Worker</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_WORKER_OPERATION_COUNT = PEER_NODE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.PeerToPeerPlatformImpl <em>Peer To Peer Platform</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.PeerToPeerPlatformImpl
+     * @see ddsm.impl.DdsmPackageImpl#getPeerToPeerPlatform()
+     * @generated
+     */
+    int PEER_TO_PEER_PLATFORM = 36;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires Peer Vm</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM__REQUIRES_PEER_VM = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Peer To Peer Platform</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Peer To Peer Platform</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PEER_TO_PEER_PLATFORM_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.ZookeeperClusterImpl <em>Zookeeper Cluster</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.ZookeeperClusterImpl
+     * @see ddsm.impl.DdsmPackageImpl#getZookeeperCluster()
+     * @generated
+     */
+    int ZOOKEEPER_CLUSTER = 32;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__RESOURCE = PEER_TO_PEER_PLATFORM__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__PROPERTY = PEER_TO_PEER_PLATFORM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__ELEMENT_ID = PEER_TO_PEER_PLATFORM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__DESCRIPTION = PEER_TO_PEER_PLATFORM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__PROVIDEDPORT = PEER_TO_PEER_PLATFORM__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__PROVIDEDEXECUTIONPLATFORM = PEER_TO_PEER_PLATFORM__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__REQUIREDPORT = PEER_TO_PEER_PLATFORM__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__REQUIREDEXECUTIONPLATFORM = PEER_TO_PEER_PLATFORM__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires Peer Vm</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER__REQUIRES_PEER_VM = PEER_TO_PEER_PLATFORM__REQUIRES_PEER_VM;
+
+    /**
+     * The number of structural features of the '<em>Zookeeper Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER_FEATURE_COUNT = PEER_TO_PEER_PLATFORM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Zookeeper Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ZOOKEEPER_CLUSTER_OPERATION_COUNT = PEER_TO_PEER_PLATFORM_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.CassandraClusterImpl <em>Cassandra Cluster</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.CassandraClusterImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCassandraCluster()
+     * @generated
+     */
+    int CASSANDRA_CLUSTER = 33;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__RESOURCE = PEER_TO_PEER_PLATFORM__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__PROPERTY = PEER_TO_PEER_PLATFORM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__ELEMENT_ID = PEER_TO_PEER_PLATFORM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__DESCRIPTION = PEER_TO_PEER_PLATFORM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__PROVIDEDPORT = PEER_TO_PEER_PLATFORM__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__PROVIDEDEXECUTIONPLATFORM = PEER_TO_PEER_PLATFORM__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__REQUIREDPORT = PEER_TO_PEER_PLATFORM__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__REQUIREDEXECUTIONPLATFORM = PEER_TO_PEER_PLATFORM__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires Peer Vm</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER__REQUIRES_PEER_VM = PEER_TO_PEER_PLATFORM__REQUIRES_PEER_VM;
+
+    /**
+     * The number of structural features of the '<em>Cassandra Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER_FEATURE_COUNT = PEER_TO_PEER_PLATFORM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Cassandra Cluster</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_CLUSTER_OPERATION_COUNT = PEER_TO_PEER_PLATFORM_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.CassandraQuorumImpl <em>Cassandra Quorum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.CassandraQuorumImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCassandraQuorum()
+     * @generated
+     */
+    int CASSANDRA_QUORUM = 38;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__RESOURCE = PEERS_QUORUM__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__PROPERTY = PEERS_QUORUM__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__ELEMENT_ID = PEERS_QUORUM__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__DESCRIPTION = PEERS_QUORUM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__PROVIDEDPORT = PEERS_QUORUM__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__PROVIDEDEXECUTIONPLATFORM = PEERS_QUORUM__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__REQUIREDPORT = PEERS_QUORUM__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__REQUIREDEXECUTIONPLATFORM = PEERS_QUORUM__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requires bootstrapping seed</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM__REQUIRES_BOOTSTRAPPING_SEED = PEERS_QUORUM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Cassandra Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM_FEATURE_COUNT = PEERS_QUORUM_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Cassandra Quorum</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_QUORUM_OPERATION_COUNT = PEERS_QUORUM_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.CassandraSeedImpl <em>Cassandra Seed</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.CassandraSeedImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCassandraSeed()
+     * @generated
+     */
+    int CASSANDRA_SEED = 39;
+
+    /**
+     * The feature id for the '<em><b>Resource</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__RESOURCE = INTERNAL_COMPONENT__RESOURCE;
+
+    /**
+     * The feature id for the '<em><b>Property</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__PROPERTY = INTERNAL_COMPONENT__PROPERTY;
+
+    /**
+     * The feature id for the '<em><b>Element Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__ELEMENT_ID = INTERNAL_COMPONENT__ELEMENT_ID;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__DESCRIPTION = INTERNAL_COMPONENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Providedport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__PROVIDEDPORT = INTERNAL_COMPONENT__PROVIDEDPORT;
+
+    /**
+     * The feature id for the '<em><b>Providedexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__PROVIDEDEXECUTIONPLATFORM = INTERNAL_COMPONENT__PROVIDEDEXECUTIONPLATFORM;
+
+    /**
+     * The feature id for the '<em><b>Requiredport</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__REQUIREDPORT = INTERNAL_COMPONENT__REQUIREDPORT;
+
+    /**
+     * The feature id for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED__REQUIREDEXECUTIONPLATFORM = INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM;
+
+    /**
+     * The number of structural features of the '<em>Cassandra Seed</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED_FEATURE_COUNT = INTERNAL_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Cassandra Seed</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CASSANDRA_SEED_OPERATION_COUNT = INTERNAL_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ddsm.impl.CrontabImpl <em>Crontab</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ddsm.impl.CrontabImpl
+     * @see ddsm.impl.DdsmPackageImpl#getCrontab()
+     * @generated
+     */
+    int CRONTAB = 40;
+
+    /**
+     * The feature id for the '<em><b>Min</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB__MIN = 0;
+
+    /**
+     * The feature id for the '<em><b>Hour</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB__HOUR = 1;
+
+    /**
+     * The feature id for the '<em><b>Day Of Month</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB__DAY_OF_MONTH = 2;
+
+    /**
+     * The feature id for the '<em><b>Month</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB__MONTH = 3;
+
+    /**
+     * The feature id for the '<em><b>Day Of Week</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB__DAY_OF_WEEK = 4;
+
+    /**
+     * The number of structural features of the '<em>Crontab</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB_FEATURE_COUNT = 5;
+
+    /**
+     * The number of operations of the '<em>Crontab</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRONTAB_OPERATION_COUNT = 0;
 
     /**
      * The meta object id for the '{@link ddsm.VMSize <em>VM Size</em>}' enum.
@@ -3012,7 +4329,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getVMSize()
      * @generated
      */
-    int VM_SIZE = 29;
+    int VM_SIZE = 41;
 
     /**
      * The meta object id for the '{@link ddsm.ProviderType <em>Provider Type</em>}' enum.
@@ -3022,7 +4339,7 @@ public interface DdsmPackage extends EPackage {
      * @see ddsm.impl.DdsmPackageImpl#getProviderType()
      * @generated
      */
-    int PROVIDER_TYPE = 30;
+    int PROVIDER_TYPE = 42;
 
 
     /**
@@ -3090,17 +4407,6 @@ public interface DdsmPackage extends EPackage {
     EClass getProperty();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Property#getValue <em>Value</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Value</em>'.
-     * @see ddsm.Property#getValue()
-     * @see #getProperty()
-     * @generated
-     */
-    EAttribute getProperty_Value();
-
-    /**
      * Returns the meta object for the attribute '{@link ddsm.Property#getPropertyId <em>Property Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3110,6 +4416,17 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EAttribute getProperty_PropertyId();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Property#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see ddsm.Property#getValue()
+     * @see #getProperty()
+     * @generated
+     */
+    EAttribute getProperty_Value();
 
     /**
      * Returns the meta object for class '{@link ddsm.Resource <em>Resource</em>}'.
@@ -3133,15 +4450,70 @@ public interface DdsmPackage extends EPackage {
     EAttribute getResource_ResourceId();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.Resource#getScripts <em>Scripts</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getDownloadCommand <em>Download Command</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Scripts</em>'.
-     * @see ddsm.Resource#getScripts()
+     * @return the meta object for the attribute '<em>Download Command</em>'.
+     * @see ddsm.Resource#getDownloadCommand()
      * @see #getResource()
      * @generated
      */
-    EReference getResource_Scripts();
+    EAttribute getResource_DownloadCommand();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getCreateCommand <em>Create Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Create Command</em>'.
+     * @see ddsm.Resource#getCreateCommand()
+     * @see #getResource()
+     * @generated
+     */
+    EAttribute getResource_CreateCommand();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getConfigureCommand <em>Configure Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Configure Command</em>'.
+     * @see ddsm.Resource#getConfigureCommand()
+     * @see #getResource()
+     * @generated
+     */
+    EAttribute getResource_ConfigureCommand();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getInstallCommand <em>Install Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Install Command</em>'.
+     * @see ddsm.Resource#getInstallCommand()
+     * @see #getResource()
+     * @generated
+     */
+    EAttribute getResource_InstallCommand();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getStartCommand <em>Start Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Start Command</em>'.
+     * @see ddsm.Resource#getStartCommand()
+     * @see #getResource()
+     * @generated
+     */
+    EAttribute getResource_StartCommand();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Resource#getStopCommand <em>Stop Command</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Stop Command</em>'.
+     * @see ddsm.Resource#getStopCommand()
+     * @see #getResource()
+     * @generated
+     */
+    EAttribute getResource_StopCommand();
 
     /**
      * Returns the meta object for class '{@link ddsm.Component <em>Component</em>}'.
@@ -3197,17 +4569,6 @@ public interface DdsmPackage extends EPackage {
     EReference getInternalComponent_Requiredport();
 
     /**
-     * Returns the meta object for the containment reference list '{@link ddsm.InternalComponent#getInternalcomponent <em>Internalcomponent</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Internalcomponent</em>'.
-     * @see ddsm.InternalComponent#getInternalcomponent()
-     * @see #getInternalComponent()
-     * @generated
-     */
-    EReference getInternalComponent_Internalcomponent();
-
-    /**
      * Returns the meta object for the containment reference list '{@link ddsm.InternalComponent#getRequiredexecutionplatform <em>Requiredexecutionplatform</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3217,17 +4578,6 @@ public interface DdsmPackage extends EPackage {
      * @generated
      */
     EReference getInternalComponent_Requiredexecutionplatform();
-
-    /**
-     * Returns the meta object for the attribute list '{@link ddsm.InternalComponent#getPublicPorts <em>Public Ports</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Public Ports</em>'.
-     * @see ddsm.InternalComponent#getPublicPorts()
-     * @see #getInternalComponent()
-     * @generated
-     */
-    EAttribute getInternalComponent_PublicPorts();
 
     /**
      * Returns the meta object for class '{@link ddsm.ExecutionPlatform <em>Execution Platform</em>}'.
@@ -3496,6 +4846,17 @@ public interface DdsmPackage extends EPackage {
     EAttribute getExternalComponent_ServiceType();
 
     /**
+     * Returns the meta object for the attribute '{@link ddsm.ExternalComponent#getEndPoint <em>End Point</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>End Point</em>'.
+     * @see ddsm.ExternalComponent#getEndPoint()
+     * @see #getExternalComponent()
+     * @generated
+     */
+    EAttribute getExternalComponent_EndPoint();
+
+    /**
      * Returns the meta object for class '{@link ddsm.Provider <em>Provider</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3692,6 +5053,17 @@ public interface DdsmPackage extends EPackage {
     EAttribute getVM_PublicAddress();
 
     /**
+     * Returns the meta object for the attribute '{@link ddsm.VM#getGenericSize <em>Generic Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Generic Size</em>'.
+     * @see ddsm.VM#getGenericSize()
+     * @see #getVM()
+     * @generated
+     */
+    EAttribute getVM_GenericSize();
+
+    /**
      * Returns the meta object for the attribute '{@link ddsm.VM#getInstances <em>Instances</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3703,15 +5075,15 @@ public interface DdsmPackage extends EPackage {
     EAttribute getVM_Instances();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.VM#getGenericSize <em>Generic Size</em>}'.
+     * Returns the meta object for the attribute list '{@link ddsm.VM#getPublicPorts <em>Public Ports</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Generic Size</em>'.
-     * @see ddsm.VM#getGenericSize()
+     * @return the meta object for the attribute list '<em>Public Ports</em>'.
+     * @see ddsm.VM#getPublicPorts()
      * @see #getVM()
      * @generated
      */
-    EAttribute getVM_GenericSize();
+    EAttribute getVM_PublicPorts();
 
     /**
      * Returns the meta object for class '{@link ddsm.DDSM <em>DDSM</em>}'.
@@ -3779,141 +5151,177 @@ public interface DdsmPackage extends EPackage {
     EReference getDDSM_Resources();
 
     /**
-     * Returns the meta object for class '{@link ddsm.LifeCycle <em>Life Cycle</em>}'.
+     * Returns the meta object for class '{@link ddsm.Supervisor <em>Supervisor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Life Cycle</em>'.
-     * @see ddsm.LifeCycle
+     * @return the meta object for class '<em>Supervisor</em>'.
+     * @see ddsm.Supervisor
      * @generated
      */
-    EClass getLifeCycle();
+    EClass getSupervisor();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getDownloadCommand <em>Download Command</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Supervisor#getWorkerStartTimeout <em>Worker Start Timeout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Download Command</em>'.
-     * @see ddsm.LifeCycle#getDownloadCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for the attribute '<em>Worker Start Timeout</em>'.
+     * @see ddsm.Supervisor#getWorkerStartTimeout()
+     * @see #getSupervisor()
      * @generated
      */
-    EReference getLifeCycle_DownloadCommand();
+    EAttribute getSupervisor_WorkerStartTimeout();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getInstallCommand <em>Install Command</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Supervisor#getCpuCapacity <em>Cpu Capacity</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Install Command</em>'.
-     * @see ddsm.LifeCycle#getInstallCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for the attribute '<em>Cpu Capacity</em>'.
+     * @see ddsm.Supervisor#getCpuCapacity()
+     * @see #getSupervisor()
      * @generated
      */
-    EReference getLifeCycle_InstallCommand();
+    EAttribute getSupervisor_CpuCapacity();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getStartCommand <em>Start Command</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Supervisor#getMemoryCapacity <em>Memory Capacity</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Start Command</em>'.
-     * @see ddsm.LifeCycle#getStartCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for the attribute '<em>Memory Capacity</em>'.
+     * @see ddsm.Supervisor#getMemoryCapacity()
+     * @see #getSupervisor()
      * @generated
      */
-    EReference getLifeCycle_StartCommand();
+    EAttribute getSupervisor_MemoryCapacity();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getStopCommand <em>Stop Command</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Supervisor#getHeartbeatFrequency <em>Heartbeat Frequency</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Stop Command</em>'.
-     * @see ddsm.LifeCycle#getStopCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for the attribute '<em>Heartbeat Frequency</em>'.
+     * @see ddsm.Supervisor#getHeartbeatFrequency()
+     * @see #getSupervisor()
      * @generated
      */
-    EReference getLifeCycle_StopCommand();
+    EAttribute getSupervisor_HeartbeatFrequency();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getPreconfigureCommand <em>Preconfigure Command</em>}'.
+     * Returns the meta object for class '{@link ddsm.Nimbus <em>Nimbus</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Preconfigure Command</em>'.
-     * @see ddsm.LifeCycle#getPreconfigureCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for class '<em>Nimbus</em>'.
+     * @see ddsm.Nimbus
      * @generated
      */
-    EReference getLifeCycle_PreconfigureCommand();
+    EClass getNimbus();
 
     /**
-     * Returns the meta object for the containment reference '{@link ddsm.LifeCycle#getCreateCommand <em>Create Command</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getTaskTimeout <em>Task Timeout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Create Command</em>'.
-     * @see ddsm.LifeCycle#getCreateCommand()
-     * @see #getLifeCycle()
+     * @return the meta object for the attribute '<em>Task Timeout</em>'.
+     * @see ddsm.Nimbus#getTaskTimeout()
+     * @see #getNimbus()
      * @generated
      */
-    EReference getLifeCycle_CreateCommand();
+    EAttribute getNimbus_TaskTimeout();
 
     /**
-     * Returns the meta object for class '{@link ddsm.StormSupervisor <em>Storm Supervisor</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getSupervisorFrequency <em>Supervisor Frequency</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Storm Supervisor</em>'.
-     * @see ddsm.StormSupervisor
+     * @return the meta object for the attribute '<em>Supervisor Frequency</em>'.
+     * @see ddsm.Nimbus#getSupervisorFrequency()
+     * @see #getNimbus()
      * @generated
      */
-    EClass getStormSupervisor();
+    EAttribute getNimbus_SupervisorFrequency();
 
     /**
-     * Returns the meta object for class '{@link ddsm.StormNimbus <em>Storm Nimbus</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getQueueSize <em>Queue Size</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Storm Nimbus</em>'.
-     * @see ddsm.StormNimbus
+     * @return the meta object for the attribute '<em>Queue Size</em>'.
+     * @see ddsm.Nimbus#getQueueSize()
+     * @see #getNimbus()
      * @generated
      */
-    EClass getStormNimbus();
+    EAttribute getNimbus_QueueSize();
 
     /**
-     * Returns the meta object for class '{@link ddsm.Zookeeper <em>Zookeeper</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getMonitorFrequency <em>Monitor Frequency</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Zookeeper</em>'.
-     * @see ddsm.Zookeeper
+     * @return the meta object for the attribute '<em>Monitor Frequency</em>'.
+     * @see ddsm.Nimbus#getMonitorFrequency()
+     * @see #getNimbus()
      * @generated
      */
-    EClass getZookeeper();
+    EAttribute getNimbus_MonitorFrequency();
 
     /**
-     * Returns the meta object for class '{@link ddsm.Kafka <em>Kafka</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getRetryTimes <em>Retry Times</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Kafka</em>'.
-     * @see ddsm.Kafka
+     * @return the meta object for the attribute '<em>Retry Times</em>'.
+     * @see ddsm.Nimbus#getRetryTimes()
+     * @see #getNimbus()
      * @generated
      */
-    EClass getKafka();
+    EAttribute getNimbus_RetryTimes();
 
     /**
-     * Returns the meta object for class '{@link ddsm.Cluster <em>Cluster</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.Nimbus#getRetryInterval <em>Retry Interval</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Cluster</em>'.
-     * @see ddsm.Cluster
+     * @return the meta object for the attribute '<em>Retry Interval</em>'.
+     * @see ddsm.Nimbus#getRetryInterval()
+     * @see #getNimbus()
      * @generated
      */
-    EClass getCluster();
+    EAttribute getNimbus_RetryInterval();
 
     /**
-     * Returns the meta object for the reference list '{@link ddsm.Cluster#getHasVm <em>Has Vm</em>}'.
+     * Returns the meta object for class '{@link ddsm.ZookeeperServer <em>Zookeeper Server</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Has Vm</em>'.
-     * @see ddsm.Cluster#getHasVm()
-     * @see #getCluster()
+     * @return the meta object for class '<em>Zookeeper Server</em>'.
+     * @see ddsm.ZookeeperServer
      * @generated
      */
-    EReference getCluster_HasVm();
+    EClass getZookeeperServer();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ZookeeperServer#getTickTime <em>Tick Time</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Tick Time</em>'.
+     * @see ddsm.ZookeeperServer#getTickTime()
+     * @see #getZookeeperServer()
+     * @generated
+     */
+    EAttribute getZookeeperServer_TickTime();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ZookeeperServer#getSyncLimit <em>Sync Limit</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Sync Limit</em>'.
+     * @see ddsm.ZookeeperServer#getSyncLimit()
+     * @see #getZookeeperServer()
+     * @generated
+     */
+    EAttribute getZookeeperServer_SyncLimit();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.ZookeeperServer#getInitLimit <em>Init Limit</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Init Limit</em>'.
+     * @see ddsm.ZookeeperServer#getInitLimit()
+     * @see #getZookeeperServer()
+     * @generated
+     */
+    EAttribute getZookeeperServer_InitLimit();
 
     /**
      * Returns the meta object for class '{@link ddsm.ClientNode <em>Client Node</em>}'.
@@ -3926,37 +5334,48 @@ public interface DdsmPackage extends EPackage {
     EClass getClientNode();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getType <em>Type</em>}'.
+     * Returns the meta object for the reference '{@link ddsm.ClientNode#getSubmits <em>Submits</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Type</em>'.
-     * @see ddsm.ClientNode#getType()
+     * @return the meta object for the reference '<em>Submits</em>'.
+     * @see ddsm.ClientNode#getSubmits()
      * @see #getClientNode()
      * @generated
      */
-    EAttribute getClientNode_Type();
+    EReference getClientNode_Submits();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getArtifactUrl <em>Artifact Url</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.ClientNode#isSkipRunningJob <em>Skip Running Job</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Artifact Url</em>'.
-     * @see ddsm.ClientNode#getArtifactUrl()
+     * @return the meta object for the attribute '<em>Skip Running Job</em>'.
+     * @see ddsm.ClientNode#isSkipRunningJob()
      * @see #getClientNode()
      * @generated
      */
-    EAttribute getClientNode_ArtifactUrl();
+    EAttribute getClientNode_SkipRunningJob();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getMainClass <em>Main Class</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.ClientNode#getNumberOfSubmissions <em>Number Of Submissions</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Main Class</em>'.
-     * @see ddsm.ClientNode#getMainClass()
+     * @return the meta object for the attribute '<em>Number Of Submissions</em>'.
+     * @see ddsm.ClientNode#getNumberOfSubmissions()
      * @see #getClientNode()
      * @generated
      */
-    EAttribute getClientNode_MainClass();
+    EAttribute getClientNode_NumberOfSubmissions();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.ClientNode#getHasSchedule <em>Has Schedule</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Has Schedule</em>'.
+     * @see ddsm.ClientNode#getHasSchedule()
+     * @see #getClientNode()
+     * @generated
+     */
+    EReference getClientNode_HasSchedule();
 
     /**
      * Returns the meta object for class '{@link ddsm.YarnResourceManager <em>Yarn Resource Manager</em>}'.
@@ -3999,36 +5418,318 @@ public interface DdsmPackage extends EPackage {
     EClass getHDFSDataNode();
 
     /**
-     * Returns the meta object for class '{@link ddsm.Script <em>Script</em>}'.
+     * Returns the meta object for class '{@link ddsm.ChefResource <em>Chef Resource</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Script</em>'.
-     * @see ddsm.Script
+     * @return the meta object for class '<em>Chef Resource</em>'.
+     * @see ddsm.ChefResource
      * @generated
      */
-    EClass getScript();
+    EClass getChefResource();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Script#getScriptId <em>Script Id</em>}'.
+     * Returns the meta object for the attribute '{@link ddsm.ChefResource#getCookbookId <em>Cookbook Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Script Id</em>'.
-     * @see ddsm.Script#getScriptId()
-     * @see #getScript()
+     * @return the meta object for the attribute '<em>Cookbook Id</em>'.
+     * @see ddsm.ChefResource#getCookbookId()
+     * @see #getChefResource()
      * @generated
      */
-    EAttribute getScript_ScriptId();
+    EAttribute getChefResource_CookbookId();
 
     /**
-     * Returns the meta object for the attribute '{@link ddsm.Script#getScriptUri <em>Script Uri</em>}'.
+     * Returns the meta object for class '{@link ddsm.StormCluster <em>Storm Cluster</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Script Uri</em>'.
-     * @see ddsm.Script#getScriptUri()
-     * @see #getScript()
+     * @return the meta object for class '<em>Storm Cluster</em>'.
+     * @see ddsm.StormCluster
      * @generated
      */
-    EAttribute getScript_ScriptUri();
+    EClass getStormCluster();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.JobSubmission <em>Job Submission</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Job Submission</em>'.
+     * @see ddsm.JobSubmission
+     * @generated
+     */
+    EClass getJobSubmission();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.JobSubmission#getArtifactUrl <em>Artifact Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Artifact Url</em>'.
+     * @see ddsm.JobSubmission#getArtifactUrl()
+     * @see #getJobSubmission()
+     * @generated
+     */
+    EAttribute getJobSubmission_ArtifactUrl();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.JobSubmission#getMainClass <em>Main Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Main Class</em>'.
+     * @see ddsm.JobSubmission#getMainClass()
+     * @see #getJobSubmission()
+     * @generated
+     */
+    EAttribute getJobSubmission_MainClass();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.MasterNode <em>Master Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Master Node</em>'.
+     * @see ddsm.MasterNode
+     * @generated
+     */
+    EClass getMasterNode();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.SlaveNode <em>Slave Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Slave Node</em>'.
+     * @see ddsm.SlaveNode
+     * @generated
+     */
+    EClass getSlaveNode();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.SlaveNode#getHasMaster <em>Has Master</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Has Master</em>'.
+     * @see ddsm.SlaveNode#getHasMaster()
+     * @see #getSlaveNode()
+     * @generated
+     */
+    EReference getSlaveNode_HasMaster();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.ZookeeperQuorum <em>Zookeeper Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Zookeeper Quorum</em>'.
+     * @see ddsm.ZookeeperQuorum
+     * @generated
+     */
+    EClass getZookeeperQuorum();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.CassandraWorker <em>Cassandra Worker</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cassandra Worker</em>'.
+     * @see ddsm.CassandraWorker
+     * @generated
+     */
+    EClass getCassandraWorker();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.ZookeeperCluster <em>Zookeeper Cluster</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Zookeeper Cluster</em>'.
+     * @see ddsm.ZookeeperCluster
+     * @generated
+     */
+    EClass getZookeeperCluster();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.CassandraCluster <em>Cassandra Cluster</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cassandra Cluster</em>'.
+     * @see ddsm.CassandraCluster
+     * @generated
+     */
+    EClass getCassandraCluster();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.PeerNode <em>Peer Node</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Peer Node</em>'.
+     * @see ddsm.PeerNode
+     * @generated
+     */
+    EClass getPeerNode();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.PeerNode#getBelongsToQuorum <em>Belongs To Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Belongs To Quorum</em>'.
+     * @see ddsm.PeerNode#getBelongsToQuorum()
+     * @see #getPeerNode()
+     * @generated
+     */
+    EReference getPeerNode_BelongsToQuorum();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.PeersQuorum <em>Peers Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Peers Quorum</em>'.
+     * @see ddsm.PeersQuorum
+     * @generated
+     */
+    EClass getPeersQuorum();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.PeerToPeerPlatform <em>Peer To Peer Platform</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Peer To Peer Platform</em>'.
+     * @see ddsm.PeerToPeerPlatform
+     * @generated
+     */
+    EClass getPeerToPeerPlatform();
+
+    /**
+     * Returns the meta object for the reference list '{@link ddsm.PeerToPeerPlatform#getRequiresPeerVm <em>Requires Peer Vm</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Requires Peer Vm</em>'.
+     * @see ddsm.PeerToPeerPlatform#getRequiresPeerVm()
+     * @see #getPeerToPeerPlatform()
+     * @generated
+     */
+    EReference getPeerToPeerPlatform_RequiresPeerVm();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.MasterSlavePlatform <em>Master Slave Platform</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Master Slave Platform</em>'.
+     * @see ddsm.MasterSlavePlatform
+     * @generated
+     */
+    EClass getMasterSlavePlatform();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.MasterSlavePlatform#getRequiresMasterVm <em>Requires Master Vm</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Requires Master Vm</em>'.
+     * @see ddsm.MasterSlavePlatform#getRequiresMasterVm()
+     * @see #getMasterSlavePlatform()
+     * @generated
+     */
+    EReference getMasterSlavePlatform_RequiresMasterVm();
+
+    /**
+     * Returns the meta object for the reference list '{@link ddsm.MasterSlavePlatform#getRequiresSlaveVm <em>Requires Slave Vm</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Requires Slave Vm</em>'.
+     * @see ddsm.MasterSlavePlatform#getRequiresSlaveVm()
+     * @see #getMasterSlavePlatform()
+     * @generated
+     */
+    EReference getMasterSlavePlatform_RequiresSlaveVm();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.CassandraQuorum <em>Cassandra Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cassandra Quorum</em>'.
+     * @see ddsm.CassandraQuorum
+     * @generated
+     */
+    EClass getCassandraQuorum();
+
+    /**
+     * Returns the meta object for the reference '{@link ddsm.CassandraQuorum#getRequires_bootstrapping_seed <em>Requires bootstrapping seed</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Requires bootstrapping seed</em>'.
+     * @see ddsm.CassandraQuorum#getRequires_bootstrapping_seed()
+     * @see #getCassandraQuorum()
+     * @generated
+     */
+    EReference getCassandraQuorum_Requires_bootstrapping_seed();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.CassandraSeed <em>Cassandra Seed</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cassandra Seed</em>'.
+     * @see ddsm.CassandraSeed
+     * @generated
+     */
+    EClass getCassandraSeed();
+
+    /**
+     * Returns the meta object for class '{@link ddsm.Crontab <em>Crontab</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Crontab</em>'.
+     * @see ddsm.Crontab
+     * @generated
+     */
+    EClass getCrontab();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Crontab#getMin <em>Min</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Min</em>'.
+     * @see ddsm.Crontab#getMin()
+     * @see #getCrontab()
+     * @generated
+     */
+    EAttribute getCrontab_Min();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Crontab#getHour <em>Hour</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Hour</em>'.
+     * @see ddsm.Crontab#getHour()
+     * @see #getCrontab()
+     * @generated
+     */
+    EAttribute getCrontab_Hour();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Crontab#getDayOfMonth <em>Day Of Month</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Day Of Month</em>'.
+     * @see ddsm.Crontab#getDayOfMonth()
+     * @see #getCrontab()
+     * @generated
+     */
+    EAttribute getCrontab_DayOfMonth();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Crontab#getMonth <em>Month</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Month</em>'.
+     * @see ddsm.Crontab#getMonth()
+     * @see #getCrontab()
+     * @generated
+     */
+    EAttribute getCrontab_Month();
+
+    /**
+     * Returns the meta object for the attribute '{@link ddsm.Crontab#getDayOfWeek <em>Day Of Week</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Day Of Week</em>'.
+     * @see ddsm.Crontab#getDayOfWeek()
+     * @see #getCrontab()
+     * @generated
+     */
+    EAttribute getCrontab_DayOfWeek();
 
     /**
      * Returns the meta object for enum '{@link ddsm.VMSize <em>VM Size</em>}'.
@@ -4126,20 +5827,20 @@ public interface DdsmPackage extends EPackage {
         EClass PROPERTY = eINSTANCE.getProperty();
 
         /**
-         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
-
-        /**
          * The meta object literal for the '<em><b>Property Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute PROPERTY__PROPERTY_ID = eINSTANCE.getProperty_PropertyId();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ResourceImpl <em>Resource</em>}' class.
@@ -4160,12 +5861,52 @@ public interface DdsmPackage extends EPackage {
         EAttribute RESOURCE__RESOURCE_ID = eINSTANCE.getResource_ResourceId();
 
         /**
-         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Download Command</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESOURCE__SCRIPTS = eINSTANCE.getResource_Scripts();
+        EAttribute RESOURCE__DOWNLOAD_COMMAND = eINSTANCE.getResource_DownloadCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Create Command</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RESOURCE__CREATE_COMMAND = eINSTANCE.getResource_CreateCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Configure Command</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RESOURCE__CONFIGURE_COMMAND = eINSTANCE.getResource_ConfigureCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Install Command</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RESOURCE__INSTALL_COMMAND = eINSTANCE.getResource_InstallCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Start Command</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RESOURCE__START_COMMAND = eINSTANCE.getResource_StartCommand();
+
+        /**
+         * The meta object literal for the '<em><b>Stop Command</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RESOURCE__STOP_COMMAND = eINSTANCE.getResource_StopCommand();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ComponentImpl <em>Component</em>}' class.
@@ -4212,28 +5953,12 @@ public interface DdsmPackage extends EPackage {
         EReference INTERNAL_COMPONENT__REQUIREDPORT = eINSTANCE.getInternalComponent_Requiredport();
 
         /**
-         * The meta object literal for the '<em><b>Internalcomponent</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference INTERNAL_COMPONENT__INTERNALCOMPONENT = eINSTANCE.getInternalComponent_Internalcomponent();
-
-        /**
          * The meta object literal for the '<em><b>Requiredexecutionplatform</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EReference INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM = eINSTANCE.getInternalComponent_Requiredexecutionplatform();
-
-        /**
-         * The meta object literal for the '<em><b>Public Ports</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute INTERNAL_COMPONENT__PUBLIC_PORTS = eINSTANCE.getInternalComponent_PublicPorts();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ExecutionPlatformImpl <em>Execution Platform</em>}' class.
@@ -4454,6 +6179,14 @@ public interface DdsmPackage extends EPackage {
         EAttribute EXTERNAL_COMPONENT__SERVICE_TYPE = eINSTANCE.getExternalComponent_ServiceType();
 
         /**
+         * The meta object literal for the '<em><b>End Point</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_COMPONENT__END_POINT = eINSTANCE.getExternalComponent_EndPoint();
+
+        /**
          * The meta object literal for the '{@link ddsm.impl.ProviderImpl <em>Provider</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4602,6 +6335,14 @@ public interface DdsmPackage extends EPackage {
         EAttribute VM__PUBLIC_ADDRESS = eINSTANCE.getVM_PublicAddress();
 
         /**
+         * The meta object literal for the '<em><b>Generic Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VM__GENERIC_SIZE = eINSTANCE.getVM_GenericSize();
+
+        /**
          * The meta object literal for the '<em><b>Instances</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4610,12 +6351,12 @@ public interface DdsmPackage extends EPackage {
         EAttribute VM__INSTANCES = eINSTANCE.getVM_Instances();
 
         /**
-         * The meta object literal for the '<em><b>Generic Size</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Public Ports</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VM__GENERIC_SIZE = eINSTANCE.getVM_GenericSize();
+        EAttribute VM__PUBLIC_PORTS = eINSTANCE.getVM_PublicPorts();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.DDSMImpl <em>DDSM</em>}' class.
@@ -4668,120 +6409,138 @@ public interface DdsmPackage extends EPackage {
         EReference DDSM__RESOURCES = eINSTANCE.getDDSM_Resources();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.LifeCycleImpl <em>Life Cycle</em>}' class.
+         * The meta object literal for the '{@link ddsm.impl.SupervisorImpl <em>Supervisor</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.LifeCycleImpl
-         * @see ddsm.impl.DdsmPackageImpl#getLifeCycle()
+         * @see ddsm.impl.SupervisorImpl
+         * @see ddsm.impl.DdsmPackageImpl#getSupervisor()
          * @generated
          */
-        EClass LIFE_CYCLE = eINSTANCE.getLifeCycle();
+        EClass SUPERVISOR = eINSTANCE.getSupervisor();
 
         /**
-         * The meta object literal for the '<em><b>Download Command</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Worker Start Timeout</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIFE_CYCLE__DOWNLOAD_COMMAND = eINSTANCE.getLifeCycle_DownloadCommand();
+        EAttribute SUPERVISOR__WORKER_START_TIMEOUT = eINSTANCE.getSupervisor_WorkerStartTimeout();
 
         /**
-         * The meta object literal for the '<em><b>Install Command</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Cpu Capacity</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIFE_CYCLE__INSTALL_COMMAND = eINSTANCE.getLifeCycle_InstallCommand();
+        EAttribute SUPERVISOR__CPU_CAPACITY = eINSTANCE.getSupervisor_CpuCapacity();
 
         /**
-         * The meta object literal for the '<em><b>Start Command</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Memory Capacity</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIFE_CYCLE__START_COMMAND = eINSTANCE.getLifeCycle_StartCommand();
+        EAttribute SUPERVISOR__MEMORY_CAPACITY = eINSTANCE.getSupervisor_MemoryCapacity();
 
         /**
-         * The meta object literal for the '<em><b>Stop Command</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Heartbeat Frequency</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIFE_CYCLE__STOP_COMMAND = eINSTANCE.getLifeCycle_StopCommand();
+        EAttribute SUPERVISOR__HEARTBEAT_FREQUENCY = eINSTANCE.getSupervisor_HeartbeatFrequency();
 
         /**
-         * The meta object literal for the '<em><b>Preconfigure Command</b></em>' containment reference feature.
+         * The meta object literal for the '{@link ddsm.impl.NimbusImpl <em>Nimbus</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * @see ddsm.impl.NimbusImpl
+         * @see ddsm.impl.DdsmPackageImpl#getNimbus()
          * @generated
          */
-        EReference LIFE_CYCLE__PRECONFIGURE_COMMAND = eINSTANCE.getLifeCycle_PreconfigureCommand();
+        EClass NIMBUS = eINSTANCE.getNimbus();
 
         /**
-         * The meta object literal for the '<em><b>Create Command</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Task Timeout</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIFE_CYCLE__CREATE_COMMAND = eINSTANCE.getLifeCycle_CreateCommand();
+        EAttribute NIMBUS__TASK_TIMEOUT = eINSTANCE.getNimbus_TaskTimeout();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
+         * The meta object literal for the '<em><b>Supervisor Frequency</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.StormSupervisorImpl
-         * @see ddsm.impl.DdsmPackageImpl#getStormSupervisor()
          * @generated
          */
-        EClass STORM_SUPERVISOR = eINSTANCE.getStormSupervisor();
+        EAttribute NIMBUS__SUPERVISOR_FREQUENCY = eINSTANCE.getNimbus_SupervisorFrequency();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
+         * The meta object literal for the '<em><b>Queue Size</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.StormNimbusImpl
-         * @see ddsm.impl.DdsmPackageImpl#getStormNimbus()
          * @generated
          */
-        EClass STORM_NIMBUS = eINSTANCE.getStormNimbus();
+        EAttribute NIMBUS__QUEUE_SIZE = eINSTANCE.getNimbus_QueueSize();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.ZookeeperImpl <em>Zookeeper</em>}' class.
+         * The meta object literal for the '<em><b>Monitor Frequency</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.ZookeeperImpl
-         * @see ddsm.impl.DdsmPackageImpl#getZookeeper()
          * @generated
          */
-        EClass ZOOKEEPER = eINSTANCE.getZookeeper();
+        EAttribute NIMBUS__MONITOR_FREQUENCY = eINSTANCE.getNimbus_MonitorFrequency();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.KafkaImpl <em>Kafka</em>}' class.
+         * The meta object literal for the '<em><b>Retry Times</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.KafkaImpl
-         * @see ddsm.impl.DdsmPackageImpl#getKafka()
          * @generated
          */
-        EClass KAFKA = eINSTANCE.getKafka();
+        EAttribute NIMBUS__RETRY_TIMES = eINSTANCE.getNimbus_RetryTimes();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.ClusterImpl <em>Cluster</em>}' class.
+         * The meta object literal for the '<em><b>Retry Interval</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.ClusterImpl
-         * @see ddsm.impl.DdsmPackageImpl#getCluster()
          * @generated
          */
-        EClass CLUSTER = eINSTANCE.getCluster();
+        EAttribute NIMBUS__RETRY_INTERVAL = eINSTANCE.getNimbus_RetryInterval();
 
         /**
-         * The meta object literal for the '<em><b>Has Vm</b></em>' reference list feature.
+         * The meta object literal for the '{@link ddsm.impl.ZookeeperServerImpl <em>Zookeeper Server</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.ZookeeperServerImpl
+         * @see ddsm.impl.DdsmPackageImpl#getZookeeperServer()
+         * @generated
+         */
+        EClass ZOOKEEPER_SERVER = eINSTANCE.getZookeeperServer();
+
+        /**
+         * The meta object literal for the '<em><b>Tick Time</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CLUSTER__HAS_VM = eINSTANCE.getCluster_HasVm();
+        EAttribute ZOOKEEPER_SERVER__TICK_TIME = eINSTANCE.getZookeeperServer_TickTime();
+
+        /**
+         * The meta object literal for the '<em><b>Sync Limit</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ZOOKEEPER_SERVER__SYNC_LIMIT = eINSTANCE.getZookeeperServer_SyncLimit();
+
+        /**
+         * The meta object literal for the '<em><b>Init Limit</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ZOOKEEPER_SERVER__INIT_LIMIT = eINSTANCE.getZookeeperServer_InitLimit();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.ClientNodeImpl <em>Client Node</em>}' class.
@@ -4794,28 +6553,36 @@ public interface DdsmPackage extends EPackage {
         EClass CLIENT_NODE = eINSTANCE.getClientNode();
 
         /**
-         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Submits</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CLIENT_NODE__TYPE = eINSTANCE.getClientNode_Type();
+        EReference CLIENT_NODE__SUBMITS = eINSTANCE.getClientNode_Submits();
 
         /**
-         * The meta object literal for the '<em><b>Artifact Url</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Skip Running Job</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CLIENT_NODE__ARTIFACT_URL = eINSTANCE.getClientNode_ArtifactUrl();
+        EAttribute CLIENT_NODE__SKIP_RUNNING_JOB = eINSTANCE.getClientNode_SkipRunningJob();
 
         /**
-         * The meta object literal for the '<em><b>Main Class</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Number Of Submissions</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CLIENT_NODE__MAIN_CLASS = eINSTANCE.getClientNode_MainClass();
+        EAttribute CLIENT_NODE__NUMBER_OF_SUBMISSIONS = eINSTANCE.getClientNode_NumberOfSubmissions();
+
+        /**
+         * The meta object literal for the '<em><b>Has Schedule</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CLIENT_NODE__HAS_SCHEDULE = eINSTANCE.getClientNode_HasSchedule();
 
         /**
          * The meta object literal for the '{@link ddsm.impl.YarnResourceManagerImpl <em>Yarn Resource Manager</em>}' class.
@@ -4858,30 +6625,276 @@ public interface DdsmPackage extends EPackage {
         EClass HDFS_DATA_NODE = eINSTANCE.getHDFSDataNode();
 
         /**
-         * The meta object literal for the '{@link ddsm.impl.ScriptImpl <em>Script</em>}' class.
+         * The meta object literal for the '{@link ddsm.impl.ChefResourceImpl <em>Chef Resource</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ddsm.impl.ScriptImpl
-         * @see ddsm.impl.DdsmPackageImpl#getScript()
+         * @see ddsm.impl.ChefResourceImpl
+         * @see ddsm.impl.DdsmPackageImpl#getChefResource()
          * @generated
          */
-        EClass SCRIPT = eINSTANCE.getScript();
+        EClass CHEF_RESOURCE = eINSTANCE.getChefResource();
 
         /**
-         * The meta object literal for the '<em><b>Script Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Cookbook Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT__SCRIPT_ID = eINSTANCE.getScript_ScriptId();
+        EAttribute CHEF_RESOURCE__COOKBOOK_ID = eINSTANCE.getChefResource_CookbookId();
 
         /**
-         * The meta object literal for the '<em><b>Script Uri</b></em>' attribute feature.
+         * The meta object literal for the '{@link ddsm.impl.StormClusterImpl <em>Storm Cluster</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.StormClusterImpl
+         * @see ddsm.impl.DdsmPackageImpl#getStormCluster()
+         * @generated
+         */
+        EClass STORM_CLUSTER = eINSTANCE.getStormCluster();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.JobSubmissionImpl <em>Job Submission</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.JobSubmissionImpl
+         * @see ddsm.impl.DdsmPackageImpl#getJobSubmission()
+         * @generated
+         */
+        EClass JOB_SUBMISSION = eINSTANCE.getJobSubmission();
+
+        /**
+         * The meta object literal for the '<em><b>Artifact Url</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT__SCRIPT_URI = eINSTANCE.getScript_ScriptUri();
+        EAttribute JOB_SUBMISSION__ARTIFACT_URL = eINSTANCE.getJobSubmission_ArtifactUrl();
+
+        /**
+         * The meta object literal for the '<em><b>Main Class</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JOB_SUBMISSION__MAIN_CLASS = eINSTANCE.getJobSubmission_MainClass();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.MasterNodeImpl <em>Master Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.MasterNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getMasterNode()
+         * @generated
+         */
+        EClass MASTER_NODE = eINSTANCE.getMasterNode();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.SlaveNodeImpl <em>Slave Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.SlaveNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getSlaveNode()
+         * @generated
+         */
+        EClass SLAVE_NODE = eINSTANCE.getSlaveNode();
+
+        /**
+         * The meta object literal for the '<em><b>Has Master</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SLAVE_NODE__HAS_MASTER = eINSTANCE.getSlaveNode_HasMaster();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.ZookeeperQuorumImpl <em>Zookeeper Quorum</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.ZookeeperQuorumImpl
+         * @see ddsm.impl.DdsmPackageImpl#getZookeeperQuorum()
+         * @generated
+         */
+        EClass ZOOKEEPER_QUORUM = eINSTANCE.getZookeeperQuorum();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.CassandraWorkerImpl <em>Cassandra Worker</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.CassandraWorkerImpl
+         * @see ddsm.impl.DdsmPackageImpl#getCassandraWorker()
+         * @generated
+         */
+        EClass CASSANDRA_WORKER = eINSTANCE.getCassandraWorker();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.ZookeeperClusterImpl <em>Zookeeper Cluster</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.ZookeeperClusterImpl
+         * @see ddsm.impl.DdsmPackageImpl#getZookeeperCluster()
+         * @generated
+         */
+        EClass ZOOKEEPER_CLUSTER = eINSTANCE.getZookeeperCluster();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.CassandraClusterImpl <em>Cassandra Cluster</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.CassandraClusterImpl
+         * @see ddsm.impl.DdsmPackageImpl#getCassandraCluster()
+         * @generated
+         */
+        EClass CASSANDRA_CLUSTER = eINSTANCE.getCassandraCluster();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.PeerNodeImpl <em>Peer Node</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.PeerNodeImpl
+         * @see ddsm.impl.DdsmPackageImpl#getPeerNode()
+         * @generated
+         */
+        EClass PEER_NODE = eINSTANCE.getPeerNode();
+
+        /**
+         * The meta object literal for the '<em><b>Belongs To Quorum</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PEER_NODE__BELONGS_TO_QUORUM = eINSTANCE.getPeerNode_BelongsToQuorum();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.PeersQuorumImpl <em>Peers Quorum</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.PeersQuorumImpl
+         * @see ddsm.impl.DdsmPackageImpl#getPeersQuorum()
+         * @generated
+         */
+        EClass PEERS_QUORUM = eINSTANCE.getPeersQuorum();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.PeerToPeerPlatformImpl <em>Peer To Peer Platform</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.PeerToPeerPlatformImpl
+         * @see ddsm.impl.DdsmPackageImpl#getPeerToPeerPlatform()
+         * @generated
+         */
+        EClass PEER_TO_PEER_PLATFORM = eINSTANCE.getPeerToPeerPlatform();
+
+        /**
+         * The meta object literal for the '<em><b>Requires Peer Vm</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PEER_TO_PEER_PLATFORM__REQUIRES_PEER_VM = eINSTANCE.getPeerToPeerPlatform_RequiresPeerVm();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.MasterSlavePlatformImpl <em>Master Slave Platform</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.MasterSlavePlatformImpl
+         * @see ddsm.impl.DdsmPackageImpl#getMasterSlavePlatform()
+         * @generated
+         */
+        EClass MASTER_SLAVE_PLATFORM = eINSTANCE.getMasterSlavePlatform();
+
+        /**
+         * The meta object literal for the '<em><b>Requires Master Vm</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MASTER_SLAVE_PLATFORM__REQUIRES_MASTER_VM = eINSTANCE.getMasterSlavePlatform_RequiresMasterVm();
+
+        /**
+         * The meta object literal for the '<em><b>Requires Slave Vm</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MASTER_SLAVE_PLATFORM__REQUIRES_SLAVE_VM = eINSTANCE.getMasterSlavePlatform_RequiresSlaveVm();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.CassandraQuorumImpl <em>Cassandra Quorum</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.CassandraQuorumImpl
+         * @see ddsm.impl.DdsmPackageImpl#getCassandraQuorum()
+         * @generated
+         */
+        EClass CASSANDRA_QUORUM = eINSTANCE.getCassandraQuorum();
+
+        /**
+         * The meta object literal for the '<em><b>Requires bootstrapping seed</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CASSANDRA_QUORUM__REQUIRES_BOOTSTRAPPING_SEED = eINSTANCE.getCassandraQuorum_Requires_bootstrapping_seed();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.CassandraSeedImpl <em>Cassandra Seed</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.CassandraSeedImpl
+         * @see ddsm.impl.DdsmPackageImpl#getCassandraSeed()
+         * @generated
+         */
+        EClass CASSANDRA_SEED = eINSTANCE.getCassandraSeed();
+
+        /**
+         * The meta object literal for the '{@link ddsm.impl.CrontabImpl <em>Crontab</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ddsm.impl.CrontabImpl
+         * @see ddsm.impl.DdsmPackageImpl#getCrontab()
+         * @generated
+         */
+        EClass CRONTAB = eINSTANCE.getCrontab();
+
+        /**
+         * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CRONTAB__MIN = eINSTANCE.getCrontab_Min();
+
+        /**
+         * The meta object literal for the '<em><b>Hour</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CRONTAB__HOUR = eINSTANCE.getCrontab_Hour();
+
+        /**
+         * The meta object literal for the '<em><b>Day Of Month</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CRONTAB__DAY_OF_MONTH = eINSTANCE.getCrontab_DayOfMonth();
+
+        /**
+         * The meta object literal for the '<em><b>Month</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CRONTAB__MONTH = eINSTANCE.getCrontab_Month();
+
+        /**
+         * The meta object literal for the '<em><b>Day Of Week</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CRONTAB__DAY_OF_WEEK = eINSTANCE.getCrontab_DayOfWeek();
 
         /**
          * The meta object literal for the '{@link ddsm.VMSize <em>VM Size</em>}' enum.

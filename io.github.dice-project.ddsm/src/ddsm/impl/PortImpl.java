@@ -6,7 +6,9 @@ import ddsm.DdsmPackage;
 import ddsm.Port;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -33,6 +35,7 @@ public abstract class PortImpl extends CloudElementImpl implements Port {
      * @ordered
      */
     protected static final boolean IS_LOCAL_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isIsLocal() <em>Is Local</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -42,6 +45,7 @@ public abstract class PortImpl extends CloudElementImpl implements Port {
      * @ordered
      */
     protected boolean isLocal = IS_LOCAL_EDEFAULT;
+
     /**
      * The default value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -51,6 +55,7 @@ public abstract class PortImpl extends CloudElementImpl implements Port {
      * @ordered
      */
     protected static final String PORT_NUMBER_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
      * <!-- begin-user-doc -->

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link ddsm.impl.ExternalComponentImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link ddsm.impl.ExternalComponentImpl#getRegion <em>Region</em>}</li>
  *   <li>{@link ddsm.impl.ExternalComponentImpl#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link ddsm.impl.ExternalComponentImpl#getEndPoint <em>End Point</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +52,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected static final String LOCATION_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -60,6 +62,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected String location = LOCATION_EDEFAULT;
+
     /**
      * The default value of the '{@link #getLogin() <em>Login</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -69,6 +72,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected static final String LOGIN_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getLogin() <em>Login</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -78,6 +82,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected String login = LOGIN_EDEFAULT;
+
     /**
      * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -87,6 +92,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected static final String PASSWORD_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -96,6 +102,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected String password = PASSWORD_EDEFAULT;
+
     /**
      * The default value of the '{@link #getRegion() <em>Region</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -105,6 +112,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected static final String REGION_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getRegion() <em>Region</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -114,6 +122,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected String region = REGION_EDEFAULT;
+
     /**
      * The default value of the '{@link #getServiceType() <em>Service Type</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -123,6 +132,7 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected static final String SERVICE_TYPE_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -132,6 +142,26 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * @ordered
      */
     protected String serviceType = SERVICE_TYPE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getEndPoint() <em>End Point</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getEndPoint()
+     * @generated
+     * @ordered
+     */
+    protected static final String END_POINT_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getEndPoint() <em>End Point</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getEndPoint()
+     * @generated
+     * @ordered
+     */
+    protected String endPoint = END_POINT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -300,6 +330,27 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getEndPoint() {
+        return endPoint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEndPoint(String newEndPoint) {
+        String oldEndPoint = endPoint;
+        endPoint = newEndPoint;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.EXTERNAL_COMPONENT__END_POINT, oldEndPoint, endPoint));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -316,6 +367,8 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
                 return getRegion();
             case DdsmPackage.EXTERNAL_COMPONENT__SERVICE_TYPE:
                 return getServiceType();
+            case DdsmPackage.EXTERNAL_COMPONENT__END_POINT:
+                return getEndPoint();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -345,6 +398,9 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
                 return;
             case DdsmPackage.EXTERNAL_COMPONENT__SERVICE_TYPE:
                 setServiceType((String)newValue);
+                return;
+            case DdsmPackage.EXTERNAL_COMPONENT__END_POINT:
+                setEndPoint((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -376,6 +432,9 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
             case DdsmPackage.EXTERNAL_COMPONENT__SERVICE_TYPE:
                 setServiceType(SERVICE_TYPE_EDEFAULT);
                 return;
+            case DdsmPackage.EXTERNAL_COMPONENT__END_POINT:
+                setEndPoint(END_POINT_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -400,6 +459,8 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
                 return REGION_EDEFAULT == null ? region != null : !REGION_EDEFAULT.equals(region);
             case DdsmPackage.EXTERNAL_COMPONENT__SERVICE_TYPE:
                 return SERVICE_TYPE_EDEFAULT == null ? serviceType != null : !SERVICE_TYPE_EDEFAULT.equals(serviceType);
+            case DdsmPackage.EXTERNAL_COMPONENT__END_POINT:
+                return END_POINT_EDEFAULT == null ? endPoint != null : !END_POINT_EDEFAULT.equals(endPoint);
         }
         return super.eIsSet(featureID);
     }
@@ -424,6 +485,8 @@ public class ExternalComponentImpl extends ComponentImpl implements ExternalComp
         result.append(region);
         result.append(", serviceType: ");
         result.append(serviceType);
+        result.append(", endPoint: ");
+        result.append(endPoint);
         result.append(')');
         return result.toString();
     }

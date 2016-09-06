@@ -20,7 +20,6 @@ package ddsm;
  * @generated
  */
 public interface RequiredPort extends Port {
-
     /**
      * Returns the value of the '<em><b>Is Mandatory</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface RequiredPort extends Port {
      * @generated
      */
     void setIsMandatory(boolean value);
+
 } // RequiredPort

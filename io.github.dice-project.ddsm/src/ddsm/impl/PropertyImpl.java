@@ -91,27 +91,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue() {
-        return value;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setValue(String newValue) {
-        String oldValue = value;
-        value = newValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.PROPERTY__VALUE, oldValue, value));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getPropertyId() {
         return propertyId;
     }
@@ -126,6 +105,27 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
         propertyId = newPropertyId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.PROPERTY__PROPERTY_ID, oldPropertyId, propertyId));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setValue(String newValue) {
+        String oldValue = value;
+        value = newValue;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.PROPERTY__VALUE, oldValue, value));
     }
 
     /**

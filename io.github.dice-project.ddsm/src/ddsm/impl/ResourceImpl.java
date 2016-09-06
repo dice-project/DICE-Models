@@ -4,11 +4,10 @@ package ddsm.impl;
 
 import ddsm.DdsmPackage;
 import ddsm.Resource;
-import ddsm.Script;
+
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -22,7 +21,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link ddsm.impl.ResourceImpl#getResourceId <em>Resource Id</em>}</li>
- *   <li>{@link ddsm.impl.ResourceImpl#getScripts <em>Scripts</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getDownloadCommand <em>Download Command</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getCreateCommand <em>Create Command</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getConfigureCommand <em>Configure Command</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getInstallCommand <em>Install Command</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getStartCommand <em>Start Command</em>}</li>
+ *   <li>{@link ddsm.impl.ResourceImpl#getStopCommand <em>Stop Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,14 +53,124 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     protected String resourceId = RESOURCE_ID_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' containment reference.
+     * The default value of the '{@link #getDownloadCommand() <em>Download Command</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getScripts()
+     * @see #getDownloadCommand()
      * @generated
      * @ordered
      */
-    protected Script scripts;
+    protected static final String DOWNLOAD_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getDownloadCommand() <em>Download Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDownloadCommand()
+     * @generated
+     * @ordered
+     */
+    protected String downloadCommand = DOWNLOAD_COMMAND_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getCreateCommand() <em>Create Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCreateCommand()
+     * @generated
+     * @ordered
+     */
+    protected static final String CREATE_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getCreateCommand() <em>Create Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCreateCommand()
+     * @generated
+     * @ordered
+     */
+    protected String createCommand = CREATE_COMMAND_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getConfigureCommand() <em>Configure Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConfigureCommand()
+     * @generated
+     * @ordered
+     */
+    protected static final String CONFIGURE_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getConfigureCommand() <em>Configure Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConfigureCommand()
+     * @generated
+     * @ordered
+     */
+    protected String configureCommand = CONFIGURE_COMMAND_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getInstallCommand() <em>Install Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInstallCommand()
+     * @generated
+     * @ordered
+     */
+    protected static final String INSTALL_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getInstallCommand() <em>Install Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInstallCommand()
+     * @generated
+     * @ordered
+     */
+    protected String installCommand = INSTALL_COMMAND_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getStartCommand() <em>Start Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStartCommand()
+     * @generated
+     * @ordered
+     */
+    protected static final String START_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getStartCommand() <em>Start Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStartCommand()
+     * @generated
+     * @ordered
+     */
+    protected String startCommand = START_COMMAND_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getStopCommand() <em>Stop Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStopCommand()
+     * @generated
+     * @ordered
+     */
+    protected static final String STOP_COMMAND_EDEFAULT = "";
+
+    /**
+     * The cached value of the '{@link #getStopCommand() <em>Stop Command</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStopCommand()
+     * @generated
+     * @ordered
+     */
+    protected String stopCommand = STOP_COMMAND_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -103,8 +217,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script getScripts() {
-        return scripts;
+    public String getDownloadCommand() {
+        return downloadCommand;
     }
 
     /**
@@ -112,14 +226,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScripts(Script newScripts, NotificationChain msgs) {
-        Script oldScripts = scripts;
-        scripts = newScripts;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__SCRIPTS, oldScripts, newScripts);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
+    public void setDownloadCommand(String newDownloadCommand) {
+        String oldDownloadCommand = downloadCommand;
+        downloadCommand = newDownloadCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__DOWNLOAD_COMMAND, oldDownloadCommand, downloadCommand));
     }
 
     /**
@@ -127,18 +238,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setScripts(Script newScripts) {
-        if (newScripts != scripts) {
-            NotificationChain msgs = null;
-            if (scripts != null)
-                msgs = ((InternalEObject)scripts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.RESOURCE__SCRIPTS, null, msgs);
-            if (newScripts != null)
-                msgs = ((InternalEObject)newScripts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DdsmPackage.RESOURCE__SCRIPTS, null, msgs);
-            msgs = basicSetScripts(newScripts, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__SCRIPTS, newScripts, newScripts));
+    public String getCreateCommand() {
+        return createCommand;
     }
 
     /**
@@ -146,13 +247,95 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case DdsmPackage.RESOURCE__SCRIPTS:
-                return basicSetScripts(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+    public void setCreateCommand(String newCreateCommand) {
+        String oldCreateCommand = createCommand;
+        createCommand = newCreateCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__CREATE_COMMAND, oldCreateCommand, createCommand));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getConfigureCommand() {
+        return configureCommand;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setConfigureCommand(String newConfigureCommand) {
+        String oldConfigureCommand = configureCommand;
+        configureCommand = newConfigureCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__CONFIGURE_COMMAND, oldConfigureCommand, configureCommand));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getInstallCommand() {
+        return installCommand;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInstallCommand(String newInstallCommand) {
+        String oldInstallCommand = installCommand;
+        installCommand = newInstallCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__INSTALL_COMMAND, oldInstallCommand, installCommand));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getStartCommand() {
+        return startCommand;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setStartCommand(String newStartCommand) {
+        String oldStartCommand = startCommand;
+        startCommand = newStartCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__START_COMMAND, oldStartCommand, startCommand));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getStopCommand() {
+        return stopCommand;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setStopCommand(String newStopCommand) {
+        String oldStopCommand = stopCommand;
+        stopCommand = newStopCommand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.RESOURCE__STOP_COMMAND, oldStopCommand, stopCommand));
     }
 
     /**
@@ -165,8 +348,18 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
         switch (featureID) {
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 return getResourceId();
-            case DdsmPackage.RESOURCE__SCRIPTS:
-                return getScripts();
+            case DdsmPackage.RESOURCE__DOWNLOAD_COMMAND:
+                return getDownloadCommand();
+            case DdsmPackage.RESOURCE__CREATE_COMMAND:
+                return getCreateCommand();
+            case DdsmPackage.RESOURCE__CONFIGURE_COMMAND:
+                return getConfigureCommand();
+            case DdsmPackage.RESOURCE__INSTALL_COMMAND:
+                return getInstallCommand();
+            case DdsmPackage.RESOURCE__START_COMMAND:
+                return getStartCommand();
+            case DdsmPackage.RESOURCE__STOP_COMMAND:
+                return getStopCommand();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -176,15 +369,29 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 setResourceId((String)newValue);
                 return;
-            case DdsmPackage.RESOURCE__SCRIPTS:
-                setScripts((Script)newValue);
+            case DdsmPackage.RESOURCE__DOWNLOAD_COMMAND:
+                setDownloadCommand((String)newValue);
+                return;
+            case DdsmPackage.RESOURCE__CREATE_COMMAND:
+                setCreateCommand((String)newValue);
+                return;
+            case DdsmPackage.RESOURCE__CONFIGURE_COMMAND:
+                setConfigureCommand((String)newValue);
+                return;
+            case DdsmPackage.RESOURCE__INSTALL_COMMAND:
+                setInstallCommand((String)newValue);
+                return;
+            case DdsmPackage.RESOURCE__START_COMMAND:
+                setStartCommand((String)newValue);
+                return;
+            case DdsmPackage.RESOURCE__STOP_COMMAND:
+                setStopCommand((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -201,8 +408,23 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 setResourceId(RESOURCE_ID_EDEFAULT);
                 return;
-            case DdsmPackage.RESOURCE__SCRIPTS:
-                setScripts((Script)null);
+            case DdsmPackage.RESOURCE__DOWNLOAD_COMMAND:
+                setDownloadCommand(DOWNLOAD_COMMAND_EDEFAULT);
+                return;
+            case DdsmPackage.RESOURCE__CREATE_COMMAND:
+                setCreateCommand(CREATE_COMMAND_EDEFAULT);
+                return;
+            case DdsmPackage.RESOURCE__CONFIGURE_COMMAND:
+                setConfigureCommand(CONFIGURE_COMMAND_EDEFAULT);
+                return;
+            case DdsmPackage.RESOURCE__INSTALL_COMMAND:
+                setInstallCommand(INSTALL_COMMAND_EDEFAULT);
+                return;
+            case DdsmPackage.RESOURCE__START_COMMAND:
+                setStartCommand(START_COMMAND_EDEFAULT);
+                return;
+            case DdsmPackage.RESOURCE__STOP_COMMAND:
+                setStopCommand(STOP_COMMAND_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -218,8 +440,18 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
         switch (featureID) {
             case DdsmPackage.RESOURCE__RESOURCE_ID:
                 return RESOURCE_ID_EDEFAULT == null ? resourceId != null : !RESOURCE_ID_EDEFAULT.equals(resourceId);
-            case DdsmPackage.RESOURCE__SCRIPTS:
-                return scripts != null;
+            case DdsmPackage.RESOURCE__DOWNLOAD_COMMAND:
+                return DOWNLOAD_COMMAND_EDEFAULT == null ? downloadCommand != null : !DOWNLOAD_COMMAND_EDEFAULT.equals(downloadCommand);
+            case DdsmPackage.RESOURCE__CREATE_COMMAND:
+                return CREATE_COMMAND_EDEFAULT == null ? createCommand != null : !CREATE_COMMAND_EDEFAULT.equals(createCommand);
+            case DdsmPackage.RESOURCE__CONFIGURE_COMMAND:
+                return CONFIGURE_COMMAND_EDEFAULT == null ? configureCommand != null : !CONFIGURE_COMMAND_EDEFAULT.equals(configureCommand);
+            case DdsmPackage.RESOURCE__INSTALL_COMMAND:
+                return INSTALL_COMMAND_EDEFAULT == null ? installCommand != null : !INSTALL_COMMAND_EDEFAULT.equals(installCommand);
+            case DdsmPackage.RESOURCE__START_COMMAND:
+                return START_COMMAND_EDEFAULT == null ? startCommand != null : !START_COMMAND_EDEFAULT.equals(startCommand);
+            case DdsmPackage.RESOURCE__STOP_COMMAND:
+                return STOP_COMMAND_EDEFAULT == null ? stopCommand != null : !STOP_COMMAND_EDEFAULT.equals(stopCommand);
         }
         return super.eIsSet(featureID);
     }
@@ -236,6 +468,18 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (resourceId: ");
         result.append(resourceId);
+        result.append(", downloadCommand: ");
+        result.append(downloadCommand);
+        result.append(", createCommand: ");
+        result.append(createCommand);
+        result.append(", configureCommand: ");
+        result.append(configureCommand);
+        result.append(", installCommand: ");
+        result.append(installCommand);
+        result.append(", startCommand: ");
+        result.append(startCommand);
+        result.append(", stopCommand: ");
+        result.append(stopCommand);
         result.append(')');
         return result.toString();
     }

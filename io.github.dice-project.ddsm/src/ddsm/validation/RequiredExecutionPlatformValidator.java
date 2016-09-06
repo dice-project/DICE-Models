@@ -15,5 +15,4 @@ public interface RequiredExecutionPlatformValidator {
     boolean validate();
 
     boolean validateIsMandatory(boolean value);
-
 }

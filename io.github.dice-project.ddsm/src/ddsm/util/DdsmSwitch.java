@@ -189,55 +189,33 @@ public class DdsmSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.LIFE_CYCLE: {
-                LifeCycle lifeCycle = (LifeCycle)theEObject;
-                T result = caseLifeCycle(lifeCycle);
-                if (result == null) result = caseResource(lifeCycle);
+            case DdsmPackage.SUPERVISOR: {
+                Supervisor supervisor = (Supervisor)theEObject;
+                T result = caseSupervisor(supervisor);
+                if (result == null) result = caseSlaveNode(supervisor);
+                if (result == null) result = caseInternalComponent(supervisor);
+                if (result == null) result = caseComponent(supervisor);
+                if (result == null) result = caseCloudElement(supervisor);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.STORM_SUPERVISOR: {
-                StormSupervisor stormSupervisor = (StormSupervisor)theEObject;
-                T result = caseStormSupervisor(stormSupervisor);
-                if (result == null) result = caseInternalComponent(stormSupervisor);
-                if (result == null) result = caseComponent(stormSupervisor);
-                if (result == null) result = caseCloudElement(stormSupervisor);
+            case DdsmPackage.NIMBUS: {
+                Nimbus nimbus = (Nimbus)theEObject;
+                T result = caseNimbus(nimbus);
+                if (result == null) result = caseMasterNode(nimbus);
+                if (result == null) result = caseInternalComponent(nimbus);
+                if (result == null) result = caseComponent(nimbus);
+                if (result == null) result = caseCloudElement(nimbus);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.STORM_NIMBUS: {
-                StormNimbus stormNimbus = (StormNimbus)theEObject;
-                T result = caseStormNimbus(stormNimbus);
-                if (result == null) result = caseInternalComponent(stormNimbus);
-                if (result == null) result = caseComponent(stormNimbus);
-                if (result == null) result = caseCloudElement(stormNimbus);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.ZOOKEEPER: {
-                Zookeeper zookeeper = (Zookeeper)theEObject;
-                T result = caseZookeeper(zookeeper);
-                if (result == null) result = caseInternalComponent(zookeeper);
-                if (result == null) result = caseComponent(zookeeper);
-                if (result == null) result = caseCloudElement(zookeeper);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.KAFKA: {
-                Kafka kafka = (Kafka)theEObject;
-                T result = caseKafka(kafka);
-                if (result == null) result = caseInternalComponent(kafka);
-                if (result == null) result = caseComponent(kafka);
-                if (result == null) result = caseCloudElement(kafka);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DdsmPackage.CLUSTER: {
-                Cluster cluster = (Cluster)theEObject;
-                T result = caseCluster(cluster);
-                if (result == null) result = caseExternalComponent(cluster);
-                if (result == null) result = caseComponent(cluster);
-                if (result == null) result = caseCloudElement(cluster);
+            case DdsmPackage.ZOOKEEPER_SERVER: {
+                ZookeeperServer zookeeperServer = (ZookeeperServer)theEObject;
+                T result = caseZookeeperServer(zookeeperServer);
+                if (result == null) result = casePeerNode(zookeeperServer);
+                if (result == null) result = caseInternalComponent(zookeeperServer);
+                if (result == null) result = caseComponent(zookeeperServer);
+                if (result == null) result = caseCloudElement(zookeeperServer);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -253,6 +231,7 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.YARN_RESOURCE_MANAGER: {
                 YarnResourceManager yarnResourceManager = (YarnResourceManager)theEObject;
                 T result = caseYarnResourceManager(yarnResourceManager);
+                if (result == null) result = caseMasterNode(yarnResourceManager);
                 if (result == null) result = caseInternalComponent(yarnResourceManager);
                 if (result == null) result = caseComponent(yarnResourceManager);
                 if (result == null) result = caseCloudElement(yarnResourceManager);
@@ -262,6 +241,7 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.YARN_NODE_MANAGER: {
                 YarnNodeManager yarnNodeManager = (YarnNodeManager)theEObject;
                 T result = caseYarnNodeManager(yarnNodeManager);
+                if (result == null) result = caseSlaveNode(yarnNodeManager);
                 if (result == null) result = caseInternalComponent(yarnNodeManager);
                 if (result == null) result = caseComponent(yarnNodeManager);
                 if (result == null) result = caseCloudElement(yarnNodeManager);
@@ -271,6 +251,7 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.HDFS_NAME_NODE: {
                 HDFSNameNode hdfsNameNode = (HDFSNameNode)theEObject;
                 T result = caseHDFSNameNode(hdfsNameNode);
+                if (result == null) result = caseMasterNode(hdfsNameNode);
                 if (result == null) result = caseInternalComponent(hdfsNameNode);
                 if (result == null) result = caseComponent(hdfsNameNode);
                 if (result == null) result = caseCloudElement(hdfsNameNode);
@@ -280,15 +261,153 @@ public class DdsmSwitch<T> extends Switch<T> {
             case DdsmPackage.HDFS_DATA_NODE: {
                 HDFSDataNode hdfsDataNode = (HDFSDataNode)theEObject;
                 T result = caseHDFSDataNode(hdfsDataNode);
+                if (result == null) result = caseSlaveNode(hdfsDataNode);
                 if (result == null) result = caseInternalComponent(hdfsDataNode);
                 if (result == null) result = caseComponent(hdfsDataNode);
                 if (result == null) result = caseCloudElement(hdfsDataNode);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DdsmPackage.SCRIPT: {
-                Script script = (Script)theEObject;
-                T result = caseScript(script);
+            case DdsmPackage.CHEF_RESOURCE: {
+                ChefResource chefResource = (ChefResource)theEObject;
+                T result = caseChefResource(chefResource);
+                if (result == null) result = caseResource(chefResource);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.STORM_CLUSTER: {
+                StormCluster stormCluster = (StormCluster)theEObject;
+                T result = caseStormCluster(stormCluster);
+                if (result == null) result = caseMasterSlavePlatform(stormCluster);
+                if (result == null) result = caseInternalComponent(stormCluster);
+                if (result == null) result = caseComponent(stormCluster);
+                if (result == null) result = caseCloudElement(stormCluster);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.JOB_SUBMISSION: {
+                JobSubmission jobSubmission = (JobSubmission)theEObject;
+                T result = caseJobSubmission(jobSubmission);
+                if (result == null) result = caseCloudElement(jobSubmission);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.MASTER_NODE: {
+                MasterNode masterNode = (MasterNode)theEObject;
+                T result = caseMasterNode(masterNode);
+                if (result == null) result = caseInternalComponent(masterNode);
+                if (result == null) result = caseComponent(masterNode);
+                if (result == null) result = caseCloudElement(masterNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.SLAVE_NODE: {
+                SlaveNode slaveNode = (SlaveNode)theEObject;
+                T result = caseSlaveNode(slaveNode);
+                if (result == null) result = caseInternalComponent(slaveNode);
+                if (result == null) result = caseComponent(slaveNode);
+                if (result == null) result = caseCloudElement(slaveNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.ZOOKEEPER_QUORUM: {
+                ZookeeperQuorum zookeeperQuorum = (ZookeeperQuorum)theEObject;
+                T result = caseZookeeperQuorum(zookeeperQuorum);
+                if (result == null) result = casePeersQuorum(zookeeperQuorum);
+                if (result == null) result = caseInternalComponent(zookeeperQuorum);
+                if (result == null) result = caseComponent(zookeeperQuorum);
+                if (result == null) result = caseCloudElement(zookeeperQuorum);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CASSANDRA_WORKER: {
+                CassandraWorker cassandraWorker = (CassandraWorker)theEObject;
+                T result = caseCassandraWorker(cassandraWorker);
+                if (result == null) result = casePeerNode(cassandraWorker);
+                if (result == null) result = caseInternalComponent(cassandraWorker);
+                if (result == null) result = caseComponent(cassandraWorker);
+                if (result == null) result = caseCloudElement(cassandraWorker);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.ZOOKEEPER_CLUSTER: {
+                ZookeeperCluster zookeeperCluster = (ZookeeperCluster)theEObject;
+                T result = caseZookeeperCluster(zookeeperCluster);
+                if (result == null) result = casePeerToPeerPlatform(zookeeperCluster);
+                if (result == null) result = caseInternalComponent(zookeeperCluster);
+                if (result == null) result = caseComponent(zookeeperCluster);
+                if (result == null) result = caseCloudElement(zookeeperCluster);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CASSANDRA_CLUSTER: {
+                CassandraCluster cassandraCluster = (CassandraCluster)theEObject;
+                T result = caseCassandraCluster(cassandraCluster);
+                if (result == null) result = casePeerToPeerPlatform(cassandraCluster);
+                if (result == null) result = caseInternalComponent(cassandraCluster);
+                if (result == null) result = caseComponent(cassandraCluster);
+                if (result == null) result = caseCloudElement(cassandraCluster);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.PEER_NODE: {
+                PeerNode peerNode = (PeerNode)theEObject;
+                T result = casePeerNode(peerNode);
+                if (result == null) result = caseInternalComponent(peerNode);
+                if (result == null) result = caseComponent(peerNode);
+                if (result == null) result = caseCloudElement(peerNode);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.PEERS_QUORUM: {
+                PeersQuorum peersQuorum = (PeersQuorum)theEObject;
+                T result = casePeersQuorum(peersQuorum);
+                if (result == null) result = caseInternalComponent(peersQuorum);
+                if (result == null) result = caseComponent(peersQuorum);
+                if (result == null) result = caseCloudElement(peersQuorum);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.PEER_TO_PEER_PLATFORM: {
+                PeerToPeerPlatform peerToPeerPlatform = (PeerToPeerPlatform)theEObject;
+                T result = casePeerToPeerPlatform(peerToPeerPlatform);
+                if (result == null) result = caseInternalComponent(peerToPeerPlatform);
+                if (result == null) result = caseComponent(peerToPeerPlatform);
+                if (result == null) result = caseCloudElement(peerToPeerPlatform);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.MASTER_SLAVE_PLATFORM: {
+                MasterSlavePlatform masterSlavePlatform = (MasterSlavePlatform)theEObject;
+                T result = caseMasterSlavePlatform(masterSlavePlatform);
+                if (result == null) result = caseInternalComponent(masterSlavePlatform);
+                if (result == null) result = caseComponent(masterSlavePlatform);
+                if (result == null) result = caseCloudElement(masterSlavePlatform);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CASSANDRA_QUORUM: {
+                CassandraQuorum cassandraQuorum = (CassandraQuorum)theEObject;
+                T result = caseCassandraQuorum(cassandraQuorum);
+                if (result == null) result = casePeersQuorum(cassandraQuorum);
+                if (result == null) result = caseInternalComponent(cassandraQuorum);
+                if (result == null) result = caseComponent(cassandraQuorum);
+                if (result == null) result = caseCloudElement(cassandraQuorum);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CASSANDRA_SEED: {
+                CassandraSeed cassandraSeed = (CassandraSeed)theEObject;
+                T result = caseCassandraSeed(cassandraSeed);
+                if (result == null) result = caseInternalComponent(cassandraSeed);
+                if (result == null) result = caseComponent(cassandraSeed);
+                if (result == null) result = caseCloudElement(cassandraSeed);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DdsmPackage.CRONTAB: {
+                Crontab crontab = (Crontab)theEObject;
+                T result = caseCrontab(crontab);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -552,92 +671,47 @@ public class DdsmSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Life Cycle</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Supervisor</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Life Cycle</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Supervisor</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLifeCycle(LifeCycle object) {
+    public T caseSupervisor(Supervisor object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Storm Supervisor</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Nimbus</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Storm Supervisor</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Nimbus</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStormSupervisor(StormSupervisor object) {
+    public T caseNimbus(Nimbus object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Storm Nimbus</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Zookeeper Server</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Storm Nimbus</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Zookeeper Server</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStormNimbus(StormNimbus object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Zookeeper</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Zookeeper</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseZookeeper(Zookeeper object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Kafka</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Kafka</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseKafka(Kafka object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Cluster</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Cluster</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseCluster(Cluster object) {
+    public T caseZookeeperServer(ZookeeperServer object) {
         return null;
     }
 
@@ -717,17 +791,242 @@ public class DdsmSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Script</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Chef Resource</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Script</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Chef Resource</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScript(Script object) {
+    public T caseChefResource(ChefResource object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Storm Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Storm Cluster</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStormCluster(StormCluster object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Job Submission</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Job Submission</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseJobSubmission(JobSubmission object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterNode(MasterNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Slave Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Slave Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSlaveNode(SlaveNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Zookeeper Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Zookeeper Quorum</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseZookeeperQuorum(ZookeeperQuorum object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cassandra Worker</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cassandra Worker</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCassandraWorker(CassandraWorker object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Zookeeper Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Zookeeper Cluster</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseZookeeperCluster(ZookeeperCluster object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cassandra Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cassandra Cluster</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCassandraCluster(CassandraCluster object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Peer Node</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Peer Node</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePeerNode(PeerNode object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Peers Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Peers Quorum</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePeersQuorum(PeersQuorum object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Peer To Peer Platform</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Peer To Peer Platform</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePeerToPeerPlatform(PeerToPeerPlatform object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Slave Platform</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Slave Platform</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterSlavePlatform(MasterSlavePlatform object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cassandra Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cassandra Quorum</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCassandraQuorum(CassandraQuorum object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cassandra Seed</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cassandra Seed</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCassandraSeed(CassandraSeed object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Crontab</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Crontab</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCrontab(Crontab object) {
         return null;
     }
 

@@ -18,6 +18,7 @@ package ddsm;
  *   <li>{@link ddsm.ExternalComponent#getPassword <em>Password</em>}</li>
  *   <li>{@link ddsm.ExternalComponent#getRegion <em>Region</em>}</li>
  *   <li>{@link ddsm.ExternalComponent#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link ddsm.ExternalComponent#getEndPoint <em>End Point</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getExternalComponent()
@@ -180,5 +181,31 @@ public interface ExternalComponent extends Component {
      * @generated
      */
     void setServiceType(String value);
+
+    /**
+     * Returns the value of the '<em><b>End Point</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>End Point</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>End Point</em>' attribute.
+     * @see #setEndPoint(String)
+     * @see ddsm.DdsmPackage#getExternalComponent_EndPoint()
+     * @model
+     * @generated
+     */
+    String getEndPoint();
+
+    /**
+     * Sets the value of the '{@link ddsm.ExternalComponent#getEndPoint <em>End Point</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>End Point</em>' attribute.
+     * @see #getEndPoint()
+     * @generated
+     */
+    void setEndPoint(String value);
 
 } // ExternalComponent

@@ -6,11 +6,17 @@ import ddsm.DdsmPackage;
 import ddsm.VM;
 import ddsm.VMSize;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +40,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link ddsm.impl.VMImpl#getSecurityGroup <em>Security Group</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getSshKey <em>Ssh Key</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getPublicAddress <em>Public Address</em>}</li>
- *   <li>{@link ddsm.impl.VMImpl#getInstances <em>Instances</em>}</li>
  *   <li>{@link ddsm.impl.VMImpl#getGenericSize <em>Generic Size</em>}</li>
+ *   <li>{@link ddsm.impl.VMImpl#getInstances <em>Instances</em>}</li>
+ *   <li>{@link ddsm.impl.VMImpl#getPublicPorts <em>Public Ports</em>}</li>
  * </ul>
  *
  * @generated
@@ -322,26 +329,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
     protected String publicAddress = PUBLIC_ADDRESS_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getInstances() <em>Instances</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getInstances()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer INSTANCES_EDEFAULT = new Integer(1);
-
-    /**
-     * The cached value of the '{@link #getInstances() <em>Instances</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getInstances()
-     * @generated
-     * @ordered
-     */
-    protected Integer instances = INSTANCES_EDEFAULT;
-
-    /**
      * The default value of the '{@link #getGenericSize() <em>Generic Size</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -360,6 +347,36 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * @ordered
      */
     protected VMSize genericSize = GENERIC_SIZE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getInstances() <em>Instances</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInstances()
+     * @generated
+     * @ordered
+     */
+    protected static final int INSTANCES_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getInstances() <em>Instances</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInstances()
+     * @generated
+     * @ordered
+     */
+    protected int instances = INSTANCES_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getPublicPorts() <em>Public Ports</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicPorts()
+     * @generated
+     * @ordered
+     */
+    protected EList<Integer> publicPorts;
 
     /**
      * <!-- begin-user-doc -->
@@ -679,27 +696,6 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Integer getInstances() {
-        return instances;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setInstances(Integer newInstances) {
-        Integer oldInstances = instances;
-        instances = newInstances;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__INSTANCES, oldInstances, instances));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public VMSize getGenericSize() {
         return genericSize;
     }
@@ -714,6 +710,39 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         genericSize = newGenericSize == null ? GENERIC_SIZE_EDEFAULT : newGenericSize;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__GENERIC_SIZE, oldGenericSize, genericSize));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getInstances() {
+        return instances;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInstances(int newInstances) {
+        int oldInstances = instances;
+        instances = newInstances;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DdsmPackage.VM__INSTANCES, oldInstances, instances));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Integer> getPublicPorts() {
+        if (publicPorts == null) {
+            publicPorts = new EDataTypeUniqueEList<Integer>(Integer.class, this, DdsmPackage.VM__PUBLIC_PORTS);
+        }
+        return publicPorts;
     }
 
     /**
@@ -752,10 +781,12 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return getSshKey();
             case DdsmPackage.VM__PUBLIC_ADDRESS:
                 return getPublicAddress();
-            case DdsmPackage.VM__INSTANCES:
-                return getInstances();
             case DdsmPackage.VM__GENERIC_SIZE:
                 return getGenericSize();
+            case DdsmPackage.VM__INSTANCES:
+                return getInstances();
+            case DdsmPackage.VM__PUBLIC_PORTS:
+                return getPublicPorts();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -765,6 +796,7 @@ public class VMImpl extends ExternalComponentImpl implements VM {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -810,11 +842,15 @@ public class VMImpl extends ExternalComponentImpl implements VM {
             case DdsmPackage.VM__PUBLIC_ADDRESS:
                 setPublicAddress((String)newValue);
                 return;
+            case DdsmPackage.VM__GENERIC_SIZE:
+                setGenericSize((VMSize)newValue);
+                return;
             case DdsmPackage.VM__INSTANCES:
                 setInstances((Integer)newValue);
                 return;
-            case DdsmPackage.VM__GENERIC_SIZE:
-                setGenericSize((VMSize)newValue);
+            case DdsmPackage.VM__PUBLIC_PORTS:
+                getPublicPorts().clear();
+                getPublicPorts().addAll((Collection<? extends Integer>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -870,11 +906,14 @@ public class VMImpl extends ExternalComponentImpl implements VM {
             case DdsmPackage.VM__PUBLIC_ADDRESS:
                 setPublicAddress(PUBLIC_ADDRESS_EDEFAULT);
                 return;
+            case DdsmPackage.VM__GENERIC_SIZE:
+                setGenericSize(GENERIC_SIZE_EDEFAULT);
+                return;
             case DdsmPackage.VM__INSTANCES:
                 setInstances(INSTANCES_EDEFAULT);
                 return;
-            case DdsmPackage.VM__GENERIC_SIZE:
-                setGenericSize(GENERIC_SIZE_EDEFAULT);
+            case DdsmPackage.VM__PUBLIC_PORTS:
+                getPublicPorts().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -916,10 +955,12 @@ public class VMImpl extends ExternalComponentImpl implements VM {
                 return SSH_KEY_EDEFAULT == null ? sshKey != null : !SSH_KEY_EDEFAULT.equals(sshKey);
             case DdsmPackage.VM__PUBLIC_ADDRESS:
                 return PUBLIC_ADDRESS_EDEFAULT == null ? publicAddress != null : !PUBLIC_ADDRESS_EDEFAULT.equals(publicAddress);
-            case DdsmPackage.VM__INSTANCES:
-                return INSTANCES_EDEFAULT == null ? instances != null : !INSTANCES_EDEFAULT.equals(instances);
             case DdsmPackage.VM__GENERIC_SIZE:
                 return genericSize != GENERIC_SIZE_EDEFAULT;
+            case DdsmPackage.VM__INSTANCES:
+                return instances != INSTANCES_EDEFAULT;
+            case DdsmPackage.VM__PUBLIC_PORTS:
+                return publicPorts != null && !publicPorts.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -962,10 +1003,12 @@ public class VMImpl extends ExternalComponentImpl implements VM {
         result.append(sshKey);
         result.append(", publicAddress: ");
         result.append(publicAddress);
-        result.append(", instances: ");
-        result.append(instances);
         result.append(", genericSize: ");
         result.append(genericSize);
+        result.append(", instances: ");
+        result.append(instances);
+        result.append(", publicPorts: ");
+        result.append(publicPorts);
         result.append(')');
         return result.toString();
     }

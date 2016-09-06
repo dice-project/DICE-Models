@@ -32,7 +32,7 @@ public interface Relationship extends CloudElement {
      * @return the value of the '<em>Providedport</em>' reference.
      * @see #setProvidedport(ProvidedPort)
      * @see ddsm.DdsmPackage#getRelationship_Providedport()
-     * @model
+     * @model required="true"
      * @generated
      */
     ProvidedPort getProvidedport();
@@ -58,7 +58,7 @@ public interface Relationship extends CloudElement {
      * @return the value of the '<em>Requiredport</em>' reference.
      * @see #setRequiredport(RequiredPort)
      * @see ddsm.DdsmPackage#getRelationship_Requiredport()
-     * @model
+     * @model required="true"
      * @generated
      */
     RequiredPort getRequiredport();

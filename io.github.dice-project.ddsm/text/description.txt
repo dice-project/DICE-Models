@@ -19,7 +19,12 @@ Package ddsm <http://ddsm/1.0>
 
   Class Resource
     Attribute resourceId : EString<<1..1>>
-    Reference scripts : Script<<1..1>>
+    Attribute downloadCommand : EString
+    Attribute createCommand : EString
+    Attribute configureCommand : EString
+    Attribute installCommand : EString
+    Attribute startCommand : EString
+    Attribute stopCommand : EString
 
   Class Component -> CloudElement
     Reference providedport : ProvidedPort<<0..*>>
@@ -27,9 +32,7 @@ Package ddsm <http://ddsm/1.0>
 
   Class InternalComponent -> Component
     Reference requiredport : RequiredPort<<0..*>>
-    Reference internalcomponent : InternalComponent<<0..*>>
     Reference requiredexecutionplatform : RequiredExecutionPlatform<<0..*>>
-    Attribute publicPorts : EIntegerObject<<0..*>>
 
   Class ExecutionPlatform -> CloudElement
 
@@ -50,12 +53,12 @@ Package ddsm <http://ddsm/1.0>
     Reference owner : Component<<1..1>>
 
   Class Relationship -> CloudElement
-    Reference providedport : ProvidedPort
-    Reference requiredport : RequiredPort
+    Reference providedport : ProvidedPort<<1..1>>
+    Reference requiredport : RequiredPort<<1..1>>
 
   Class ExecutionBinding -> CloudElement
-    Reference requiredexecutionplatform : RequiredExecutionPlatform
-    Reference providedexecutionplatform : ProvidedExecutionPlatform
+    Reference requiredexecutionplatform : RequiredExecutionPlatform<<1..1>>
+    Reference providedexecutionplatform : ProvidedExecutionPlatform<<1..1>>
 
   Class ExternalComponent -> Component
     Reference provider : Provider<<1..1>>
@@ -64,6 +67,7 @@ Package ddsm <http://ddsm/1.0>
     Attribute password : EString
     Attribute region : EString
     Attribute serviceType : EString
+    Attribute endPoint : EString
 
   Class Provider -> CloudElement
     Attribute credentialsPath : EString
@@ -84,8 +88,9 @@ Package ddsm <http://ddsm/1.0>
     Attribute securityGroup : EString
     Attribute sshKey : EString
     Attribute publicAddress : EString
-    Attribute instances : EIntegerObject
     Attribute genericSize : VMSize
+    Attribute instances : EInt
+    Attribute publicPorts : EInt<<0..*>>
 
   Class DDSM
     Reference cloudelement : CloudElement<<0..*>>
@@ -94,41 +99,84 @@ Package ddsm <http://ddsm/1.0>
     Reference properties : Property<<0..*>>
     Reference resources : Resource<<0..*>>
 
-  Class LifeCycle -> Resource
-    Reference downloadCommand : Script
-    Reference installCommand : Script
-    Reference startCommand : Script
-    Reference stopCommand : Script
-    Reference preconfigureCommand : Script
-    Reference createCommand : Script
+  Class Supervisor -> SlaveNode
+    Attribute workerStartTimeout : EInt
+    Attribute cpuCapacity : EInt
+    Attribute memoryCapacity : EInt
+    Attribute heartbeatFrequency : EInt
 
-  Class StormSupervisor -> InternalComponent
+  Class Nimbus -> MasterNode
+    Attribute taskTimeout : EInt
+    Attribute supervisorFrequency : EInt
+    Attribute queueSize : EInt
+    Attribute monitorFrequency : EInt
+    Attribute retryTimes : EInt
+    Attribute retryInterval : EInt
 
-  Class StormNimbus -> InternalComponent
-
-  Class Zookeeper -> InternalComponent
-
-  Class Kafka -> InternalComponent
-
-  Class Cluster -> ExternalComponent
-    Reference hasVm : VM<<0..*>>
+  Class ZookeeperServer -> PeerNode
+    Attribute tickTime : EInt
+    Attribute syncLimit : EInt
+    Attribute initLimit : EInt
 
   Class ClientNode -> InternalComponent
-    Attribute type : EString<<1..1>>
+    Reference submits : JobSubmission<<1..1>>
+    Attribute skipRunningJob : EBoolean
+    Attribute numberOfSubmissions : EInt
+    Reference hasSchedule : Crontab
+
+  Class YarnResourceManager -> MasterNode
+
+  Class YarnNodeManager -> SlaveNode
+
+  Class HDFSNameNode -> MasterNode
+
+  Class HDFSDataNode -> SlaveNode
+
+  Class ChefResource -> Resource
+    Attribute cookbookId : EString<<1..1>>
+
+  Class StormCluster -> MasterSlavePlatform
+
+  Class JobSubmission -> CloudElement
     Attribute artifactUrl : EString
     Attribute mainClass : EString
 
-  Class YarnResourceManager -> InternalComponent
+  Class MasterNode -> InternalComponent
 
-  Class YarnNodeManager -> InternalComponent
+  Class SlaveNode -> InternalComponent
+    Reference hasMaster : MasterNode<<1..1>>
 
-  Class HDFSNameNode -> InternalComponent
+  Class ZookeeperQuorum -> PeersQuorum
 
-  Class HDFSDataNode -> InternalComponent
+  Class CassandraWorker -> PeerNode
 
-  Class Script
-    Attribute scriptId : EString<<1..1>>
-    Attribute scriptUri : EString<<1..1>>
+  Class ZookeeperCluster -> PeerToPeerPlatform
+
+  Class CassandraCluster -> PeerToPeerPlatform
+
+  Class PeerNode -> InternalComponent
+    Reference belongsToQuorum : PeersQuorum<<1..1>>
+
+  Class PeersQuorum -> InternalComponent
+
+  Class PeerToPeerPlatform -> InternalComponent
+    Reference requiresPeerVm : RequiredExecutionPlatform<<1..*>>
+
+  Class MasterSlavePlatform -> InternalComponent
+    Reference requiresMasterVm : RequiredExecutionPlatform<<1..1>>
+    Reference requiresSlaveVm : RequiredExecutionPlatform<<1..*>>
+
+  Class CassandraQuorum -> PeersQuorum
+    Reference requires_bootstrapping_seed : RequiredPort<<1..1>>
+
+  Class CassandraSeed -> InternalComponent
+
+  Class Crontab
+    Attribute min : EInt<<1..1>>
+    Attribute hour : EInt<<1..1>>
+    Attribute dayOfMonth : EInt<<1..1>>
+    Attribute month : EInt<<1..1>>
+    Attribute dayOfWeek : EInt<<1..1>>
 
   Enum VMSize
     Literal Small = 0

@@ -32,7 +32,7 @@ public interface ExecutionBinding extends CloudElement {
      * @return the value of the '<em>Requiredexecutionplatform</em>' reference.
      * @see #setRequiredexecutionplatform(RequiredExecutionPlatform)
      * @see ddsm.DdsmPackage#getExecutionBinding_Requiredexecutionplatform()
-     * @model
+     * @model required="true"
      * @generated
      */
     RequiredExecutionPlatform getRequiredexecutionplatform();
@@ -58,7 +58,7 @@ public interface ExecutionBinding extends CloudElement {
      * @return the value of the '<em>Providedexecutionplatform</em>' reference.
      * @see #setProvidedexecutionplatform(ProvidedExecutionPlatform)
      * @see ddsm.DdsmPackage#getExecutionBinding_Providedexecutionplatform()
-     * @model
+     * @model required="true"
      * @generated
      */
     ProvidedExecutionPlatform getProvidedexecutionplatform();

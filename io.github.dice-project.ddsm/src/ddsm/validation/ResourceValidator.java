@@ -4,9 +4,6 @@
  */
 package ddsm.validation;
 
-import ddsm.Script;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link ddsm.Resource}.
@@ -18,7 +15,10 @@ public interface ResourceValidator {
     boolean validate();
 
     boolean validateResourceId(String value);
-    boolean validateScripts(Script value);
-
-    boolean validateScripts(EList<Script> value);
+    boolean validateDownloadCommand(String value);
+    boolean validateCreateCommand(String value);
+    boolean validateConfigureCommand(String value);
+    boolean validateInstallCommand(String value);
+    boolean validateStartCommand(String value);
+    boolean validateStopCommand(String value);
 }

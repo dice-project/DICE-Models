@@ -15,5 +15,4 @@ public interface RequiredPortValidator {
     boolean validate();
 
     boolean validateIsMandatory(boolean value);
-
 }

@@ -2,10 +2,15 @@
  */
 package ddsm.impl;
 
+import ddsm.CassandraCluster;
+import ddsm.CassandraQuorum;
+import ddsm.CassandraSeed;
+import ddsm.CassandraWorker;
+import ddsm.ChefResource;
 import ddsm.ClientNode;
 import ddsm.CloudElement;
-import ddsm.Cluster;
 import ddsm.Component;
+import ddsm.Crontab;
 import ddsm.DdsmFactory;
 import ddsm.DdsmPackage;
 import ddsm.ExecutionBinding;
@@ -14,8 +19,13 @@ import ddsm.ExternalComponent;
 import ddsm.HDFSDataNode;
 import ddsm.HDFSNameNode;
 import ddsm.InternalComponent;
-import ddsm.Kafka;
-import ddsm.LifeCycle;
+import ddsm.JobSubmission;
+import ddsm.MasterNode;
+import ddsm.MasterSlavePlatform;
+import ddsm.Nimbus;
+import ddsm.PeerNode;
+import ddsm.PeerToPeerPlatform;
+import ddsm.PeersQuorum;
 import ddsm.Port;
 import ddsm.Property;
 import ddsm.ProvidedExecutionPlatform;
@@ -26,22 +36,25 @@ import ddsm.Relationship;
 import ddsm.RequiredExecutionPlatform;
 import ddsm.RequiredPort;
 import ddsm.Resource;
-import ddsm.Script;
-import ddsm.StormNimbus;
-import ddsm.StormSupervisor;
+import ddsm.SlaveNode;
+import ddsm.StormCluster;
+import ddsm.Supervisor;
 import ddsm.VMSize;
 import ddsm.YarnNodeManager;
 import ddsm.YarnResourceManager;
-import ddsm.Zookeeper;
+import ddsm.ZookeeperCluster;
+import ddsm.ZookeeperQuorum;
+import ddsm.ZookeeperServer;
 
 import ddsm.util.DdsmValidator;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EValidator;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -175,42 +188,21 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass lifeCycleEClass = null;
+    private EClass supervisorEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass stormSupervisorEClass = null;
+    private EClass nimbusEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass stormNimbusEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass zookeeperEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass kafkaEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass clusterEClass = null;
+    private EClass zookeeperServerEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -252,7 +244,112 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass scriptEClass = null;
+    private EClass chefResourceEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stormClusterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass jobSubmissionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass masterNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass slaveNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass zookeeperQuorumEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass cassandraWorkerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass zookeeperClusterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass cassandraClusterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass peerNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass peersQuorumEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass peerToPeerPlatformEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass masterSlavePlatformEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass cassandraQuorumEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass cassandraSeedEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass crontabEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -397,8 +494,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProperty_Value() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
+    public EAttribute getProperty_PropertyId() {
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -406,8 +503,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProperty_PropertyId() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+    public EAttribute getProperty_Value() {
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -433,8 +530,53 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getResource_Scripts() {
-        return (EReference)resourceEClass.getEStructuralFeatures().get(1);
+    public EAttribute getResource_DownloadCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getResource_CreateCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getResource_ConfigureCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getResource_InstallCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getResource_StartCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getResource_StopCommand() {
+        return (EAttribute)resourceEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -487,26 +629,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getInternalComponent_Internalcomponent() {
-        return (EReference)internalComponentEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getInternalComponent_Requiredexecutionplatform() {
-        return (EReference)internalComponentEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getInternalComponent_PublicPorts() {
-        return (EAttribute)internalComponentEClass.getEStructuralFeatures().get(3);
+        return (EReference)internalComponentEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -739,6 +863,15 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getExternalComponent_EndPoint() {
+        return (EAttribute)externalComponentEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getProvider() {
         return providerEClass;
     }
@@ -901,7 +1034,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_Instances() {
+    public EAttribute getVM_GenericSize() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(14);
     }
 
@@ -910,8 +1043,17 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getVM_GenericSize() {
+    public EAttribute getVM_Instances() {
         return (EAttribute)vmEClass.getEStructuralFeatures().get(15);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getVM_PublicPorts() {
+        return (EAttribute)vmEClass.getEStructuralFeatures().get(16);
     }
 
     /**
@@ -973,8 +1115,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getLifeCycle() {
-        return lifeCycleEClass;
+    public EClass getSupervisor() {
+        return supervisorEClass;
     }
 
     /**
@@ -982,8 +1124,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_DownloadCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(0);
+    public EAttribute getSupervisor_WorkerStartTimeout() {
+        return (EAttribute)supervisorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -991,8 +1133,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_InstallCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(1);
+    public EAttribute getSupervisor_CpuCapacity() {
+        return (EAttribute)supervisorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1000,8 +1142,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_StartCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(2);
+    public EAttribute getSupervisor_MemoryCapacity() {
+        return (EAttribute)supervisorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1009,8 +1151,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_StopCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(3);
+    public EAttribute getSupervisor_HeartbeatFrequency() {
+        return (EAttribute)supervisorEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1018,8 +1160,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_PreconfigureCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(4);
+    public EClass getNimbus() {
+        return nimbusEClass;
     }
 
     /**
@@ -1027,8 +1169,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLifeCycle_CreateCommand() {
-        return (EReference)lifeCycleEClass.getEStructuralFeatures().get(5);
+    public EAttribute getNimbus_TaskTimeout() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1036,8 +1178,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getStormSupervisor() {
-        return stormSupervisorEClass;
+    public EAttribute getNimbus_SupervisorFrequency() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1045,8 +1187,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getStormNimbus() {
-        return stormNimbusEClass;
+    public EAttribute getNimbus_QueueSize() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1054,8 +1196,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getZookeeper() {
-        return zookeeperEClass;
+    public EAttribute getNimbus_MonitorFrequency() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1063,8 +1205,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getKafka() {
-        return kafkaEClass;
+    public EAttribute getNimbus_RetryTimes() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1072,8 +1214,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getCluster() {
-        return clusterEClass;
+    public EAttribute getNimbus_RetryInterval() {
+        return (EAttribute)nimbusEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -1081,8 +1223,35 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getCluster_HasVm() {
-        return (EReference)clusterEClass.getEStructuralFeatures().get(0);
+    public EClass getZookeeperServer() {
+        return zookeeperServerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getZookeeperServer_TickTime() {
+        return (EAttribute)zookeeperServerEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getZookeeperServer_SyncLimit() {
+        return (EAttribute)zookeeperServerEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getZookeeperServer_InitLimit() {
+        return (EAttribute)zookeeperServerEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1099,8 +1268,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getClientNode_Type() {
-        return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(0);
+    public EReference getClientNode_Submits() {
+        return (EReference)clientNodeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1108,7 +1277,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getClientNode_ArtifactUrl() {
+    public EAttribute getClientNode_SkipRunningJob() {
         return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(1);
     }
 
@@ -1117,8 +1286,17 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getClientNode_MainClass() {
+    public EAttribute getClientNode_NumberOfSubmissions() {
         return (EAttribute)clientNodeEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getClientNode_HasSchedule() {
+        return (EReference)clientNodeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1162,8 +1340,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getScript() {
-        return scriptEClass;
+    public EClass getChefResource() {
+        return chefResourceEClass;
     }
 
     /**
@@ -1171,8 +1349,8 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getScript_ScriptId() {
-        return (EAttribute)scriptEClass.getEStructuralFeatures().get(0);
+    public EAttribute getChefResource_CookbookId() {
+        return (EAttribute)chefResourceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1180,8 +1358,251 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getScript_ScriptUri() {
-        return (EAttribute)scriptEClass.getEStructuralFeatures().get(1);
+    public EClass getStormCluster() {
+        return stormClusterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getJobSubmission() {
+        return jobSubmissionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJobSubmission_ArtifactUrl() {
+        return (EAttribute)jobSubmissionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJobSubmission_MainClass() {
+        return (EAttribute)jobSubmissionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMasterNode() {
+        return masterNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSlaveNode() {
+        return slaveNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSlaveNode_HasMaster() {
+        return (EReference)slaveNodeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getZookeeperQuorum() {
+        return zookeeperQuorumEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCassandraWorker() {
+        return cassandraWorkerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getZookeeperCluster() {
+        return zookeeperClusterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCassandraCluster() {
+        return cassandraClusterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPeerNode() {
+        return peerNodeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getPeerNode_BelongsToQuorum() {
+        return (EReference)peerNodeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPeersQuorum() {
+        return peersQuorumEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPeerToPeerPlatform() {
+        return peerToPeerPlatformEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getPeerToPeerPlatform_RequiresPeerVm() {
+        return (EReference)peerToPeerPlatformEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMasterSlavePlatform() {
+        return masterSlavePlatformEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMasterSlavePlatform_RequiresMasterVm() {
+        return (EReference)masterSlavePlatformEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMasterSlavePlatform_RequiresSlaveVm() {
+        return (EReference)masterSlavePlatformEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCassandraQuorum() {
+        return cassandraQuorumEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getCassandraQuorum_Requires_bootstrapping_seed() {
+        return (EReference)cassandraQuorumEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCassandraSeed() {
+        return cassandraSeedEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCrontab() {
+        return crontabEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCrontab_Min() {
+        return (EAttribute)crontabEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCrontab_Hour() {
+        return (EAttribute)crontabEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCrontab_DayOfMonth() {
+        return (EAttribute)crontabEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCrontab_Month() {
+        return (EAttribute)crontabEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCrontab_DayOfWeek() {
+        return (EAttribute)crontabEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1242,7 +1663,12 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         resourceEClass = createEClass(RESOURCE);
         createEAttribute(resourceEClass, RESOURCE__RESOURCE_ID);
-        createEReference(resourceEClass, RESOURCE__SCRIPTS);
+        createEAttribute(resourceEClass, RESOURCE__DOWNLOAD_COMMAND);
+        createEAttribute(resourceEClass, RESOURCE__CREATE_COMMAND);
+        createEAttribute(resourceEClass, RESOURCE__CONFIGURE_COMMAND);
+        createEAttribute(resourceEClass, RESOURCE__INSTALL_COMMAND);
+        createEAttribute(resourceEClass, RESOURCE__START_COMMAND);
+        createEAttribute(resourceEClass, RESOURCE__STOP_COMMAND);
 
         componentEClass = createEClass(COMPONENT);
         createEReference(componentEClass, COMPONENT__PROVIDEDPORT);
@@ -1250,9 +1676,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         internalComponentEClass = createEClass(INTERNAL_COMPONENT);
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDPORT);
-        createEReference(internalComponentEClass, INTERNAL_COMPONENT__INTERNALCOMPONENT);
         createEReference(internalComponentEClass, INTERNAL_COMPONENT__REQUIREDEXECUTIONPLATFORM);
-        createEAttribute(internalComponentEClass, INTERNAL_COMPONENT__PUBLIC_PORTS);
 
         executionPlatformEClass = createEClass(EXECUTION_PLATFORM);
 
@@ -1287,6 +1711,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__PASSWORD);
         createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__REGION);
         createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__SERVICE_TYPE);
+        createEAttribute(externalComponentEClass, EXTERNAL_COMPONENT__END_POINT);
 
         providerEClass = createEClass(PROVIDER);
         createEAttribute(providerEClass, PROVIDER__CREDENTIALS_PATH);
@@ -1307,8 +1732,9 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEAttribute(vmEClass, VM__SECURITY_GROUP);
         createEAttribute(vmEClass, VM__SSH_KEY);
         createEAttribute(vmEClass, VM__PUBLIC_ADDRESS);
-        createEAttribute(vmEClass, VM__INSTANCES);
         createEAttribute(vmEClass, VM__GENERIC_SIZE);
+        createEAttribute(vmEClass, VM__INSTANCES);
+        createEAttribute(vmEClass, VM__PUBLIC_PORTS);
 
         ddsmEClass = createEClass(DDSM);
         createEReference(ddsmEClass, DDSM__CLOUDELEMENT);
@@ -1317,29 +1743,30 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         createEReference(ddsmEClass, DDSM__PROPERTIES);
         createEReference(ddsmEClass, DDSM__RESOURCES);
 
-        lifeCycleEClass = createEClass(LIFE_CYCLE);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__DOWNLOAD_COMMAND);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__INSTALL_COMMAND);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__START_COMMAND);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__STOP_COMMAND);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__PRECONFIGURE_COMMAND);
-        createEReference(lifeCycleEClass, LIFE_CYCLE__CREATE_COMMAND);
+        supervisorEClass = createEClass(SUPERVISOR);
+        createEAttribute(supervisorEClass, SUPERVISOR__WORKER_START_TIMEOUT);
+        createEAttribute(supervisorEClass, SUPERVISOR__CPU_CAPACITY);
+        createEAttribute(supervisorEClass, SUPERVISOR__MEMORY_CAPACITY);
+        createEAttribute(supervisorEClass, SUPERVISOR__HEARTBEAT_FREQUENCY);
 
-        stormSupervisorEClass = createEClass(STORM_SUPERVISOR);
+        nimbusEClass = createEClass(NIMBUS);
+        createEAttribute(nimbusEClass, NIMBUS__TASK_TIMEOUT);
+        createEAttribute(nimbusEClass, NIMBUS__SUPERVISOR_FREQUENCY);
+        createEAttribute(nimbusEClass, NIMBUS__QUEUE_SIZE);
+        createEAttribute(nimbusEClass, NIMBUS__MONITOR_FREQUENCY);
+        createEAttribute(nimbusEClass, NIMBUS__RETRY_TIMES);
+        createEAttribute(nimbusEClass, NIMBUS__RETRY_INTERVAL);
 
-        stormNimbusEClass = createEClass(STORM_NIMBUS);
-
-        zookeeperEClass = createEClass(ZOOKEEPER);
-
-        kafkaEClass = createEClass(KAFKA);
-
-        clusterEClass = createEClass(CLUSTER);
-        createEReference(clusterEClass, CLUSTER__HAS_VM);
+        zookeeperServerEClass = createEClass(ZOOKEEPER_SERVER);
+        createEAttribute(zookeeperServerEClass, ZOOKEEPER_SERVER__TICK_TIME);
+        createEAttribute(zookeeperServerEClass, ZOOKEEPER_SERVER__SYNC_LIMIT);
+        createEAttribute(zookeeperServerEClass, ZOOKEEPER_SERVER__INIT_LIMIT);
 
         clientNodeEClass = createEClass(CLIENT_NODE);
-        createEAttribute(clientNodeEClass, CLIENT_NODE__TYPE);
-        createEAttribute(clientNodeEClass, CLIENT_NODE__ARTIFACT_URL);
-        createEAttribute(clientNodeEClass, CLIENT_NODE__MAIN_CLASS);
+        createEReference(clientNodeEClass, CLIENT_NODE__SUBMITS);
+        createEAttribute(clientNodeEClass, CLIENT_NODE__SKIP_RUNNING_JOB);
+        createEAttribute(clientNodeEClass, CLIENT_NODE__NUMBER_OF_SUBMISSIONS);
+        createEReference(clientNodeEClass, CLIENT_NODE__HAS_SCHEDULE);
 
         yarnResourceManagerEClass = createEClass(YARN_RESOURCE_MANAGER);
 
@@ -1349,9 +1776,51 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         hdfsDataNodeEClass = createEClass(HDFS_DATA_NODE);
 
-        scriptEClass = createEClass(SCRIPT);
-        createEAttribute(scriptEClass, SCRIPT__SCRIPT_ID);
-        createEAttribute(scriptEClass, SCRIPT__SCRIPT_URI);
+        chefResourceEClass = createEClass(CHEF_RESOURCE);
+        createEAttribute(chefResourceEClass, CHEF_RESOURCE__COOKBOOK_ID);
+
+        stormClusterEClass = createEClass(STORM_CLUSTER);
+
+        jobSubmissionEClass = createEClass(JOB_SUBMISSION);
+        createEAttribute(jobSubmissionEClass, JOB_SUBMISSION__ARTIFACT_URL);
+        createEAttribute(jobSubmissionEClass, JOB_SUBMISSION__MAIN_CLASS);
+
+        masterNodeEClass = createEClass(MASTER_NODE);
+
+        slaveNodeEClass = createEClass(SLAVE_NODE);
+        createEReference(slaveNodeEClass, SLAVE_NODE__HAS_MASTER);
+
+        zookeeperQuorumEClass = createEClass(ZOOKEEPER_QUORUM);
+
+        cassandraWorkerEClass = createEClass(CASSANDRA_WORKER);
+
+        zookeeperClusterEClass = createEClass(ZOOKEEPER_CLUSTER);
+
+        cassandraClusterEClass = createEClass(CASSANDRA_CLUSTER);
+
+        peerNodeEClass = createEClass(PEER_NODE);
+        createEReference(peerNodeEClass, PEER_NODE__BELONGS_TO_QUORUM);
+
+        peersQuorumEClass = createEClass(PEERS_QUORUM);
+
+        peerToPeerPlatformEClass = createEClass(PEER_TO_PEER_PLATFORM);
+        createEReference(peerToPeerPlatformEClass, PEER_TO_PEER_PLATFORM__REQUIRES_PEER_VM);
+
+        masterSlavePlatformEClass = createEClass(MASTER_SLAVE_PLATFORM);
+        createEReference(masterSlavePlatformEClass, MASTER_SLAVE_PLATFORM__REQUIRES_MASTER_VM);
+        createEReference(masterSlavePlatformEClass, MASTER_SLAVE_PLATFORM__REQUIRES_SLAVE_VM);
+
+        cassandraQuorumEClass = createEClass(CASSANDRA_QUORUM);
+        createEReference(cassandraQuorumEClass, CASSANDRA_QUORUM__REQUIRES_BOOTSTRAPPING_SEED);
+
+        cassandraSeedEClass = createEClass(CASSANDRA_SEED);
+
+        crontabEClass = createEClass(CRONTAB);
+        createEAttribute(crontabEClass, CRONTAB__MIN);
+        createEAttribute(crontabEClass, CRONTAB__HOUR);
+        createEAttribute(crontabEClass, CRONTAB__DAY_OF_MONTH);
+        createEAttribute(crontabEClass, CRONTAB__MONTH);
+        createEAttribute(crontabEClass, CRONTAB__DAY_OF_WEEK);
 
         // Create enums
         vmSizeEEnum = createEEnum(VM_SIZE);
@@ -1399,17 +1868,29 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         externalComponentEClass.getESuperTypes().add(this.getComponent());
         providerEClass.getESuperTypes().add(this.getCloudElement());
         vmEClass.getESuperTypes().add(this.getExternalComponent());
-        lifeCycleEClass.getESuperTypes().add(this.getResource());
-        stormSupervisorEClass.getESuperTypes().add(this.getInternalComponent());
-        stormNimbusEClass.getESuperTypes().add(this.getInternalComponent());
-        zookeeperEClass.getESuperTypes().add(this.getInternalComponent());
-        kafkaEClass.getESuperTypes().add(this.getInternalComponent());
-        clusterEClass.getESuperTypes().add(this.getExternalComponent());
+        supervisorEClass.getESuperTypes().add(this.getSlaveNode());
+        nimbusEClass.getESuperTypes().add(this.getMasterNode());
+        zookeeperServerEClass.getESuperTypes().add(this.getPeerNode());
         clientNodeEClass.getESuperTypes().add(this.getInternalComponent());
-        yarnResourceManagerEClass.getESuperTypes().add(this.getInternalComponent());
-        yarnNodeManagerEClass.getESuperTypes().add(this.getInternalComponent());
-        hdfsNameNodeEClass.getESuperTypes().add(this.getInternalComponent());
-        hdfsDataNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        yarnResourceManagerEClass.getESuperTypes().add(this.getMasterNode());
+        yarnNodeManagerEClass.getESuperTypes().add(this.getSlaveNode());
+        hdfsNameNodeEClass.getESuperTypes().add(this.getMasterNode());
+        hdfsDataNodeEClass.getESuperTypes().add(this.getSlaveNode());
+        chefResourceEClass.getESuperTypes().add(this.getResource());
+        stormClusterEClass.getESuperTypes().add(this.getMasterSlavePlatform());
+        jobSubmissionEClass.getESuperTypes().add(this.getCloudElement());
+        masterNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        slaveNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        zookeeperQuorumEClass.getESuperTypes().add(this.getPeersQuorum());
+        cassandraWorkerEClass.getESuperTypes().add(this.getPeerNode());
+        zookeeperClusterEClass.getESuperTypes().add(this.getPeerToPeerPlatform());
+        cassandraClusterEClass.getESuperTypes().add(this.getPeerToPeerPlatform());
+        peerNodeEClass.getESuperTypes().add(this.getInternalComponent());
+        peersQuorumEClass.getESuperTypes().add(this.getInternalComponent());
+        peerToPeerPlatformEClass.getESuperTypes().add(this.getInternalComponent());
+        masterSlavePlatformEClass.getESuperTypes().add(this.getInternalComponent());
+        cassandraQuorumEClass.getESuperTypes().add(this.getPeersQuorum());
+        cassandraSeedEClass.getESuperTypes().add(this.getInternalComponent());
 
         // Initialize classes, features, and operations; add parameters
         initEClass(cloudElementEClass, CloudElement.class, "CloudElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1424,7 +1905,12 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getResource_ResourceId(), ecorePackage.getEString(), "resourceId", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getResource_Scripts(), this.getScript(), null, "scripts", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_DownloadCommand(), ecorePackage.getEString(), "downloadCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_CreateCommand(), ecorePackage.getEString(), "createCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_ConfigureCommand(), ecorePackage.getEString(), "configureCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_InstallCommand(), ecorePackage.getEString(), "installCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_StartCommand(), ecorePackage.getEString(), "startCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getResource_StopCommand(), ecorePackage.getEString(), "stopCommand", "", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getComponent_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1432,9 +1918,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         initEClass(internalComponentEClass, InternalComponent.class, "InternalComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getInternalComponent_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getInternalComponent_Internalcomponent(), this.getInternalComponent(), null, "internalcomponent", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getInternalComponent_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getInternalComponent_PublicPorts(), ecorePackage.getEIntegerObject(), "publicPorts", "0", 0, -1, InternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(executionPlatformEClass, ExecutionPlatform.class, "ExecutionPlatform", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1455,12 +1939,12 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEReference(getProvidedExecutionPlatform_Owner(), this.getComponent(), null, "owner", null, 1, 1, ProvidedExecutionPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getRelationship_Providedport(), this.getProvidedPort(), null, "providedport", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getRelationship_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getRelationship_Providedport(), this.getProvidedPort(), null, "providedport", null, 1, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getRelationship_Requiredport(), this.getRequiredPort(), null, "requiredport", null, 1, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(executionBindingEClass, ExecutionBinding.class, "ExecutionBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getExecutionBinding_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getExecutionBinding_Providedexecutionplatform(), this.getProvidedExecutionPlatform(), null, "providedexecutionplatform", null, 0, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getExecutionBinding_Requiredexecutionplatform(), this.getRequiredExecutionPlatform(), null, "requiredexecutionplatform", null, 1, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getExecutionBinding_Providedexecutionplatform(), this.getProvidedExecutionPlatform(), null, "providedexecutionplatform", null, 1, 1, ExecutionBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(externalComponentEClass, ExternalComponent.class, "ExternalComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getExternalComponent_Provider(), this.getProvider(), null, "provider", null, 1, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1469,6 +1953,7 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getExternalComponent_Password(), ecorePackage.getEString(), "password", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getExternalComponent_Region(), ecorePackage.getEString(), "region", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getExternalComponent_ServiceType(), ecorePackage.getEString(), "serviceType", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalComponent_EndPoint(), ecorePackage.getEString(), "endPoint", null, 0, 1, ExternalComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(providerEClass, Provider.class, "Provider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getProvider_CredentialsPath(), ecorePackage.getEString(), "credentialsPath", null, 0, 1, Provider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1489,8 +1974,9 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEAttribute(getVM_SecurityGroup(), ecorePackage.getEString(), "securityGroup", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_SshKey(), ecorePackage.getEString(), "sshKey", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_PublicAddress(), ecorePackage.getEString(), "publicAddress", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getVM_Instances(), ecorePackage.getEIntegerObject(), "instances", "1", 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getVM_GenericSize(), this.getVMSize(), "genericSize", null, 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getVM_Instances(), ecorePackage.getEInt(), "instances", "1", 0, 1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getVM_PublicPorts(), ecorePackage.getEInt(), "publicPorts", "80", 0, -1, ddsm.VM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(ddsmEClass, ddsm.DDSM.class, "DDSM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDDSM_Cloudelement(), this.getCloudElement(), null, "cloudelement", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1499,29 +1985,30 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
         initEReference(getDDSM_Properties(), this.getProperty(), null, "properties", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDDSM_Resources(), this.getResource(), null, "resources", null, 0, -1, ddsm.DDSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(lifeCycleEClass, LifeCycle.class, "LifeCycle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLifeCycle_DownloadCommand(), this.getScript(), null, "downloadCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_InstallCommand(), this.getScript(), null, "installCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_StartCommand(), this.getScript(), null, "startCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_StopCommand(), this.getScript(), null, "stopCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_PreconfigureCommand(), this.getScript(), null, "preconfigureCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getLifeCycle_CreateCommand(), this.getScript(), null, "createCommand", null, 0, 1, LifeCycle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(supervisorEClass, Supervisor.class, "Supervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getSupervisor_WorkerStartTimeout(), ecorePackage.getEInt(), "workerStartTimeout", "120", 0, 1, Supervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSupervisor_CpuCapacity(), ecorePackage.getEInt(), "cpuCapacity", "400", 0, 1, Supervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSupervisor_MemoryCapacity(), ecorePackage.getEInt(), "memoryCapacity", "4096", 0, 1, Supervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSupervisor_HeartbeatFrequency(), ecorePackage.getEInt(), "heartbeatFrequency", "5", 0, 1, Supervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(nimbusEClass, Nimbus.class, "Nimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getNimbus_TaskTimeout(), ecorePackage.getEInt(), "taskTimeout", "60", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNimbus_SupervisorFrequency(), ecorePackage.getEInt(), "supervisorFrequency", "60", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNimbus_QueueSize(), ecorePackage.getEInt(), "queueSize", "100000", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNimbus_MonitorFrequency(), ecorePackage.getEInt(), "monitorFrequency", "40", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNimbus_RetryTimes(), ecorePackage.getEInt(), "retryTimes", "5", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNimbus_RetryInterval(), ecorePackage.getEInt(), "retryInterval", "2000", 0, 1, Nimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(stormNimbusEClass, StormNimbus.class, "StormNimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(zookeeperEClass, Zookeeper.class, "Zookeeper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(kafkaEClass, Kafka.class, "Kafka", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(clusterEClass, Cluster.class, "Cluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCluster_HasVm(), this.getVM(), null, "hasVm", null, 0, -1, Cluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(zookeeperServerEClass, ZookeeperServer.class, "ZookeeperServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getZookeeperServer_TickTime(), ecorePackage.getEInt(), "tickTime", "1500", 0, 1, ZookeeperServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getZookeeperServer_SyncLimit(), ecorePackage.getEInt(), "syncLimit", "10", 0, 1, ZookeeperServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getZookeeperServer_InitLimit(), ecorePackage.getEInt(), "initLimit", "5", 0, 1, ZookeeperServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(clientNodeEClass, ClientNode.class, "ClientNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getClientNode_Type(), ecorePackage.getEString(), "type", null, 1, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getClientNode_ArtifactUrl(), ecorePackage.getEString(), "artifactUrl", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getClientNode_MainClass(), ecorePackage.getEString(), "mainClass", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getClientNode_Submits(), this.getJobSubmission(), null, "submits", null, 1, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getClientNode_SkipRunningJob(), ecorePackage.getEBoolean(), "skipRunningJob", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getClientNode_NumberOfSubmissions(), ecorePackage.getEInt(), "numberOfSubmissions", "1", 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getClientNode_HasSchedule(), this.getCrontab(), null, "hasSchedule", null, 0, 1, ClientNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(yarnResourceManagerEClass, YarnResourceManager.class, "YarnResourceManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1531,9 +2018,51 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
 
         initEClass(hdfsDataNodeEClass, HDFSDataNode.class, "HDFSDataNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getScript_ScriptId(), ecorePackage.getEString(), "scriptId", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getScript_ScriptUri(), ecorePackage.getEString(), "scriptUri", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(chefResourceEClass, ChefResource.class, "ChefResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getChefResource_CookbookId(), ecorePackage.getEString(), "cookbookId", null, 1, 1, ChefResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(stormClusterEClass, StormCluster.class, "StormCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(jobSubmissionEClass, JobSubmission.class, "JobSubmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getJobSubmission_ArtifactUrl(), ecorePackage.getEString(), "artifactUrl", null, 0, 1, JobSubmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getJobSubmission_MainClass(), ecorePackage.getEString(), "mainClass", null, 0, 1, JobSubmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(masterNodeEClass, MasterNode.class, "MasterNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(slaveNodeEClass, SlaveNode.class, "SlaveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSlaveNode_HasMaster(), this.getMasterNode(), null, "hasMaster", null, 1, 1, SlaveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(zookeeperQuorumEClass, ZookeeperQuorum.class, "ZookeeperQuorum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(cassandraWorkerEClass, CassandraWorker.class, "CassandraWorker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(zookeeperClusterEClass, ZookeeperCluster.class, "ZookeeperCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(cassandraClusterEClass, CassandraCluster.class, "CassandraCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(peerNodeEClass, PeerNode.class, "PeerNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getPeerNode_BelongsToQuorum(), this.getPeersQuorum(), null, "belongsToQuorum", null, 1, 1, PeerNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(peersQuorumEClass, PeersQuorum.class, "PeersQuorum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(peerToPeerPlatformEClass, PeerToPeerPlatform.class, "PeerToPeerPlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getPeerToPeerPlatform_RequiresPeerVm(), this.getRequiredExecutionPlatform(), null, "requiresPeerVm", null, 1, -1, PeerToPeerPlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(masterSlavePlatformEClass, MasterSlavePlatform.class, "MasterSlavePlatform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getMasterSlavePlatform_RequiresMasterVm(), this.getRequiredExecutionPlatform(), null, "requiresMasterVm", null, 1, 1, MasterSlavePlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getMasterSlavePlatform_RequiresSlaveVm(), this.getRequiredExecutionPlatform(), null, "requiresSlaveVm", null, 1, -1, MasterSlavePlatform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(cassandraQuorumEClass, CassandraQuorum.class, "CassandraQuorum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getCassandraQuorum_Requires_bootstrapping_seed(), this.getRequiredPort(), null, "requires_bootstrapping_seed", null, 1, 1, CassandraQuorum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(cassandraSeedEClass, CassandraSeed.class, "CassandraSeed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(crontabEClass, Crontab.class, "Crontab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCrontab_Min(), ecorePackage.getEInt(), "min", null, 1, 1, Crontab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCrontab_Hour(), ecorePackage.getEInt(), "hour", null, 1, 1, Crontab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCrontab_DayOfMonth(), ecorePackage.getEInt(), "dayOfMonth", null, 1, 1, Crontab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCrontab_Month(), ecorePackage.getEInt(), "month", null, 1, 1, Crontab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCrontab_DayOfWeek(), ecorePackage.getEInt(), "dayOfWeek", null, 1, 1, Crontab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(vmSizeEEnum, VMSize.class, "VMSize");
@@ -1675,40 +2204,22 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
              "description", "test generation"
            });	
         addAnnotation
-          (lifeCycleEClass, 
-           source, 
-           new String[] {
-             "description", "test generation"
-           });	
-        addAnnotation
-          (stormSupervisorEClass, 
+          (supervisorEClass, 
            source, 
            new String[] {
              "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of the Storm supervisor slave process."
            });	
         addAnnotation
-          (stormNimbusEClass, 
+          (nimbusEClass, 
            source, 
            new String[] {
              "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of the Storm nimbus master process."
            });	
         addAnnotation
-          (zookeeperEClass, 
+          (zookeeperServerEClass, 
            source, 
            new String[] {
              "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a Zookeeper cluster."
-           });	
-        addAnnotation
-          (kafkaEClass, 
-           source, 
-           new String[] {
-             "description", "Specilization of an InternalComponent introduced in the context of DICE which captures \nthe deployment and configuration details of a Kafka cluster."
-           });	
-        addAnnotation
-          (clusterEClass, 
-           source, 
-           new String[] {
-             "description", "Inherited from MODACloudsML, it represents a collection of virtual machines on a particular Provider. One Provider can host several Clusters.."
            });	
         addAnnotation
           (clientNodeEClass, 
@@ -1775,22 +2286,52 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
              "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
            });	
         addAnnotation
-          (stormSupervisorEClass, 
+          (supervisorEClass, 
            source, 
            new String[] {
-             "constraints", "mustRequireZookeeperAndNimbus"
+             "constraints", "mustHaveNimbusMaster"
            });	
         addAnnotation
-          (stormNimbusEClass, 
+          (nimbusEClass, 
            source, 
            new String[] {
-             "constraints", "mustRequireZookeeper mustProvideNimbusAccess"
+             "constraints", "dependsOnZookeeper"
            });	
         addAnnotation
-          (zookeeperEClass, 
+          (zookeeperServerEClass, 
            source, 
            new String[] {
-             "constraints", "mustProvideZookeeperAccess"
+             "constraints", "mustBelongToZookeeperQuorum"
+           });	
+        addAnnotation
+          (stormClusterEClass, 
+           source, 
+           new String[] {
+             "constraints", "stormClusterDependsOnZookeeper"
+           });	
+        addAnnotation
+          (cassandraWorkerEClass, 
+           source, 
+           new String[] {
+             "constraints", "mustBelongToCassandraQuorum"
+           });	
+        addAnnotation
+          (peerToPeerPlatformEClass, 
+           source, 
+           new String[] {
+             "constraints", "peerPlatformsNeedBinding"
+           });	
+        addAnnotation
+          (masterSlavePlatformEClass, 
+           source, 
+           new String[] {
+             "constraints", "slavePlatformsNeedBinding masterPlatformNeedBinding"
+           });	
+        addAnnotation
+          (cassandraQuorumEClass, 
+           source, 
+           new String[] {
+             "constraints", "cassandraNeedASeed"
            });
     }
 
@@ -1803,23 +2344,53 @@ public class DdsmPackageImpl extends EPackageImpl implements DdsmPackage {
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
         addAnnotation
-          (stormSupervisorEClass, 
+          (supervisorEClass, 
            source, 
            new String[] {
-             "mustRequireZookeeperAndNimbus", "requiredport -> size() > 1"
+             "mustHaveNimbusMaster", " hasMaster.oclIsTypeOf(Nimbus)"
            });	
         addAnnotation
-          (stormNimbusEClass, 
+          (nimbusEClass, 
            source, 
            new String[] {
-             "mustRequireZookeeper", "requiredport -> size() > 0",
-             "mustProvideNimbusAccess", "providedport -> size() > 0"
+             "dependsOnZookeeper", "Relationship.allInstances() ->\n\texists(r | \n\t\tself.requiredport -> exists(p |\n\t\t\tp.elementId = r.requiredport.elementId and\n\t\t\t(r.providedport.owner.oclIsTypeOf(ZookeeperCluster) or\n\t\t\tr.providedport.owner.oclIsTypeOf(ZookeeperQuorum))\n\t\t)\n\t)"
            });	
         addAnnotation
-          (zookeeperEClass, 
+          (zookeeperServerEClass, 
            source, 
            new String[] {
-             "mustProvideZookeeperAccess", "providedport -> size() > 0"
+             "mustBelongToZookeeperQuorum", " belongsToQuorum.oclIsTypeOf(ZookeeperQuorum)"
+           });	
+        addAnnotation
+          (stormClusterEClass, 
+           source, 
+           new String[] {
+             "stormClusterDependsOnZookeeper", "Relationship.allInstances() ->\n\texists(r | \n\t\tself.requiredport -> exists(p |\n\t\t\tp.elementId = r.requiredport.elementId and\n\t\t\t(r.providedport.owner.oclIsTypeOf(ZookeeperCluster) or\n\t\t\tr.providedport.owner.oclIsTypeOf(ZookeeperQuorum))\n\t\t)\n\t)"
+           });	
+        addAnnotation
+          (cassandraWorkerEClass, 
+           source, 
+           new String[] {
+             "mustBelongToCassandraQuorum", " belongsToQuorum.oclIsTypeOf(CassandraQuorum)"
+           });	
+        addAnnotation
+          (peerToPeerPlatformEClass, 
+           source, 
+           new String[] {
+             "peerPlatformsNeedBinding", "requiresPeerVm -> forAll(platform | ExecutionBinding.allInstances() ->\n\texists(b |\n\t\t b.requiredexecutionplatform.elementId = platform.elementId and \n\t     b.providedexecutionplatform.owner.oclIsTypeOf(VM)\n\t)\n)"
+           });	
+        addAnnotation
+          (masterSlavePlatformEClass, 
+           source, 
+           new String[] {
+             "slavePlatformsNeedBinding", "requiresSlaveVm -> forAll(platform | ExecutionBinding.allInstances() ->\n\texists(b |\n\t\t b.requiredexecutionplatform.elementId = platform.elementId and \n\t         b.providedexecutionplatform.owner.oclIsTypeOf(VM)\n\t)\n)",
+             "masterPlatformNeedBinding", "ExecutionBinding.allInstances() ->\n\texists(b |\n\t\t b.requiredexecutionplatform.elementId = requiresMasterVm.elementId and \n\t         b.providedexecutionplatform.owner.oclIsTypeOf(VM)\n\t)\n"
+           });	
+        addAnnotation
+          (cassandraQuorumEClass, 
+           source, 
+           new String[] {
+             "cassandraNeedASeed", "Relationship.allInstances() ->\n\texists( r |\n\t\tr.providedport.owner.oclIsTypeOf(CassandraSeed) and\n\t\tr.requiredport.elementId = self.requires_bootstrapping_seed.elementId\n\t)\n"
            });
     }
 

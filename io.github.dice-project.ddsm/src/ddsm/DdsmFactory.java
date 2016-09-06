@@ -139,58 +139,31 @@ public interface DdsmFactory extends EFactory {
     DDSM createDDSM();
 
     /**
-     * Returns a new object of class '<em>Life Cycle</em>'.
+     * Returns a new object of class '<em>Supervisor</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Life Cycle</em>'.
+     * @return a new object of class '<em>Supervisor</em>'.
      * @generated
      */
-    LifeCycle createLifeCycle();
+    Supervisor createSupervisor();
 
     /**
-     * Returns a new object of class '<em>Storm Supervisor</em>'.
+     * Returns a new object of class '<em>Nimbus</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Storm Supervisor</em>'.
+     * @return a new object of class '<em>Nimbus</em>'.
      * @generated
      */
-    StormSupervisor createStormSupervisor();
+    Nimbus createNimbus();
 
     /**
-     * Returns a new object of class '<em>Storm Nimbus</em>'.
+     * Returns a new object of class '<em>Zookeeper Server</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Storm Nimbus</em>'.
+     * @return a new object of class '<em>Zookeeper Server</em>'.
      * @generated
      */
-    StormNimbus createStormNimbus();
-
-    /**
-     * Returns a new object of class '<em>Zookeeper</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Zookeeper</em>'.
-     * @generated
-     */
-    Zookeeper createZookeeper();
-
-    /**
-     * Returns a new object of class '<em>Kafka</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Kafka</em>'.
-     * @generated
-     */
-    Kafka createKafka();
-
-    /**
-     * Returns a new object of class '<em>Cluster</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Cluster</em>'.
-     * @generated
-     */
-    Cluster createCluster();
+    ZookeeperServer createZookeeperServer();
 
     /**
      * Returns a new object of class '<em>Client Node</em>'.
@@ -238,13 +211,148 @@ public interface DdsmFactory extends EFactory {
     HDFSDataNode createHDFSDataNode();
 
     /**
-     * Returns a new object of class '<em>Script</em>'.
+     * Returns a new object of class '<em>Chef Resource</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Script</em>'.
+     * @return a new object of class '<em>Chef Resource</em>'.
      * @generated
      */
-    Script createScript();
+    ChefResource createChefResource();
+
+    /**
+     * Returns a new object of class '<em>Storm Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Storm Cluster</em>'.
+     * @generated
+     */
+    StormCluster createStormCluster();
+
+    /**
+     * Returns a new object of class '<em>Job Submission</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Job Submission</em>'.
+     * @generated
+     */
+    JobSubmission createJobSubmission();
+
+    /**
+     * Returns a new object of class '<em>Master Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Master Node</em>'.
+     * @generated
+     */
+    MasterNode createMasterNode();
+
+    /**
+     * Returns a new object of class '<em>Slave Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Slave Node</em>'.
+     * @generated
+     */
+    SlaveNode createSlaveNode();
+
+    /**
+     * Returns a new object of class '<em>Zookeeper Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Zookeeper Quorum</em>'.
+     * @generated
+     */
+    ZookeeperQuorum createZookeeperQuorum();
+
+    /**
+     * Returns a new object of class '<em>Cassandra Worker</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Cassandra Worker</em>'.
+     * @generated
+     */
+    CassandraWorker createCassandraWorker();
+
+    /**
+     * Returns a new object of class '<em>Zookeeper Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Zookeeper Cluster</em>'.
+     * @generated
+     */
+    ZookeeperCluster createZookeeperCluster();
+
+    /**
+     * Returns a new object of class '<em>Cassandra Cluster</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Cassandra Cluster</em>'.
+     * @generated
+     */
+    CassandraCluster createCassandraCluster();
+
+    /**
+     * Returns a new object of class '<em>Peer Node</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Peer Node</em>'.
+     * @generated
+     */
+    PeerNode createPeerNode();
+
+    /**
+     * Returns a new object of class '<em>Peers Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Peers Quorum</em>'.
+     * @generated
+     */
+    PeersQuorum createPeersQuorum();
+
+    /**
+     * Returns a new object of class '<em>Peer To Peer Platform</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Peer To Peer Platform</em>'.
+     * @generated
+     */
+    PeerToPeerPlatform createPeerToPeerPlatform();
+
+    /**
+     * Returns a new object of class '<em>Master Slave Platform</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Master Slave Platform</em>'.
+     * @generated
+     */
+    MasterSlavePlatform createMasterSlavePlatform();
+
+    /**
+     * Returns a new object of class '<em>Cassandra Quorum</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Cassandra Quorum</em>'.
+     * @generated
+     */
+    CassandraQuorum createCassandraQuorum();
+
+    /**
+     * Returns a new object of class '<em>Cassandra Seed</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Cassandra Seed</em>'.
+     * @generated
+     */
+    CassandraSeed createCassandraSeed();
+
+    /**
+     * Returns a new object of class '<em>Crontab</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Crontab</em>'.
+     * @generated
+     */
+    Crontab createCrontab();
 
     /**
      * Returns the package supported by this factory.

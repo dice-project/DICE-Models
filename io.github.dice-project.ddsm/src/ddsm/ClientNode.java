@@ -12,9 +12,10 @@ package ddsm;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ddsm.ClientNode#getType <em>Type</em>}</li>
- *   <li>{@link ddsm.ClientNode#getArtifactUrl <em>Artifact Url</em>}</li>
- *   <li>{@link ddsm.ClientNode#getMainClass <em>Main Class</em>}</li>
+ *   <li>{@link ddsm.ClientNode#getSubmits <em>Submits</em>}</li>
+ *   <li>{@link ddsm.ClientNode#isSkipRunningJob <em>Skip Running Job</em>}</li>
+ *   <li>{@link ddsm.ClientNode#getNumberOfSubmissions <em>Number Of Submissions</em>}</li>
+ *   <li>{@link ddsm.ClientNode#getHasSchedule <em>Has Schedule</em>}</li>
  * </ul>
  *
  * @see ddsm.DdsmPackage#getClientNode()
@@ -23,81 +24,108 @@ package ddsm;
  */
 public interface ClientNode extends InternalComponent {
     /**
-     * Returns the value of the '<em><b>Type</b></em>' attribute.
+     * Returns the value of the '<em><b>Submits</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Type</em>' attribute isn't clear,
+     * If the meaning of the '<em>Submits</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Type</em>' attribute.
-     * @see #setType(String)
-     * @see ddsm.DdsmPackage#getClientNode_Type()
+     * @return the value of the '<em>Submits</em>' reference.
+     * @see #setSubmits(JobSubmission)
+     * @see ddsm.DdsmPackage#getClientNode_Submits()
      * @model required="true"
      * @generated
      */
-    String getType();
+    JobSubmission getSubmits();
 
     /**
-     * Sets the value of the '{@link ddsm.ClientNode#getType <em>Type</em>}' attribute.
+     * Sets the value of the '{@link ddsm.ClientNode#getSubmits <em>Submits</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Type</em>' attribute.
-     * @see #getType()
+     * @param value the new value of the '<em>Submits</em>' reference.
+     * @see #getSubmits()
      * @generated
      */
-    void setType(String value);
+    void setSubmits(JobSubmission value);
 
     /**
-     * Returns the value of the '<em><b>Artifact Url</b></em>' attribute.
+     * Returns the value of the '<em><b>Skip Running Job</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Artifact Url</em>' attribute isn't clear,
+     * If the meaning of the '<em>Skip Running Job</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Artifact Url</em>' attribute.
-     * @see #setArtifactUrl(String)
-     * @see ddsm.DdsmPackage#getClientNode_ArtifactUrl()
+     * @return the value of the '<em>Skip Running Job</em>' attribute.
+     * @see #setSkipRunningJob(boolean)
+     * @see ddsm.DdsmPackage#getClientNode_SkipRunningJob()
      * @model
      * @generated
      */
-    String getArtifactUrl();
+    boolean isSkipRunningJob();
 
     /**
-     * Sets the value of the '{@link ddsm.ClientNode#getArtifactUrl <em>Artifact Url</em>}' attribute.
+     * Sets the value of the '{@link ddsm.ClientNode#isSkipRunningJob <em>Skip Running Job</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Artifact Url</em>' attribute.
-     * @see #getArtifactUrl()
+     * @param value the new value of the '<em>Skip Running Job</em>' attribute.
+     * @see #isSkipRunningJob()
      * @generated
      */
-    void setArtifactUrl(String value);
+    void setSkipRunningJob(boolean value);
 
     /**
-     * Returns the value of the '<em><b>Main Class</b></em>' attribute.
+     * Returns the value of the '<em><b>Number Of Submissions</b></em>' attribute.
+     * The default value is <code>"1"</code>.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Main Class</em>' attribute isn't clear,
+     * If the meaning of the '<em>Number Of Submissions</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Main Class</em>' attribute.
-     * @see #setMainClass(String)
-     * @see ddsm.DdsmPackage#getClientNode_MainClass()
+     * @return the value of the '<em>Number Of Submissions</em>' attribute.
+     * @see #setNumberOfSubmissions(int)
+     * @see ddsm.DdsmPackage#getClientNode_NumberOfSubmissions()
+     * @model default="1"
+     * @generated
+     */
+    int getNumberOfSubmissions();
+
+    /**
+     * Sets the value of the '{@link ddsm.ClientNode#getNumberOfSubmissions <em>Number Of Submissions</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Number Of Submissions</em>' attribute.
+     * @see #getNumberOfSubmissions()
+     * @generated
+     */
+    void setNumberOfSubmissions(int value);
+
+    /**
+     * Returns the value of the '<em><b>Has Schedule</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Has Schedule</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Has Schedule</em>' reference.
+     * @see #setHasSchedule(Crontab)
+     * @see ddsm.DdsmPackage#getClientNode_HasSchedule()
      * @model
      * @generated
      */
-    String getMainClass();
+    Crontab getHasSchedule();
 
     /**
-     * Sets the value of the '{@link ddsm.ClientNode#getMainClass <em>Main Class</em>}' attribute.
+     * Sets the value of the '{@link ddsm.ClientNode#getHasSchedule <em>Has Schedule</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Main Class</em>' attribute.
-     * @see #getMainClass()
+     * @param value the new value of the '<em>Has Schedule</em>' reference.
+     * @see #getHasSchedule()
      * @generated
      */
-    void setMainClass(String value);
+    void setHasSchedule(Crontab value);
 
 } // ClientNode

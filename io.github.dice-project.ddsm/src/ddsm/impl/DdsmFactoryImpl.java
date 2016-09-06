@@ -70,18 +70,30 @@ public class DdsmFactoryImpl extends EFactoryImpl implements DdsmFactory {
             case DdsmPackage.PROVIDER: return createProvider();
             case DdsmPackage.VM: return createVM();
             case DdsmPackage.DDSM: return createDDSM();
-            case DdsmPackage.LIFE_CYCLE: return createLifeCycle();
-            case DdsmPackage.STORM_SUPERVISOR: return createStormSupervisor();
-            case DdsmPackage.STORM_NIMBUS: return createStormNimbus();
-            case DdsmPackage.ZOOKEEPER: return createZookeeper();
-            case DdsmPackage.KAFKA: return createKafka();
-            case DdsmPackage.CLUSTER: return createCluster();
+            case DdsmPackage.SUPERVISOR: return createSupervisor();
+            case DdsmPackage.NIMBUS: return createNimbus();
+            case DdsmPackage.ZOOKEEPER_SERVER: return createZookeeperServer();
             case DdsmPackage.CLIENT_NODE: return createClientNode();
             case DdsmPackage.YARN_RESOURCE_MANAGER: return createYarnResourceManager();
             case DdsmPackage.YARN_NODE_MANAGER: return createYarnNodeManager();
             case DdsmPackage.HDFS_NAME_NODE: return createHDFSNameNode();
             case DdsmPackage.HDFS_DATA_NODE: return createHDFSDataNode();
-            case DdsmPackage.SCRIPT: return createScript();
+            case DdsmPackage.CHEF_RESOURCE: return createChefResource();
+            case DdsmPackage.STORM_CLUSTER: return createStormCluster();
+            case DdsmPackage.JOB_SUBMISSION: return createJobSubmission();
+            case DdsmPackage.MASTER_NODE: return createMasterNode();
+            case DdsmPackage.SLAVE_NODE: return createSlaveNode();
+            case DdsmPackage.ZOOKEEPER_QUORUM: return createZookeeperQuorum();
+            case DdsmPackage.CASSANDRA_WORKER: return createCassandraWorker();
+            case DdsmPackage.ZOOKEEPER_CLUSTER: return createZookeeperCluster();
+            case DdsmPackage.CASSANDRA_CLUSTER: return createCassandraCluster();
+            case DdsmPackage.PEER_NODE: return createPeerNode();
+            case DdsmPackage.PEERS_QUORUM: return createPeersQuorum();
+            case DdsmPackage.PEER_TO_PEER_PLATFORM: return createPeerToPeerPlatform();
+            case DdsmPackage.MASTER_SLAVE_PLATFORM: return createMasterSlavePlatform();
+            case DdsmPackage.CASSANDRA_QUORUM: return createCassandraQuorum();
+            case DdsmPackage.CASSANDRA_SEED: return createCassandraSeed();
+            case DdsmPackage.CRONTAB: return createCrontab();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -256,9 +268,9 @@ public class DdsmFactoryImpl extends EFactoryImpl implements DdsmFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public LifeCycle createLifeCycle() {
-        LifeCycleImpl lifeCycle = new LifeCycleImpl();
-        return lifeCycle;
+    public Supervisor createSupervisor() {
+        SupervisorImpl supervisor = new SupervisorImpl();
+        return supervisor;
     }
 
     /**
@@ -266,9 +278,9 @@ public class DdsmFactoryImpl extends EFactoryImpl implements DdsmFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public StormSupervisor createStormSupervisor() {
-        StormSupervisorImpl stormSupervisor = new StormSupervisorImpl();
-        return stormSupervisor;
+    public Nimbus createNimbus() {
+        NimbusImpl nimbus = new NimbusImpl();
+        return nimbus;
     }
 
     /**
@@ -276,39 +288,9 @@ public class DdsmFactoryImpl extends EFactoryImpl implements DdsmFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public StormNimbus createStormNimbus() {
-        StormNimbusImpl stormNimbus = new StormNimbusImpl();
-        return stormNimbus;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Zookeeper createZookeeper() {
-        ZookeeperImpl zookeeper = new ZookeeperImpl();
-        return zookeeper;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Kafka createKafka() {
-        KafkaImpl kafka = new KafkaImpl();
-        return kafka;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Cluster createCluster() {
-        ClusterImpl cluster = new ClusterImpl();
-        return cluster;
+    public ZookeeperServer createZookeeperServer() {
+        ZookeeperServerImpl zookeeperServer = new ZookeeperServerImpl();
+        return zookeeperServer;
     }
 
     /**
@@ -366,9 +348,159 @@ public class DdsmFactoryImpl extends EFactoryImpl implements DdsmFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Script createScript() {
-        ScriptImpl script = new ScriptImpl();
-        return script;
+    public ChefResource createChefResource() {
+        ChefResourceImpl chefResource = new ChefResourceImpl();
+        return chefResource;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StormCluster createStormCluster() {
+        StormClusterImpl stormCluster = new StormClusterImpl();
+        return stormCluster;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public JobSubmission createJobSubmission() {
+        JobSubmissionImpl jobSubmission = new JobSubmissionImpl();
+        return jobSubmission;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MasterNode createMasterNode() {
+        MasterNodeImpl masterNode = new MasterNodeImpl();
+        return masterNode;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SlaveNode createSlaveNode() {
+        SlaveNodeImpl slaveNode = new SlaveNodeImpl();
+        return slaveNode;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ZookeeperQuorum createZookeeperQuorum() {
+        ZookeeperQuorumImpl zookeeperQuorum = new ZookeeperQuorumImpl();
+        return zookeeperQuorum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CassandraWorker createCassandraWorker() {
+        CassandraWorkerImpl cassandraWorker = new CassandraWorkerImpl();
+        return cassandraWorker;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ZookeeperCluster createZookeeperCluster() {
+        ZookeeperClusterImpl zookeeperCluster = new ZookeeperClusterImpl();
+        return zookeeperCluster;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CassandraCluster createCassandraCluster() {
+        CassandraClusterImpl cassandraCluster = new CassandraClusterImpl();
+        return cassandraCluster;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PeerNode createPeerNode() {
+        PeerNodeImpl peerNode = new PeerNodeImpl();
+        return peerNode;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PeersQuorum createPeersQuorum() {
+        PeersQuorumImpl peersQuorum = new PeersQuorumImpl();
+        return peersQuorum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PeerToPeerPlatform createPeerToPeerPlatform() {
+        PeerToPeerPlatformImpl peerToPeerPlatform = new PeerToPeerPlatformImpl();
+        return peerToPeerPlatform;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MasterSlavePlatform createMasterSlavePlatform() {
+        MasterSlavePlatformImpl masterSlavePlatform = new MasterSlavePlatformImpl();
+        return masterSlavePlatform;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CassandraQuorum createCassandraQuorum() {
+        CassandraQuorumImpl cassandraQuorum = new CassandraQuorumImpl();
+        return cassandraQuorum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CassandraSeed createCassandraSeed() {
+        CassandraSeedImpl cassandraSeed = new CassandraSeedImpl();
+        return cassandraSeed;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Crontab createCrontab() {
+        CrontabImpl crontab = new CrontabImpl();
+        return crontab;
     }
 
     /**

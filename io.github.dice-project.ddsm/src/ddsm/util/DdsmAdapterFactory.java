@@ -136,28 +136,16 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
                 return createDDSMAdapter();
             }
             @Override
-            public Adapter caseLifeCycle(LifeCycle object) {
-                return createLifeCycleAdapter();
+            public Adapter caseSupervisor(Supervisor object) {
+                return createSupervisorAdapter();
             }
             @Override
-            public Adapter caseStormSupervisor(StormSupervisor object) {
-                return createStormSupervisorAdapter();
+            public Adapter caseNimbus(Nimbus object) {
+                return createNimbusAdapter();
             }
             @Override
-            public Adapter caseStormNimbus(StormNimbus object) {
-                return createStormNimbusAdapter();
-            }
-            @Override
-            public Adapter caseZookeeper(Zookeeper object) {
-                return createZookeeperAdapter();
-            }
-            @Override
-            public Adapter caseKafka(Kafka object) {
-                return createKafkaAdapter();
-            }
-            @Override
-            public Adapter caseCluster(Cluster object) {
-                return createClusterAdapter();
+            public Adapter caseZookeeperServer(ZookeeperServer object) {
+                return createZookeeperServerAdapter();
             }
             @Override
             public Adapter caseClientNode(ClientNode object) {
@@ -180,8 +168,68 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
                 return createHDFSDataNodeAdapter();
             }
             @Override
-            public Adapter caseScript(Script object) {
-                return createScriptAdapter();
+            public Adapter caseChefResource(ChefResource object) {
+                return createChefResourceAdapter();
+            }
+            @Override
+            public Adapter caseStormCluster(StormCluster object) {
+                return createStormClusterAdapter();
+            }
+            @Override
+            public Adapter caseJobSubmission(JobSubmission object) {
+                return createJobSubmissionAdapter();
+            }
+            @Override
+            public Adapter caseMasterNode(MasterNode object) {
+                return createMasterNodeAdapter();
+            }
+            @Override
+            public Adapter caseSlaveNode(SlaveNode object) {
+                return createSlaveNodeAdapter();
+            }
+            @Override
+            public Adapter caseZookeeperQuorum(ZookeeperQuorum object) {
+                return createZookeeperQuorumAdapter();
+            }
+            @Override
+            public Adapter caseCassandraWorker(CassandraWorker object) {
+                return createCassandraWorkerAdapter();
+            }
+            @Override
+            public Adapter caseZookeeperCluster(ZookeeperCluster object) {
+                return createZookeeperClusterAdapter();
+            }
+            @Override
+            public Adapter caseCassandraCluster(CassandraCluster object) {
+                return createCassandraClusterAdapter();
+            }
+            @Override
+            public Adapter casePeerNode(PeerNode object) {
+                return createPeerNodeAdapter();
+            }
+            @Override
+            public Adapter casePeersQuorum(PeersQuorum object) {
+                return createPeersQuorumAdapter();
+            }
+            @Override
+            public Adapter casePeerToPeerPlatform(PeerToPeerPlatform object) {
+                return createPeerToPeerPlatformAdapter();
+            }
+            @Override
+            public Adapter caseMasterSlavePlatform(MasterSlavePlatform object) {
+                return createMasterSlavePlatformAdapter();
+            }
+            @Override
+            public Adapter caseCassandraQuorum(CassandraQuorum object) {
+                return createCassandraQuorumAdapter();
+            }
+            @Override
+            public Adapter caseCassandraSeed(CassandraSeed object) {
+                return createCassandraSeedAdapter();
+            }
+            @Override
+            public Adapter caseCrontab(Crontab object) {
+                return createCrontabAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -442,86 +490,44 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.LifeCycle <em>Life Cycle</em>}'.
+     * Creates a new adapter for an object of class '{@link ddsm.Supervisor <em>Supervisor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ddsm.LifeCycle
+     * @see ddsm.Supervisor
      * @generated
      */
-    public Adapter createLifeCycleAdapter() {
+    public Adapter createSupervisorAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.StormSupervisor <em>Storm Supervisor</em>}'.
+     * Creates a new adapter for an object of class '{@link ddsm.Nimbus <em>Nimbus</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ddsm.StormSupervisor
+     * @see ddsm.Nimbus
      * @generated
      */
-    public Adapter createStormSupervisorAdapter() {
+    public Adapter createNimbusAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.StormNimbus <em>Storm Nimbus</em>}'.
+     * Creates a new adapter for an object of class '{@link ddsm.ZookeeperServer <em>Zookeeper Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ddsm.StormNimbus
+     * @see ddsm.ZookeeperServer
      * @generated
      */
-    public Adapter createStormNimbusAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.Zookeeper <em>Zookeeper</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.Zookeeper
-     * @generated
-     */
-    public Adapter createZookeeperAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.Kafka <em>Kafka</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.Kafka
-     * @generated
-     */
-    public Adapter createKafkaAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ddsm.Cluster <em>Cluster</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ddsm.Cluster
-     * @generated
-     */
-    public Adapter createClusterAdapter() {
+    public Adapter createZookeeperServerAdapter() {
         return null;
     }
 
@@ -596,16 +602,226 @@ public class DdsmAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ddsm.Script <em>Script</em>}'.
+     * Creates a new adapter for an object of class '{@link ddsm.ChefResource <em>Chef Resource</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ddsm.Script
+     * @see ddsm.ChefResource
      * @generated
      */
-    public Adapter createScriptAdapter() {
+    public Adapter createChefResourceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.StormCluster <em>Storm Cluster</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.StormCluster
+     * @generated
+     */
+    public Adapter createStormClusterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.JobSubmission <em>Job Submission</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.JobSubmission
+     * @generated
+     */
+    public Adapter createJobSubmissionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.MasterNode <em>Master Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.MasterNode
+     * @generated
+     */
+    public Adapter createMasterNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.SlaveNode <em>Slave Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.SlaveNode
+     * @generated
+     */
+    public Adapter createSlaveNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.ZookeeperQuorum <em>Zookeeper Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.ZookeeperQuorum
+     * @generated
+     */
+    public Adapter createZookeeperQuorumAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.CassandraWorker <em>Cassandra Worker</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.CassandraWorker
+     * @generated
+     */
+    public Adapter createCassandraWorkerAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.ZookeeperCluster <em>Zookeeper Cluster</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.ZookeeperCluster
+     * @generated
+     */
+    public Adapter createZookeeperClusterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.CassandraCluster <em>Cassandra Cluster</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.CassandraCluster
+     * @generated
+     */
+    public Adapter createCassandraClusterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.PeerNode <em>Peer Node</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.PeerNode
+     * @generated
+     */
+    public Adapter createPeerNodeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.PeersQuorum <em>Peers Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.PeersQuorum
+     * @generated
+     */
+    public Adapter createPeersQuorumAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.PeerToPeerPlatform <em>Peer To Peer Platform</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.PeerToPeerPlatform
+     * @generated
+     */
+    public Adapter createPeerToPeerPlatformAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.MasterSlavePlatform <em>Master Slave Platform</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.MasterSlavePlatform
+     * @generated
+     */
+    public Adapter createMasterSlavePlatformAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.CassandraQuorum <em>Cassandra Quorum</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.CassandraQuorum
+     * @generated
+     */
+    public Adapter createCassandraQuorumAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.CassandraSeed <em>Cassandra Seed</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.CassandraSeed
+     * @generated
+     */
+    public Adapter createCassandraSeedAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ddsm.Crontab <em>Crontab</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ddsm.Crontab
+     * @generated
+     */
+    public Adapter createCrontabAdapter() {
         return null;
     }
 

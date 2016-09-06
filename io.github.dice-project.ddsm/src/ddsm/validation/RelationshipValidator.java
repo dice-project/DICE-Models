@@ -18,5 +18,4 @@ public interface RelationshipValidator {
 
     boolean validateProvidedport(ProvidedPort value);
     boolean validateRequiredport(RequiredPort value);
-    boolean validateRelationshipId(String value);
 }
