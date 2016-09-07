@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dpim" nsURI="http://io.github.dice-project/dpim/1.0" nsPrefix="dpim">
-  <eAnnotations source="propertiesRestrictions">
-    <details key="ComputationNodePropertyRestrictions"/>
-    <details key="SourceNodePropertyRestrictions"/>
-    <details key="StorageElementPropertyRestrictions"/>
-  </eAnnotations>
   <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
     <details key="name" value="DiceDomainModel::DPIM"/>
   </eAnnotations>
@@ -13,18 +8,21 @@
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents a Data Intensive Application."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
         upperBound="-1" eType="#//DIAElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dscription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="An element of a Data Intensive Application. It can be a ComputationNode or a StorageNode."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasToFullfill" upperBound="-1"
-        eType="#//QoSRequiredProperty" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasProperty" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//QoSRequirement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputeNode" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -33,13 +31,12 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//ComputeTechType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingType" eType="#//ProcessingType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processInputData" upperBound="-1"
-        eType="#//Data"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSuccessors" upperBound="-1"
-        eType="#//ComputeNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processInputData" lowerBound="1"
+        upperBound="-1" eType="#//Data"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" upperBound="-1"
-        eType="#//Database"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutputData" eType="#//Data"/>
+        eType="#//StorageSystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutputData" lowerBound="1"
+        upperBound="-1" eType="#//Data"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -49,27 +46,31 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provide" eType="#//Data"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provide" upperBound="-1"
+        eType="#//Data"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Database" eSuperTypes="#//DataSource">
+  <eClassifiers xsi:type="ecore:EClass" name="StorageSystem" eSuperTypes="#//DataSource">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Reseprents an element of the application whose goal is to store the application data, (i.e, a database or a file system)."/>
       <details key="extends" value="MARTE::GRM::ResourceCore::StorageResource"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DatabaseType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QoSRequiredProperty">
+  <eClassifiers xsi:type="ecore:EClass" name="QoSRequirement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents the QoS constraints associated with an element of the Data Intensive Applicaion."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dscription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Data" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents the data that an element of the application can take in input and/or produce in output."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
+        upperBound="-1" eType="#//SchemaField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComputeTechType">
     <eLiterals name="Spark"/>
@@ -79,6 +80,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessingType">
     <eLiterals name="StreamProcessing"/>
     <eLiterals name="BatchProcesisng" value="1"/>
+    <eLiterals name="Interactive" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataModelType">
     <eLiterals name="Columnar"/>
@@ -94,9 +96,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emitRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SourceNodeType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilterNode" eSuperTypes="#//ComputeNode">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FilteringType"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterNode" eSuperTypes="#//ComputeNode"/>
   <eClassifiers xsi:type="ecore:EEnum" name="FileSystemType">
     <eLiterals name="HDFS"/>
     <eLiterals name="Ceph" value="1"/>
@@ -105,17 +105,79 @@
   <eClassifiers xsi:type="ecore:EClass" name="FileSystem" eSuperTypes="#//DataSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FileSystemType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//DIAElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VisualizationNode" eSuperTypes="#//ComputeNode"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SourceNodeType">
     <eLiterals name="sensor" value="1"/>
     <eLiterals name="webCrawler" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="FilteringType">
-    <eLiterals name="OutlierRemoval"/>
-    <eLiterals name="MissingValuesImputation" value="1"/>
-    <eLiterals name="DimentionalityReduction" value="2"/>
-    <eLiterals name="DataNormalization" value="3"/>
-    <eLiterals name="DataDiscretization"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DICEProperty"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Webpage" eSuperTypes="#//DataSource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MachineLearningNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="algoithm" lowerBound="1"
+        eType="#//MachineLearningAlgorithm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MachineLearningAlgorithm">
+    <eLiterals name="Regression"/>
+    <eLiterals name="DecisionTreeClassification" value="1"/>
+    <eLiterals name="KMeansClustering" value="2"/>
+    <eLiterals name="SVM" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DICEProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedProperty" lowerBound="1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraintId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConstraintType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
+    <eLiterals name="LESS"/>
+    <eLiterals name="LESSEQUAL" value="1"/>
+    <eLiterals name="EQUAL" value="2"/>
+    <eLiterals name="GREATEREQUAL" value="3"/>
+    <eLiterals name="GREATER" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessagingSystem" eSuperTypes="#//StorageSystem"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessaginSystemType">
+    <eLiterals name="Kafka" literal="Kafka"/>
+    <eLiterals name="RabbitMQ" value="1" literal="RabbitMQ"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Database" eSuperTypes="#//StorageSystem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CRUDrate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DatabaseType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasRole" lowerBound="1"
+        upperBound="-1" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasPermission" upperBound="-1"
+        eType="#//Permission"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Permission" eSuperTypes="#//DIAElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protectedData" lowerBound="1"
+        eType="#//Data"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
+        eType="#//DataOperation" defaultValueLiteral="READ"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaField" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataOperation">
+    <eLiterals name="READ"/>
+    <eLiterals name="WRITE" value="1"/>
+    <eLiterals name="DELETE" value="3"/>
+    <eLiterals name="UPDATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+  </eClassifiers>
 </ecore:EPackage>
