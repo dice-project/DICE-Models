@@ -17,6 +17,10 @@
         upperBound="-1" eType="#//DIAElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dscription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//QualityRequirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIAElement" abstract="true">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -25,9 +29,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property"/>
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
-        eType="#//QoSRequirement"/>
+        eType="#//QualityRequirement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputeNode" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -46,11 +50,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTech" eType="#//ComputeTechType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingType" eType="#//ProcessingType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processInputData" lowerBound="1"
-        upperBound="-1" eType="#//Data"/>
+        upperBound="-1" eType="#//Dataset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storeOutput" upperBound="-1"
         eType="#//StorageSystem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="produceOutputData" lowerBound="1"
-        upperBound="-1" eType="#//Data"/>
+        upperBound="-1" eType="#//Dataset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -69,16 +73,14 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StorageSystemType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QoSRequirement">
+  <eClassifiers xsi:type="ecore:EClass" name="QualityRequirement" abstract="true">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents the QoS constraints associated with an element of the Data Intensive Applicaion."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dscription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Data" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Dataset" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
       <details key="description" value="Represents the data that an element of the application can take in input and/or produce in output."/>
     </eAnnotations>
@@ -100,7 +102,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StorageSystemType">
     <eLiterals name="Cassandra"/>
-    <eLiterals name="MySQL" value="1" literal=""/>
+    <eLiterals name="MySQL" value="1" literal="MySQL"/>
     <eLiterals name="MongoDB" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceNode" eSuperTypes="#//DataSource">
@@ -113,9 +115,10 @@
     <eLiterals name="sensor" value="1"/>
     <eLiterals name="webCrawler" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DICEProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineLearningNode" eSuperTypes="#//ComputeNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="algoithm" lowerBound="1"
@@ -126,21 +129,6 @@
     <eLiterals name="DecisionTreeClassification" value="1"/>
     <eLiterals name="KMeansClustering" value="2"/>
     <eLiterals name="SVM" value="3"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DICEProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//DIAElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedProperty" lowerBound="1"
-        eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraintId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConstraintType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
-    <eLiterals name="LESS"/>
-    <eLiterals name="LESSEQUAL" value="1"/>
-    <eLiterals name="EQUAL" value="2"/>
-    <eLiterals name="GREATEREQUAL" value="3"/>
-    <eLiterals name="GREATER" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//DIAElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasRole" lowerBound="1"
@@ -162,11 +150,11 @@
       <details key="nonReadPermissionsRequireStoredProtectedData" value="Permission.allInstances() ->&#xA;&#x9;select(p |&#xA;&#x9;&#x9;p.actionType -> exists(a |&#xA;&#x9;&#x9;&#x9;not a.operation = DataOperation::READ&#xA;&#x9;&#x9;)&#xA;&#x9;) -> &#xA;&#x9;forAll(p | &#xA;&#x9;&#x9;p.protectedData.providedBy -> exists( ds |&#xA;&#x9;&#x9;&#x9;ds.oclIsKindOf(StorageSystem)&#xA;&#x9;&#x9;)&#xA;&#x9;)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="protectedData" lowerBound="1"
-        eType="#//Data"/>
+        eType="#//Dataset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionType" lowerBound="1"
         upperBound="-1" eType="#//ActionType" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionType" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ActionType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
         eType="#//DataOperation" defaultValueLiteral="READ"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaField" upperBound="-1"
@@ -180,4 +168,8 @@
     <eLiterals name="NONE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaField" eSuperTypes="#//DIAElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SafetyRequirement" eSuperTypes="#//QualityRequirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PerformanceRequirement" eSuperTypes="#//QualityRequirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxCompletionTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
 </ecore:EPackage>
