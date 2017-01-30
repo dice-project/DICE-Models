@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://io.github.dice-project/dtsm/core/1.0" nsPrefix="dtsm.core">
+  <eClassifiers xsi:type="ecore:EClass" name="Workflow"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MapReduceJob"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectAcyclicGraph"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MapReducePhase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MapTask"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReduceTask"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DagSourceNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DagNode"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="MapType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReduceType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="WorkflowOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PerformanceProfile"/>
+  <eSubpackages name="haddop" nsURI="http://io.github.dice-project/dtsm/hadoop/1.0"
+      nsPrefix="dtsm.hadoop">
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopMRApplication"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopMRJob"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopMapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopReducer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopScheduler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopPartitioner"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopCombiner"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopMapperPerformance"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HadoopReducerPerformance"/>
+  </eSubpackages>
+  <eSubpackages name="storm" nsURI="http://io.github.dice-project/dtsm/storm/1.0"
+      nsPrefix="dtsm.storm">
+    <eClassifiers xsi:type="ecore:EClass" name="StormBolt"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StormSpout"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StormTopology"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StormApplication"/>
+  </eSubpackages>
+  <eSubpackages name="spark" nsURI="http://io.github.dice-project/dtsm/spark/1.0"
+      nsPrefix="dtsm.spark">
+    <eClassifiers xsi:type="ecore:EClass" name="SparkApplication"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SparkJob"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SparkOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SparkRDD"/>
+  </eSubpackages>
+  <eSubpackages name="cassandra" nsURI="http://io.github.dice-project/dtsm/cassandra/1.0"
+      nsPrefix="dtsm.cassandra"/>
+  <eSubpackages name="hdfs" nsURI="http://io.github.dice-project/dtsm/hdfs/1.0" nsPrefix="dtsm.hdfs"/>
+</ecore:EPackage>

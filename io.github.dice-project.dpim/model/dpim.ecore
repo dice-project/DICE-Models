@@ -30,8 +30,6 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
-        eType="#//QualityRequirement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputeNode" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://es.unizar.disco/dice/profiles/generator">
@@ -130,15 +128,17 @@
     <eLiterals name="KMeansClustering" value="2"/>
     <eLiterals name="SVM" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//DIAElement">
+  <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasRole" lowerBound="1"
         upperBound="-1" eType="#//Role"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasComputeNode" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessComputeNode" upperBound="-1"
         eType="#//ComputeNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//DIAElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hasPermission" upperBound="-1"
-        eType="#//Permission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Permission" eSuperTypes="#//DIAElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -149,16 +149,18 @@
       <details key="declaredFieldsBelongToProtectedData" value="Permission.allInstances() ->&#xA;&#x9;forAll(p | &#xA;&#x9;&#x9;p.actionType -> forAll( a |&#xA;&#x9;&#x9;&#x9;a.schemaField -> forAll(f |&#xA;&#x9;&#x9;&#x9;&#x9;p.protectedData.fields -> includes(f)&#xA;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;)&#xA;&#x9;)"/>
       <details key="nonReadPermissionsRequireStoredProtectedData" value="Permission.allInstances() ->&#xA;&#x9;select(p |&#xA;&#x9;&#x9;p.actionType -> exists(a |&#xA;&#x9;&#x9;&#x9;not a.operation = DataOperation::READ&#xA;&#x9;&#x9;)&#xA;&#x9;) -> &#xA;&#x9;forAll(p | &#xA;&#x9;&#x9;p.protectedData.providedBy -> exists( ds |&#xA;&#x9;&#x9;&#x9;ds.oclIsKindOf(StorageSystem)&#xA;&#x9;&#x9;)&#xA;&#x9;)"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="protectedData" lowerBound="1"
-        eType="#//Dataset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionType" lowerBound="1"
         upperBound="-1" eType="#//ActionType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//DIAElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validityStartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validityEndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkingPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
         eType="#//DataOperation" defaultValueLiteral="READ"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaField" upperBound="-1"
-        eType="#//SchemaField"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protectedElement" lowerBound="1"
+        upperBound="-1" eType="#//DIAElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataOperation">
     <eLiterals name="READ" value="1"/>

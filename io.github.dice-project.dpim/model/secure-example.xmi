@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dpim="http://io.github.dice-project/dpim/1.0" xsi:schemaLocation="http://io.github.dice-project/dpim/1.0 dpim.ecore">
+  <dpim:DIA>
+    <elements xsi:type="dpim:ComputeNode" id="SparkCluster" processingType="BatchProcesisng" processInputData="WikimediaPages" storeOutput="CassandraCluster" produceOutputData="LinksPerPage"/>
+    <elements xsi:type="dpim:StorageSystem" id="CassandraCluster"/>
+    <elements xsi:type="dpim:Dataset" id="LinksPerPage" providedBy="CassandraCluster"/>
+    <elements xsi:type="dpim:Dataset" id="WikimediaPages" providedBy="Wikimedia"/>
+    <elements xsi:type="dpim:Permission" id="SparkClusterCanUpdateLinksPerPage" owner="SparkCluster" validityStartTime="0008-09-12T00:00:00.000+0100" validityEndTime="0007-08-12T00:00:00.000+0100">
+      <actionType href="#/1"/>
+    </elements>
+    <elements xsi:type="dpim:SourceNode" id="Wikimedia" type="webCrawler"/>
+  </dpim:DIA>
+  <dpim:ActionType operation="CREATE" protectedElement="LinksPerPage"/>
+</xmi:XMI>

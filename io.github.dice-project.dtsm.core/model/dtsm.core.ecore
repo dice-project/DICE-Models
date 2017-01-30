@@ -145,4 +145,11 @@
     <eLiterals name="SAFETY"/>
     <eLiterals name="PRIVACY" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass"/>
+  <eSubpackages name="haddop" nsURI="http://io.github.dice-project/dtsm/hadoop-framework/1.0"
+      nsPrefix="dtsm.hadoop"/>
+  <eSubpackages name="storm" nsURI="http://io.github.dice-project/dtsm/storm-framework/1.0"
+      nsPrefix="dtsm.storm"/>
+  <eSubpackages name="spark" nsURI="http://io.github.dice-project/dtsm/spark-framework/1.0"
+      nsPrefix="dtsm.spark"/>
 </ecore:EPackage>
